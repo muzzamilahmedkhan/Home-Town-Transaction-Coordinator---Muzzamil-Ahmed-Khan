@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: #3A2E29;
+    background-color: #EEEAEB;
+  }
+  
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #EEEAEB;
+}
+::-webkit-scrollbar-thumb {
+  background: #0D9BA3;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FE7311;
+}
+
+/* Glass & Card styles with Client Brand Palette */
+.htc-card {
+  background-color: #FFFFFF;
+  border: 1px solid #D8D2D4;
+  box-shadow: 0 4px 20px -2px rgba(58, 46, 41, 0.06);
+}
+
+.htc-dark-card {
+  background-color: #3A2E29;
+  border: 1px solid rgba(13, 155, 163, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Auto-scrolling review marquee animations */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 45s linear infinite;
+}
+
+.animate-marquee:hover, .animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}

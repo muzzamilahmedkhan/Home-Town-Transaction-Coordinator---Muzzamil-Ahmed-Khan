@@ -1,0 +1,6 @@
+{
+  "name": "Hometown Transaction Coordinators",
+  "description": "Boutique Real Estate Support Agency website for Florida Realtors",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

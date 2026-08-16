@@ -1,0 +1,32 @@
+---
+import '../index.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Hometown TC | Boutique Real Estate Support Agency for Florida Realtors",
+  description = "Boutique real estate support for Florida Realtors — from Listing Launch to Contract-to-Close and Post-Close. South Florida-founded, serving statewide."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  </head>
+  <body class="min-h-screen flex flex-col font-sans bg-[#EEEAEB] text-[#3A2E29] antialiased">
+    <slot />
+  </body>
+</html>
