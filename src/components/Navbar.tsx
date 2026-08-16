@@ -148,12 +148,7 @@ export const Navbar: React.FC<Props> = ({
                       <button onClick={() => handleLink(onOpenSouthFloridaTc)} className="block text-left text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition capitalize-none normal-case">South Florida TC</button>
                     </div>
                   </div>
-                  <div className="mt-6 pt-4 text-center">
-                    <button onClick={() => handleLink(onOpenPricingPlans || onOpenServicesPricing, 'what-we-handle')} className="text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition flex items-center justify-center mx-auto space-x-1">
-                      <span>Explore All Services</span>
-                      <ArrowRight className="w-3.5 h-3.5 inline" />
-                    </button>
-                  </div>
+
                 </div>
               )}
             </div>
