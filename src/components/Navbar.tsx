@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown, Calculator, BookOpen, Download, HelpCircle } from 'lucide-react';
 import { HEADER_LOGO_IMAGE } from '../data/content';
 
 interface Props {
@@ -31,17 +31,8 @@ export const Navbar: React.FC<Props> = ({
   onOpenRoi,
   onOpenHowItWorks,
   onOpenWhyHtc,
-  onOpenWhoWeSupport,
-  onOpenMiamiTc,
-  onOpenMiamiDadeTc,
-  onOpenBrowardTc,
-  onOpenSouthFloridaTc,
-  onOpenContractToClose,
-  onOpenRealtorTc,
   onOpenFaq,
   onOpenAbout,
-  onOpenTransactionCoordination,
-  onOpenListingCoordination,
   onOpenPricingPlans,
   onOpenServicesPricing,
   onOpenReviews,
@@ -49,20 +40,15 @@ export const Navbar: React.FC<Props> = ({
   onGoHome
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const [teamDropdownOpen, setTeamDropdownOpen] = useState(false);
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
-  
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const teamRef = useRef<HTMLDivElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
-      if (dropdownRef.current && !dropdownRef.current.contains(target)) setServicesDropdownOpen(false);
-      if (teamRef.current && !teamRef.current.contains(target)) setTeamDropdownOpen(false);
-      if (resourcesRef.current && !resourcesRef.current.contains(target)) setResourcesDropdownOpen(false);
+      if (resourcesRef.current && !resourcesRef.current.contains(target)) {
+        setResourcesDropdownOpen(false);
+      }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
@@ -70,8 +56,6 @@ export const Navbar: React.FC<Props> = ({
 
   const closeAll = () => {
     setMobileMenuOpen(false);
-    setServicesDropdownOpen(false);
-    setTeamDropdownOpen(false);
     setResourcesDropdownOpen(false);
   };
 
@@ -107,85 +91,36 @@ export const Navbar: React.FC<Props> = ({
           </div>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-6 text-xs font-bold uppercase tracking-wider text-[#3A2E29]">
+          <nav className="hidden lg:flex items-center space-x-7 text-xs font-bold uppercase tracking-wider text-[#3A2E29]">
             
-            {/* Services Dropdown */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                onMouseEnter={() => { setServicesDropdownOpen(true); setTeamDropdownOpen(false); setResourcesDropdownOpen(false); }}
-                className="hover:text-[#0D9BA3] transition flex items-center space-x-1.5 py-2 cursor-pointer"
-              >
-                <span>Services</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${servicesDropdownOpen ? 'rotate-180 text-[#0D9BA3]' : ''}`} />
-              </button>
-
-              {servicesDropdownOpen && (
-                <div
-                  onMouseLeave={() => setServicesDropdownOpen(false)}
-                  className="absolute top-full -left-10 w-[600px] bg-white rounded-2xl shadow-2xl border border-[#D8D2D4] p-6 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
-                >
-                  <div className="grid grid-cols-3 gap-6">
-                    {/* Col 1 */}
-                    <div className="space-y-3">
-                      <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider border-b border-[#D8D2D4] pb-2 mb-2">Transaction Support</div>
-                      <button onClick={() => handleLink(onOpenTransactionCoordination)} className="block text-left text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition capitalize-none normal-case">Transaction Coordination</button>
-                      <button onClick={() => handleLink(onOpenListingCoordination)} className="block text-left text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition capitalize-none normal-case">Listing Coordination</button>
-                      <button onClick={() => handleLink(onOpenContractToClose)} className="block text-left text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition capitalize-none normal-case">Contract-to-Close Services</button>
-                    </div>
-                    {/* Col 2 */}
-                    <div className="space-y-3">
-                      <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider border-b border-[#D8D2D4] pb-2 mb-2">For Realtors</div>
-                      <button onClick={() => handleLink(onOpenWhoWeSupport)} className="block text-left text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition capitalize-none normal-case">Who We Support</button>
-                      <button onClick={() => handleLink(onOpenRealtorTc)} className="block text-left text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition capitalize-none normal-case">Transaction Coordination for Realtors</button>
-                    </div>
-                    {/* Col 3 */}
-                    <div className="space-y-3">
-                      <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider border-b border-[#D8D2D4] pb-2 mb-2">Florida Service Areas</div>
-                      <button onClick={() => handleLink(onOpenMiamiTc)} className="block text-left text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition capitalize-none normal-case">Miami TC</button>
-                      <button onClick={() => handleLink(onOpenMiamiDadeTc)} className="block text-left text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition capitalize-none normal-case">Miami-Dade County TC</button>
-                      <button onClick={() => handleLink(onOpenBrowardTc)} className="block text-left text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition capitalize-none normal-case">Broward County TC</button>
-                      <button onClick={() => handleLink(onOpenSouthFloridaTc)} className="block text-left text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] transition capitalize-none normal-case">South Florida TC</button>
-                    </div>
-                  </div>
-
-                </div>
-              )}
-            </div>
-
-            <button onClick={() => handleLink(onOpenPricingPlans || onOpenServicesPricing, 'what-we-handle')} className="hover:text-[#0D9BA3] transition cursor-pointer">
-              Pricing
+            {/* Services + Pricing */}
+            <button
+              onClick={() => handleLink(onOpenServicesPricing || onOpenPricingPlans, 'what-we-handle')}
+              className="hover:text-[#0D9BA3] transition cursor-pointer"
+            >
+              Services + Pricing
             </button>
-            <button onClick={() => handleLink(onOpenHowItWorks, 'home-method')} className="hover:text-[#0D9BA3] transition cursor-pointer">
+
+            {/* How HTC Works */}
+            <button
+              onClick={() => handleLink(onOpenHowItWorks, 'home-method')}
+              className="hover:text-[#0D9BA3] transition cursor-pointer"
+            >
               How HTC Works
             </button>
-            <button onClick={() => handleLink(onOpenWhyHtc, 'choose-path')} className="hover:text-[#0D9BA3] transition cursor-pointer">
+
+            {/* Why HTC */}
+            <button
+              onClick={() => handleLink(onOpenWhyHtc, 'choose-path')}
+              className="hover:text-[#0D9BA3] transition cursor-pointer"
+            >
               Why HTC
             </button>
-
-            {/* Meet The Team Dropdown */}
-            <div className="relative" ref={teamRef}>
-              <button
-                onMouseEnter={() => { setTeamDropdownOpen(true); setServicesDropdownOpen(false); setResourcesDropdownOpen(false); }}
-                onClick={() => setTeamDropdownOpen(!teamDropdownOpen)}
-                className="hover:text-[#0D9BA3] transition flex items-center space-x-1.5 py-2 cursor-pointer"
-              >
-                <span>Meet The Team</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${teamDropdownOpen ? 'rotate-180 text-[#0D9BA3]' : ''}`} />
-              </button>
-              {teamDropdownOpen && (
-                <div onMouseLeave={() => setTeamDropdownOpen(false)} className="absolute top-full left-0 w-48 bg-white rounded-xl shadow-xl border border-[#D8D2D4] p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <button onClick={() => handleLink(onOpenAbout, 'michelle')} className="w-full text-left px-4 py-2.5 rounded-lg hover:bg-[#EEEAEB] text-xs font-bold text-[#3A2E29] transition normal-case">
-                    About Michelle
-                  </button>
-                </div>
-              )}
-            </div>
 
             {/* Resources Dropdown */}
             <div className="relative" ref={resourcesRef}>
               <button
-                onMouseEnter={() => { setResourcesDropdownOpen(true); setServicesDropdownOpen(false); setTeamDropdownOpen(false); }}
+                onMouseEnter={() => setResourcesDropdownOpen(true)}
                 onClick={() => setResourcesDropdownOpen(!resourcesDropdownOpen)}
                 className="hover:text-[#0D9BA3] transition flex items-center space-x-1.5 py-2 cursor-pointer"
               >
@@ -193,22 +128,92 @@ export const Navbar: React.FC<Props> = ({
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${resourcesDropdownOpen ? 'rotate-180 text-[#0D9BA3]' : ''}`} />
               </button>
               {resourcesDropdownOpen && (
-                <div onMouseLeave={() => setResourcesDropdownOpen(false)} className="absolute top-full right-0 w-56 bg-white rounded-xl shadow-xl border border-[#D8D2D4] p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150 space-y-1">
-                  <button onClick={() => handleLink(onOpenFaq)} className="w-full text-left px-4 py-2.5 rounded-lg hover:bg-[#EEEAEB] text-xs font-bold text-[#3A2E29] transition normal-case">
-                    FAQs
+                <div
+                  onMouseLeave={() => setResourcesDropdownOpen(false)}
+                  className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-[#D8D2D4] p-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150 space-y-1"
+                >
+                  {/* 1. Run the Numbers */}
+                  <button
+                    onClick={() => handleLink(onOpenRoi)}
+                    className="w-full text-left p-3 rounded-xl hover:bg-[#EEEAEB] transition group flex items-start space-x-3 cursor-pointer"
+                  >
+                    <div className="p-2 rounded-lg bg-[#0D9BA3]/10 text-[#0D9BA3] group-hover:bg-[#0D9BA3] group-hover:text-white transition">
+                      <Calculator className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition normal-case">
+                        Run the Numbers
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-tight normal-case mt-0.5">
+                        Agent Business Calculator
+                      </div>
+                    </div>
                   </button>
-                  <button onClick={() => handleLink(onOpenReviews)} className="w-full text-left px-4 py-2.5 rounded-lg hover:bg-[#EEEAEB] text-xs font-bold text-[#3A2E29] transition normal-case">
-                    Reviews / Testimonials
+
+                  {/* 2. The Hometown Brief */}
+                  <button
+                    onClick={() => handleLink(onOpenBlog)}
+                    className="w-full text-left p-3 rounded-xl hover:bg-[#EEEAEB] transition group flex items-start space-x-3 cursor-pointer"
+                  >
+                    <div className="p-2 rounded-lg bg-[#0D9BA3]/10 text-[#0D9BA3] group-hover:bg-[#0D9BA3] group-hover:text-white transition">
+                      <BookOpen className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition normal-case">
+                        The Hometown Brief
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-tight normal-case mt-0.5">
+                        Our ongoing blog / SEO + AEO content library
+                      </div>
+                    </div>
                   </button>
-                  <button onClick={() => handleLink(onOpenBlog)} className="w-full text-left px-4 py-2.5 rounded-lg hover:bg-[#EEEAEB] text-xs font-bold text-[#3A2E29] transition normal-case">
-                    Blog / Resources
+
+                  {/* 3. Free Guides + Downloads */}
+                  <button
+                    onClick={() => handleLink(onOpenBlog)}
+                    className="w-full text-left p-3 rounded-xl hover:bg-[#EEEAEB] transition group flex items-start space-x-3 cursor-pointer"
+                  >
+                    <div className="p-2 rounded-lg bg-[#0D9BA3]/10 text-[#0D9BA3] group-hover:bg-[#0D9BA3] group-hover:text-white transition">
+                      <Download className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition normal-case">
+                        Free Guides + Downloads
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-tight normal-case mt-0.5">
+                        Checklists, guides, tools, and free community resources
+                      </div>
+                    </div>
                   </button>
-                  <button onClick={() => handleLink(onOpenRoi)} className="w-full text-left px-4 py-2.5 rounded-lg hover:bg-[#EEEAEB] text-xs font-bold text-[#3A2E29] transition normal-case">
-                    Agent Business Calculator
+
+                  {/* 4. FAQ */}
+                  <button
+                    onClick={() => handleLink(onOpenFaq)}
+                    className="w-full text-left p-3 rounded-xl hover:bg-[#EEEAEB] transition group flex items-start space-x-3 cursor-pointer"
+                  >
+                    <div className="p-2 rounded-lg bg-[#0D9BA3]/10 text-[#0D9BA3] group-hover:bg-[#0D9BA3] group-hover:text-white transition">
+                      <HelpCircle className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition normal-case">
+                        FAQ
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-tight normal-case mt-0.5">
+                        Frequently asked questions & answers
+                      </div>
+                    </div>
                   </button>
                 </div>
               )}
             </div>
+
+            {/* Meet the Team */}
+            <button
+              onClick={() => handleLink(onOpenAbout, 'michelle')}
+              className="hover:text-[#0D9BA3] transition cursor-pointer"
+            >
+              Meet the Team
+            </button>
           </nav>
 
           {/* Action CTAs */}
@@ -243,29 +248,83 @@ export const Navbar: React.FC<Props> = ({
 
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#EEEAEB] border-b border-[#D8D2D4] px-4 pt-3 pb-6 space-y-3 max-h-[80vh] overflow-y-auto">
-          <div className="space-y-1 text-sm font-semibold text-[#3A2E29]">
-            
-            <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider pt-2 pb-1 border-b border-[#D8D2D4]">Services</div>
-            <button onClick={() => handleLink(onOpenTransactionCoordination)} className="block w-full text-left py-2 hover:bg-white px-2 rounded">Transaction Coordination</button>
-            <button onClick={() => handleLink(onOpenListingCoordination)} className="block w-full text-left py-2 hover:bg-white px-2 rounded">Listing Coordination</button>
-            <button onClick={() => handleLink(onOpenContractToClose)} className="block w-full text-left py-2 hover:bg-white px-2 rounded">Contract-to-Close Services</button>
-            <button onClick={() => handleLink(onOpenWhoWeSupport)} className="block w-full text-left py-2 hover:bg-white px-2 rounded">Who We Support</button>
-            <button onClick={() => handleLink(onOpenRealtorTc)} className="block w-full text-left py-2 hover:bg-white px-2 rounded">TC for Realtors</button>
-            <button onClick={() => handleLink(onOpenMiamiTc)} className="block w-full text-left py-2 hover:bg-white px-2 rounded">Miami TC</button>
-            <button onClick={() => handleLink(onOpenMiamiDadeTc)} className="block w-full text-left py-2 hover:bg-white px-2 rounded">Miami-Dade County TC</button>
-            <button onClick={() => handleLink(onOpenBrowardTc)} className="block w-full text-left py-2 hover:bg-white px-2 rounded">Broward County TC</button>
-            <button onClick={() => handleLink(onOpenSouthFloridaTc)} className="block w-full text-left py-2 hover:bg-white px-2 rounded">South Florida TC</button>
-            
-            <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider pt-4 pb-1 border-b border-[#D8D2D4]">Company & Resources</div>
-            <button onClick={() => handleLink(onOpenPricingPlans || onOpenServicesPricing, 'what-we-handle')} className="block w-full text-left py-2 hover:bg-white px-2 rounded uppercase tracking-wider text-xs">Pricing</button>
-            <button onClick={() => handleLink(onOpenHowItWorks, 'home-method')} className="block w-full text-left py-2 hover:bg-white px-2 rounded uppercase tracking-wider text-xs">How HTC Works</button>
-            <button onClick={() => handleLink(onOpenWhyHtc, 'choose-path')} className="block w-full text-left py-2 hover:bg-white px-2 rounded uppercase tracking-wider text-xs">Why HTC</button>
-            <button onClick={() => handleLink(onOpenAbout, 'michelle')} className="block w-full text-left py-2 hover:bg-white px-2 rounded uppercase tracking-wider text-xs">Meet The Team</button>
-            <button onClick={() => handleLink(onOpenFaq)} className="block w-full text-left py-2 hover:bg-white px-2 rounded uppercase tracking-wider text-xs">FAQ</button>
-            <button onClick={() => handleLink(onOpenReviews)} className="block w-full text-left py-2 hover:bg-white px-2 rounded uppercase tracking-wider text-xs">Reviews / Testimonials</button>
-            <button onClick={() => handleLink(onOpenBlog)} className="block w-full text-left py-2 hover:bg-white px-2 rounded uppercase tracking-wider text-xs">Blog / Resources</button>
-            <button onClick={() => handleLink(onOpenRoi)} className="block w-full text-left py-2 hover:bg-white px-2 rounded uppercase tracking-wider text-xs">Agent Business Calculator</button>
+        <div className="lg:hidden bg-[#EEEAEB] border-b border-[#D8D2D4] px-4 pt-3 pb-6 space-y-4 max-h-[80vh] overflow-y-auto">
+          <div className="space-y-2 text-sm font-bold text-[#3A2E29]">
+            <button
+              onClick={() => handleLink(onOpenServicesPricing || onOpenPricingPlans, 'what-we-handle')}
+              className="block w-full text-left py-2.5 px-3 rounded-lg hover:bg-white transition text-xs uppercase tracking-wider"
+            >
+              Services + Pricing
+            </button>
+
+            <button
+              onClick={() => handleLink(onOpenHowItWorks, 'home-method')}
+              className="block w-full text-left py-2.5 px-3 rounded-lg hover:bg-white transition text-xs uppercase tracking-wider"
+            >
+              How HTC Works
+            </button>
+
+            <button
+              onClick={() => handleLink(onOpenWhyHtc, 'choose-path')}
+              className="block w-full text-left py-2.5 px-3 rounded-lg hover:bg-white transition text-xs uppercase tracking-wider"
+            >
+              Why HTC
+            </button>
+
+            <div className="pt-2 pb-1 border-t border-[#D8D2D4]">
+              <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider px-3 py-1">Resources</div>
+              <div className="space-y-1">
+                <button
+                  onClick={() => handleLink(onOpenRoi)}
+                  className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
+                >
+                  <div className="text-xs font-bold text-[#3A2E29]">Run the Numbers</div>
+                  <div className="text-[11px] text-slate-500">Agent Business Calculator</div>
+                </button>
+
+                <button
+                  onClick={() => handleLink(onOpenBlog)}
+                  className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
+                >
+                  <div className="text-xs font-bold text-[#3A2E29]">The Hometown Brief</div>
+                  <div className="text-[11px] text-slate-500">Our ongoing blog / SEO + AEO content library</div>
+                </button>
+
+                <button
+                  onClick={() => handleLink(onOpenBlog)}
+                  className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
+                >
+                  <div className="text-xs font-bold text-[#3A2E29]">Free Guides + Downloads</div>
+                  <div className="text-[11px] text-slate-500">Checklists, guides, tools, and free community resources</div>
+                </button>
+
+                <button
+                  onClick={() => handleLink(onOpenFaq)}
+                  className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
+                >
+                  <div className="text-xs font-bold text-[#3A2E29]">FAQ</div>
+                  <div className="text-[11px] text-slate-500">Frequently asked questions & answers</div>
+                </button>
+              </div>
+            </div>
+
+            <div className="pt-2 border-t border-[#D8D2D4]">
+              <button
+                onClick={() => handleLink(onOpenAbout, 'michelle')}
+                className="block w-full text-left py-2.5 px-3 rounded-lg hover:bg-white transition text-xs uppercase tracking-wider"
+              >
+                Meet the Team
+              </button>
+            </div>
+
+            <div className="pt-2">
+              <button
+                onClick={() => handleLink(onBookCall)}
+                className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center shadow-md"
+              >
+                BOOK A FIT CALL
+              </button>
+            </div>
           </div>
         </div>
       )}
