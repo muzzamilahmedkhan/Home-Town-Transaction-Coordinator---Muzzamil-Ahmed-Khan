@@ -185,7 +185,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
     },
     {
       q: 'What happens if a contract terminates during the inspection period?',
-      a: 'Because our contract-to-close services operate strictly on a 
+      a: 'Because our contract-to-close services operate strictly on a pay-at-closing basis, you pay $0 if a transaction cancels prior to closing. We collect the signed Cancellation and Release of Escrow agreement and archive the file cleanly.'
     },
     {
       q: 'Do you work directly with my broker compliance portal?',

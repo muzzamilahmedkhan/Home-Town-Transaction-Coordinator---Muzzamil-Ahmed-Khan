@@ -105,7 +105,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
     postClose: {
       title: '5. Post-Close Archival & Defensible Broker File',
       icon: CheckCircle2,
-      description: 'broker compliance
+      description: 'Complete archival and brokerage compliance closeout.',
       tasks: [
         'Collect final ALTA / Settlement Statement signed by all parties from title company.',
         'Upload all executed disclosures, riders, inspection addenda, escrow letters, and CDA into your broker portal (SkySlope, Dotloop, Brokermint, etc.).',
@@ -204,7 +204,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
   const faqs = [
     {
       q: 'When do I pay for Transaction Coordination services?',
-      a: 'Our contract-to-close coordination fee is paid directly on the Settlement Statement (CD) at the closing table, or invoiced upon successful closing. There are zero
+      a: 'Our contract-to-close coordination fee is paid directly on the Settlement Statement (CD) at the closing table, or invoiced upon successful closing. There are zero upfront fees, monthly subscriptions, or retainers.'
     },
     {
       q: 'What happens if a contract cancels during the inspection period?',

@@ -253,7 +253,7 @@ export const FaqPage: React.FC<Props> = ({
       title: 'Cancellation Policy & Onboarding',
       shortLabel: 'Cancellation & Onboarding',
       icon: Clock,
-      description: 'Zero-risk, performance-based pricing: no
+      description: 'Zero-risk, performance-based pricing: no upfront retainers or cancellation fees.',
       items: [
         {
           id: 'cancel-1',
@@ -263,7 +263,7 @@ export const FaqPage: React.FC<Props> = ({
           answer: (
             <div className="space-y-3">
               <p>
-                <strong>You pay $0.</strong> Hometown TC operates on a strict <strong></strong> philosophy. If a deal cancels during the inspection period, financing contingency, appraisal gap, or condo document review, you owe nothing for our coordination work.
+                <strong>You pay $0.</strong> Hometown TC operates on a strict <strong>pay-at-closing</strong> philosophy. If a deal cancels during the inspection period, financing contingency, appraisal gap, or condo document review, you owe nothing for our coordination work.
               </p>
               <p>
                 We also draft or distribute the formal Termination and Escrow Release (Release of Deposit) addenda to ensure your buyer's earnest money is returned promptly and your broker file is marked cancelled cleanly.
@@ -274,11 +274,11 @@ export const FaqPage: React.FC<Props> = ({
         {
           id: 'cancel-2',
           section: 'cancellation-onboarding',
-          question: 'Is there an
+          question: 'Is there an onboarding fee, setup charge, or monthly subscription?',
           tags: ['onboarding fee', 'retainer', 'subscription', 'monthly cost'],
           answer: (
             <p>
-              <strong>No.</strong> There are 
+              <strong>No.</strong> There are no setup fees, sign-up costs, or monthly recurring charges. You only pay when a transaction successfully closes.
             </p>
           )
         }

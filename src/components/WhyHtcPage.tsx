@@ -70,7 +70,7 @@ export const WhyHtcPage: React.FC<Props> = ({
       freelancer: 'Basic doc checklist upload',
       overseasVA: 'Prone to upload errors & missed initials',
       inexperiencedTC: 'Reactive to broker rejections',
-      htc: 'audit-ready
+      htc: 'Audit-ready compliance checklists with proactive broker resolution',
       htcAdvantage: true
     },
     {
@@ -91,10 +91,10 @@ export const WhyHtcPage: React.FC<Props> = ({
     },
     {
       feature: 'Pricing & Accountability Model',
-      freelancer: 'Hourly or
+      freelancer: 'Hourly or flat retainers without guarantees',
       overseasVA: 'Monthly subscriptions regardless of volume',
       inexperiencedTC: 'Inconsistent billing terms',
-      htc: 'Performance-aligned: $0
+      htc: 'Performance-aligned: $0 upfront, pay-at-closing structure',
       htcAdvantage: true
     }
   ];

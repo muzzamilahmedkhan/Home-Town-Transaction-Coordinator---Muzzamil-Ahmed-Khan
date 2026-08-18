@@ -96,11 +96,11 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
     },
     {
       title: 'Top Producers & Team Leaders',
-      desc: 'Producing agents looking to standardize contract-to-close workflows across their team with predictable 
+      desc: 'Producing agents looking to standardize contract-to-close workflows across their team with predictable execution.'
     },
     {
       title: 'Agents Ready to Scale Production',
-      desc: 'Agents who want to free up substantial time per file
+      desc: 'Agents who want to free up substantial time per file to focus on prospecting, client advisory, and listing presentations.'
     }
   ];
 
