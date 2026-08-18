@@ -1,30 +1,19 @@
 import React, { useState } from 'react';
 import {
-  DollarSign,
   Check,
-  XCircle,
   HelpCircle,
   PhoneCall,
   ArrowRight,
-  ShieldCheck,
-  Zap,
-  Users,
-  Building2,
-  Lock,
-  Layers,
-  FileCheck2,
-  Calendar,
-  AlertCircle,
-  CheckCircle2,
   ChevronDown,
   ChevronUp,
-  Percent,
-  Compass,
-  FileText,
-  BadgeAlert,
-  Sparkles
+  Sparkles,
+  Zap,
+  ShieldCheck,
+  Layers,
+  Clock,
+  ArrowUp
 } from 'lucide-react';
-import { CENTRAL_SERVICES_PRICING, PRICING_CONFIG, PHONE_NUMBER, EMAIL_ADDRESS } from '../data/content';
+import { PRICING_PAGE_DATA } from '../data/pricingData';
 
 interface Props {
   onBookCall: () => void;
@@ -35,699 +24,647 @@ interface Props {
   onOpenHowItWorks: () => void;
   onOpenWhyHtc: () => void;
   onOpenRoi: () => void;
+  onOpenTcWorkshop?: () => void;
 }
 
 export const PricingPlansPage: React.FC<Props> = ({
   onBookCall,
   onSubmitDeal,
   onGoHome,
-  onOpenTransactionCoordination,
-  onOpenListingCoordination,
-  onOpenHowItWorks,
-  onOpenWhyHtc,
-  onOpenRoi
+  onOpenRoi,
+  onOpenTcWorkshop,
 }) => {
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [activeFaq, setActiveFaq] = useState<string | null>(null);
+  const data = PRICING_PAGE_DATA;
 
-  const pricingFaqs = [
-    {
-      q: 'Are there any monthly subscription fees, retainers, or setup costs?',
-      a: 'No. For solo agents and independent teams utilizing our standard per-file plans, there are zero monthly platform subscriptions, minimum monthly file quotas, or startup onboarding fees. You pay strictly per closed file upon successful closing.'
-    },
-    {
-      q: 'How does the "Both-Sides" Dual Agency add-on work?',
-      a: 'When you represent both the Buyer and Seller on the same executed contract, HTC manages both distinct file workflows, separate disclosures, dual communication channels, and respective brokerage compliance checklists. The fee is your standard base rate ($375) plus a $150 dual-side coordination add-on.'
-    },
-    {
-      q: 'What happens if a contract terminates during the inspection or financing period?',
-      a: 'If a transaction cancels prior to closing through no fault of the agent, zero fee is billed for contract-to-close files. We package and deliver the full cancellation record, release of escrow, and compliance audit trail directly to your broker for secure archival.'
-    },
-    {
-      q: 'Can a new agent submit a contract immediately without prior registration?',
-      a: 'To guarantee flawless coordination and compliance adherence, all agents must complete our quick 1-time onboarding registration prior to their first file submission. This ensures your communication preferences, e-signature tools, title partners, and broker portal requirements are pre-configured.'
-    },
-    {
-      q: 'Are your prices negotiable or do you offer volume discounts for solo agents?',
-      a: 'HTC operates on strict, published, non-negotiable per-file pricing. We do not offer arbitrary "off-the-record" discounts. This transparency guarantees that every agent receives the exact same dedicated senior attention, thoroughness, and standard of care without compromised service quality.'
-    },
-    {
-      q: 'How is the TC fee collected at closing?',
-      a: 'The TC fee is invoiced directly on the final ALTA Settlement Statement / Closing Disclosure (CD) and paid to HTC directly from escrow disbursement at closing, so you never have out-of-pocket administrative expenses.'
+  const scrollToSection = (targetId: string) => {
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  ];
+  };
 
   return (
-    <div className="bg-[#EEEAEB] text-[#3A2E29] min-h-screen">
+    <div className="min-h-screen bg-white text-[#3A2E29]">
       
-      {/* 1. HERO & "YOUR PLANS. YOUR PACE." OPENING */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#3A2E29] via-[#2A211D] to-[#3A2E29] text-white pt-32 pb-20 lg:pt-36 lg:pb-24 border-b border-[#D8D2D4]/20">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#0D9BA3_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Breadcrumb */}
-          <div className="flex items-center space-x-2 text-xs font-semibold text-[#0D9BA3] tracking-widest uppercase mb-4">
-            <button onClick={onGoHome} className="hover:text-white transition">Home</button>
-            <span>/</span>
-            <span className="text-white">Pricing & Plans</span>
-          </div>
-
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/20 border border-[#0D9BA3]/40 px-3.5 py-1.5 rounded-full text-xs font-bold text-[#0D9BA3] tracking-wide">
-              <DollarSign className="w-3.5 h-3.5" />
-              <span>TRANSPARENT FLORIDA PER-FILE PRICING</span>
+      {/* 1. HERO + VSL */}
+      <section className="pt-12 pb-16 bg-white border-b border-[#D8D2D4]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
+          
+          {/* Header Copy */}
+          <div className="max-w-2xl mx-auto space-y-3">
+            <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+              <span>{data.hero.badge}</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight font-serif">
-              Your Plans. Your Pace. <br />
-              <span className="text-[#0D9BA3]">Senior TC Support Without Payroll Overhead.</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight">
+              {data.hero.title}
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-light">
-              Transparent, per-file pricing engineered for solo Florida agents and high-producing teams. Get dedicated contract-to-close and listing launch infrastructure without fixed salaries, employee benefits, training overhead, or idle payroll during quiet months.
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              {data.hero.description}
             </p>
+          </div>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <button
-                onClick={onBookCall}
-                className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
-              >
-                <PhoneCall className="w-4 h-4" />
-                <span>Book a Fit Call</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </button>
-              <button
-                onClick={onOpenRoi}
-                className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-4 rounded-xl font-bold text-sm tracking-wide transition cursor-pointer backdrop-blur-sm"
-              >
-                <DollarSign className="w-4 h-4 text-[#0D9BA3]" />
-                <span>Calculate Your Agent ROI</span>
-              </button>
-            </div>
-
-            {/* Micro Guarantees */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-white/10 text-xs text-slate-300 font-medium">
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                <span>Paid at Settlement (CD/ALTA)</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                <span>Zero File Minimums</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                <span>No Monthly Software Subscriptions</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                <span>No-Fee Deal Cancellation Policy</span>
-              </div>
+          {/* VSL Video Container */}
+          <div className="max-w-4xl mx-auto">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#D8D2D4] aspect-video bg-black/90">
+              <iframe
+                src={data.hero.vslVideoUrl}
+                title="Hometown TC Services & Pricing Overview"
+                className="w-full h-full"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </div>
+
+          {/* Simple Inline Jump Links (No Cards) */}
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs sm:text-sm font-semibold text-slate-700">
+            {data.hero.jumpLinks.map((link, idx) => (
+              <React.Fragment key={link.targetId}>
+                <button
+                  onClick={() => scrollToSection(link.targetId)}
+                  className="hover:text-[#0D9BA3] transition cursor-pointer underline-offset-4 hover:underline"
+                >
+                  {link.label}
+                </button>
+                {idx < data.hero.jumpLinks.length - 1 && (
+                  <span className="text-slate-300 select-none">|</span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* 2. BASE & PRO CARDS WITH BEST IF / INCLUDED / AGENT RETAINS */}
-      <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-            <Layers className="w-3.5 h-3.5" />
-            <span>Structured Service Levels</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif">
-            Clear, Predictable Support Tiers
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Choose the exact scope your production requires. All plans pull from our standardized Florida operational guidelines with zero ambiguity.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+      {/* 2. LISTING LAUNCH (Editorial Two-Column Layout | Background: Cream) */}
+      <section
+        id="listing-launch"
+        className="py-16 lg:py-20 bg-[#EEEAEB] border-b border-[#D8D2D4] scroll-mt-20"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* BASE CARD */}
-          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#D8D2D4] shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-8 relative">
-            <div className="space-y-6">
-              
-              {/* Header */}
-              <div className="flex justify-between items-start">
-                <div>
-                  <span className="px-3 py-1 bg-[#0D9BA3]/10 text-[#0D9BA3] text-xs font-bold rounded-full uppercase tracking-wider">
-                    Contract-to-Close
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#3A2E29] mt-3 font-serif">
-                    HTC Base Plan
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-1">
-                    End-to-end contract coordination from executed agreement through closing.
-                  </p>
-                </div>
-                <div className="text-right">
-                  <div className="text-3xl sm:text-4xl font-black text-[#0D9BA3]">$375</div>
-                  <div className="text-[11px] text-slate-500 font-medium uppercase tracking-wider">Per Closed File</div>
-                </div>
-              </div>
-
-              {/* Best If */}
-              <div className="p-4 bg-[#EEEAEB] rounded-2xl border border-[#D8D2D4] space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#3A2E29] block">
-                  Best If:
-                </span>
-                <p className="text-xs text-slate-700 leading-relaxed">
-                  You represent buyers or sellers with an already executed contract and need reliable timeline tracking, escrow management, title liaison, and broker compliance.
-                </p>
-              </div>
-
-              {/* What is Included */}
-              <div className="space-y-3">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0D9BA3] flex items-center space-x-1.5">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>What HTC Coordinates (Included):</span>
-                </h4>
-                <ul className="space-y-2.5 text-xs text-slate-600">
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#0D9BA3] mt-0.5 flex-shrink-0" />
-                    <span><strong>Executed Contract Audit:</strong> Full FAR/BAR agreement & rider compliance review.</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#0D9BA3] mt-0.5 flex-shrink-0" />
-                    <span><strong>Escrow & EMD Lock:</strong> Verification of escrow receipt & initial binder deposit.</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#0D9BA3] mt-0.5 flex-shrink-0" />
-                    <span><strong>Master Deadline Calendar:</strong> Shared with agent, client, lender, and title officer.</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#0D9BA3] mt-0.5 flex-shrink-0" />
-                    <span><strong>Contingency Milestones:</strong> Inspection window, appraisal, and loan commitment tracking.</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#0D9BA3] mt-0.5 flex-shrink-0" />
-                    <span><strong>Closing Settlement:</strong> Closing Disclosure (CD) review & CDA delivery to title.</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#0D9BA3] mt-0.5 flex-shrink-0" />
-                    <span><strong>Broker Archival:</strong> Full compliance document upload to your brokerage portal.</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* What Agent Retains */}
-              <div className="space-y-3 pt-2 border-t border-[#D8D2D4]">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#3A2E29] flex items-center space-x-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#FE7311]" />
-                  <span>What the Agent Retains:</span>
-                </h4>
-                <ul className="space-y-2 text-xs text-slate-500">
-                  <li className="flex items-start space-x-2">
-                    <span className="text-[#FE7311] font-bold">•</span>
-                    <span>Direct repair credit negotiations & contract addenda terms.</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-[#FE7311] font-bold">•</span>
-                    <span>Client legal, tax, or property advisory.</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-[#FE7311] font-bold">•</span>
-                    <span>Attending physical walk-throughs and closing table representation.</span>
-                  </li>
-                </ul>
-              </div>
-
+          {/* Section Eyebrow & Headline */}
+          <div className="mb-10 space-y-2">
+            <div className="text-xs font-extrabold uppercase tracking-widest text-[#0D9BA3]">
+              {data.listingLaunch.eyebrow}
             </div>
-
-            <div className="pt-4 border-t border-[#D8D2D4] space-y-2">
-              <button
-                onClick={onBookCall}
-                className="w-full py-3.5 bg-[#0D9BA3] hover:bg-[#0b868d] text-white rounded-xl font-bold text-xs uppercase tracking-wider transition text-center block cursor-pointer shadow-md"
-              >
-                Get Started on Base Plan
-              </button>
-              <p className="text-[11px] text-center text-slate-400">Paid from escrow at settlement. $0 due if deal cancels.</p>
-            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#3A2E29] font-serif">
+              {data.listingLaunch.name}
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl">
+              {data.listingLaunch.description}
+            </p>
           </div>
 
-          {/* PRO CARD */}
-          <div className="bg-white rounded-3xl p-8 sm:p-10 border-2 border-[#FE7311] shadow-xl hover:shadow-2xl transition flex flex-col justify-between space-y-8 relative">
-            <div className="absolute -top-4 left-8 bg-[#FE7311] text-white text-[11px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
-              Most Popular for Listing Agents
+          {/* Two-Column Editorial Layout */}
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            
+            {/* Left Column: Service Details & What's Handled */}
+            <div className="lg:col-span-7 space-y-6">
+              <h3 className="font-bold text-base text-[#3A2E29] uppercase tracking-wider text-xs">
+                What Is Included in Every Listing Launch:
+              </h3>
+              <ul className="space-y-3.5 text-xs sm:text-sm text-slate-700">
+                {data.listingLaunch.included.map((item, idx) => (
+                  <li key={idx} className="flex items-start space-x-3">
+                    <div className="w-5 h-5 rounded-full bg-[#0D9BA3]/15 text-[#0D9BA3] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">
+                      <Check className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="pt-2">
+                <button
+                  onClick={onSubmitDeal}
+                  className="inline-flex items-center space-x-2 bg-[#0D9BA3] hover:bg-[#0b868d] text-white px-7 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-sm cursor-pointer group"
+                >
+                  <span>{data.listingLaunch.ctaText}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+              </div>
             </div>
 
-            <div className="space-y-6">
-              
-              {/* Header */}
-              <div className="flex justify-between items-start pt-2">
-                <div>
-                  <span className="px-3 py-1 bg-[#FE7311]/10 text-[#FE7311] text-xs font-bold rounded-full uppercase tracking-wider">
-                    Listing Launch + Contract Services
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-[#3A2E29] mt-3 font-serif">
-                    HTC Pro Plan
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Pre-market listing launch preparation bundled with complete contract-to-close.
-                  </p>
-                </div>
-                <div className="text-right">
-                  <div className="text-3xl sm:text-4xl font-black text-[#FE7311]">$475</div>
-                  <div className="text-[11px] text-slate-500 font-medium uppercase tracking-wider">Per Closed File</div>
-                </div>
-              </div>
-
-              {/* Best If */}
-              <div className="p-4 bg-[#FE7311]/5 rounded-2xl border border-[#FE7311]/20 space-y-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#FE7311] block">
-                  Best If:
-                </span>
-                <p className="text-xs text-slate-700 leading-relaxed">
-                  You are a listing agent or team who wants a turnkey experience: pre-market MLS draft entry, SPDS disclosure dispatch, photo ordering, and seamless transition into contract closing.
-                </p>
-              </div>
-
-              {/* What is Included */}
-              <div className="space-y-3">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#FE7311] flex items-center space-x-1.5">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>Everything in Base, PLUS Listing Launch:</span>
-                </h4>
-                <ul className="space-y-2.5 text-xs text-slate-600">
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#FE7311] mt-0.5 flex-shrink-0" />
-                    <span><strong>Pre-Listing Document Collection:</strong> Listing agreement audit & rider verification.</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#FE7311] mt-0.5 flex-shrink-0" />
-                    <span><strong>Seller Disclosure Dispatch:</strong> Florida SPDS & Lead-Based Paint sent for e-signature.</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#FE7311] mt-0.5 flex-shrink-0" />
-                    <span><strong>MLS Matrix Draft Entry:</strong> Complete entry of 50+ property fields & room dimensions.</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#FE7311] mt-0.5 flex-shrink-0" />
-                    <span><strong>Media & Supplements:</strong> High-res photo sequencing & PDF disclosure attachments.</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#FE7311] mt-0.5 flex-shrink-0" />
-                    <span><strong>Showing & Lockbox Setup:</strong> ShowingTime rules & lockbox information configuration.</span>
-                  </li>
-                  <li className="flex items-start space-x-2.5">
-                    <Check className="w-4 h-4 text-[#FE7311] mt-0.5 flex-shrink-0" />
-                    <span><strong>Seamless Contract Bridge:</strong> Frictionless rollover to contract-to-close upon offer acceptance.</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* What Agent Retains */}
-              <div className="space-y-3 pt-2 border-t border-[#D8D2D4]">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#3A2E29] flex items-center space-x-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#FE7311]" />
-                  <span>What the Agent Retains:</span>
-                </h4>
-                <ul className="space-y-2 text-xs text-slate-500">
-                  <li className="flex items-start space-x-2">
-                    <span className="text-[#FE7311] font-bold">•</span>
-                    <span>Hiring and scheduling preferred real estate photographer.</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-[#FE7311] font-bold">•</span>
-                    <span>Staging, cleaning, and property preparation.</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-[#FE7311] font-bold">•</span>
-                    <span>Pricing decisions, CMA valuations, and clicking "Make Active" on MLS.</span>
-                  </li>
-                </ul>
-              </div>
-
-            </div>
-
-            <div className="pt-4 border-t border-[#D8D2D4] space-y-2">
-              <button
-                onClick={onBookCall}
-                className="w-full py-3.5 bg-[#FE7311] hover:bg-[#e06209] text-white rounded-xl font-bold text-xs uppercase tracking-wider transition text-center block cursor-pointer shadow-md"
-              >
-                Get Started on Pro Plan
-              </button>
-              <p className="text-[11px] text-center text-slate-400">Total pre-market and contract harmony in one package.</p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 3. BOTH-SIDES (DUAL AGENCY / TRANSACTION BROKER) ADD-ON */}
-      <section className="py-16 bg-white border-y border-[#D8D2D4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#EEEAEB] rounded-3xl p-8 sm:p-10 border border-[#D8D2D4] shadow-sm">
-            <div className="grid lg:grid-cols-12 gap-8 items-center">
-              
-              <div className="lg:col-span-8 space-y-4">
-                <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                  <Users className="w-3.5 h-3.5" />
-                  <span>Dual Representation Workflow</span>
-                </div>
-                
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#3A2E29] font-serif">
-                  "Both-Sides" Dual Representation Add-On
-                </h3>
-                
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Representing both the Buyer and Seller in a single Florida transaction creates double the administrative load: dual disclosure files, separate timeline communications, independent compliance packages, and segregated document vaults.
-                </p>
-
-                <div className="grid sm:grid-cols-2 gap-3 text-xs text-slate-700 pt-2">
-                  <div className="flex items-start space-x-2 bg-white p-3 rounded-xl border border-[#D8D2D4]">
-                    <Check className="w-4 h-4 text-[#0D9BA3] mt-0.5 flex-shrink-0" />
-                    <span>Independent Buyer & Seller communication channels.</span>
-                  </div>
-                  <div className="flex items-start space-x-2 bg-white p-3 rounded-xl border border-[#D8D2D4]">
-                    <Check className="w-4 h-4 text-[#0D9BA3] mt-0.5 flex-shrink-0" />
-                    <span>Dual brokerage compliance loops & separate disclosures.</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-4 bg-white rounded-2xl p-6 border border-[#D8D2D4] text-center space-y-3 shadow-sm">
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Add-On Investment</span>
-                <div className="text-4xl font-black text-[#3A2E29]">+$150</div>
-                <span className="text-[11px] text-slate-500 block uppercase font-medium">Added to Standard File Rate</span>
-                <div className="pt-2">
-                  <button
-                    onClick={onBookCall}
-                    className="w-full py-2.5 bg-[#3A2E29] hover:bg-slate-800 text-white rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer"
+            {/* Right Column: Standard / Priority Pricing + Add-Ons */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="space-y-4">
+                {data.listingLaunch.options.map((opt, idx) => (
+                  <div
+                    key={idx}
+                    className="p-5 bg-white rounded-2xl border border-[#D8D2D4] shadow-sm flex items-center justify-between gap-4"
                   >
-                    Discuss Dual Files
-                  </button>
+                    <div>
+                      <div className="flex items-center space-x-2">
+                        <h4 className="font-bold text-sm sm:text-base text-[#3A2E29]">
+                          {opt.title}
+                        </h4>
+                        {opt.badge && (
+                          <span className="bg-[#FE7311] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">
+                            {opt.badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-slate-500 mt-0.5 flex items-center space-x-1">
+                        <Clock className="w-3 h-3 text-[#0D9BA3]" />
+                        <span>{opt.turnaround}</span>
+                      </p>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <span className="text-2xl font-extrabold text-[#3A2E29]">
+                        {opt.price}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Add-Ons Sub-List */}
+              <div className="pt-2 space-y-3">
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Optional Add-Ons:
+                </div>
+                <div className="space-y-2 text-xs">
+                  {data.listingLaunch.addons.map((addon, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-baseline justify-between py-2 border-b border-[#D8D2D4]/70 gap-4"
+                    >
+                      <div className="text-slate-700">
+                        <span className="font-semibold text-[#3A2E29]">{addon.name}</span>
+                        {addon.note && (
+                          <span className="text-slate-500 block text-[11px] mt-0.5">
+                            {addon.note}
+                          </span>
+                        )}
+                      </div>
+                      <span className="font-bold text-[#0D9BA3] flex-shrink-0">
+                        {addon.price}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
             </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* 4. AGENT REGISTRATION & CANCELLATION RULES */}
-      <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10">
+      {/* 3. CONTRACT-TO-CLOSE — BASE + PRO (Two Equal Side-by-Side Cards | Background: White) */}
+      <section
+        id="contract-to-close"
+        className="py-16 lg:py-24 bg-white border-b border-[#D8D2D4] scroll-mt-20"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
-          {/* Agent Registration Protocol */}
-          <div className="bg-white rounded-3xl p-8 border border-[#D8D2D4] shadow-sm space-y-6">
-            <div className="flex items-center space-x-3 pb-4 border-b border-[#D8D2D4]">
-              <div className="w-10 h-10 rounded-xl bg-[#0D9BA3] text-white flex items-center justify-center font-bold">
-                <FileText className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-[#3A2E29]">Agent Registration Protocol</h3>
-                <span className="text-xs text-slate-500">1-Time onboarding required before first file</span>
-              </div>
-            </div>
-
-            <p className="text-xs text-slate-600 leading-relaxed">
-              To safeguard your broker compliance and ensure seamless operations, an agent cannot simply drop an executed contract without prior profile setup. Our 3-step registration ensures our systems know your exact workflow:
-            </p>
-
-            <div className="space-y-4 text-xs">
-              <div className="flex items-start space-x-3 p-3.5 bg-[#EEEAEB] rounded-xl border border-[#D8D2D4]">
-                <div className="w-6 h-6 rounded-full bg-[#0D9BA3] text-white flex items-center justify-center font-bold text-[11px] flex-shrink-0">
-                  1
-                </div>
-                <div>
-                  <strong className="text-[#3A2E29]">15-Minute Fit Call:</strong> We discuss your typical transaction volume, geographic focus, brokerage software, and preferred title partners.
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3 p-3.5 bg-[#EEEAEB] rounded-xl border border-[#D8D2D4]">
-                <div className="w-6 h-6 rounded-full bg-[#0D9BA3] text-white flex items-center justify-center font-bold text-[11px] flex-shrink-0">
-                  2
-                </div>
-                <div>
-                  <strong className="text-[#3A2E29]">Partner & Tool Configuration:</strong> We log your e-sign preferences (DocuSign, Dotloop), brokerage portal logins (Command, SkySlope, Brokermint), and contact styles.
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3 p-3.5 bg-[#EEEAEB] rounded-xl border border-[#D8D2D4]">
-                <div className="w-6 h-6 rounded-full bg-[#0D9BA3] text-white flex items-center justify-center font-bold text-[11px] flex-shrink-0">
-                  3
-                </div>
-                <div>
-                  <strong className="text-[#3A2E29]">Submit Portal Activation:</strong> You receive an active client portal login to submit new contracts 24/7 with 
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-2">
-              <button
-                onClick={onBookCall}
-                className="inline-flex items-center space-x-2 text-xs font-bold text-[#0D9BA3] hover:text-[#3A2E29] transition uppercase tracking-wider cursor-pointer"
-              >
-                <span>Register as an HTC Agent</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
-
-          {/* Cancellation Terms */}
-          <div className="bg-white rounded-3xl p-8 border border-[#D8D2D4] shadow-sm space-y-6">
-            <div className="flex items-center space-x-3 pb-4 border-b border-[#D8D2D4]">
-              <div className="w-10 h-10 rounded-xl bg-[#FE7311] text-white flex items-center justify-center font-bold">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-[#3A2E29]">Cancellation & Withdrawal Policy</h3>
-                <span className="text-xs text-slate-500">Fair, defensible, and zero-risk</span>
-              </div>
-            </div>
-
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Real estate transactions face genuine contingencies. If a transaction falls out of contract during the inspection period, financing contingency, or appraisal shortfall:
-            </p>
-
-            <div className="space-y-3 text-xs">
-              <div className="p-4 bg-[#FE7311]/5 rounded-2xl border border-[#FE7311]/20 space-y-2">
-                <div className="flex items-center space-x-2 text-[#FE7311] font-bold">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>$0 Fee for Cancelled Contract-to-Close Files</span>
-                </div>
-                <p className="text-slate-600 leading-relaxed">
-                  If the contract terminates prior to closing through no fault of the agent, you owe $0 for contract coordination.
-                </p>
-              </div>
-
-              <div className="p-4 bg-[#EEEAEB] rounded-2xl border border-[#D8D2D4] space-y-2">
-                <div className="flex items-center space-x-2 text-[#3A2E29] font-bold">
-                  <FileCheck2 className="w-4 h-4 text-[#0D9BA3]" />
-                  <span>Defensible Audit Trail Handed to Broker</span>
-                </div>
-                <p className="text-slate-600 leading-relaxed">
-                  HTC packages all executed cancellation documents, mutual release of deposit agreements, and chronological communications for your brokerage compliance upload.
-                </p>
-              </div>
-            </div>
-
-            <p className="text-[11px] text-slate-500 leading-relaxed pt-2">
-              <em>Note: Standalone pre-market Listing Launch services or association research add-ons completed prior to listing withdrawal are non-refundable once draft deliverables have been issued.</em>
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 5. APPROVED ADD-ONS MATRIX */}
-      <section className="py-20 bg-white border-y border-[#D8D2D4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <div className="inline-flex items-center space-x-2 bg-[#3A2E29]/10 text-[#3A2E29] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-[#0D9BA3]" />
-              <span>Specialized Coordination Modules</span>
+          {/* Section Eyebrow & Headline */}
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="text-xs font-extrabold uppercase tracking-widest text-[#0D9BA3]">
+              {data.contractToClose.eyebrow}
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif">
-              Approved Add-On Services
+              {data.contractToClose.name}
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Enhance your file with specialized Florida transaction modules when your deal requires extra institutional diligence.
+              {data.contractToClose.description}
+            </p>
+            <p className="text-xs text-slate-500 pt-1">
+              <em>{data.contractToClose.setupNote}</em>
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            
-            {/* Add-On 1 */}
-            <div className="bg-[#EEEAEB] rounded-2xl p-6 border border-[#D8D2D4] shadow-sm hover:shadow-md transition space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-bold">
-                <Building2 className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="font-bold text-base text-[#3A2E29]">HOA & Condo Diligence Add-On</h4>
-                <p className="text-xs text-slate-500 mt-1">For Condos & Mandatory HOA Communities</p>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Active liaison with management companies for estoppel requests, master vs. sub-dues validation, pet/rental rules, and buyer board application packets.
-              </p>
-              <div className="pt-2 border-t border-[#D8D2D4] flex justify-between items-center text-xs">
-                <span className="text-slate-500">Per property file:</span>
-                <span className="font-bold text-[#0D9BA3]">$75 / file</span>
-              </div>
-            </div>
-
-            {/* Add-On 2 */}
-            <div className="bg-[#EEEAEB] rounded-2xl p-6 border border-[#D8D2D4] shadow-sm hover:shadow-md transition space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-[#FE7311]/10 text-[#FE7311] flex items-center justify-center font-bold">
-                <Zap className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="font-bold text-base text-[#3A2E29]">1-Day Rush Listing Launch</h4>
-                <p className="text-xs text-slate-500 mt-1">Expedited MLS Draft Entry</p>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Emergency priority file triage. Complete public records audit, disclosure dispatch, photo sequencing, and MLS draft delivery within 24 business hours.
-              </p>
-              <div className="pt-2 border-t border-[#D8D2D4] flex justify-between items-center text-xs">
-                <span className="text-slate-500">Per rush listing:</span>
-                <span className="font-bold text-[#FE7311]">$100 / listing</span>
-              </div>
-            </div>
-
-            {/* Add-On 3 */}
-            <div className="bg-[#EEEAEB] rounded-2xl p-6 border border-[#D8D2D4] shadow-sm hover:shadow-md transition space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-[#3A2E29]/10 text-[#3A2E29] flex items-center justify-center font-bold">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="font-bold text-base text-[#3A2E29]">FIRPTA & Foreign Seller Module</h4>
-                <p className="text-xs text-slate-500 mt-1">Non-Resident Seller Tax Coordination</p>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Specialized disclosure assembly, title company FIRPTA specialist coordination, and CPA withholding escrow verification for international sellers.
-              </p>
-              <div className="pt-2 border-t border-[#D8D2D4] flex justify-between items-center text-xs">
-                <span className="text-slate-500">Per foreign file:</span>
-                <span className="font-bold text-[#3A2E29]">$125 / file</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 6. NO HIDDEN DISCOUNTS OR CUSTOM PRICING PROMISES */}
-      <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#3A2E29] text-white rounded-3xl p-8 sm:p-12 lg:p-14 border border-white/10 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#0D9BA3]/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="max-w-3xl space-y-4 relative z-10">
-            <div className="inline-flex items-center space-x-2 bg-white/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              <Lock className="w-3.5 h-3.5" />
-              <span>Operational Integrity</span>
-            </div>
-            
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-serif">
-              No Hidden Discounts. No Arbitrary Promises.
-            </h2>
-
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              In real estate operations, cheap often means cutting corners on compliance, ignoring critical contract clauses, or outsourcing sensitive client data overseas. At HTC, our pricing is completely uniform and transparent.
-            </p>
-
-            <div className="grid sm:grid-cols-3 gap-4 pt-4 text-xs text-slate-200">
-              <div className="bg-white/5 border border-white/10 p-4 rounded-xl">
-                <strong className="text-white block mb-1">Equal Standards</strong>
-                <span>Every solo agent receives the exact same meticulous senior coordinator oversight as top-tier producers.</span>
-              </div>
-              <div className="bg-white/5 border border-white/10 p-4 rounded-xl">
-                <strong className="text-white block mb-1">Single Data Truth</strong>
-                <span>All HTC systems and pages pull from one central pricing matrix approved directly by Michelle.</span>
-              </div>
-              <div className="bg-white/5 border border-white/10 p-4 rounded-xl">
-                <strong className="text-white block mb-1">No Bait-and-Switch</strong>
-                <span>Zero sudden price hikes or hidden administrative surcharges on settlement statements.</span>
-              </div>
-            </div>
-
-            <div className="pt-6 flex flex-col sm:flex-row items-center gap-4">
-              <button
-                onClick={onBookCall}
-                className="w-full sm:w-auto px-7 py-3.5 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer shadow-lg"
-              >
-                Schedule 15-Minute Fit Call
-              </button>
-              <button
-                onClick={onOpenWhyHtc}
-                className="w-full sm:w-auto px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer border border-white/20"
-              >
-                Explore Why HTC Wins
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. PRICING FAQ & FINAL CTA */}
-      <section className="py-20 bg-white border-t border-[#D8D2D4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="text-center space-y-3">
-            <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>Got Questions?</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif">
-              Frequently Asked Pricing Questions
-            </h2>
-            <p className="text-slate-600 text-sm">
-              Clear answers regarding payment disbursement, cancellations, and workflow scopes.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {pricingFaqs.map((faq, idx) => (
+          {/* Two Equal Side-by-Side Cards (Base vs Pro) */}
+          <div className="grid md:grid-cols-2 gap-8 items-stretch">
+            {data.contractToClose.plans.map((plan) => (
               <div
-                key={idx}
-                className="bg-[#EEEAEB] rounded-2xl border border-[#D8D2D4] overflow-hidden transition"
+                key={plan.id}
+                className={`rounded-3xl p-8 flex flex-col justify-between transition ${
+                  plan.isPopular
+                    ? 'bg-gradient-to-b from-[#3A2E29] to-[#2B211C] text-white border-2 border-[#FE7311] shadow-xl relative'
+                    : 'bg-[#EEEAEB] border border-[#D8D2D4] shadow-sm text-[#3A2E29]'
+                }`}
               >
-                <button
-                  onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                  className="w-full text-left p-5 font-bold text-sm text-[#3A2E29] flex justify-between items-center cursor-pointer hover:text-[#0D9BA3] transition"
-                >
-                  <span className="pr-4">{faq.q}</span>
-                  {activeFaq === idx ? (
-                    <ChevronUp className="w-5 h-5 text-[#0D9BA3] flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                  )}
-                </button>
-                {activeFaq === idx && (
-                  <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-[#D8D2D4]/50 pt-3">
-                    {faq.a}
+                {plan.badge && (
+                  <div className="absolute -top-3.5 right-6 bg-[#FE7311] text-white text-[11px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
+                    {plan.badge}
                   </div>
                 )}
+
+                <div className="space-y-6">
+                  <div>
+                    <h3 className={`text-2xl font-bold font-serif ${plan.isPopular ? 'text-white' : 'text-[#3A2E29]'}`}>
+                      {plan.name}
+                    </h3>
+                    <p className={`text-xs mt-1 leading-relaxed ${plan.isPopular ? 'text-slate-300' : 'text-slate-600'}`}>
+                      {plan.summary}
+                    </p>
+                  </div>
+
+                  <div className="pb-4 border-b border-current/10">
+                    <div className="flex items-baseline space-x-2">
+                      <span className={`text-4xl sm:text-5xl font-extrabold font-serif ${plan.isPopular ? 'text-white' : 'text-[#3A2E29]'}`}>
+                        {plan.price}
+                      </span>
+                      <span className={`text-xs ${plan.isPopular ? 'text-slate-300' : 'text-slate-500'}`}>
+                        {plan.priceNote}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Feature Checklist */}
+                  <div className="space-y-3">
+                    <div className={`text-xs font-bold uppercase tracking-wider ${plan.isPopular ? 'text-[#0D9BA3]' : 'text-slate-500'}`}>
+                      Plan Highlights:
+                    </div>
+                    <ul className="space-y-2.5 text-xs leading-relaxed">
+                      {plan.features.map((feat, idx) => (
+                        <li key={idx} className="flex items-start space-x-2.5">
+                          <div className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold ${
+                            plan.isPopular
+                              ? 'bg-[#0D9BA3] text-white'
+                              : 'bg-[#0D9BA3]/20 text-[#0D9BA3]'
+                          }`}>
+                            <Check className="w-3 h-3" />
+                          </div>
+                          <span className={plan.isPopular ? 'text-slate-200' : 'text-slate-700'}>
+                            {feat}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="pt-8">
+                  <button
+                    onClick={onSubmitDeal}
+                    className={`w-full py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer shadow-md flex items-center justify-center space-x-2 ${
+                      plan.isPopular
+                        ? 'bg-[#FE7311] hover:bg-[#e06209] text-white'
+                        : 'bg-[#0D9BA3] hover:bg-[#0b868d] text-white'
+                    }`}
+                  >
+                    <span>{plan.ctaText}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+
               </div>
             ))}
           </div>
 
-          {/* Bottom High-Impact CTA */}
-          <div className="bg-[#EEEAEB] rounded-3xl p-8 sm:p-10 border border-[#D8D2D4] text-center space-y-6">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
-              Ready to eliminate administrative drag on your next closing?
-            </h3>
-            <p className="text-slate-600 text-sm max-w-2xl mx-auto leading-relaxed">
-              Book a brief 15-minute fit call to discuss your current pipeline, verify software compatibility, and activate your account.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <button
-                onClick={onBookCall}
-                className="w-full sm:w-auto px-8 py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-lg cursor-pointer"
-              >
-                Book a Fit Call
-              </button>
-              <button
-                onClick={onSubmitDeal}
-                className="w-full sm:w-auto px-7 py-4 bg-[#0D9BA3] hover:bg-[#0b868d] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer"
-              >
-                Submit a Transaction File
-              </button>
+          {/* Additional Contract-to-Close Services (Simple, Non-Cluttered List) */}
+          <div className="pt-4 border-t border-[#D8D2D4] grid sm:grid-cols-2 gap-6 text-xs">
+            {data.contractToClose.additionalServices.map((svc, idx) => (
+              <div key={idx} className="flex justify-between items-start gap-4">
+                <div>
+                  <strong className="text-[#3A2E29] block">{svc.name}</strong>
+                  <span className="text-slate-500">{svc.description}</span>
+                </div>
+                <span className="font-bold text-[#0D9BA3] text-sm flex-shrink-0">
+                  {svc.price}
+                </span>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 4. BROKER COMPLIANCE ONLY (Clean Two-Column Editorial Section | Background: Cream) */}
+      <section
+        id="broker-compliance"
+        className="py-16 lg:py-20 bg-[#EEEAEB] border-b border-[#D8D2D4] scroll-mt-20"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="mb-10 space-y-2">
+            <div className="text-xs font-extrabold uppercase tracking-widest text-[#0D9BA3]">
+              {data.brokerCompliance.eyebrow}
             </div>
-            <p className="text-xs text-slate-500">
-              Or call us directly at <a href={`tel:${PHONE_NUMBER.replace(/\D/g, '')}`} className="font-bold text-[#3A2E29] hover:underline">{PHONE_NUMBER}</a>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#3A2E29] font-serif">
+              {data.brokerCompliance.name}
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl">
+              {data.brokerCompliance.description}
             </p>
+          </div>
+
+          {/* Clean Two-Column Editorial Section */}
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            
+            {/* Left Column: Service Explanation + What We Handle */}
+            <div className="lg:col-span-7 space-y-5">
+              <h3 className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">
+                What We Handle for You:
+              </h3>
+              <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
+                {data.brokerCompliance.whatWeHandle.map((item, idx) => (
+                  <li key={idx} className="flex items-start space-x-3">
+                    <div className="w-5 h-5 rounded-full bg-[#0D9BA3]/15 text-[#0D9BA3] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">
+                      <Check className="w-3.5 h-3.5" />
+                    </div>
+                    <span className="leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right Column: Rental $100 | Contract $195 Clearly Visible (No Comparison Table) */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="space-y-3">
+                {data.brokerCompliance.rates.map((rate, idx) => (
+                  <div
+                    key={idx}
+                    className="p-5 bg-white rounded-2xl border border-[#D8D2D4] shadow-sm flex items-center justify-between gap-4"
+                  >
+                    <div>
+                      <h4 className="font-bold text-sm sm:text-base text-[#3A2E29]">
+                        {rate.type}
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-0.5">
+                        {rate.paymentNote}
+                      </p>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29]">
+                        {rate.price}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-2">
+                <button
+                  onClick={onSubmitDeal}
+                  className="w-full inline-flex items-center justify-center space-x-2 bg-[#0D9BA3] hover:bg-[#0b868d] text-white px-7 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-sm cursor-pointer group"
+                >
+                  <span>{data.brokerCompliance.ctaText}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5. TEAMS + BROKERAGES (Three Simple Service Areas | Background: White) */}
+      <section
+        id="teams-brokerages"
+        className="py-16 lg:py-24 bg-white border-b border-[#D8D2D4] scroll-mt-20"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="text-xs font-extrabold uppercase tracking-widest text-[#0D9BA3]">
+              {data.teamsBrokerages.eyebrow}
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif">
+              {data.teamsBrokerages.name}
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              {data.teamsBrokerages.description}
+            </p>
+          </div>
+
+          {/* Three Simple Service Areas (No Nested Boxes) */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {data.teamsBrokerages.serviceAreas.map((area, idx) => (
+              <div
+                key={idx}
+                className="space-y-3 text-left"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-bold">
+                  {idx === 0 && <ShieldCheck className="w-5 h-5" />}
+                  {idx === 1 && <Layers className="w-5 h-5" />}
+                  {idx === 2 && <Sparkles className="w-5 h-5" />}
+                </div>
+                <h3 className="font-bold text-base text-[#3A2E29] font-serif">
+                  {area.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {area.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTAs: BOOK A FIT CALL & TRAIN YOUR TEAM → */}
+          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={onBookCall}
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-md cursor-pointer"
+            >
+              <PhoneCall className="w-4 h-4" />
+              <span>{data.teamsBrokerages.ctaPrimary}</span>
+            </button>
+
+            {onOpenTcWorkshop ? (
+              <button
+                onClick={onOpenTcWorkshop}
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-white hover:bg-[#EEEAEB] text-[#0D9BA3] border border-[#0D9BA3] px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer group"
+              >
+                <span>{data.teamsBrokerages.ctaSecondary}</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            ) : (
+              <a
+                href="https://www.hometowntc.com/tcworkshop"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-white hover:bg-[#EEEAEB] text-[#0D9BA3] border border-[#0D9BA3] px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer group"
+              >
+                <span>{data.teamsBrokerages.ctaSecondary}</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            )}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 6. SCALE — COMING SOON / WAITLIST (Compact Card | Background: Cream) */}
+      <section
+        id="scale"
+        className="py-16 lg:py-20 bg-[#EEEAEB] border-b border-[#D8D2D4] scroll-mt-20"
+      >
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-gradient-to-br from-[#3A2E29] to-[#201814] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden space-y-5">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-[#FE7311]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#0D9BA3]/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 space-y-3">
+              <div className="inline-flex items-center space-x-2 bg-[#FE7311]/20 text-[#FE7311] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                <Zap className="w-3.5 h-3.5" />
+                <span>{data.scale.eyebrow}</span>
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-serif">
+                {data.scale.headline}
+              </h2>
+
+              <p className="text-slate-200 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
+                {data.scale.description}
+              </p>
+
+              <div className="pt-3 space-y-2">
+                <button
+                  onClick={onBookCall}
+                  className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-8 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-lg cursor-pointer group"
+                >
+                  <span>{data.scale.ctaText}</span>
+                  <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition-transform" />
+                </button>
+                <p className="text-[11px] text-slate-400">
+                  {data.scale.waitlistNote}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FREQUENTLY ASKED QUESTIONS (Accordion Only | Background: White) */}
+      <section
+        id="faq"
+        className="py-16 lg:py-24 bg-white scroll-mt-20"
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="text-center space-y-2">
+            <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>FREQUENTLY ASKED QUESTIONS</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          {/* Clean Accordion (No Giant Cards, No Extra Sales Blocks) */}
+          <div className="space-y-4">
+            {data.faqs.map((faq) => {
+              const isOpen = activeFaq === faq.id;
+              return (
+                <div
+                  key={faq.id}
+                  className="bg-white rounded-2xl border border-[#D8D2D4] overflow-hidden transition shadow-sm"
+                >
+                  <button
+                    onClick={() => setActiveFaq(isOpen ? null : faq.id)}
+                    className="w-full text-left p-5 sm:p-6 font-bold text-sm sm:text-base text-[#3A2E29] flex justify-between items-center cursor-pointer hover:text-[#0D9BA3] transition"
+                  >
+                    <span>{faq.question}</span>
+                    {isOpen ? (
+                      <ChevronUp className="w-5 h-5 text-[#0D9BA3] flex-shrink-0 ml-4" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0 ml-4" />
+                    )}
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-[#D8D2D4] pt-4 space-y-3">
+                      {faq.answerParagraphs.map((para, idx) => (
+                        <p key={idx}>{para}</p>
+                      ))}
+
+                      {/* Payment Timing Breakdown */}
+                      {faq.paymentBreakdown && (
+                        <div className="space-y-1.5 font-medium text-slate-700">
+                          {faq.paymentBreakdown.map((item, idx) => (
+                            <p key={idx}>
+                              <strong>{item.item}:</strong> {item.timing}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Base vs Pro Comparison */}
+                      {faq.baseProBreakdown && (
+                        <div className="space-y-1.5 text-slate-700">
+                          <p><strong>Base:</strong> {faq.baseProBreakdown.base}</p>
+                          <p><strong>Pro:</strong> {faq.baseProBreakdown.pro}</p>
+                        </div>
+                      )}
+
+                      {/* Specific Contextual Links */}
+                      {faq.links && faq.links.length > 0 && (
+                        <div className="pt-2 flex flex-wrap items-center gap-4">
+                          {faq.links.map((link, idx) => {
+                            if (link.action === 'bookCall') {
+                              return (
+                                <button
+                                  key={idx}
+                                  onClick={onBookCall}
+                                  className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#0D9BA3] hover:text-[#0b868d] transition uppercase tracking-wider cursor-pointer"
+                                >
+                                  <span>{link.text}</span>
+                                </button>
+                              );
+                            }
+                            if (link.action === 'roi') {
+                              return (
+                                <button
+                                  key={idx}
+                                  onClick={onOpenRoi}
+                                  className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#0D9BA3] hover:text-[#0b868d] transition cursor-pointer"
+                                >
+                                  <span>{link.text}</span>
+                                </button>
+                              );
+                            }
+                            if (link.action === 'contractToCloseSection') {
+                              return (
+                                <button
+                                  key={idx}
+                                  onClick={() => scrollToSection('contract-to-close')}
+                                  className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#0D9BA3] hover:text-[#0b868d] transition uppercase tracking-wider cursor-pointer"
+                                >
+                                  <span>{link.text}</span>
+                                </button>
+                              );
+                            }
+                            if (link.action === 'tcWorkshop') {
+                              return onOpenTcWorkshop ? (
+                                <button
+                                  key={idx}
+                                  onClick={onOpenTcWorkshop}
+                                  className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#FE7311] hover:text-[#e06209] transition uppercase tracking-wider cursor-pointer"
+                                >
+                                  <span>{link.text}</span>
+                                </button>
+                              ) : (
+                                <a
+                                  key={idx}
+                                  href="https://www.hometowntc.com/tcworkshop"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#FE7311] hover:text-[#e06209] transition uppercase tracking-wider cursor-pointer"
+                                >
+                                  <span>{link.text}</span>
+                                </a>
+                              );
+                            }
+                            return null;
+                          })}
+                        </div>
+                      )}
+
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
         </div>

@@ -25,6 +25,7 @@ interface Props {
   onOpenPricingPlans?: () => void;
   onOpenReviews?: () => void;
   onOpenBlog?: () => void;
+  onOpenTcWorkshop?: () => void;
   language?: Language;
   onLanguageChange?: (lang: Language) => void;
 }
@@ -51,6 +52,7 @@ export const Footer: React.FC<Props> = ({
   onOpenPricingPlans,
   onOpenReviews,
   onOpenBlog,
+  onOpenTcWorkshop,
   language = 'en',
   onLanguageChange
 }) => {

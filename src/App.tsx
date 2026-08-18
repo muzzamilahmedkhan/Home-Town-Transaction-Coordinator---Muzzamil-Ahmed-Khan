@@ -37,6 +37,7 @@ import { SubmitDealPage } from './components/SubmitDealPage';
 import { ReviewsPage } from './components/ReviewsPage';
 import { BlogResourcesPage } from './components/BlogResourcesPage';
 import { BlogPostPage } from './components/BlogPostPage';
+import { TcWorkshopPage } from './components/TcWorkshopPage';
 import { Language } from './types';
 
 export default function App() {
@@ -85,6 +86,7 @@ export default function App() {
   const isBookCallPage = currentPath.includes('book') || currentPath.includes('discovery-call') || currentPath.includes('schedule');
   const isSubmitDealPage = currentPath.includes('submit-deal') || currentPath.includes('submit-a-deal') || currentPath.includes('contract-intake');
   const isReviewsPage = currentPath.includes('reviews') || currentPath.includes('testimonials');
+  const isTcWorkshopPage = currentPath.includes('tcworkshop') || currentPath.includes('workshop') || currentPath.includes('training');
 
   const pathParts = currentPath.split('/').filter(Boolean);
   const isBlogRoute = pathParts[0] === 'blog' || pathParts[0] === 'resources';
@@ -93,7 +95,7 @@ export default function App() {
   const currentPostSlug = isBlogPostPage ? pathParts[1] : '';
 
   const scrollToHomeMethod = () => {
-    if (isCalculatorPage || isHowItWorksPage || isWhyHtcPage || isTransactionCoordinationPage || isContractToClosePage || isRealtorTcPage || isListingCoordinationPage || isPricingPage || isAboutPage || isWhoWeSupportPage || isMiamiTcPage || isMiamiDadeTcPage || isBrowardTcPage || isSouthFloridaTcPage || isFaqPage || isBookCallPage || isSubmitDealPage) {
+    if (isCalculatorPage || isHowItWorksPage || isWhyHtcPage || isTransactionCoordinationPage || isContractToClosePage || isRealtorTcPage || isListingCoordinationPage || isPricingPage || isAboutPage || isWhoWeSupportPage || isMiamiTcPage || isMiamiDadeTcPage || isBrowardTcPage || isSouthFloridaTcPage || isFaqPage || isBookCallPage || isSubmitDealPage || isTcWorkshopPage) {
       navigateTo('/');
       setTimeout(() => {
         const el = document.getElementById('home-method');
@@ -291,6 +293,7 @@ export default function App() {
             onOpenHowItWorks={() => navigateTo('/how-htc-works/')}
             onOpenWhyHtc={() => navigateTo('/why-htc/')}
             onOpenRoi={() => navigateTo('/agent-business-calculator/')}
+            onOpenTcWorkshop={() => navigateTo('/tcworkshop/')}
           />
         ) : isAboutPage ? (
           <AboutMichellePage
@@ -373,6 +376,11 @@ export default function App() {
           <BlogPostPage
             slug={currentPostSlug}
             onBackToBlog={() => navigateTo('/resources/')}
+            onBookCall={() => setBookCallOpen(true)}
+          />
+        ) : isTcWorkshopPage ? (
+          <TcWorkshopPage
+            onGoHome={() => navigateTo('/')}
             onBookCall={() => setBookCallOpen(true)}
           />
         ) : (
@@ -471,6 +479,7 @@ export default function App() {
         onOpenServicesPricing={() => navigateTo('/pricing/')}
         onOpenReviews={() => navigateTo('/reviews/')}
         onOpenBlog={() => navigateTo('/resources/')}
+        onOpenTcWorkshop={() => navigateTo('/tcworkshop/')}
         language={language}
         onLanguageChange={setLanguage}
       />
