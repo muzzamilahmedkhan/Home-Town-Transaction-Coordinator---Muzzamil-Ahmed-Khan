@@ -62,9 +62,10 @@ export const TcWorkshopPage: React.FC<Props> = ({ onGoHome, onBookCall }) => {
     }
   ];
 
+  const ENROLLMENT_PAYMENT_URL = 'https://secure.usaepay.com/pay/0nkt6v4kqyg0px983/ywd1OwM8';
+
   const handleEnrollClick = () => {
-    // Open the official workshop URL or booking/checkout flow
-    window.open('https://www.hometowntc.com/tcworkshop', '_blank');
+    window.open(ENROLLMENT_PAYMENT_URL, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -110,13 +111,15 @@ export const TcWorkshopPage: React.FC<Props> = ({ onGoHome, onBookCall }) => {
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={handleEnrollClick}
+            <a
+              href={ENROLLMENT_PAYMENT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider transition shadow-xl cursor-pointer group"
             >
               <span>Get Instant Access — $297</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
             <button
               onClick={onBookCall}
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-4 rounded-xl font-bold text-sm tracking-wide transition cursor-pointer"
@@ -547,12 +550,15 @@ export const TcWorkshopPage: React.FC<Props> = ({ onGoHome, onBookCall }) => {
           </div>
 
           <div className="pt-2">
-            <button
-              onClick={handleEnrollClick}
+            <a
+              href={ENROLLMENT_PAYMENT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-10 py-5 rounded-xl font-bold text-sm uppercase tracking-wider transition shadow-xl cursor-pointer group"
             >
-              <span>Get Instant Access →</span>
-            </button>
+              <span>Get Instant Access — $297</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
 
           {/* Guarantee */}
