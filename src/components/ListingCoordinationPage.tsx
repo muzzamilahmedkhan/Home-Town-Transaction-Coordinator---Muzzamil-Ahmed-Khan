@@ -119,7 +119,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                   className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
                 >
                   <PhoneCall className="w-4 h-4" />
-                  <span>Book a Discovery Call</span>
+                  <span>Book a Fit Call</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </button>
                 <button
@@ -674,7 +674,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                   onClick={onBookCall}
                   className="inline-flex items-center space-x-2 text-xs font-bold text-[#0D9BA3] hover:text-[#3A2E29] transition uppercase tracking-wider cursor-pointer"
                 >
-                  <span>Ask about HOA Research on your Discovery Call</span>
+                  <span>Ask about HOA Research on your fit call</span>
                   <ArrowRight className="w-3.5 h-3.5 ml-1" />
                 </button>
               </div>
@@ -878,7 +878,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                 </div>
                 <div className="text-3xl font-black font-serif">$475 <span className="text-xs text-slate-300 font-sans font-normal">/ per closed file</span></div>
                 <p className="text-xs text-slate-200">
-                  Combines full pre-listing Listing Launch with end-to-end Contract-to-Close coordination. Zero upfront retainers.
+                  Combines full pre-listing Listing Launch with end-to-end Contract-to-Close coordination. Zero
                 </p>
                 <div className="space-y-2 text-xs text-slate-300 pt-2">
                   <div className="flex items-center space-x-2">
@@ -971,7 +971,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
           </h2>
 
           <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Schedule a 15-minute discovery call to set up your agent profile, define your preferred MLS boards, and submit your first listing file today.
+            Schedule a 15-minute fit call to set up your agent profile, define your preferred MLS boards, and submit your first listing file today.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -980,7 +980,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Book a Discovery Call</span>
+              <span>Book a Fit Call</span>
               <ArrowRight className="w-4 h-4 ml-1" />
             </button>
             <button

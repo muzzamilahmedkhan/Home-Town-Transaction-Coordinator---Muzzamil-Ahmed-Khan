@@ -253,7 +253,7 @@ export const FaqPage: React.FC<Props> = ({
       title: 'Cancellation Policy & Onboarding',
       shortLabel: 'Cancellation & Onboarding',
       icon: Clock,
-      description: 'Zero-risk, performance-based pricing: no upfront retainer, no monthly fees, and $0 owed if a contract cancels.',
+      description: 'Zero-risk, performance-based pricing: no
       items: [
         {
           id: 'cancel-1',
@@ -263,7 +263,7 @@ export const FaqPage: React.FC<Props> = ({
           answer: (
             <div className="space-y-3">
               <p>
-                <strong>You pay $0.</strong> Hometown TC operates on a strict <strong>Pay-at-Closing</strong> philosophy. If a deal cancels during the inspection period, financing contingency, appraisal gap, or condo document review, you owe nothing for our coordination work.
+                <strong>You pay $0.</strong> Hometown TC operates on a strict <strong></strong> philosophy. If a deal cancels during the inspection period, financing contingency, appraisal gap, or condo document review, you owe nothing for our coordination work.
               </p>
               <p>
                 We also draft or distribute the formal Termination and Escrow Release (Release of Deposit) addenda to ensure your buyer's earnest money is returned promptly and your broker file is marked cancelled cleanly.
@@ -274,11 +274,11 @@ export const FaqPage: React.FC<Props> = ({
         {
           id: 'cancel-2',
           section: 'cancellation-onboarding',
-          question: 'Is there an upfront onboarding fee, retainer, or monthly subscription?',
+          question: 'Is there an
           tags: ['onboarding fee', 'retainer', 'subscription', 'monthly cost'],
           answer: (
             <p>
-              <strong>No.</strong> There are zero setup fees, zero monthly retainers, and zero minimum transaction quotas. You only pay our flat fee upon the successful closing of your transaction directly through the Settlement Statement (CD/ALTA) or prompt invoice.
+              <strong>No.</strong> There are 
             </p>
           )
         }
@@ -429,7 +429,7 @@ export const FaqPage: React.FC<Props> = ({
           tags: ['hours', 'response time', 'weekends', 'availability'],
           answer: (
             <p>
-              Our primary operational hours are <strong>Monday through Friday, 8:30 AM to 6:00 PM EST</strong>. Urgent milestone issues (such as same-day inspection deadline extensions or escrow receipt notices) are prioritized promptly. We maintain a standard 2-hour business response window for all agent inquiries.
+              Our primary operational hours are <strong>Monday through Friday, 8:30 AM to 6:00 PM EST</strong>. Urgent milestone issues (such as same-day inspection deadline extensions or escrow receipt notices) are prioritized promptly. We prioritize prompt responses to all agent inquiries during business hours.
             </p>
           )
         }
@@ -516,7 +516,7 @@ export const FaqPage: React.FC<Props> = ({
           "@type": "Answer",
           "text": typeof item.answer === 'string'
             ? item.answer
-            : `Hometown TC provides comprehensive transaction coordination for Florida licensed agents. Contact us at ${PHONE_NUMBER} or ${EMAIL_ADDRESS} for direct details.`
+            : `Hometown TC provides comprehensive transaction coordination for Florida agents. Contact us at ${PHONE_NUMBER} or ${EMAIL_ADDRESS} for direct details.`
         }
       }))
     )
@@ -587,7 +587,7 @@ export const FaqPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-xl hover:shadow-[#FE7311]/25 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Discovery Call</span>
+                <span>Book a Fit Call</span>
               </button>
               <button
                 onClick={onSubmitDeal}
@@ -830,7 +830,7 @@ export const FaqPage: React.FC<Props> = ({
                 className="w-full sm:w-auto px-8 py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-xl hover:shadow-[#FE7311]/25 cursor-pointer flex items-center justify-center space-x-2"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Discovery Call</span>
+                <span>Book a Fit Call</span>
               </button>
               <button
                 onClick={onSubmitDeal}

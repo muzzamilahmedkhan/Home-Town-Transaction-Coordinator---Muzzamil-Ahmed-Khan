@@ -112,7 +112,7 @@ export const PricingPlansPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Discovery Call</span>
+                <span>Book a Fit Call</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
               <button
@@ -470,7 +470,7 @@ export const PricingPlansPage: React.FC<Props> = ({
                   3
                 </div>
                 <div>
-                  <strong className="text-[#3A2E29]">Submit Portal Activation:</strong> You receive an active client portal login to submit new contracts 24/7 with guaranteed immediate triage.
+                  <strong className="text-[#3A2E29]">Submit Portal Activation:</strong> You receive an active client portal login to submit new contracts 24/7 with 
                 </div>
               </div>
             </div>
@@ -575,7 +575,7 @@ export const PricingPlansPage: React.FC<Props> = ({
               </div>
               <div>
                 <h4 className="font-bold text-base text-[#3A2E29]">1-Day Rush Listing Launch</h4>
-                <p className="text-xs text-slate-500 mt-1">24-Hour Expedited MLS Draft Entry</p>
+                <p className="text-xs text-slate-500 mt-1">Expedited MLS Draft Entry</p>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Emergency priority file triage. Complete public records audit, disclosure dispatch, photo sequencing, and MLS draft delivery within 24 business hours.
@@ -647,7 +647,7 @@ export const PricingPlansPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-7 py-3.5 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer shadow-lg"
               >
-                Schedule 15-Minute Intro Call
+                Schedule 15-Minute Fit Call
               </button>
               <button
                 onClick={onOpenWhyHtc}
@@ -709,14 +709,14 @@ export const PricingPlansPage: React.FC<Props> = ({
               Ready to eliminate administrative drag on your next closing?
             </h3>
             <p className="text-slate-600 text-sm max-w-2xl mx-auto leading-relaxed">
-              Book a brief 15-minute Discovery Call to discuss your current pipeline, verify software compatibility, and activate your account.
+              Book a brief 15-minute fit call to discuss your current pipeline, verify software compatibility, and activate your account.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <button
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-8 py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-lg cursor-pointer"
               >
-                Book a Discovery Call
+                Book a Fit Call
               </button>
               <button
                 onClick={onSubmitDeal}

@@ -184,7 +184,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
             onClick={onBookCall}
             className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-wider shadow-xl transition inline-flex items-center space-x-2 cursor-pointer"
           >
-            <span>Book Your Discovery Call</span>
+            <span>Book Your Fit Call</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

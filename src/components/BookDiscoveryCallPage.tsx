@@ -91,16 +91,16 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
   // Structured Content for the mandated sections
   const whoTheCallIsFor = [
     {
-      title: 'Active Florida Licensed Agents & Teams',
+      title: 'Active Florida Agents & Teams',
       desc: 'Realtors® currently closing 1–8+ deals per month who are spending 10–18 hours per transaction on back-office paperwork, escrow chasing, and compliance audits.'
     },
     {
       title: 'Top Producers & Team Leaders',
-      desc: 'Producing agents looking to standardize contract-to-close workflows across their team with predictable pay-at-closing billing ($375 / $475) and zero payroll overhead.'
+      desc: 'Producing agents looking to standardize contract-to-close workflows across their team with predictable 
     },
     {
       title: 'Agents Ready to Scale Production',
-      desc: 'Agents who want to free up 15+ hours per transaction to spend on lead generation, client showings, and negotiating contracts rather than tracking inspection dates.'
+      desc: 'Agents who want to free up substantial time per file
     }
   ];
 
@@ -161,12 +161,12 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
   const bookingSchemaData = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Book a Transaction Coordinator Discovery Call - Hometown TC",
+    "name": "Book a Transaction Coordinator fit call - Hometown TC",
     "description": "Schedule a focused 15-minute discovery consultation with Michelle Martinez, Founder of Hometown TC, to evaluate transaction coordinator support for your Florida real estate business.",
     "url": "https://hometowntc.com/book-discovery-call/",
     "mainEntity": {
       "@type": "Service",
-      "name": "Real Estate Transaction Coordinator Discovery Call",
+      "name": "Real Estate Transaction Coordinator fit call",
       "provider": {
         "@type": "ProfessionalService",
         "name": "Hometown Transaction Coordinators",
@@ -200,7 +200,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
           <div className="flex items-center space-x-2 text-xs font-semibold text-[#0D9BA3] tracking-widest uppercase mb-4">
             <button onClick={onGoHome} className="hover:text-white transition cursor-pointer">Home</button>
             <span>/</span>
-            <span className="text-white">Book a Discovery Call</span>
+            <span className="text-white">Book a Fit Call</span>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -214,7 +214,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight font-serif">
                 Book a 15-Minute <br />
-                <span className="text-[#0D9BA3]">Discovery Call</span>
+                <span className="text-[#0D9BA3]">fit call</span>
               </h1>
 
               <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-light">
@@ -240,9 +240,9 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
                 <div className="bg-white/5 rounded-xl p-3.5 border border-white/10">
                   <div className="flex items-center space-x-2 text-xs font-bold text-white">
                     <CheckCircle2 className="w-4 h-4 text-[#0D9BA3]" />
-                    <span>Pay-at-Closing</span>
+                    <span></span>
                   </div>
-                  <p className="text-[11px] text-slate-300 mt-1">$0 upfront, $0 if deal cancels</p>
+                  <p className="text-[11px] text-slate-300 mt-1">$0</p>
                 </div>
                 <div className="bg-white/5 rounded-xl p-3.5 border border-white/10">
                   <div className="flex items-center space-x-2 text-xs font-bold text-white">
@@ -488,7 +488,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
                   <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h4 className="text-xl font-bold text-[#3A2E29] font-serif">Discovery Call Confirmed!</h4>
+                  <h4 className="text-xl font-bold text-[#3A2E29] font-serif">fit call Confirmed!</h4>
                   <p className="text-xs text-slate-600 max-w-sm mx-auto leading-relaxed">
                     Thank you, <strong>{formData.fullName || 'Agent'}</strong>. A calendar invite and Google Meet link have been dispatched for <strong>{selectedDate} at {selectedTime}</strong>.
                   </p>
@@ -532,7 +532,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
             <span>Section 01</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
-            Who the Discovery Call Is For
+            Who the fit call Is For
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             This call is designed specifically for licensed Florida real estate professionals seeking scalable back-office support.

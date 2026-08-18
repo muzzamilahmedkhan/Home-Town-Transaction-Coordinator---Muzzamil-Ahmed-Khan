@@ -185,7 +185,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
     },
     {
       q: 'What happens if a contract terminates during the inspection period?',
-      a: 'Because our contract-to-close services operate strictly on a pay-at-closing model ($375 Base / $475 Pro), you pay $0 if a transaction cancels prior to closing through no fault of your own. We archive the cancellation addendum, release of escrow, and compliance record for your brokerage files at no charge.'
+      a: 'Because our contract-to-close services operate strictly on a 
     },
     {
       q: 'Do you work directly with my broker compliance portal?',
@@ -268,7 +268,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-bold text-[#3A2E29]">
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Complete FAR/BAR Rider Audit</span>
-              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Pay-at-Closing Pricing ($375 / $475)</span>
+              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ </span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Zero Retainers • $0 Fee if File Cancels</span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Broker Compliance Portal Integration</span>
             </div>
@@ -514,7 +514,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
               <DollarSign className="w-3.5 h-3.5" />
-              <span>Transparent Pay-at-Closing Pricing</span>
+              <span>Transparent </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif leading-tight">
               Choose Your Contract-to-Close Package
@@ -693,7 +693,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
             </h2>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              Submit your next executed agreement or book a discovery call to see how our proven H.O.M.E. Close Method™ protects your time, eliminates compliance stress, and speeds up your commission disbursement.
+              Submit your next executed agreement or Book a Fit Call to see how our proven H.O.M.E. Close Method™ protects your time, eliminates compliance stress, and speeds up your commission disbursement.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -713,7 +713,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer border border-white/20"
               >
-                Book a Discovery Call
+                Book a Fit Call
               </button>
             </div>
 

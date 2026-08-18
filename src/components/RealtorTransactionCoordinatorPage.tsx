@@ -210,7 +210,7 @@ export const RealtorTransactionCoordinatorPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Discovery Call</span>
+                <span>Book a Fit Call</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
               <button
@@ -481,7 +481,7 @@ export const RealtorTransactionCoordinatorPage: React.FC<Props> = ({
                 </li>
                 <li className="flex items-start space-x-2">
                   <span className="text-[#0D9BA3] font-bold">•</span>
-                  <span>You want a reliable, pay-at-closing coordinator without paying a fixed $50k+ salary.</span>
+                  <span>You want a reliable, </span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <span className="text-[#0D9BA3] font-bold">•</span>
@@ -559,7 +559,7 @@ export const RealtorTransactionCoordinatorPage: React.FC<Props> = ({
             </h2>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              Book a 15-minute discovery call with Michelle Martinez to review your transaction pipeline, broker portal setup, and how our pay-at-closing model delivers immediate operational leverage.
+              Book a 15-Minute Fit Call with Michelle Martinez to review your transaction pipeline, broker portal setup, and how our 
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -567,7 +567,7 @@ export const RealtorTransactionCoordinatorPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-8 py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-xl hover:shadow-[#FE7311]/25 cursor-pointer"
               >
-                Book a Discovery Call
+                Book a Fit Call
               </button>
               <button
                 onClick={onSubmitDeal}

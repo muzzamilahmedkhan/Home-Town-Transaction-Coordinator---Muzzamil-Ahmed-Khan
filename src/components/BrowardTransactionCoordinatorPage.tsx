@@ -93,7 +93,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Broward Discovery Call</span>
+                <span>Book a Broward Fit Call</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
               <button
@@ -333,7 +333,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
               </div>
 
               <div className="p-4 bg-white rounded-xl border border-[#D8D2D4] shadow-sm space-y-1">
-                <strong className="text-[#3A2E29] block">100% Audit-Ready Broker Compliance:</strong>
+                <strong className="text-[#3A2E29] block">audit-ready</strong>
                 <span>Every required Florida DBPR disclosure, energy efficiency brochure, lead-based paint form, and wire fraud advisory verified before closing.</span>
               </div>
             </div>
@@ -442,7 +442,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
             </h2>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              Schedule a 15-minute discovery call to discuss your file intake process, brokerage requirements, and how we can support your upcoming deals.
+              Schedule a 15-minute fit call to discuss your file intake process, brokerage requirements, and how we can support your upcoming deals.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -450,7 +450,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-8 py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-xl hover:shadow-[#FE7311]/25 cursor-pointer"
               >
-                Book a Broward Discovery Call
+                Book a Broward Fit Call
               </button>
               <button
                 onClick={onSubmitDeal}

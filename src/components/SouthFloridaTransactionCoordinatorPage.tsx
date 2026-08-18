@@ -93,7 +93,7 @@ export const SouthFloridaTransactionCoordinatorPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Discovery Call</span>
+                <span>Book a Fit Call</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
               <button
@@ -150,7 +150,7 @@ export const SouthFloridaTransactionCoordinatorPage: React.FC<Props> = ({
               South Florida Counties & Scalable Transaction Support
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              We provide frictionless contract execution across South Florida's major counties, pairing regional market expertise with a straightforward, pay-at-closing model.
+              We provide frictionless contract execution across South Florida's major counties, pairing regional market expertise with a straightforward, 
             </p>
           </div>
 
@@ -391,7 +391,7 @@ export const SouthFloridaTransactionCoordinatorPage: React.FC<Props> = ({
                   onClick={onBookCall}
                   className="w-full py-3.5 bg-[#FE7311] hover:bg-[#e06209] text-white rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer shadow-md"
                 >
-                  Book a Regional Discovery Call
+                  Book a Regional fit call
                 </button>
               </div>
             </div>
@@ -521,7 +521,7 @@ export const SouthFloridaTransactionCoordinatorPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-8 py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-xl hover:shadow-[#FE7311]/25 cursor-pointer"
               >
-                Book a Discovery Call
+                Book a Fit Call
               </button>
               <button
                 onClick={onSubmitDeal}

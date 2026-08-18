@@ -1300,7 +1300,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                   a: 'The in-house model considers base employee compensation, standard payroll taxes and benefits (~20%), software licenses, desk space, and management time. The HTC Agency model calculates cost purely based on your annual closed sides multiplied by our centralized transaction coordination rates.'
                 },
                 {
-                  q: 'Does using HTC require any upfront retainers or fixed monthly fees?',
+                  q: 'Does using HTC require any
                   a: 'Standard Contract-to-Close coordination is billed upon successful transaction closing. There are no monthly retainers or setup fees for standard agent accounts.'
                 },
                 {

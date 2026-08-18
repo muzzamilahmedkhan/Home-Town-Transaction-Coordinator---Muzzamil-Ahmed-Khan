@@ -240,7 +240,7 @@ export const HowHtcWorksPage: React.FC<Props> = ({
                 className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition inline-flex items-center space-x-2.5 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Discovery Call</span>
+                <span>Book a Fit Call</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -269,7 +269,7 @@ export const HowHtcWorksPage: React.FC<Props> = ({
               <div className="text-slate-300 font-medium">Florida FAR/BAR Contract Alignment</div>
             </div>
             <div className="space-y-1">
-              <div className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#FE7311]">$0 Upfront</div>
+              <div className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#FE7311]">$0</div>
               <div className="text-slate-300 font-medium">Paid at Closing Table (Contract)</div>
             </div>
           </div>
@@ -700,7 +700,7 @@ export const HowHtcWorksPage: React.FC<Props> = ({
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
-            Book a 15-minute Discovery Call to discuss your current volume, walk through our intake system, or submit your next executed file directly.
+            Book a 15-Minute Fit Call to discuss your current volume, walk through our intake system, or submit your next executed file directly.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -709,7 +709,7 @@ export const HowHtcWorksPage: React.FC<Props> = ({
               className="w-full sm:w-auto bg-[#FE7311] hover:bg-[#e05f03] text-white px-9 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-2xl hover:shadow-orange-500/20 transition flex items-center justify-center space-x-2.5 cursor-pointer"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Book a Discovery Call</span>
+              <span>Book a Fit Call</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 

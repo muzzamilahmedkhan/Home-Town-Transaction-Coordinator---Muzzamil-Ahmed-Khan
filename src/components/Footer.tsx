@@ -23,8 +23,6 @@ interface Props {
   onOpenTransactionCoordination?: () => void;
   onOpenListingCoordination?: () => void;
   onOpenPricingPlans?: () => void;
-  onOpenReviews?: () => void;
-  onOpenBlog?: () => void;
   language?: Language;
   onLanguageChange?: (lang: Language) => void;
 }
@@ -49,8 +47,6 @@ export const Footer: React.FC<Props> = ({
   onOpenTransactionCoordination,
   onOpenListingCoordination,
   onOpenPricingPlans,
-  onOpenReviews,
-  onOpenBlog,
   language = 'en',
   onLanguageChange
 }) => {
@@ -95,84 +91,142 @@ export const Footer: React.FC<Props> = ({
                 <span>Always forward. →</span>
               </div>
             </div>
-            
-            <div className="pt-4 space-y-2">
-              <div className="flex items-center space-x-2">
-                <Phone className="w-3.5 h-3.5 text-[#FE7311] flex-shrink-0" />
-                <a href={`tel:${PHONE_NUMBER.replace(/[^0-9]/g, '')}`} className="hover:text-white font-semibold transition">
-                  {PHONE_NUMBER}
-                </a>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-3.5 h-3.5 text-[#FE7311] flex-shrink-0" />
-                <a href={`mailto:${EMAIL_ADDRESS}`} className="hover:text-white transition truncate">
-                  {EMAIL_ADDRESS}
-                </a>
-              </div>
-            </div>
           </div>
 
           {/* Column 1: Services */}
           <div className="lg:col-span-2 space-y-3">
-            <div className="font-montserrat font-extrabold text-[#0D9BA3] text-xs uppercase tracking-wider">
+            <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
               Services
             </div>
             <ul className="space-y-2 text-slate-300 font-medium text-xs">
-              <li><button onClick={onOpenTransactionCoordination || onOpenServicesPricing} className="hover:text-white transition text-left">Transaction Coordination</button></li>
-              <li><button onClick={onOpenListingCoordination || onOpenServicesPricing} className="hover:text-white transition text-left">Listing Coordination</button></li>
-              <li><button onClick={onOpenContractToClose || onOpenServicesPricing} className="hover:text-white transition text-left">Contract-to-Close Services</button></li>
-              <li className="pt-2 pb-1 text-[#FE7311] font-bold text-[10px] uppercase tracking-widest">For Realtors</li>
-              <li><button onClick={onOpenWhoWeSupport} className="hover:text-white transition text-left">Who We Support</button></li>
-              <li><button onClick={onOpenRealtorTc || onOpenServicesPricing} className="hover:text-white transition text-left">TC for Licensed Realtors®</button></li>
+              <li>
+                <button
+                  onClick={() => {
+                    if (onOpenPricingPlans) {
+                      onOpenPricingPlans();
+                    } else if (onOpenServicesPricing) {
+                      onOpenServicesPricing();
+                    }
+                  }}
+                  className="hover:text-white transition cursor-pointer text-left"
+                >
+                  Plans & Pricing
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    if (onOpenHowItWorks) {
+                      onOpenHowItWorks();
+                    } else {
+                      scrollToSection('home-method');
+                    }
+                  }}
+                  className="hover:text-white transition cursor-pointer text-left"
+                >
+                  How HTC Works
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Column 2: Florida */}
+          {/* Column 2: Company */}
           <div className="lg:col-span-2 space-y-3">
-            <div className="font-montserrat font-extrabold text-[#0D9BA3] text-xs uppercase tracking-wider">
-              Florida Areas
-            </div>
-            <ul className="space-y-2 text-slate-300 font-medium text-xs">
-              <li><button onClick={onOpenMiamiTc} className="hover:text-white transition text-left">Miami TC</button></li>
-              <li><button onClick={onOpenMiamiDadeTc} className="hover:text-white transition text-left">Miami-Dade County TC</button></li>
-              <li><button onClick={onOpenBrowardTc} className="hover:text-white transition text-left">Broward County TC</button></li>
-              <li><button onClick={onOpenSouthFloridaTc} className="hover:text-white transition text-left">South Florida TC</button></li>
-            </ul>
-          </div>
-
-          {/* Column 3: Company */}
-          <div className="lg:col-span-2 space-y-3">
-            <div className="font-montserrat font-extrabold text-[#0D9BA3] text-xs uppercase tracking-wider">
+            <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
               Company
             </div>
             <ul className="space-y-2 text-slate-300 font-medium text-xs">
-              <li><button onClick={onOpenPricingPlans || onOpenServicesPricing} className="hover:text-white transition text-left text-white font-bold">Pricing / Plans</button></li>
-              <li><button onClick={() => onOpenHowItWorks ? onOpenHowItWorks() : scrollToSection('home-method')} className="hover:text-white transition text-left">How HTC Works</button></li>
-              <li><button onClick={() => onOpenWhyHtc ? onOpenWhyHtc() : scrollToSection('choose-path')} className="hover:text-white transition text-left">Why HTC</button></li>
-              <li><button onClick={() => onOpenAbout ? onOpenAbout() : scrollToSection('michelle')} className="hover:text-white transition text-left">Meet The Team</button></li>
+              <li>
+                <button
+                  onClick={() => {
+                    if (onOpenWhyHtc) {
+                      onOpenWhyHtc();
+                    } else {
+                      scrollToSection('choose-path');
+                    }
+                  }}
+                  className="hover:text-white transition cursor-pointer text-left"
+                >
+                  Why HTC
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={onOpenAbout}
+                  className="hover:text-white transition cursor-pointer text-left"
+                >
+                  About HTC
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection('michelle')}
+                  className="hover:text-white transition cursor-pointer text-left"
+                >
+                  Meet the Team
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={onOpenRoi}
+                  className="hover:text-white transition cursor-pointer text-left"
+                >
+                  Resources
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Column 4: Resources & Booking */}
+          {/* Column 3: Client */}
           <div className="lg:col-span-2 space-y-3">
-            <div className="font-montserrat font-extrabold text-[#0D9BA3] text-xs uppercase tracking-wider">
-              Resources
+            <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
+              Client
             </div>
             <ul className="space-y-2 text-slate-300 font-medium text-xs">
-              <li><button onClick={onOpenFaq} className="hover:text-white transition text-left">FAQs</button></li>
-              <li><button onClick={onOpenReviews} className="hover:text-white transition text-left">Reviews / Testimonials</button></li>
-              <li><button onClick={onOpenBlog} className="hover:text-white transition text-left">Blog / Resources</button></li>
-              <li><button onClick={onOpenRoi} className="hover:text-white transition text-left">Agent Business Calculator</button></li>
+              <li>
+                <button
+                  onClick={onSubmitDeal}
+                  className="hover:text-white transition cursor-pointer text-left text-[#FE7311] font-bold"
+                >
+                  Submit a New deal
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onLanguageChange && onLanguageChange(language === 'en' ? 'es' : 'en')}
+                  className="hover:text-white transition cursor-pointer text-left text-slate-300 font-medium"
+                >
+                  {language === 'es' ? 'English' : 'Español'}
+                </button>
+              </li>
             </ul>
-            
-            <div className="pt-4 space-y-2">
-              <button onClick={onOpenBookCallPage || onBookCall} className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white px-3 py-2 rounded-lg font-bold text-[11px] uppercase tracking-wider transition text-center shadow">
-                Book Discovery Call
-              </button>
-              <button onClick={onSubmitDeal} className="w-full bg-white text-[#FE7311] hover:bg-slate-100 px-3 py-2 rounded-lg font-bold text-[11px] uppercase tracking-wider transition text-center">
-                Submit a Deal
-              </button>
+          </div>
+
+          {/* Column 4: Contact */}
+          <div className="lg:col-span-2 space-y-3">
+            <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
+              Contact
             </div>
+            <ul className="space-y-2.5 text-slate-300 font-medium text-xs">
+              <li className="flex items-center space-x-2">
+                <Phone className="w-3.5 h-3.5 text-[#FE7311] flex-shrink-0" />
+                <a
+                  href={`tel:${PHONE_NUMBER.replace(/[^0-9]/g, '')}`}
+                  className="hover:text-white font-semibold transition"
+                >
+                  {PHONE_NUMBER}
+                </a>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Mail className="w-3.5 h-3.5 text-[#FE7311] flex-shrink-0" />
+                <a
+                  href={`mailto:${EMAIL_ADDRESS}`}
+                  className="hover:text-white transition truncate"
+                >
+                  {EMAIL_ADDRESS}
+                </a>
+              </li>
+            </ul>
           </div>
 
         </div>
@@ -191,3 +245,5 @@ export const Footer: React.FC<Props> = ({
     </footer>
   );
 };
+
+

@@ -70,7 +70,7 @@ export const WhyHtcPage: React.FC<Props> = ({
       freelancer: 'Basic doc checklist upload',
       overseasVA: 'Prone to upload errors & missed initials',
       inexperiencedTC: 'Reactive to broker rejections',
-      htc: '100% audit-ready files organized to your specific brokerage portal standards',
+      htc: 'audit-ready
       htcAdvantage: true
     },
     {
@@ -91,10 +91,10 @@ export const WhyHtcPage: React.FC<Props> = ({
     },
     {
       feature: 'Pricing & Accountability Model',
-      freelancer: 'Hourly or upfront retainers',
+      freelancer: 'Hourly or
       overseasVA: 'Monthly subscriptions regardless of volume',
       inexperiencedTC: 'Inconsistent billing terms',
-      htc: 'Performance-aligned: $0 upfront, billed only upon successful closing',
+      htc: 'Performance-aligned: $0
       htcAdvantage: true
     }
   ];
@@ -206,7 +206,7 @@ export const WhyHtcPage: React.FC<Props> = ({
                 className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition inline-flex items-center space-x-2.5 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Discovery Call</span>
+                <span>Book a Fit Call</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -368,7 +368,7 @@ export const WhyHtcPage: React.FC<Props> = ({
 
                 <div className="space-y-4 text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
                   <p>
-                    Michelle Martinez started supporting Florida real estate professionals in 1995. Over three decades of market cycles — through the dot-com shifts, the 2008 financial crisis, the post-pandemic market acceleration, and the modern digital transaction era — Michelle observed a persistent pain point: top-producing Florida Realtors spending 40% of their workday bogged down in administrative tasks, missing initials, chasing earnest money, and battling compliance portals.
+                    Michelle Martinez started supporting Florida real estate professionals in 1995. Over three decades of market cycles — through the dot-com shifts, the 2008 financial crisis, the post-pandemic market acceleration, and the modern digital transaction era — Michelle observed a persistent pain point: top-producing Florida Realtors spending 
                   </p>
                   <p>
                     In 2018, Hometown Transaction Coordinators was founded as a dedicated boutique agency to solve this problem permanently. Instead of an isolated freelancer with zero backup or an overseas assistant unfamiliar with Florida laws, HTC was engineered with proven checklists, structured team redundancies, and the proprietary H.O.M.E. Close Method™.
@@ -382,7 +382,7 @@ export const WhyHtcPage: React.FC<Props> = ({
                   </div>
                   <div className="p-3 bg-black/30 rounded-xl border border-white/10">
                     <div className="font-extrabold text-[#0D9BA3] text-base">Agency Model</div>
-                    <div className="text-slate-400">Zero Single-Point Failure</div>
+                    <div className="text-slate-400">redundant oversight</div>
                   </div>
                   <div className="p-3 bg-black/30 rounded-xl border border-white/10">
                     <div className="font-extrabold text-[#FE7311] text-base">100% Focused</div>
@@ -473,7 +473,7 @@ export const WhyHtcPage: React.FC<Props> = ({
                 </div>
                 <div className="flex items-start space-x-3 text-xs sm:text-sm font-semibold text-[#3A2E29]">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
-                  <span>Zero Single-Point Failure: Complete cloud repository accessible to your dedicated team.</span>
+                  <span>redundant oversight</span>
                 </div>
               </div>
             </div>
@@ -792,7 +792,7 @@ export const WhyHtcPage: React.FC<Props> = ({
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
-            Schedule a 15-minute Discovery Call to discuss your transaction volume, or submit your next executed Florida contract directly to our team.
+            Schedule a 15-minute fit call to discuss your transaction volume, or submit your next executed Florida contract directly to our team.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -801,7 +801,7 @@ export const WhyHtcPage: React.FC<Props> = ({
               className="w-full sm:w-auto bg-[#FE7311] hover:bg-[#e05f03] text-white px-9 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-2xl hover:shadow-orange-500/20 transition flex items-center justify-center space-x-2.5 cursor-pointer"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Book a Discovery Call</span>
+              <span>Book a Fit Call</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 

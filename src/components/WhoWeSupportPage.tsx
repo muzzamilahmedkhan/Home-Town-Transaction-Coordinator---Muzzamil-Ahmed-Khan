@@ -100,7 +100,7 @@ export const WhoWeSupportPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-4 rounded-xl font-bold text-sm tracking-wide transition cursor-pointer backdrop-blur-sm"
               >
                 <PhoneCall className="w-4 h-4 text-[#0D9BA3]" />
-                <span>Schedule a Discovery Call</span>
+                <span>Schedule a Fit Call</span>
               </button>
             </div>
           </div>
@@ -591,13 +591,13 @@ export const WhoWeSupportPage: React.FC<Props> = ({
               </div>
               <div>
                 <h3 className="text-lg font-bold text-[#3A2E29]">Broker Audit Protection</h3>
-                <span className="text-xs text-slate-500">Airtight records from Day 1 to Archive</span>
+                <span className="text-xs text-slate-500">thorough</span>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4 text-xs">
               <div className="p-4 bg-[#EEEAEB] rounded-xl space-y-1">
-                <strong className="text-[#3A2E29] block">Zero Missing Initials</strong>
+                <strong className="text-[#3A2E29] block">Thorough Signature Tracking</strong>
                 <p className="text-slate-600">Every FAR/BAR line audit verifies complete signatures before filing.</p>
               </div>
               <div className="p-4 bg-[#EEEAEB] rounded-xl space-y-1">
@@ -713,7 +713,7 @@ export const WhoWeSupportPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer border border-white/20"
               >
-                Schedule a 15-Min Discovery Call
+                Schedule a 15-Min fit call
               </button>
               <button
                 onClick={onSubmitDeal}

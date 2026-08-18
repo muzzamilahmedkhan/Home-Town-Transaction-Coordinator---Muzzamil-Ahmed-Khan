@@ -105,7 +105,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
     postClose: {
       title: '5. Post-Close Archival & Defensible Broker File',
       icon: CheckCircle2,
-      description: '100% compliance portal approval and permanent archive backup.',
+      description: 'broker compliance
       tasks: [
         'Collect final ALTA / Settlement Statement signed by all parties from title company.',
         'Upload all executed disclosures, riders, inspection addenda, escrow letters, and CDA into your broker portal (SkySlope, Dotloop, Brokermint, etc.).',
@@ -169,7 +169,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
       pro: true
     },
     {
-      feature: 'Priority Rush Intake (<15 min on business days)',
+      feature: '<15 min on business days)',
       base: false,
       pro: true
     }
@@ -204,7 +204,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
   const faqs = [
     {
       q: 'When do I pay for Transaction Coordination services?',
-      a: 'Our contract-to-close coordination fee is paid directly on the Settlement Statement (CD) at the closing table, or invoiced upon successful closing. There are zero upfront fees or monthly retainer minimums.'
+      a: 'Our contract-to-close coordination fee is paid directly on the Settlement Statement (CD) at the closing table, or invoiced upon successful closing. There are zero
     },
     {
       q: 'What happens if a contract cancels during the inspection period?',
@@ -274,7 +274,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                   className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition inline-flex items-center space-x-2.5 cursor-pointer"
                 >
                   <PhoneCall className="w-4 h-4" />
-                  <span>Book a Discovery Call</span>
+                  <span>Book a Fit Call</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
@@ -290,7 +290,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               <div className="pt-4 flex items-center space-x-6 text-xs text-slate-300 font-medium">
                 <div className="flex items-center space-x-1.5">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3]" />
-                  <span>$0 Upfront / Paid at Close</span>
+                  <span>$0</span>
                 </div>
                 <div className="flex items-center space-x-1.5">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3]" />
@@ -320,7 +320,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                     Defensible Closing Files
                   </div>
                   <div className="text-sm font-montserrat font-bold">
-                    Zero Missing Signatures · Strict Statutory Deadlines
+                    thorough signature tracking
                   </div>
                 </div>
               </div>
@@ -718,7 +718,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               </div>
               <div>
                 <div className="text-xs font-extrabold uppercase tracking-wider text-[#FE7311]">
-                  RISK-FREE PARTNERSHIP
+                  
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
                   How HTC Handles Contract Cancellations
@@ -819,11 +819,11 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-montserrat font-extrabold text-white tracking-tight leading-tight">
-            Ready to reclaim 15+ hours per closing?
+            Ready to reclaim substantial time per file
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
-            Book a 15-minute Discovery Call to compare plans and setup your intake preferences, or submit your active executed contract directly to our team today.
+            Book a 15-Minute Fit Call to compare plans and setup your intake preferences, or submit your active executed contract directly to our team today.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -832,7 +832,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               className="w-full sm:w-auto bg-[#FE7311] hover:bg-[#e05f03] text-white px-9 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-2xl hover:shadow-orange-500/20 transition flex items-center justify-center space-x-2.5 cursor-pointer"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Book a Discovery Call</span>
+              <span>Book a Fit Call</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 

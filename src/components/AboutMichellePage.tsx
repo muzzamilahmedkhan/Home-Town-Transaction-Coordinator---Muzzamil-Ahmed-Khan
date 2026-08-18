@@ -65,7 +65,7 @@ export const AboutMichellePage: React.FC<Props> = ({
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight font-serif">
                 Protect the Agent. Protect the Brokerage. <br />
-                <span className="text-[#0D9BA3]">Protect the Deal.</span>
+                <span className="text-[#0D9BA3]">Protect the Client.</span>
               </h1>
 
               <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-light">
@@ -218,7 +218,7 @@ export const AboutMichellePage: React.FC<Props> = ({
               </div>
               <h3 className="text-lg font-bold text-[#3A2E29]">Protecting Your Brokerage</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Broker audits from DBPR and Florida Realtors® demand complete, chronological, uncorrupted records. We assemble fully compliant files with zero missing initials, unexecuted riders, or unverified deposits.
+                Broker audits from DBPR and Florida Realtors® demand complete, chronological, uncorrupted records. We assemble fully compliant files with thorough tracking of initials, riders, and deposit verification.
               </p>
             </div>
 
@@ -228,7 +228,7 @@ export const AboutMichellePage: React.FC<Props> = ({
               </div>
               <h3 className="text-lg font-bold text-[#3A2E29]">Audit & Dispute Protection</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                If an escrow dispute, repair addendum conflict, or financing cancellation occurs, you have an airtight paper trail documenting exact timestamps, disclosures, and communication logs.
+                If an escrow dispute, repair addendum conflict, or financing cancellation occurs, you have an thorough
               </p>
             </div>
 
@@ -347,7 +347,7 @@ export const AboutMichellePage: React.FC<Props> = ({
             </div>
             <div className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-[#0D9BA3]" />
-              <span>Zero Missing Florida Disclosures</span>
+              <span>Florida Disclosure Tracking</span>
             </div>
           </div>
 
@@ -382,7 +382,7 @@ export const AboutMichellePage: React.FC<Props> = ({
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Whether you have an executed FAR/BAR contract ready for immediate onboarding or simply want to explore how our per-file support elevates your client experience, we invite you to start with a 15-minute Discovery Call.
+                Whether you have an executed FAR/BAR contract ready for immediate onboarding or simply want to explore how our per-file support elevates your client experience, we invite you to start with a 15-minute fit call.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-2">

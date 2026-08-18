@@ -90,7 +90,7 @@ export const MiamiTransactionCoordinatorPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Miami Discovery Call</span>
+                <span>Book a Miami Fit Call</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
               <button
@@ -411,7 +411,7 @@ export const MiamiTransactionCoordinatorPage: React.FC<Props> = ({
                   <span>Zero Retainers or Risk</span>
                 </div>
                 <p className="text-slate-600 leading-relaxed">
-                  No monthly subscriptions or upfront retainer fees. If a deal cancels through no fault of your own, you pay nothing for standard TC.
+                  No monthly subscriptions or
                 </p>
               </div>
             </div>
@@ -535,7 +535,7 @@ export const MiamiTransactionCoordinatorPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-8 py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-xl hover:shadow-[#FE7311]/25 cursor-pointer"
               >
-                Book a Miami Discovery Call
+                Book a Miami Fit Call
               </button>
               <button
                 onClick={onSubmitDeal}
