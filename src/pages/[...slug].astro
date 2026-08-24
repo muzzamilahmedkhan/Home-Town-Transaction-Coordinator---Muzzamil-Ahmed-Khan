@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import App from '../App';
+import { DEMO_BLOG_POSTS } from '../data/blog';
+
+export async function getStaticPaths() {
+  const routes = [
+    'how-htc-works',
+    'how-it-works',
+    'why-htc',
+    'pricing',
+    'services-and-pricing',
+    'services',
+    'listing-coordination',
+    'contract-to-close-services',
+    'contract-to-close',
+    'transaction-coordination',
+    'transaction-coordinator-for-realtors',
+    'agent-business-calculator',
+    'about',
+    'who-we-support',
+    'miami-transaction-coordinator',
+    'miami-dade-transaction-coordinator',
+    'broward-transaction-coordinator',
+    'south-florida-transaction-coordinator',
+    'faq',
+    'book-discovery-call',
+    'book-call',
+    'submit-deal',
+    'reviews',
+    'resources',
+    'blog',
+    'tcworkshop'
+  ];
+
+  const blogRoutes = DEMO_BLOG_POSTS.map(post => `resources/${post.slug}`);
+  const blogRoutesAlt = DEMO_BLOG_POSTS.map(post => `blog/${post.slug}`);
+
+  const allSlugs = [...routes, ...blogRoutes, ...blogRoutesAlt];
+
+  return allSlugs.map(slug => ({
+    params: { slug }
+  }));
+}
+---
+
+<Layout title="Hometown TC | Boutique Real Estate Support Agency for Florida Realtors">
+  <App client:load />
+</Layout>
