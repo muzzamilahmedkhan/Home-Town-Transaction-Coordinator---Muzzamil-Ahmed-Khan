@@ -1,25 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ShieldCheck,
   CheckCircle2,
-  FileCheck2,
   Calendar,
-  Layers,
   ArrowRight,
   PhoneCall,
-  Sparkles,
-  Search,
-  Eye,
-  Sliders,
-  Send,
-  BellRing,
-  ClipboardList,
-  FolderLock,
-  MessageSquare,
-  Scale,
-  Clock,
   ChevronDown,
   ChevronUp,
+  Play,
+  Volume2,
+  VolumeX,
+  Clock,
+  Sparkles,
   FileText
 } from 'lucide-react';
 import { PHONE_NUMBER } from '../data/content';
@@ -28,6 +20,10 @@ interface Props {
   onBookCall: () => void;
   onSubmitDeal: () => void;
   onExploreServices: () => void;
+  onOpenListingCoordination?: () => void;
+  onOpenContractToClose?: () => void;
+  onOpenBrokerCompliance?: () => void;
+  onCompareBasePro?: () => void;
   onGoHome: () => void;
 }
 
@@ -35,621 +31,739 @@ export const HowHtcWorksPage: React.FC<Props> = ({
   onBookCall,
   onSubmitDeal,
   onExploreServices,
+  onOpenListingCoordination,
+  onOpenContractToClose,
+  onOpenBrokerCompliance,
+  onCompareBasePro,
   onGoHome
 }) => {
-  const [activeStageTab, setActiveStageTab] = useState<number>(0);
+  const [showTranscript, setShowTranscript] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  // The 5 Core Workflow Stages
-  const workflowStages = [
+  // SEO & AEO dynamic document title and meta description
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = 'How HTC Works | Florida Transaction Coordination';
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    const originalMetaContent = metaDesc ? metaDesc.getAttribute('content') : '';
+    
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        'content',
+        'See how Hometown Transaction Coordinators works with Florida Realtors, from Fit Call and Setup to Listing Launch, Contract-to-Close, Broker Compliance, and Post-Close support.'
+      );
+    } else {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      metaDesc.setAttribute(
+        'content',
+        'See how Hometown Transaction Coordinators works with Florida Realtors, from Fit Call and Setup to Listing Launch, Contract-to-Close, Broker Compliance, and Post-Close support.'
+      );
+      document.head.appendChild(metaDesc);
+    }
+
+    return () => {
+      document.title = originalTitle;
+      if (metaDesc && originalMetaContent) {
+        metaDesc.setAttribute('content', originalMetaContent);
+      }
+    };
+  }, []);
+
+  // The 3 Getting Started Steps
+  const gettingStartedSteps = [
     {
-      step: '1',
-      homeMethodLetter: 'H',
-      homeMethodTitle: 'Honor & Alignment',
-      title: 'Register and Set Preferences',
-      subtitle: 'One-time onboarding to capture your workflow, broker compliance guidelines, and communication style.',
-      agentAction: 'Agent completes a quick 3-minute intake profile with preferred title companies, lenders, broker portals, and communication rules.',
-      htcAction: 'HTC configures your agent profile, sets notification cadences, and aligns with your brokerage compliance checklist.',
-      deliverables: [
-        'Customized Agent Workflow Profile',
-        'Direct Line & Dedicated Point of Contact',
-        'Brokerage-Specific Compliance Audit Matrix',
-        'Escrow & Title Contact Directory Integration'
-      ],
-      icon: Sliders
+      num: '01',
+      title: '01 — Book a Fit Call',
+      description:
+        'We learn what you need and determine whether HTC is the right fit for the way you do business.',
+      ctaType: 'bookCall',
+      ctaText: 'BOOK A 15-MINUTE FIT CALL →',
+      action: onBookCall
     },
     {
-      step: '2',
-      homeMethodLetter: 'O',
-      homeMethodTitle: 'Order & Intake',
-      title: 'Submit the Accepted File',
-      subtitle: 'Send the executed contract or listing package through our 60-second submission portal or email.',
-      agentAction: 'Agent uploads or emails the fully executed FAR/BAR contract, addenda, and contact sheet upon contract acceptance.',
-      htcAction: 'HTC receives the package, confirms receipt within 30 minutes during business hours, and begins the initial file audit.',
-      deliverables: [
-        'Instant File Receipt & Queue Confirmation',
-        'Initial Document Completeness Verification',
-        'Key Party Contact Extraction (Buyer, Seller, Title, Lender, Co-Agent)',
-        'Cloud File Repository Creation'
-      ],
-      icon: Send
+      num: '02',
+      title: '02 — Register + Setup',
+      description:
+        'Once you register, we’ll schedule your Setup Call and build your brokerage requirements, templates, communication preferences, and unique client touches into the HTC workflow.',
+      ctaType: 'pricingLink',
+      ctaText: 'See Setup Investment + Pricing →',
+      action: onExploreServices
     },
     {
-      step: '3',
-      homeMethodLetter: 'O',
-      homeMethodTitle: 'Order & Setup',
-      title: 'HTC Reviews, Organizes, and Establishes the Timeline',
-      subtitle: 'Comprehensive contract audit, deadline calculation, and introductory rollout to all transaction parties.',
-      agentAction: 'Agent reviews the generated critical date summary and stays focused on client advisory and negotiations.',
-      htcAction: 'HTC audits every page for signatures/initials, calculates statutory Florida contract deadlines, introduces ourselves to all parties, and requests title/escrow verification.',
-      deliverables: [
-        'Critical Date Timeline & Master Calendar Schedule',
-        'Introductory Emails to Title, Lender, Co-Agent & Client',
-        'Escrow Deposit Request & Wire Instruction Reminders',
-        'Missing Initial / Signature Deficiency Log (if any)'
-      ],
-      icon: Calendar
-    },
-    {
-      step: '4',
-      homeMethodLetter: 'M',
-      homeMethodTitle: 'Mastery & Monitoring',
-      title: 'HTC Coordinates, Monitors, and Documents Milestones',
-      subtitle: 'Proactive oversight of Florida statutory milestones, loan status, title commitments, and inspection periods.',
-      agentAction: 'Agent negotiates repair requests and provides executed addenda as transaction conditions evolve.',
-      htcAction: 'HTC monitors escrow receipt verification, tracks inspection contingency expiration, loan commitment deadlines, HOA/Condo estoppel packages, and municipal lien searches.',
-      deliverables: [
-        'Weekly Status Updates to Agent & Clients',
-        'Escrow Receipt Verification from Title/Escrow Agent',
-        'Financing / Appraisal Milestone Tracking',
-        'HOA / Condo Document & Estoppel Follow-ups'
-      ],
-      icon: Search
-    },
-    {
-      step: '5',
-      homeMethodLetter: 'E',
-      homeMethodTitle: 'Ease & Completion',
-      title: 'HTC Supports Closing and Completes the Broker File',
-      subtitle: 'Closing Statement / CD review, Commission Disbursement Authorization (CDA) setup, and final compliance archiving.',
-      agentAction: 'Agent attends walkthrough/closing, congratulates the client, and receives their commission directly at closing.',
-      htcAction: 'HTC requests the draft Settlement Statement/CD, submits the CDA/DA for broker approval, coordinates with Title, and archives the complete compliance package in your broker portal.',
-      deliverables: [
-        'Executed CDA / DA Issued Directly to Title Agent',
-        'Settlement Statement / CD Verification for Commission Accuracy',
-        '100% Complete Broker Compliance Portal Submission',
-        'Post-Close Client Review Request & Archive Backup'
-      ],
-      icon: FolderLock
+      num: '03',
+      title: '03 — Quick File Drop',
+      description:
+        'Once setup is complete, use Quick File Drop whenever you need Listing Launch, Contract-to-Close, or Broker Compliance support.',
+      ctaType: 'submitDeal',
+      ctaText: 'CURRENT CLIENT? SUBMIT A NEW DEAL →',
+      action: onSubmitDeal
     }
   ];
 
-  // What the Agent Sees at Each Stage (Visibility Grid)
-  const visibilityStages = [
+  // The H.O.M.E. Close Method Steps
+  const homeMethodSteps = [
     {
-      stage: 'Intake & Setup (Hours 0 – 24)',
-      homeStage: 'Honor & Order',
-      agentExperience: 'Calm Confirmation & Clear Schedule',
-      whatYouSee: [
-        'Immediate confirmation that your file is actively being handled.',
-        'A clean, color-coded Critical Date Timeline sent to you and key transaction parties.',
-        'Initial document check indicating missing initials or riders before they become audit issues.',
-        'Professional introductory email welcoming your buyer/seller and introducing HTC as your support team.'
-      ],
-      tag: 'Day 1 Visibility'
+      letter: 'H',
+      title: 'H — Honor the Agreement',
+      description:
+        'Review the executed agreement, parties, dates, and documents that drive the file.',
+      color: '#0D9BA3',
+      bgBadge: 'bg-[#0D9BA3]',
+      borderBadge: 'border-[#0D9BA3]'
     },
     {
-      stage: 'Contingency & Inspection Period',
-      homeStage: 'Order & Mastery',
-      agentExperience: 'Proactive Guardrails & Visible Deadlines',
-      whatYouSee: [
-        'Escrow deposit receipt secured from title and uploaded to compliance.',
-        'Clear countdown to inspection period expiration.',
-        'Pre-drafted extension or addenda formatting support if repairs are negotiated.',
-        'Lender contact logs confirming appraisal order and loan processing milestones.'
-      ],
-      tag: 'Mid-Contract Clarity'
+      letter: 'O',
+      title: 'O — Organize the File',
+      description:
+        'Build the working timeline, organize contacts and documents, and identify what is missing.',
+      color: '#FE7311',
+      bgBadge: 'bg-[#FE7311]',
+      borderBadge: 'border-[#FE7311]'
     },
     {
-      stage: 'Financing & Title Clearance',
-      homeStage: 'Mastery & Follow-Through',
-      agentExperience: 'Continuous Progress Without Chasing',
-      whatYouSee: [
-        'Loan commitment status alerts before contingency expiration.',
-        'HOA/Condo application and approval verification.',
-        'Title commitment and municipal lien search follow-up confirmations.',
-        'Weekly Friday summary digest keeping you and your client completely in sync.'
-      ],
-      tag: 'Zero Chasing'
+      letter: 'M',
+      title: 'M — Monitor the Milestones',
+      description:
+        'Track administrative milestones, follow up, document updates, and bring anything that needs your attention back to you.',
+      color: '#0D9BA3',
+      bgBadge: 'bg-[#0D9BA3]',
+      borderBadge: 'border-[#0D9BA3]'
     },
     {
-      stage: 'Final Week to Closing Table',
-      homeStage: 'Ease & Closing Defense',
-      agentExperience: 'Seamless Commission & Full Compliance',
-      whatYouSee: [
-        'Draft Closing Disclosure / ALTA Settlement Statement reviewed for accurate commission splits.',
-        'Broker-approved Commission Disbursement Authorization (CDA/DA) sent directly to closing agent.',
-        'Final walkthrough reminder checklist sent to buyer/seller.',
-        'All documents uploaded, organized, and approved in your broker portal (Dotloop, SkySlope, Brokermint, etc.).'
-      ],
-      tag: 'Payday Peace of Mind'
+      letter: 'E',
+      title: 'E — Ease the Close',
+      description:
+        'Support the final administrative steps, closing coordination, broker file completion, and Post-Close.',
+      color: '#3A2E29',
+      bgBadge: 'bg-[#3A2E29]',
+      borderBadge: 'border-[#3A2E29]'
     }
   ];
 
+  // The FAQs (Section 5)
   const faqs = [
     {
-      q: 'How quickly does HTC start working once I submit an executed contract?',
-      a: 'We confirm receipt within 30 minutes during standard business hours (Mon–Fri, 8 AM–6 PM EST). Your Critical Date Timeline and introduction rollout are dispatched within 24 business hours of full file intake.'
+      q: 'Do I have to complete Setup every time I send an order?',
+      a: 'No. Setup is completed once. If your brokerage, preferences, templates, or business needs change, we can update your setup.'
     },
     {
-      q: 'Do you communicate directly with my buyers and sellers?',
-      a: 'Yes, as a professional extension of your brand! We introduce ourselves as your transaction coordinator, keep clients updated on key milestones, and handle administrative logistics, while leaving all fiduciary advice, negotiations, and pricing discussions exclusively to you.'
+      q: 'How do I submit a new order?',
+      a: 'Existing HTC clients use Quick File Drop to submit Listing Launch, Contract-to-Close, and Broker Compliance orders.',
+      linkText: 'SUBMIT A NEW DEAL →',
+      linkAction: onSubmitDeal
     },
     {
-      q: 'What real estate platforms and broker compliance portals do you support?',
-      a: 'We operate across all major Florida brokerage systems including SkySlope, Dotloop, Brokermint, Paperless Pipeline, Lone Wolf / Transactions (zipForm), Command (KW), Real (reZEN), eXp Enterprise, and custom brokerage cloud drives.'
+      q: 'Can I use different HTC services for different files?',
+      a: 'Yes. Choose the service that fits the support you need for that particular file.',
+      linkText: 'VIEW SERVICES + PRICING →',
+      linkAction: onExploreServices
     },
     {
-      q: 'What happens if a contract cancels during the inspection period?',
-      a: 'If a transaction cancels during contingencies and does not close, you are not charged our standard closing fee. We assist in securing the cancellation & escrow release form and archiving the file. We succeed when you succeed.'
+      q: 'Who communicates with my clients during Contract-to-Close?',
+      a: 'That depends on the plan you choose. With Base, you remain the primary point of contact for your clients. Pro includes additional direct client communication and support from HTC.',
+      linkText: 'COMPARE BASE + PRO →',
+      linkAction: onCompareBasePro || onExploreServices
     },
     {
-      q: 'Can I start using HTC on an existing contract that is already mid-stream?',
-      a: 'Yes! We frequently onboard active contracts. We conduct an immediate audit of completed vs. remaining milestones and integrate directly with Title and Lender to guide the file through a smooth closing.'
+      q: 'What if something changes in my business after Setup?',
+      a: 'Tell us. We can update your templates, brokerage requirements, communication preferences, and other workflow details as your business changes.'
     }
   ];
 
+  const transcriptText = `Hi, I'm Michelle with Hometown Transaction Coordinators. When you decide to partner with HTC, the process is built to be seamless, predictable, and stress-free from day one.
+
+It starts with a simple 15-Minute Fit Call to ensure we're aligned on your volume and market area. Next, we complete your one-time Agent Setup—integrating your brokerage compliance guidelines, preferred title and lending partners, and communication cadences into our custom workflow.
+
+From that point on, whenever you get a listing or an accepted FAR/BAR contract, you simply submit the package to us. Our Florida team immediately audits the file, builds your critical date timeline, communicates with all parties, tracks statutory milestones, and delivers a 100% compliant broker file through closing.
+
+You stay in control of client relationships and negotiations, while we handle every deadline and detail behind the scenes.`;
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://hometowntc.com/'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'How HTC Works',
+        item: 'https://hometowntc.com/how-htc-works/'
+      }
+    ]
+  };
+
+  const videoSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: 'How HTC Works | Florida Transaction Coordination',
+    description:
+      'See how Hometown Transaction Coordinators works with Florida real estate agents from Fit Call and Setup to Listing Launch, Contract-to-Close, and Broker Compliance.',
+    thumbnailUrl: [
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80'
+    ],
+    uploadDate: '2026-01-15T08:00:00-05:00',
+    duration: 'PT1M45S',
+    contentUrl: 'https://hometowntc.com/assets/HTC_VSL_03_How-HTC-Works_v1.mp4',
+    embedUrl: 'https://hometowntc.com/how-htc-works/',
+    transcript: transcriptText
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  };
+
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How HTC Works: Florida Transaction Coordination Process',
+    description:
+      'Hometown Transaction Coordinators supports Florida Realtors with Listing Launch, Contract-to-Close, and Broker Compliance.',
+    step: [
+      {
+        '@type': 'HowToStep',
+        name: 'Book a Fit Call',
+        text: 'We learn what you need and determine whether HTC is the right fit for the way you do business.'
+      },
+      {
+        '@type': 'HowToStep',
+        name: 'Register + Setup',
+        text: 'Once you register, we schedule your Setup Call and build your brokerage requirements, templates, communication preferences, and unique client touches into the HTC workflow.'
+      },
+      {
+        '@type': 'HowToStep',
+        name: 'Quick File Drop',
+        text: 'Once setup is complete, use Quick File Drop whenever you need Listing Launch, Contract-to-Close, or Broker Compliance support.'
+      }
+    ]
+  };
+
   return (
-    <div className="bg-[#EEEAEB] text-[#3A2E29] min-h-screen">
+    <main className="bg-[#EEEAEB] text-[#3A2E29] min-h-screen">
+      {/* Schema.org Structured Data for SEO & AEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
       
       {/* ------------------------------------------------------------------ */}
-      {/* 1. HERO & POSITIONING */}
+      {/* SECTION 1 — HERO + VSL (SPLIT LAYOUT ON DESKTOP, STACKED ON MOBILE) */}
       {/* ------------------------------------------------------------------ */}
-      <section className="relative pt-12 pb-16 sm:pt-16 sm:pb-20 bg-gradient-to-b from-[#3A2E29] to-[#2B221E] text-white overflow-hidden border-b border-[#0D9BA3]/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
+      <header className="pt-10 pb-16 sm:pt-14 sm:pb-20 bg-white border-b border-[#D8D2D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Breadcrumb / Back Link */}
-          <div className="flex items-center space-x-3 text-xs font-semibold text-slate-300">
+          {/* Breadcrumb / Home Navigation */}
+          <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-xs font-bold text-slate-500 mb-8">
             <button
               onClick={onGoHome}
-              className="hover:text-white transition flex items-center space-x-1 cursor-pointer"
+              className="hover:text-[#0D9BA3] transition cursor-pointer"
             >
-              <span>Home</span>
+              Home
             </button>
-            <span className="text-[#0D9BA3]">/</span>
-            <span className="text-white font-bold">How HTC Works</span>
-          </div>
+            <span className="text-slate-400">→</span>
+            <span className="text-[#3A2E29]">How HTC Works</span>
+          </nav>
 
-          <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center space-x-2 text-xs font-extrabold uppercase tracking-widest text-[#0D9BA3] bg-black/40 px-4 py-1.5 rounded-full border border-[#0D9BA3]/40">
-              <Sparkles className="w-3.5 h-3.5 text-[#FE7311]" />
-              <span>THE H.O.M.E. CLOSE METHOD™ WORKFLOW</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-montserrat font-extrabold text-white tracking-tight leading-tight">
-              A repeatable path from accepted agreement to completed file.
-            </h1>
-
-            <p className="text-base sm:text-xl text-slate-300 font-medium leading-relaxed max-w-2xl">
-              See the exact step-by-step process HTC uses to audit contracts, monitor Florida statutory milestones, keep everyone informed, and deliver a defensible broker file.
-            </p>
-
-            <div className="pt-3 flex flex-wrap items-center gap-4">
-              <button
-                onClick={onBookCall}
-                className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition inline-flex items-center space-x-2.5 cursor-pointer"
-              >
-                <PhoneCall className="w-4 h-4" />
-                <span>Book a Fit Call</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <button
-                onClick={onSubmitDeal}
-                className="bg-white/10 hover:bg-white/20 text-white px-7 py-4 rounded-xl font-bold text-sm border border-white/20 transition inline-flex items-center space-x-2 cursor-pointer"
-              >
-                <FileCheck2 className="w-4 h-4 text-[#0D9BA3]" />
-                <span>Submit an Executed File</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-white/10 text-xs font-medium text-slate-300">
-            <div className="space-y-1">
-              <div className="text-xl sm:text-2xl font-montserrat font-extrabold text-white">30 Min</div>
-              <div className="text-slate-300 font-medium">Business Intake Confirmation</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-xl sm:text-2xl font-montserrat font-extrabold text-white">24 Hours</div>
-              <div className="text-slate-300 font-medium">Timeline & Introduction Rollout</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#0D9BA3]">100%</div>
-              <div className="text-slate-300 font-medium">Florida FAR/BAR Contract Alignment</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#FE7311]">$0</div>
-              <div className="text-slate-300 font-medium">Paid at Closing Table (Contract)</div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* 2. THE H.O.M.E. CLOSE METHOD™ ORGANIZING SYSTEM */}
-      {/* ------------------------------------------------------------------ */}
-      <section className="py-14 sm:py-20 bg-white border-b border-[#D8D2D4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-[#EEEAEB] px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#FE7311]" />
-              <span>THE HTC ORGANIZING SYSTEM</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
-              How the H.O.M.E. Close Method™ Structures Every File
-            </h2>
-            <p className="text-base text-[#3A2E29]/80 font-medium leading-relaxed">
-              Every Florida transaction moves through four disciplined stages designed to eliminate surprises, enforce deadlines, and ensure a calm closing.
-            </p>
-          </div>
-
-          {/* 4-Stage Graphic Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
-            {/* Stage H */}
-            <div className="bg-[#EEEAEB] rounded-2xl p-6 border border-[#D8D2D4] relative flex flex-col justify-between hover:border-[#0D9BA3] transition group shadow-sm">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-montserrat font-extrabold text-[#0D9BA3] group-hover:scale-110 transition-transform">
-                    H
-                  </span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-white px-2.5 py-1 rounded-full border border-[#D8D2D4]">
-                    Stage 1
-                  </span>
-                </div>
-                <div className="space-y-1.5">
-                  <h3 className="text-lg font-montserrat font-extrabold text-[#3A2E29]">
-                    Honor the Agreement
-                  </h3>
-                  <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                    Review the executed contract, verify party details, and establish the ground rules for compliance and communication.
-                  </p>
-                </div>
+            {/* Left Column: Headline, Supporting Copy, CTAs */}
+            <div className="lg:col-span-6 space-y-6">
+              
+              {/* Eyebrow */}
+              <div className="inline-flex items-center space-x-2 text-xs font-extrabold uppercase tracking-widest text-[#0D9BA3] bg-[#0D9BA3]/10 px-3.5 py-1.5 rounded-full border border-[#0D9BA3]/20">
+                <span>HOW HTC WORKS</span>
               </div>
-              <div className="pt-4 mt-4 border-t border-[#D8D2D4] text-[11px] font-bold text-[#0D9BA3] flex items-center space-x-1">
-                <span>Intake & Verification</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#FE7311]" />
+
+              {/* Headline */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight leading-tight">
+                Here’s what happens when you work with HTC.
+              </h1>
+
+              {/* Supporting Copy */}
+              <p className="text-base sm:text-lg text-slate-700 font-normal leading-relaxed">
+                Hometown Transaction Coordinators (HTC) supports Florida Realtors with Listing Launch, Contract-to-Close, and Broker Compliance. Start with a Fit Call, set up your business once, then send us support whenever you need it.
+              </p>
+
+              {/* CTAs */}
+              <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-4">
+                <button
+                  onClick={onBookCall}
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 bg-[#FE7311] hover:bg-[#e06209] text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition cursor-pointer group"
+                >
+                  <PhoneCall className="w-4 h-4" />
+                  <span>BOOK A 15-MINUTE FIT CALL</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+
+                <button
+                  onClick={onExploreServices}
+                  className="inline-flex items-center justify-center sm:justify-start space-x-1.5 text-[#0D9BA3] hover:text-[#0a7f86] font-bold text-sm tracking-wide transition py-2 cursor-pointer group"
+                >
+                  <span>VIEW SERVICES + PRICING</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
               </div>
+
             </div>
 
-            {/* Stage O */}
-            <div className="bg-[#EEEAEB] rounded-2xl p-6 border border-[#D8D2D4] relative flex flex-col justify-between hover:border-[#0D9BA3] transition group shadow-sm">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-montserrat font-extrabold text-[#0D9BA3] group-hover:scale-110 transition-transform">
-                    O
-                  </span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-white px-2.5 py-1 rounded-full border border-[#D8D2D4]">
-                    Stage 2
-                  </span>
-                </div>
-                <div className="space-y-1.5">
-                  <h3 className="text-lg font-montserrat font-extrabold text-[#3A2E29]">
-                    Organize the File
-                  </h3>
-                  <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                    Calculate critical Florida dates, build the master timeline, introduce the team, and establish the shared repository.
-                  </p>
-                </div>
-              </div>
-              <div className="pt-4 mt-4 border-t border-[#D8D2D4] text-[11px] font-bold text-[#0D9BA3] flex items-center space-x-1">
-                <span>Timelines & Introductions</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#FE7311]" />
-              </div>
-            </div>
+            {/* Right Column: 16:9 VSL Video (Reserved for HTC_VSL_03_How-HTC-Works_v1.mp4) */}
+            <div className="lg:col-span-6">
+              <div className="space-y-3">
+                
+                {/* 16:9 Video Player Container */}
+                <div className="relative w-full aspect-video bg-[#3A2E29] rounded-2xl overflow-hidden shadow-2xl border border-[#D8D2D4] group">
+                  
+                  {/* Subtle Poster / Video Backdrop */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#241C19] via-[#3A2E29] to-[#4D3E38] flex flex-col justify-between p-6">
+                    
+                    {/* Top Bar inside Video */}
+                    <div className="flex items-center justify-between z-10">
+                      <div className="flex items-center space-x-2 bg-black/60 backdrop-blur-md px-3 py-1 rounded-md text-[11px] font-semibold text-slate-200 border border-white/10">
+                        <span className="w-2 h-2 rounded-full bg-[#0D9BA3] animate-pulse" />
+                        <span>HTC_VSL_03_How-HTC-Works_v1.mp4</span>
+                      </div>
+                      <div className="bg-black/60 backdrop-blur-md px-2.5 py-1 rounded text-[11px] font-bold text-white/90">
+                        1:45
+                      </div>
+                    </div>
 
-            {/* Stage M */}
-            <div className="bg-[#EEEAEB] rounded-2xl p-6 border border-[#D8D2D4] relative flex flex-col justify-between hover:border-[#0D9BA3] transition group shadow-sm">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-montserrat font-extrabold text-[#0D9BA3] group-hover:scale-110 transition-transform">
-                    M
-                  </span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 bg-white px-2.5 py-1 rounded-full border border-[#D8D2D4]">
-                    Stage 3
-                  </span>
-                </div>
-                <div className="space-y-1.5">
-                  <h3 className="text-lg font-montserrat font-extrabold text-[#3A2E29]">
-                    Monitor the Milestones
-                  </h3>
-                  <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                    Track escrow receipts, inspection windows, appraisal updates, loan commitments, and title municipal searches.
-                  </p>
-                </div>
-              </div>
-              <div className="pt-4 mt-4 border-t border-[#D8D2D4] text-[11px] font-bold text-[#0D9BA3] flex items-center space-x-1">
-                <span>Escrow, Loans & Contingencies</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#FE7311]" />
-              </div>
-            </div>
+                    {/* Center Play Button Overlay */}
+                    <div className="flex flex-col items-center justify-center space-y-3 my-auto z-10">
+                      <button
+                        onClick={() => setIsVideoPlaying(!isVideoPlaying)}
+                        aria-label="Play VSL video"
+                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#FE7311] hover:bg-[#e06209] text-white flex items-center justify-center shadow-2xl hover:scale-105 transition transform cursor-pointer"
+                      >
+                        {isVideoPlaying ? (
+                          <div className="w-6 h-6 flex items-center justify-center space-x-1.5">
+                            <span className="w-2 h-6 bg-white rounded-xs" />
+                            <span className="w-2 h-6 bg-white rounded-xs" />
+                          </div>
+                        ) : (
+                          <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-current ml-1" />
+                        )}
+                      </button>
+                      <div className="text-center">
+                        <div className="text-white font-bold text-sm sm:text-base">
+                          {isVideoPlaying ? 'Playing VSL Video' : 'Watch: How HTC Works (1:45)'}
+                        </div>
+                        <div className="text-slate-300 text-xs font-medium">
+                          Florida Transaction Coordination Customer Journey
+                        </div>
+                      </div>
+                    </div>
 
-            {/* Stage E */}
-            <div className="bg-[#3A2E29] text-white rounded-2xl p-6 border border-[#0D9BA3]/40 relative flex flex-col justify-between hover:border-[#0D9BA3] transition group shadow-md">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-montserrat font-extrabold text-[#FE7311] group-hover:scale-110 transition-transform">
-                    E
-                  </span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#0D9BA3] bg-black/40 px-2.5 py-1 rounded-full border border-[#0D9BA3]/30">
-                    Stage 4
-                  </span>
+                    {/* Bottom Controls Bar */}
+                    <div className="flex items-center justify-between z-10 pt-2 border-t border-white/10">
+                      <div className="flex items-center space-x-2">
+                        <button
+                          onClick={() => setIsMuted(!isMuted)}
+                          className="text-slate-300 hover:text-white transition p-1 cursor-pointer"
+                          title={isMuted ? 'Unmute' : 'Mute'}
+                        >
+                          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                        </button>
+                        <span className="text-[11px] font-medium text-slate-300">
+                          {isMuted ? 'Muted by default' : 'Sound active'}
+                        </span>
+                      </div>
+                      <div className="flex items-center space-x-2 text-[11px] font-bold text-[#0D9BA3] bg-[#0D9BA3]/20 px-2 py-0.5 rounded">
+                        <span>CC Captions Ready</span>
+                      </div>
+                    </div>
+
+                  </div>
+
                 </div>
-                <div className="space-y-1.5">
-                  <h3 className="text-lg font-montserrat font-extrabold text-white">
-                    Ease the Close
-                  </h3>
-                  <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                    Review draft settlement statements, secure broker CDA approval, coordinate closing packages, and archive the broker file.
-                  </p>
+
+                {/* Video Info & View Transcript Option */}
+                <div className="flex items-center justify-between text-xs px-1">
+                  <span className="text-slate-500 font-medium">
+                    Video: <span className="text-slate-700 font-semibold">Customer Journey Walkthrough</span>
+                  </span>
+
+                  <button
+                    onClick={() => setShowTranscript(!showTranscript)}
+                    className="text-[#0D9BA3] hover:text-[#0a7f86] font-bold inline-flex items-center space-x-1 cursor-pointer hover:underline"
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>{showTranscript ? 'Hide Transcript' : 'View Transcript'}</span>
+                    {showTranscript ? (
+                      <ChevronUp className="w-3.5 h-3.5" />
+                    ) : (
+                      <ChevronDown className="w-3.5 h-3.5" />
+                    )}
+                  </button>
                 </div>
-              </div>
-              <div className="pt-4 mt-4 border-t border-white/10 text-[11px] font-bold text-[#0D9BA3] flex items-center space-x-1">
-                <span>CDA & Compliance Archive</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#FE7311]" />
+
+                {/* Collapsible Transcript Box */}
+                {showTranscript && (
+                  <div className="p-4 sm:p-5 bg-[#EEEAEB] rounded-xl border border-[#D8D2D4] text-xs sm:text-sm text-slate-700 space-y-2 leading-relaxed animate-in fade-in duration-200">
+                    <div className="font-bold text-[#3A2E29] flex items-center space-x-1.5 pb-1 border-b border-[#D8D2D4]">
+                      <FileText className="w-4 h-4 text-[#0D9BA3]" />
+                      <span>Video Transcript · HTC_VSL_03_How-HTC-Works_v1.mp4</span>
+                    </div>
+                    <p className="whitespace-pre-line text-slate-700 text-xs leading-relaxed pt-1">
+                      {transcriptText}
+                    </p>
+                  </div>
+                )}
+
               </div>
             </div>
 
           </div>
 
         </div>
-      </section>
+      </header>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 3. STEP-BY-STEP PROCESS BREAKDOWN (REQUIRED SECTION ORDER) */}
+      {/* SECTION 2 — GETTING STARTED */}
       {/* ------------------------------------------------------------------ */}
-      <section className="py-14 sm:py-20 bg-[#EEEAEB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section className="py-16 sm:py-24 bg-[#EEEAEB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
           
           <div className="max-w-3xl space-y-3">
             <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-white px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
-              <Layers className="w-3.5 h-3.5 text-[#FE7311]" />
-              <span>THE 5-STEP TRANSACTION ENGINE</span>
+              <span>GETTING STARTED</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
-              How Your File Moves Through HTC
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight">
+              Set up once. Submit when you need us.
             </h2>
-            <p className="text-base text-[#3A2E29]/80 font-medium leading-relaxed">
-              Click through each step to see what the agent does, what HTC handles behind the scenes, and the exact deliverables produced.
-            </p>
           </div>
 
-          {/* Desktop/Tablet Stepper Navigation Tabs */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {workflowStages.map((stg, idx) => {
-              const Icon = stg.icon;
-              const isActive = activeStageTab === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setActiveStageTab(idx)}
-                  className={`p-4 rounded-2xl text-left border transition cursor-pointer flex flex-col justify-between space-y-3 ${
-                    isActive
-                      ? 'bg-[#3A2E29] text-white border-[#0D9BA3] shadow-lg scale-[1.02]'
-                      : 'bg-white text-[#3A2E29] border-[#D8D2D4] hover:border-[#0D9BA3]/60'
-                  }`}
-                >
-                  <div className="flex items-center justify-between w-full">
-                    <span
-                      className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${
-                        isActive ? 'bg-[#FE7311] text-white' : 'bg-[#EEEAEB] text-[#3A2E29]'
-                      }`}
-                    >
-                      {stg.step}
-                    </span>
-                    <Icon className={`w-4 h-4 ${isActive ? 'text-[#0D9BA3]' : 'text-slate-400'}`} />
-                  </div>
-                  <div className="font-montserrat font-extrabold text-xs leading-snug">
-                    {stg.title}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
+          {/* 3-Step Horizontal Process on Desktop / Stacked on Mobile (Numbered Rail) */}
+          <div className="relative">
+            
+            {/* Horizontal Rail Line (Desktop) */}
+            <div className="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-[#D8D2D4] -z-0" />
 
-          {/* Active Step Detailed Card */}
-          {(() => {
-            const current = workflowStages[activeStageTab];
-            const StepIcon = current.icon;
-            return (
-              <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#D8D2D4] shadow-xl space-y-8 animate-in fade-in duration-300">
-                
-                {/* Header of Active Step */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#D8D2D4] pb-6">
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-3">
-                      <span className="bg-[#0D9BA3] text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
-                        Step {current.step}
-                      </span>
-                      <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
-                        H.O.M.E. Stage: <strong className="text-[#3A2E29]">{current.homeMethodTitle}</strong>
-                      </span>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 relative z-10">
+              
+              {/* Step 01 */}
+              <div className="flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-14 h-14 rounded-2xl bg-white border-2 border-[#0D9BA3] text-[#0D9BA3] flex items-center justify-center font-black text-xl shadow-sm flex-shrink-0">
+                      01
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
-                      {current.title}
+                    <div className="h-0.5 flex-grow bg-[#D8D2D4] lg:hidden" />
+                  </div>
+
+                  <div className="space-y-2 pt-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                      01 — Book a Fit Call
                     </h3>
-                    <p className="text-sm sm:text-base text-[#3A2E29]/80 font-medium">
-                      {current.subtitle}
+                    <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+                      We learn what you need and determine whether HTC is the right fit for the way you do business.
                     </p>
-                  </div>
-
-                  <div className="hidden sm:flex w-16 h-16 rounded-2xl bg-[#EEEAEB] border border-[#D8D2D4] items-center justify-center flex-shrink-0 text-[#0D9BA3]">
-                    <StepIcon className="w-8 h-8 text-[#FE7311]" />
                   </div>
                 </div>
 
-                {/* Split: Agent Role vs HTC Execution */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  
-                  {/* Agent Role */}
-                  <div className="bg-[#EEEAEB] p-6 rounded-2xl border border-[#D8D2D4] space-y-3">
-                    <div className="flex items-center space-x-2 text-xs font-extrabold uppercase tracking-wider text-[#3A2E29]">
-                      <span className="w-2 h-2 rounded-full bg-[#FE7311]" />
-                      <span>What the Agent Does</span>
-                    </div>
-                    <p className="text-sm text-[#3A2E29] font-medium leading-relaxed">
-                      {current.agentAction}
-                    </p>
-                  </div>
-
-                  {/* HTC Execution */}
-                  <div className="bg-[#3A2E29] text-white p-6 rounded-2xl border border-[#0D9BA3]/40 space-y-3">
-                    <div className="flex items-center space-x-2 text-xs font-extrabold uppercase tracking-wider text-[#0D9BA3]">
-                      <ShieldCheck className="w-4 h-4 text-[#0D9BA3]" />
-                      <span>What HTC Handles</span>
-                    </div>
-                    <p className="text-sm text-slate-200 font-medium leading-relaxed">
-                      {current.htcAction}
-                    </p>
-                  </div>
-
-                </div>
-
-                {/* Deliverables List */}
-                <div className="space-y-3 pt-2">
-                  <div className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
-                    Tangible Deliverables & System Outputs at Step {current.step}:
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {current.deliverables.map((item, dIdx) => (
-                      <div
-                        key={dIdx}
-                        className="flex items-start space-x-2.5 p-3 rounded-xl bg-[#EEEAEB]/60 border border-[#D8D2D4]/70 text-xs sm:text-sm font-semibold text-[#3A2E29]"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Bottom Step Switcher */}
-                <div className="flex items-center justify-between pt-4 border-t border-[#D8D2D4]">
+                <div className="pt-2">
                   <button
-                    disabled={activeStageTab === 0}
-                    onClick={() => setActiveStageTab((prev) => Math.max(0, prev - 1))}
-                    className="text-xs font-bold text-slate-500 hover:text-[#3A2E29] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                    onClick={onBookCall}
+                    className="inline-flex items-center space-x-2 text-[#FE7311] hover:text-[#e06209] font-bold text-sm uppercase tracking-wider transition cursor-pointer group"
                   >
-                    ← Previous Step
-                  </button>
-                  <div className="text-xs font-bold text-slate-400">
-                    Step {activeStageTab + 1} of {workflowStages.length}
-                  </div>
-                  <button
-                    disabled={activeStageTab === workflowStages.length - 1}
-                    onClick={() => setActiveStageTab((prev) => Math.min(workflowStages.length - 1, prev + 1))}
-                    className="text-xs font-bold text-[#0D9BA3] hover:text-[#0b8288] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer flex items-center space-x-1"
-                  >
-                    <span>Next Step</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#FE7311]" />
+                    <span>BOOK A 15-MINUTE FIT CALL</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
-
               </div>
-            );
-          })()}
+
+              {/* Step 02 */}
+              <div className="flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-14 h-14 rounded-2xl bg-white border-2 border-[#FE7311] text-[#FE7311] flex items-center justify-center font-black text-xl shadow-sm flex-shrink-0">
+                      02
+                    </div>
+                    <div className="h-0.5 flex-grow bg-[#D8D2D4] lg:hidden" />
+                  </div>
+
+                  <div className="space-y-2 pt-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                      02 — Register + Setup
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+                      Once you register, we’ll schedule your Setup Call and build your brokerage requirements, templates, communication preferences, and unique client touches into the HTC workflow.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    onClick={onExploreServices}
+                    className="inline-flex items-center space-x-1.5 text-[#0D9BA3] hover:text-[#0a7f86] font-bold text-sm tracking-wide transition cursor-pointer group"
+                  >
+                    <span>See Setup Investment + Pricing</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Step 03 */}
+              <div className="flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-14 h-14 rounded-2xl bg-white border-2 border-[#3A2E29] text-[#3A2E29] flex items-center justify-center font-black text-xl shadow-sm flex-shrink-0">
+                      03
+                    </div>
+                    <div className="h-0.5 flex-grow bg-[#D8D2D4] lg:hidden" />
+                  </div>
+
+                  <div className="space-y-2 pt-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                      03 — Quick File Drop
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
+                      Once setup is complete, use Quick File Drop whenever you need Listing Launch, Contract-to-Close, or Broker Compliance support.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    onClick={onSubmitDeal}
+                    className="inline-flex items-center space-x-2 text-[#FE7311] hover:text-[#e06209] font-bold text-sm uppercase tracking-wider transition cursor-pointer group"
+                  >
+                    <span>CURRENT CLIENT? SUBMIT A NEW DEAL</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
 
         </div>
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 4. WHAT THE AGENT SEES AT EACH STAGE (VISIBILITY MATRIX) */}
+      {/* SECTION 3 — CHOOSE THE SUPPORT YOU NEED */}
       {/* ------------------------------------------------------------------ */}
-      <section className="py-14 sm:py-20 bg-white border-y border-[#D8D2D4]">
+      <section className="py-16 sm:py-24 bg-white border-y border-[#D8D2D4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="max-w-3xl space-y-3">
             <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-[#EEEAEB] px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
-              <Eye className="w-3.5 h-3.5 text-[#FE7311]" />
-              <span>TRANSPARENCY & PEACE OF MIND</span>
+              <span>YOUR SERVICES</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
-              What the Agent Sees at Each Stage
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight">
+              Choose the support the file needs.
             </h2>
-            <p className="text-base text-[#3A2E29]/80 font-medium leading-relaxed">
-              No black boxes. No wondering if an email was sent. Here is the exact visibility and communication cadence you experience throughout the contract lifecycle.
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+              You do not have to use every HTC service on every file. Send us the work you want supported.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {visibilityStages.map((vis, vIdx) => (
-              <div
-                key={vIdx}
-                className="bg-[#EEEAEB] rounded-3xl p-8 border border-[#D8D2D4] space-y-6 flex flex-col justify-between hover:shadow-lg transition"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#0D9BA3] bg-white px-3 py-1 rounded-full border border-[#D8D2D4]">
-                      {vis.tag}
-                    </span>
-                    <span className="text-xs font-bold text-slate-500">
-                      {vis.homeStage}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
-                      {vis.stage}
-                    </h3>
-                    <div className="text-xs font-bold text-[#FE7311] uppercase tracking-wider mt-1">
-                      {vis.agentExperience}
-                    </div>
-                  </div>
-
-                  <ul className="space-y-2.5 pt-2">
-                    {vis.whatYouSee.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start space-x-2.5 text-xs sm:text-sm text-[#3A2E29]/90 font-medium">
-                        <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+          {/* Three Equal Service Cards (Desktop 3-col, Mobile Stacked) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            
+            {/* Card 1: LISTING LAUNCH */}
+            <div className="bg-[#EEEAEB] rounded-2xl p-6 sm:p-8 border border-[#D8D2D4] flex flex-col justify-between space-y-6 hover:border-[#0D9BA3] transition shadow-sm hover:shadow-md group">
+              <div className="space-y-4">
+                <div className="inline-flex items-center space-x-2 text-xs font-extrabold uppercase tracking-wider text-[#0D9BA3] bg-white px-3 py-1 rounded-full border border-[#D8D2D4]">
+                  <span>Listing Support</span>
                 </div>
-
-                <div className="pt-4 border-t border-[#D8D2D4] flex items-center justify-between text-xs font-bold text-[#3A2E29]">
-                  <span className="text-slate-500">Documented Communication Trail</span>
-                  <span className="text-[#0D9BA3] flex items-center space-x-1">
-                    <MessageSquare className="w-4 h-4" />
-                    <span>Visible in Real Time</span>
-                  </span>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                    LISTING LAUNCH
+                  </h3>
+                  <div className="text-xs font-semibold text-[#FE7311] mt-1">
+                    Getting ready to list?
+                  </div>
                 </div>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  We prepare the listing pieces for your review and approval.
+                </p>
               </div>
-            ))}
+
+              <div className="pt-4 border-t border-[#D8D2D4]">
+                <button
+                  onClick={onOpenListingCoordination || onExploreServices}
+                  className="inline-flex items-center space-x-1.5 text-[#0D9BA3] hover:text-[#0a7f86] font-bold text-xs uppercase tracking-wider transition cursor-pointer group-hover:translate-x-0.5"
+                >
+                  <span>EXPLORE LISTING SERVICES</span>
+                  <ArrowRight className="w-4 h-4 text-[#FE7311] group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </div>
+
+            {/* Card 2: CONTRACT-TO-CLOSE */}
+            <div className="bg-[#EEEAEB] rounded-2xl p-6 sm:p-8 border border-[#D8D2D4] flex flex-col justify-between space-y-6 hover:border-[#0D9BA3] transition shadow-sm hover:shadow-md group">
+              <div className="space-y-4">
+                <div className="inline-flex items-center space-x-2 text-xs font-extrabold uppercase tracking-wider text-[#FE7311] bg-white px-3 py-1 rounded-full border border-[#D8D2D4]">
+                  <span>Under Contract</span>
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                    CONTRACT-TO-CLOSE
+                  </h3>
+                  <div className="text-xs font-semibold text-[#FE7311] mt-1">
+                    Have an executed agreement?
+                  </div>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  Choose Base or Pro support from agreement through Post-Close.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[#D8D2D4]">
+                <button
+                  onClick={onOpenContractToClose || onExploreServices}
+                  className="inline-flex items-center space-x-1.5 text-[#0D9BA3] hover:text-[#0a7f86] font-bold text-xs uppercase tracking-wider transition cursor-pointer group-hover:translate-x-0.5"
+                >
+                  <span>EXPLORE CONTRACT-TO-CLOSE</span>
+                  <ArrowRight className="w-4 h-4 text-[#FE7311] group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </div>
+
+            {/* Card 3: BROKER COMPLIANCE */}
+            <div className="bg-[#EEEAEB] rounded-2xl p-6 sm:p-8 border border-[#D8D2D4] flex flex-col justify-between space-y-6 hover:border-[#0D9BA3] transition shadow-sm hover:shadow-md group">
+              <div className="space-y-4">
+                <div className="inline-flex items-center space-x-2 text-xs font-extrabold uppercase tracking-wider text-[#3A2E29] bg-white px-3 py-1 rounded-full border border-[#D8D2D4]">
+                  <span>Compliance Only</span>
+                </div>
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                    BROKER COMPLIANCE
+                  </h3>
+                  <div className="text-xs font-semibold text-[#FE7311] mt-1">
+                    Already managing the lease or sale?
+                  </div>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  Send us the file when you need help getting it through brokerage compliance.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[#D8D2D4]">
+                <button
+                  onClick={onOpenBrokerCompliance || onExploreServices}
+                  className="inline-flex items-center space-x-1.5 text-[#0D9BA3] hover:text-[#0a7f86] font-bold text-xs uppercase tracking-wider transition cursor-pointer group-hover:translate-x-0.5"
+                >
+                  <span>SEE BROKER COMPLIANCE PRICING</span>
+                  <ArrowRight className="w-4 h-4 text-[#FE7311] group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </div>
+
           </div>
 
         </div>
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 5. FREQUENTLY ASKED PROCESS QUESTIONS */}
+      {/* SECTION 4 — WHAT HAPPENS AFTER YOU SUBMIT A CONTRACT (H.O.M.E. CLOSE METHOD) */}
       {/* ------------------------------------------------------------------ */}
-      <section className="py-14 sm:py-20 bg-[#EEEAEB] border-b border-[#D8D2D4]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <section className="py-16 sm:py-24 bg-[#EEEAEB] border-b border-[#D8D2D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
           
-          <div className="text-center space-y-3">
+          <div className="max-w-3xl space-y-3">
             <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-white px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
-              <ClipboardList className="w-3.5 h-3.5 text-[#FE7311]" />
-              <span>FREQUENT QUESTIONS</span>
+              <span>CONTRACT-TO-CLOSE</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
-              How It Works: Questions & Answers
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight">
+              What happens after you send us the contract?
             </h2>
-            <p className="text-sm sm:text-base text-[#3A2E29]/80 font-medium">
-              Everything you need to know about our onboarding, turnaround times, and contract management flow.
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+              For Contract-to-Close, HTC uses the H.O.M.E. Close Method to organize the work from executed agreement through Post-Close.
             </p>
+          </div>
+
+          {/* Continuous Four-Part Horizontal Progression on Desktop / Vertical Progression on Mobile */}
+          <div className="relative">
+            
+            {/* Horizontal Continuous Connecting Line (Desktop) */}
+            <div className="hidden lg:block absolute top-7 left-10 right-10 h-0.5 bg-[#D8D2D4] -z-0" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-8 relative z-10">
+              {homeMethodSteps.map((step, idx) => (
+                <div key={idx} className="flex flex-col justify-between space-y-4">
+                  <div className="space-y-4">
+                    {/* Anchor Letter Node & Mobile Track */}
+                    <div className="flex items-center space-x-4">
+                      <div
+                        className="w-14 h-14 rounded-2xl bg-white border-2 flex items-center justify-center font-black text-2xl shadow-sm flex-shrink-0"
+                        style={{ borderColor: step.color, color: step.color }}
+                      >
+                        {step.letter}
+                      </div>
+                      <div className="h-0.5 flex-grow bg-[#D8D2D4] lg:hidden" />
+                    </div>
+
+                    <div className="space-y-2 pt-1">
+                      <h3 className="text-xl font-bold text-[#3A2E29] font-serif">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Action Link Under Process */}
+          <div className="pt-2">
+            <button
+              onClick={onCompareBasePro || onExploreServices}
+              className="inline-flex items-center space-x-2 text-[#FE7311] hover:text-[#e06209] font-bold text-sm uppercase tracking-wider transition cursor-pointer group"
+            >
+              <span>COMPARE BASE + PRO</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* SECTION 5 — FAQ */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-16 sm:py-24 bg-white border-y border-[#D8D2D4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="space-y-3">
+            <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-[#EEEAEB] px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
+              <span>HOW IT WORKS · FAQ</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight">
+              A few things agents ask us.
+            </h2>
           </div>
 
           <div className="space-y-4">
@@ -658,22 +772,33 @@ export const HowHtcWorksPage: React.FC<Props> = ({
               return (
                 <div
                   key={fIdx}
-                  className="bg-white rounded-2xl border border-[#D8D2D4] overflow-hidden transition shadow-sm"
+                  className="bg-[#EEEAEB] rounded-2xl border border-[#D8D2D4] overflow-hidden transition"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : fIdx)}
-                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-montserrat font-extrabold text-sm sm:text-base text-[#3A2E29] hover:text-[#0D9BA3] transition cursor-pointer"
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#3A2E29] hover:text-[#0D9BA3] transition cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     {isOpen ? (
                       <ChevronUp className="w-5 h-5 text-[#FE7311] flex-shrink-0" />
                     ) : (
-                      <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
+                      <ChevronDown className="w-5 h-5 text-slate-500 flex-shrink-0" />
                     )}
                   </button>
                   {isOpen && (
-                    <div className="px-6 pb-6 text-xs sm:text-sm text-[#3A2E29]/80 font-medium leading-relaxed border-t border-[#D8D2D4]/50 pt-4 bg-[#EEEAEB]/30">
-                      {faq.a}
+                    <div className="px-6 pb-6 text-sm sm:text-base text-slate-700 font-normal leading-relaxed border-t border-[#D8D2D4] pt-4 bg-white space-y-3">
+                      <p>{faq.a}</p>
+                      {faq.linkText && faq.linkAction && (
+                        <div className="pt-2">
+                          <button
+                            onClick={faq.linkAction}
+                            className="inline-flex items-center space-x-1.5 text-[#FE7311] hover:text-[#e06209] font-bold text-xs uppercase tracking-wider transition cursor-pointer group"
+                          >
+                            <span>{faq.linkText}</span>
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                          </button>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
@@ -681,13 +806,32 @@ export const HowHtcWorksPage: React.FC<Props> = ({
             })}
           </div>
 
+          {/* Have More Questions Prompt Block */}
+          <div className="pt-6 p-8 rounded-2xl bg-[#EEEAEB] border border-[#D8D2D4] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div className="space-y-1">
+              <h3 className="text-xl font-bold text-[#3A2E29] font-serif">
+                Have more questions?
+              </h3>
+              <p className="text-sm sm:text-base text-slate-700 font-normal">
+                Book a 15-Minute Fit Call and we’ll talk through what you need.
+              </p>
+            </div>
+            <button
+              onClick={onBookCall}
+              className="bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-3.5 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition flex items-center justify-center space-x-2 cursor-pointer flex-shrink-0 group"
+            >
+              <span>BOOK A 15-MINUTE FIT CALL</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
         </div>
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 6. PRIMARY PAGE CTA */}
+      {/* SECTION 6 — PRIMARY PAGE CTA */}
       {/* ------------------------------------------------------------------ */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-[#3A2E29] to-[#241C19] text-white relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-[#3A2E29] text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
           
           <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-black/40 px-4 py-1.5 rounded-full border border-[#0D9BA3]/40">
@@ -695,47 +839,41 @@ export const HowHtcWorksPage: React.FC<Props> = ({
             <span>PROTECT THE AGENT · PROTECT THE BROKER · PROTECT THE CLIENT</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-montserrat font-extrabold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-serif tracking-tight leading-tight">
             Ready to experience a predictable, calm closing flow?
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">
-            Book a 15-Minute Fit Call to discuss your current volume, walk through our intake system, or submit your next executed file directly.
+          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
+            Start with a 15-Minute Fit Call to discuss your current volume, walk through our intake system, and set up your business workflow.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={onBookCall}
-              className="w-full sm:w-auto bg-[#FE7311] hover:bg-[#e05f03] text-white px-9 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-2xl hover:shadow-orange-500/20 transition flex items-center justify-center space-x-2.5 cursor-pointer"
+              className="w-full sm:w-auto bg-[#FE7311] hover:bg-[#e06209] text-white px-9 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-2xl hover:shadow-orange-500/20 transition flex items-center justify-center space-x-2.5 cursor-pointer group"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Book a Fit Call</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>BOOK A 15-MINUTE FIT CALL</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
 
             <button
-              onClick={onSubmitDeal}
+              onClick={onExploreServices}
               className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-sm border border-white/20 transition flex items-center justify-center space-x-2 cursor-pointer"
             >
-              <FileCheck2 className="w-4 h-4 text-[#0D9BA3]" />
-              <span>Submit a Deal</span>
+              <span>VIEW SERVICES + PRICING</span>
+              <ArrowRight className="w-4 h-4 text-[#0D9BA3]" />
             </button>
           </div>
 
-          <div className="pt-4 flex items-center justify-center space-x-6 text-xs text-slate-400 font-medium">
+          <div className="pt-2 flex items-center justify-center space-x-6 text-xs text-slate-400 font-medium">
             <span>Direct Phone: <strong className="text-white">{PHONE_NUMBER}</strong></span>
-            <span>·</span>
-            <button
-              onClick={onExploreServices}
-              className="text-[#0D9BA3] hover:underline cursor-pointer"
-            >
-              View Services & Pricing
-            </button>
           </div>
 
         </div>
       </section>
 
-    </div>
+    </main>
   );
 };
+

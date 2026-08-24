@@ -155,6 +155,22 @@ export default function App() {
             onBookCall={() => setBookCallOpen(true)}
             onSubmitDeal={() => navigateTo('/submit-deal/')}
             onExploreServices={() => navigateTo('/pricing/')}
+            onOpenListingCoordination={() => navigateTo('/listing-coordination/')}
+            onOpenContractToClose={() => navigateTo('/contract-to-close-services/')}
+            onOpenBrokerCompliance={() => {
+              navigateTo('/pricing/');
+              setTimeout(() => {
+                const el = document.getElementById('broker-compliance');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 150);
+            }}
+            onCompareBasePro={() => {
+              navigateTo('/pricing/');
+              setTimeout(() => {
+                const el = document.getElementById('contract-to-close');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 150);
+            }}
             onGoHome={() => navigateTo('/')}
           />
         ) : isWhyHtcPage ? (
