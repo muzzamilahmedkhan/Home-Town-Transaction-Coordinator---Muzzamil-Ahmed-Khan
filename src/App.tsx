@@ -180,6 +180,9 @@ export default function App() {
             onExploreServices={() => navigateTo('/pricing/')}
             onGoHome={() => navigateTo('/')}
             onOpenHowItWorks={() => navigateTo('/how-htc-works/')}
+            onOpenAbout={() => navigateTo('/about/')}
+            onOpenSpanish={() => setLanguage('es')}
+            onOpenReviews={() => navigateTo('/reviews/')}
           />
         ) : isTransactionCoordinationPage ? (
           <TransactionCoordinationPage
