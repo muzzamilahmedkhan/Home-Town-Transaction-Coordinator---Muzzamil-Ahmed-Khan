@@ -17,6 +17,8 @@ interface Props {
   onOpenRealtorTc?: () => void;
   onOpenFaq?: () => void;
   onOpenAbout?: () => void;
+  onOpenMeetMichelle?: () => void;
+  onOpenMeetTheTribe?: () => void;
   onOpenTransactionCoordination?: () => void;
   onOpenListingCoordination?: () => void;
   onOpenPricingPlans?: () => void;
@@ -33,6 +35,8 @@ export const Navbar: React.FC<Props> = ({
   onOpenWhyHtc,
   onOpenFaq,
   onOpenAbout,
+  onOpenMeetMichelle,
+  onOpenMeetTheTribe,
   onOpenPricingPlans,
   onOpenServicesPricing,
   onOpenReviews,
@@ -41,13 +45,18 @@ export const Navbar: React.FC<Props> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
+  const [teamDropdownOpen, setTeamDropdownOpen] = useState(false);
   const resourcesRef = useRef<HTMLDivElement>(null);
+  const teamRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
       if (resourcesRef.current && !resourcesRef.current.contains(target)) {
         setResourcesDropdownOpen(false);
+      }
+      if (teamRef.current && !teamRef.current.contains(target)) {
+        setTeamDropdownOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -57,6 +66,7 @@ export const Navbar: React.FC<Props> = ({
   const closeAll = () => {
     setMobileMenuOpen(false);
     setResourcesDropdownOpen(false);
+    setTeamDropdownOpen(false);
   };
 
   const handleLink = (action?: () => void, fallbackId?: string) => {
@@ -207,13 +217,53 @@ export const Navbar: React.FC<Props> = ({
               )}
             </div>
 
-            {/* Meet the Team */}
-            <button
-              onClick={() => handleLink(onOpenAbout, 'michelle')}
-              className="hover:text-[#0D9BA3] transition cursor-pointer"
-            >
-              Meet the Team
-            </button>
+            {/* Meet the Team Dropdown */}
+            <div className="relative" ref={teamRef}>
+              <button
+                onMouseEnter={() => setTeamDropdownOpen(true)}
+                onClick={() => setTeamDropdownOpen(!teamDropdownOpen)}
+                className="hover:text-[#0D9BA3] transition flex items-center space-x-1.5 py-2 cursor-pointer"
+              >
+                <span>Meet the Team</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${teamDropdownOpen ? 'rotate-180 text-[#0D9BA3]' : ''}`} />
+              </button>
+              {teamDropdownOpen && (
+                <div
+                  onMouseLeave={() => setTeamDropdownOpen(false)}
+                  className="absolute top-full right-0 w-64 bg-white rounded-2xl shadow-2xl border border-[#D8D2D4] p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150 space-y-1"
+                >
+                  {/* Meet Michelle */}
+                  <button
+                    onClick={() => handleLink(onOpenMeetMichelle || onOpenAbout, 'michelle')}
+                    className="w-full text-left p-3 rounded-xl hover:bg-[#EEEAEB] transition group flex items-start space-x-3 cursor-pointer"
+                  >
+                    <div>
+                      <div className="text-xs font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition normal-case">
+                        Meet Michelle
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-tight normal-case mt-0.5">
+                        Founder story & 30+ year Florida roots
+                      </div>
+                    </div>
+                  </button>
+
+                  {/* Meet the Tribe */}
+                  <button
+                    onClick={() => handleLink(onOpenMeetTheTribe)}
+                    className="w-full text-left p-3 rounded-xl hover:bg-[#EEEAEB] transition group flex items-start space-x-3 cursor-pointer"
+                  >
+                    <div>
+                      <div className="text-xs font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition normal-case">
+                        Meet the Tribe
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal leading-tight normal-case mt-0.5">
+                        Your Lead TC & Dedicated Hometown Team
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Action CTAs */}
@@ -309,18 +359,30 @@ export const Navbar: React.FC<Props> = ({
             </div>
 
             <div className="pt-2 border-t border-[#D8D2D4]">
-              <button
-                onClick={() => handleLink(onOpenAbout, 'michelle')}
-                className="block w-full text-left py-2.5 px-3 rounded-lg hover:bg-white transition text-xs uppercase tracking-wider"
-              >
-                Meet the Team
-              </button>
+              <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider px-3 py-1">Meet the Team</div>
+              <div className="space-y-1">
+                <button
+                  onClick={() => handleLink(onOpenMeetMichelle || onOpenAbout, 'michelle')}
+                  className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
+                >
+                  <div className="text-xs font-bold text-[#3A2E29]">Meet Michelle</div>
+                  <div className="text-[11px] text-slate-500">Founder & 30+ year Florida roots</div>
+                </button>
+
+                <button
+                  onClick={() => handleLink(onOpenMeetTheTribe)}
+                  className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
+                >
+                  <div className="text-xs font-bold text-[#3A2E29]">Meet the Tribe</div>
+                  <div className="text-[11px] text-slate-500">Your Lead TC & Dedicated Hometown Team</div>
+                </button>
+              </div>
             </div>
 
             <div className="pt-2">
               <button
                 onClick={() => handleLink(onBookCall)}
-                className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center shadow-md"
+                className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center shadow-md cursor-pointer"
               >
                 BOOK A FIT CALL
               </button>

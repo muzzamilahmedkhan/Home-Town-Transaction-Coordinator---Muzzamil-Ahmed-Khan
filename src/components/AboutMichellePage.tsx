@@ -28,6 +28,7 @@ interface Props {
   onOpenPricing: () => void;
   onOpenTransactionCoordination: () => void;
   onOpenListingCoordination: () => void;
+  onOpenMeetTheTribe?: () => void;
 }
 
 export const AboutMichellePage: React.FC<Props> = ({
@@ -38,7 +39,8 @@ export const AboutMichellePage: React.FC<Props> = ({
   onOpenWhyHtc,
   onOpenPricing,
   onOpenTransactionCoordination,
-  onOpenListingCoordination
+  onOpenListingCoordination,
+  onOpenMeetTheTribe
 }) => {
   return (
     <div className="bg-[#EEEAEB] text-[#3A2E29] min-h-screen">
@@ -401,6 +403,18 @@ export const AboutMichellePage: React.FC<Props> = ({
                   <span>Submit a Transaction</span>
                 </button>
               </div>
+
+              {onOpenMeetTheTribe && (
+                <div className="pt-2">
+                  <button
+                    onClick={onOpenMeetTheTribe}
+                    className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#0D9BA3] hover:text-[#0a7f86] transition cursor-pointer group"
+                  >
+                    <span>MEET THE TRIBE (OUR LEAD TCS & TEAM)</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              )}
 
               <p className="text-[11px] text-slate-500 pt-1">
                 Direct Line: <a href={`tel:${PHONE_NUMBER.replace(/\D/g, '')}`} className="font-bold text-[#3A2E29] hover:underline">{PHONE_NUMBER}</a> • <a href={`mailto:${EMAIL_ADDRESS}`} className="hover:underline">{EMAIL_ADDRESS}</a>

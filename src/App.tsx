@@ -24,6 +24,7 @@ import { TransactionCoordinationPage } from './components/TransactionCoordinatio
 import { ListingCoordinationPage } from './components/ListingCoordinationPage';
 import { PricingPlansPage } from './components/PricingPlansPage';
 import { AboutMichellePage } from './components/AboutMichellePage';
+import { MeetTheTribePage } from './components/MeetTheTribePage';
 import { WhoWeSupportPage } from './components/WhoWeSupportPage';
 import { MiamiTransactionCoordinatorPage } from './components/MiamiTransactionCoordinatorPage';
 import { MiamiDadeTransactionCoordinatorPage } from './components/MiamiDadeTransactionCoordinatorPage';
@@ -76,7 +77,8 @@ export default function App() {
   const isRealtorTcPage = currentPath.includes('transaction-coordinator-for-realtors') || currentPath.includes('realtor-transaction-coordinator') || currentPath.includes('realtors');
   const isListingCoordinationPage = currentPath.includes('listing-coordination');
   const isPricingPage = currentPath.includes('pricing') || currentPath.includes('plans');
-  const isAboutPage = currentPath.includes('about') || currentPath.includes('michelle');
+  const isMeetTheTribePage = currentPath.includes('tribe') || currentPath.includes('/team') || currentPath.includes('meet-the-tribe');
+  const isAboutPage = !isMeetTheTribePage && (currentPath.includes('about') || currentPath.includes('michelle'));
   const isWhoWeSupportPage = (currentPath.includes('who-we-support') || currentPath.includes('audience')) && !isRealtorTcPage;
   const isMiamiDadeTcPage = currentPath.includes('miami-dade-transaction-coordinator') || currentPath.includes('miami-dade');
   const isMiamiTcPage = !isMiamiDadeTcPage && (currentPath.includes('miami-transaction-coordinator') || currentPath.includes('miami'));
@@ -95,7 +97,7 @@ export default function App() {
   const currentPostSlug = isBlogPostPage ? pathParts[1] : '';
 
   const scrollToHomeMethod = () => {
-    if (isCalculatorPage || isHowItWorksPage || isWhyHtcPage || isTransactionCoordinationPage || isContractToClosePage || isRealtorTcPage || isListingCoordinationPage || isPricingPage || isAboutPage || isWhoWeSupportPage || isMiamiTcPage || isMiamiDadeTcPage || isBrowardTcPage || isSouthFloridaTcPage || isFaqPage || isBookCallPage || isSubmitDealPage || isTcWorkshopPage) {
+    if (isCalculatorPage || isHowItWorksPage || isWhyHtcPage || isTransactionCoordinationPage || isContractToClosePage || isRealtorTcPage || isListingCoordinationPage || isPricingPage || isAboutPage || isMeetTheTribePage || isWhoWeSupportPage || isMiamiTcPage || isMiamiDadeTcPage || isBrowardTcPage || isSouthFloridaTcPage || isFaqPage || isBookCallPage || isSubmitDealPage || isTcWorkshopPage) {
       navigateTo('/');
       setTimeout(() => {
         const el = document.getElementById('home-method');
@@ -133,6 +135,8 @@ export default function App() {
         onOpenRealtorTc={() => navigateTo('/transaction-coordinator-for-realtors/')}
         onOpenFaq={() => navigateTo('/faq/')}
         onOpenAbout={() => navigateTo('/about/')}
+        onOpenMeetMichelle={() => navigateTo('/about/')}
+        onOpenMeetTheTribe={() => navigateTo('/team/')}
         onOpenTransactionCoordination={() => navigateTo('/transaction-coordination/')}
         onOpenListingCoordination={() => navigateTo('/listing-coordination/')}
         onOpenPricingPlans={() => navigateTo('/pricing/')}
@@ -314,6 +318,19 @@ export default function App() {
             onOpenRoi={() => navigateTo('/agent-business-calculator/')}
             onOpenTcWorkshop={() => navigateTo('/tcworkshop/')}
           />
+        ) : isMeetTheTribePage ? (
+          <MeetTheTribePage
+            onBookCall={() => setBookCallOpen(true)}
+            onSubmitDeal={() => navigateTo('/submit-deal/')}
+            onGoHome={() => navigateTo('/')}
+            onOpenAboutMichelle={() => navigateTo('/about/')}
+            onOpenHowItWorks={() => navigateTo('/how-htc-works/')}
+            onOpenWhyHtc={() => navigateTo('/why-htc/')}
+            onOpenPricing={() => navigateTo('/pricing/')}
+            onOpenTransactionCoordination={() => navigateTo('/transaction-coordination/')}
+            onOpenListingCoordination={() => navigateTo('/listing-coordination/')}
+            onOpenFaq={() => navigateTo('/faq/')}
+          />
         ) : isAboutPage ? (
           <AboutMichellePage
             onBookCall={() => setBookCallOpen(true)}
@@ -324,6 +341,7 @@ export default function App() {
             onOpenPricing={() => navigateTo('/pricing/')}
             onOpenTransactionCoordination={() => navigateTo('/transaction-coordination/')}
             onOpenListingCoordination={() => navigateTo('/listing-coordination/')}
+            onOpenMeetTheTribe={() => navigateTo('/team/')}
           />
         ) : isWhoWeSupportPage ? (
           <WhoWeSupportPage
@@ -495,6 +513,8 @@ export default function App() {
         onOpenListingCoordination={() => navigateTo('/listing-coordination/')}
         onOpenPricingPlans={() => navigateTo('/pricing/')}
         onOpenAbout={() => navigateTo('/about/')}
+        onOpenMeetMichelle={() => navigateTo('/about/')}
+        onOpenMeetTheTribe={() => navigateTo('/team/')}
         onOpenServicesPricing={() => navigateTo('/pricing/')}
         onOpenReviews={() => navigateTo('/reviews/')}
         onOpenBlog={() => navigateTo('/resources/')}

@@ -8,6 +8,8 @@ interface Props {
   onSubmitDeal: () => void;
   onOpenRoi: () => void;
   onOpenAbout: () => void;
+  onOpenMeetMichelle?: () => void;
+  onOpenMeetTheTribe?: () => void;
   onOpenServicesPricing: () => void;
   onOpenHowItWorks?: () => void;
   onOpenWhyHtc?: () => void;
@@ -35,6 +37,8 @@ export const Footer: React.FC<Props> = ({
   onSubmitDeal,
   onOpenRoi,
   onOpenAbout,
+  onOpenMeetMichelle,
+  onOpenMeetTheTribe,
   onOpenServicesPricing,
   onOpenHowItWorks,
   onOpenWhyHtc,
@@ -158,18 +162,34 @@ export const Footer: React.FC<Props> = ({
               </li>
               <li>
                 <button
-                  onClick={onOpenAbout}
+                  onClick={() => {
+                    if (onOpenMeetMichelle) {
+                      onOpenMeetMichelle();
+                    } else if (onOpenAbout) {
+                      onOpenAbout();
+                    } else {
+                      scrollToSection('michelle');
+                    }
+                  }}
                   className="hover:text-white transition cursor-pointer text-left"
                 >
-                  About HTC
+                  Meet Michelle
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('michelle')}
-                  className="hover:text-white transition cursor-pointer text-left"
+                  onClick={() => {
+                    if (onOpenMeetTheTribe) {
+                      onOpenMeetTheTribe();
+                    } else if (onOpenAbout) {
+                      onOpenAbout();
+                    } else {
+                      scrollToSection('michelle');
+                    }
+                  }}
+                  className="hover:text-white transition cursor-pointer text-left text-[#0D9BA3] font-bold"
                 >
-                  Meet the Team
+                  Meet the Tribe
                 </button>
               </li>
               <li>
