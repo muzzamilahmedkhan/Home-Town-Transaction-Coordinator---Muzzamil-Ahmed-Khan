@@ -1,23 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   ShieldCheck,
   Award,
   Heart,
-  FileCheck2,
-  Calendar,
-  Check,
-  CheckCircle2,
   PhoneCall,
   ArrowRight,
-  Sparkles,
   Users,
-  Compass,
-  Building2,
-  Star,
-  Layers,
-  Scale
+  Compass
 } from 'lucide-react';
-import { FOUNDER_IMAGE, MEET_MICHELLE_IMAGE, PHONE_NUMBER, EMAIL_ADDRESS } from '../data/content';
+import { FOUNDER_IMAGE, MEET_MICHELLE_IMAGE } from '../data/content';
 
 interface Props {
   onBookCall: () => void;
@@ -42,386 +33,590 @@ export const AboutMichellePage: React.FC<Props> = ({
   onOpenListingCoordination,
   onOpenMeetTheTribe
 }) => {
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = 'Michelle Martinez | Founder of Hometown Transaction Coordinators';
+
+    let metaDesc = document.querySelector('meta[name="description"]');
+    const originalMetaContent = metaDesc ? metaDesc.getAttribute('content') : '';
+    const targetMetaContent =
+      'Meet Michelle Martinez, founder of Hometown Transaction Coordinators, and learn the mission, vision, H.O.M.E. values, HTC Honors impact, and standard behind Hometown.';
+
+    if (metaDesc) {
+      metaDesc.setAttribute('content', targetMetaContent);
+    }
+
+    // Structured Data for Person & Breadcrumbs
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.id = 'person-michelle-martinez-schema';
+    schemaScript.text = JSON.stringify([
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Michelle Martinez',
+        jobTitle: 'Founder + Owner',
+        description:
+          'Michelle Martinez is the founder and owner of Hometown Transaction Coordinators, a boutique Florida real estate support agency. She has served Realtors since 1995 and founded HTC in 2018.',
+        worksFor: {
+          '@type': 'Organization',
+          name: 'Hometown Transaction Coordinators'
+        }
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: window.location.origin
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Meet Michelle',
+            item: `${window.location.origin}/about/`
+          }
+        ]
+      }
+    ]);
+    document.head.appendChild(schemaScript);
+
+    window.scrollTo(0, 0);
+
+    return () => {
+      document.title = originalTitle;
+      if (metaDesc && originalMetaContent) {
+        metaDesc.setAttribute('content', originalMetaContent);
+      }
+      const existingScript = document.getElementById('person-michelle-martinez-schema');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
+
   return (
     <div className="bg-[#EEEAEB] text-[#3A2E29] min-h-screen">
       
-      {/* 1. HERO / SERVING REALTORS SINCE 1995 */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#3A2E29] via-[#2A211D] to-[#3A2E29] text-white pt-32 pb-20 lg:pt-36 lg:pb-24 border-b border-[#D8D2D4]/20">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#0D9BA3_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* ------------------------------------------------------------------ */}
+      {/* SECTION 1 — HERO: MEET MICHELLE */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-16 sm:py-24 bg-[#EEEAEB] border-b border-[#D8D2D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           {/* Breadcrumb */}
-          <div className="flex items-center space-x-2 text-xs font-semibold text-[#0D9BA3] tracking-widest uppercase mb-4">
-            <button onClick={onGoHome} className="hover:text-white transition cursor-pointer">Home</button>
-            <span>/</span>
-            <span className="text-white">About Michelle</span>
+          <div className="flex items-center space-x-2 text-xs font-semibold text-[#0D9BA3] tracking-widest uppercase mb-8">
+            <button onClick={onGoHome} className="hover:text-[#3A2E29] transition cursor-pointer">Home</button>
+            <span>→</span>
+            <span className="text-[#3A2E29]">Meet Michelle</span>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/20 border border-[#0D9BA3]/40 px-3.5 py-1.5 rounded-full text-xs font-bold text-[#0D9BA3] tracking-wide">
-                <Award className="w-3.5 h-3.5" />
-                <span>SERVING REALTORS SINCE 1995 • 20,000+ CONTRACTS</span>
+            {/* Left Column (Desktop) / Top Column (Mobile): Copy */}
+            <div className="lg:col-span-7 space-y-6 order-1">
+              
+              {/* Eyebrow */}
+              <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-white px-3.5 py-1.5 rounded-full border border-[#D8D2D4] shadow-2xs">
+                <Award className="w-3.5 h-3.5 text-[#FE7311]" />
+                <span>MEET MICHELLE</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight font-serif">
-                Protect the Agent. Protect the Brokerage. <br />
-                <span className="text-[#0D9BA3]">Protect the Client.</span>
+              {/* Headline */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight leading-[1.15]">
+                I built Hometown around a standard.
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-light">
-                Hello friend, I’m <strong>Michelle Martinez</strong> — mother, wife, community advocate, and the paperwork-obsessed founder behind Hometown Transaction Coordinators. I’ve been serving Florida real estate professionals since 1995, long before "transaction coordination" was an industry buzzword.
-              </p>
+              {/* Primary AEO Answer & Core Body */}
+              <div className="space-y-4 text-base sm:text-lg text-slate-700 font-normal leading-relaxed">
+                <p>
+                  Michelle Martinez is the founder and owner of Hometown Transaction Coordinators, a boutique Florida real estate support agency. She has served Realtors since 1995 and founded HTC in 2018.
+                </p>
+                <p>
+                  Across more than 20,000 contracts, one thing has never changed: there are real people behind every transaction. The work matters because they matter.
+                </p>
+              </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              {/* Proof Line */}
+              <div className="pt-2 text-xs sm:text-sm font-bold text-[#0D9BA3] tracking-wide flex flex-wrap items-center gap-2">
+                <span>Serving Realtors since 1995</span>
+                <span>·</span>
+                <span>HTC founded in 2018</span>
+                <span>·</span>
+                <span>20,000+ contracts</span>
+              </div>
+
+              {/* CTAs */}
+              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                {onOpenMeetTheTribe ? (
+                  <button
+                    onClick={onOpenMeetTheTribe}
+                    className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg cursor-pointer group"
+                  >
+                    <span>MEET THE TRIBE</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                ) : (
+                  <button
+                    onClick={onBookCall}
+                    className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg cursor-pointer group"
+                  >
+                    <span>BOOK A 15-MINUTE FIT CALL</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                )}
+
                 <button
-                  onClick={onBookCall}
-                  className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
+                  onClick={onOpenWhyHtc}
+                  className="inline-flex items-center justify-center space-x-2 bg-white hover:bg-slate-50 text-[#3A2E29] border border-[#D8D2D4] px-6 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer group"
                 >
-                  <PhoneCall className="w-4 h-4" />
-                  <span>Work With HTC</span>
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </button>
-                <button
-                  onClick={onOpenPricing}
-                  className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-4 rounded-xl font-bold text-sm tracking-wide transition cursor-pointer backdrop-blur-sm"
-                >
-                  <span>Explore Transparent Plans</span>
+                  <span>SEE WHY HTC</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
+
             </div>
 
-            {/* Founder Hero Portrait */}
-            <div className="lg:col-span-5">
-              <div className="relative mx-auto max-w-md">
-                <div className="absolute -inset-2 bg-gradient-to-tr from-[#0D9BA3] to-[#FE7311] rounded-3xl blur-lg opacity-30" />
-                <div className="relative rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl bg-[#3A2E29]">
+            {/* Right Column (Desktop) / Bottom Column (Mobile): Portrait */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end order-2">
+              <div className="relative w-full max-w-sm sm:max-w-md">
+                <div className="rounded-3xl overflow-hidden border-2 border-[#D8D2D4] shadow-sm bg-white">
                   <img
-                    src={FOUNDER_IMAGE}
+                    src={MEET_MICHELLE_IMAGE || FOUNDER_IMAGE}
                     alt="Michelle Martinez - Founder of Hometown Transaction Coordinators"
-                    className="w-full h-auto object-cover object-center aspect-[4/5]"
+                    className="w-full h-auto object-cover object-top aspect-[4/5]"
+                    referrerPolicy="no-referrer"
                   />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#3A2E29] via-[#3A2E29]/80 to-transparent p-6 text-white">
-                    <h3 className="text-xl font-bold font-serif">Michelle Martinez</h3>
-                    <p className="text-xs text-[#0D9BA3] font-semibold tracking-wider uppercase mt-0.5">
-                      Founder & Lead Transaction Coordinator
-                    </p>
-                    <p className="text-[11px] text-slate-300 mt-2">
-                      Serving Florida Realtors® with precision, defensible compliance, and heart since 1995.
-                    </p>
+                  <div className="p-5 bg-white border-t border-[#D8D2D4]">
+                    <div className="text-base font-bold text-[#3A2E29] font-serif">Michelle Martinez</div>
+                    <div className="text-xs font-bold text-[#0D9BA3] uppercase tracking-wider mt-0.5">
+                      Founder + Owner
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
           </div>
+
         </div>
       </section>
 
-      {/* 2. HTC'S 2018 BEGINNING & EIGHT-YEAR REBUILD STORY */}
-      <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+      {/* ------------------------------------------------------------------ */}
+      {/* SECTION 2 — MISSION + VISION */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-16 sm:py-24 bg-white border-b border-[#D8D2D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
           
-          <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              <Compass className="w-3.5 h-3.5" />
-              <span>Origins & Tenacity</span>
+          {/* Section Eyebrow */}
+          <div className="text-center sm:text-left">
+            <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-[#EEEAEB] px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
+              <Compass className="w-3.5 h-3.5 text-[#FE7311]" />
+              <span>MISSION + VISION</span>
+            </div>
+          </div>
+
+          {/* Side-by-Side Editorial Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+            
+            {/* OUR MISSION (Foundation) */}
+            <div className="bg-[#EEEAEB] rounded-3xl p-8 sm:p-12 border border-[#D8D2D4] flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="text-xs font-extrabold uppercase tracking-widest text-[#0D9BA3]">
+                  OUR MISSION
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#3A2E29] font-serif leading-tight">
+                  We own the boring work so agents can grow.
+                </h2>
+              </div>
+              <p className="text-base sm:text-lg text-slate-700 font-normal leading-relaxed">
+                From Yes to Sold, HTC keeps the operational work behind the transaction moving.
+              </p>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif leading-tight">
-              HTC’s 2018 Beginning and the Eight-Year Rebuild
+            {/* OUR VISION (Forward-Looking & Larger in Scale) */}
+            <div className="bg-gradient-to-br from-[#3A2E29] to-[#251D1A] text-white rounded-3xl p-8 sm:p-12 border border-[#3A2E29] shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="text-xs font-extrabold uppercase tracking-widest text-[#FE7311]">
+                  OUR VISION
+                </div>
+                <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-white font-serif leading-[1.15] tracking-tight">
+                  To become Florida’s most trusted name in transaction support.
+                </h2>
+              </div>
+              <p className="text-base sm:text-lg text-slate-200 font-light leading-relaxed">
+                Growing alongside real estate professionals and perfecting the experience behind every closing, every year.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* SECTION 3 — H.O.M.E. VALUES */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-16 sm:py-24 bg-[#EEEAEB] border-b border-[#D8D2D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          {/* Header */}
+          <div className="max-w-3xl space-y-4">
+            <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-white px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
+              <Heart className="w-3.5 h-3.5 text-[#FE7311]" />
+              <span>OUR VALUES</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif leading-tight">
+              Honor. Order. Mastery. Ease.
+            </h2>
+          </div>
+
+          {/* 4 Clean Columns Desktop / Stacked Mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            
+            {/* HONOR */}
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-[#D8D2D4] shadow-2xs space-y-3 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="text-xs font-black tracking-widest text-[#0D9BA3] uppercase">
+                  H
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                  HONOR
+                </h3>
+                <p className="text-sm text-slate-700 font-normal leading-relaxed">
+                  Do the right thing for the people and the work entrusted to us.
+                </p>
+              </div>
+            </div>
+
+            {/* ORDER */}
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-[#D8D2D4] shadow-2xs space-y-3 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="text-xs font-black tracking-widest text-[#FE7311] uppercase">
+                  O
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                  ORDER
+                </h3>
+                <p className="text-sm text-slate-700 font-normal leading-relaxed">
+                  Create structure so the work stays organized and everyone knows what comes next.
+                </p>
+              </div>
+            </div>
+
+            {/* MASTERY */}
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-[#D8D2D4] shadow-2xs space-y-3 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="text-xs font-black tracking-widest text-[#0D9BA3] uppercase">
+                  M
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                  MASTERY
+                </h3>
+                <p className="text-sm text-slate-700 font-normal leading-relaxed">
+                  Know the work, keep learning, and keep raising the standard.
+                </p>
+              </div>
+            </div>
+
+            {/* EASE */}
+            <div className="bg-white rounded-3xl p-7 sm:p-8 border border-[#D8D2D4] shadow-2xs space-y-3 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="text-xs font-black tracking-widest text-[#FE7311] uppercase">
+                  E
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                  EASE
+                </h3>
+                <p className="text-sm text-slate-700 font-normal leading-relaxed">
+                  Build better systems so good work feels easier to deliver and easier to experience.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Underneath Statement & Method Link */}
+          <div className="pt-4 border-t border-[#D8D2D4] space-y-4 max-w-4xl">
+            <p className="text-base sm:text-lg text-slate-700 font-normal leading-relaxed">
+              H.O.M.E. guides how we lead, how we train, how we choose our partners, and how we make decisions at HTC.
+            </p>
+            <div>
+              <button
+                onClick={onOpenHowItWorks}
+                className="inline-flex items-center space-x-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0D9BA3] hover:text-[#0a7f86] transition cursor-pointer group"
+              >
+                <span>SEE THE H.O.M.E. CLOSE METHOD</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* SECTION 4 — THE HTC PROMISE */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-20 sm:py-28 bg-white border-b border-[#D8D2D4]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+          
+          <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-[#EEEAEB] px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#FE7311]" />
+            <span>THE PROMISE BEHIND THE WORK</span>
+          </div>
+
+          <div className="space-y-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight leading-tight max-w-3xl mx-auto">
+              Protect the Agent. Protect the Broker. Protect the Client.
             </h2>
 
-            <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-              In 2018, after decades of hands-on brokerage administration, title liaison work, and managing thousands of complex Florida files, Hometown Transaction Coordinators was formally founded with one uncompromising mission: <strong>deliver an institutional standard of care for independent Realtors.</strong>
+            <p className="text-base sm:text-lg lg:text-xl text-slate-700 font-normal leading-relaxed max-w-2xl mx-auto">
+              That promise is the filter behind the systems we build, the people we train, and the way HTC supports the work entrusted to us.
             </p>
-
-            <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-              Over the last eight years, our systems were forged through extreme market cycles — from hyper-speed shifting markets and evolving DBPR regulations to the 2024–2026 Florida Realtors® FAR/BAR structural revisions.
-            </p>
-
-            <div className="p-5 bg-white rounded-2xl border border-[#D8D2D4] shadow-sm space-y-2">
-              <span className="text-xs font-bold text-[#FE7311] uppercase tracking-wider block">
-                The Battle-Tested Mindset
-              </span>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                "I survived life, rebuilt it from the ground up, and channel that same relentless resilience into protecting our agents. When you hand over a file, you are getting an operator who treats your license, your reputation, and your commission as if it were her own."
-              </p>
-            </div>
           </div>
 
-          <div className="lg:col-span-6 grid sm:grid-cols-2 gap-4">
-            <div className="bg-white p-6 rounded-2xl border border-[#D8D2D4] shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-bold">
-                <Calendar className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-base text-[#3A2E29]">1995 Roots</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Started in the trenches of real estate contracts before modern cloud transaction management portals existed.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-[#D8D2D4] shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#FE7311]/10 text-[#FE7311] flex items-center justify-center font-bold">
-                <Building2 className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-base text-[#3A2E29]">2018 Formal Launch</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Built Hometown TC into a dedicated boutique support agency with proprietary compliance systems.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-[#D8D2D4] shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#3A2E29]/10 text-[#3A2E29] flex items-center justify-center font-bold">
-                <Scale className="w-5 h-5 text-[#0D9BA3]" />
-              </div>
-              <h3 className="font-bold text-base text-[#3A2E29]">20,000+ Files Handled</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Deep empirical pattern recognition across luxury estates, condos, short sales, probate, and FIRPTA deals.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-[#D8D2D4] shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-bold">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-base text-[#3A2E29]">Statewide Florida Reach</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Active in Broward, Miami-Dade, Palm Beach, St. Lucie, Martin, Orange, Hillsborough, and beyond.
-              </p>
+          <div className="pt-6 sm:pt-8 border-t border-[#D8D2D4] max-w-2xl mx-auto">
+            <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#0D9BA3] font-serif tracking-tight">
+              Collaborative. Predictable. Transparent.
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* 3. WHY DEFENSIBLE FILES MATTER */}
-      <section className="py-20 bg-white border-y border-[#D8D2D4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-3 mb-16">
-            <div className="inline-flex items-center space-x-2 bg-[#FE7311]/10 text-[#FE7311] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Compliance Without Compromise</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif">
-              Why Defensible Files Matter
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              In Florida real estate, your reputation and your license are on the line on every contract. We don't just "push paper" — we create defensible audit trails.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            
-            <div className="bg-[#EEEAEB] rounded-2xl p-7 border border-[#D8D2D4] space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-[#0D9BA3] text-white flex items-center justify-center font-bold">
-                <FileCheck2 className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-[#3A2E29]">Protecting Your Brokerage</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Broker audits from DBPR and Florida Realtors® demand complete, chronological, uncorrupted records. We assemble fully compliant files with thorough tracking of initials, riders, and deposit verification.
-              </p>
-            </div>
-
-            <div className="bg-[#EEEAEB] rounded-2xl p-7 border border-[#D8D2D4] space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-[#FE7311] text-white flex items-center justify-center font-bold">
-                <Scale className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold text-[#3A2E29]">Audit & Dispute Protection</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                If an escrow dispute, repair addendum conflict, or financing cancellation occurs, you have an thorough
-              </p>
-            </div>
-
-            <div className="bg-[#EEEAEB] rounded-2xl p-7 border border-[#D8D2D4] space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-[#3A2E29] text-white flex items-center justify-center font-bold">
-                <Sparkles className="w-6 h-6 text-[#0D9BA3]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#3A2E29]">Sleep Better at Night</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                "When the file is flawless, everyone sleeps better at night." You can focus completely on lead generation, showing luxury properties, and negotiating for your buyers and sellers.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 4. H.O.M.E. VALUES AND COMMUNITY COMMITMENT */}
-      <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+      {/* ------------------------------------------------------------------ */}
+      {/* SECTION 5 — HTC HONORS */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-16 sm:py-24 bg-[#EEEAEB] border-b border-[#D8D2D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
           
-          <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              <Heart className="w-3.5 h-3.5" />
-              <span>Core Philosophy</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif leading-tight">
-              The H.O.M.E. Values & Hometown Honors
-            </h2>
-
-            <p className="text-sm text-slate-700 leading-relaxed">
-              HTC is rooted in values that transcend business transactions. We believe in high standards, radical empathy, and continuous community reinvestment.
-            </p>
-
-            <div className="p-6 bg-white rounded-3xl border border-[#D8D2D4] shadow-sm space-y-3">
-              <div className="flex items-center space-x-2 text-[#FE7311] font-bold text-sm">
-                <Heart className="w-4 h-4" />
-                <span>The Hometown Honors Program</span>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Through our <strong>Hometown Honors</strong> initiative, a percentage of every closed transaction fee goes directly back into local South Florida community outreach, food drives, and family support programs.
-              </p>
-            </div>
-          </div>
-
-          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             
-            <div className="bg-white p-6 rounded-2xl border border-[#D8D2D4] shadow-sm space-y-2">
-              <div className="text-2xl font-black text-[#0D9BA3] font-serif">H</div>
-              <h3 className="font-bold text-sm text-[#3A2E29]">Honor the Agreement</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                We respect the solemn nature of contracts. Every clause, deposit timeline, and contingency is guarded with rigor.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-[#D8D2D4] shadow-sm space-y-2">
-              <div className="text-2xl font-black text-[#FE7311] font-serif">O</div>
-              <h3 className="font-bold text-sm text-[#3A2E29]">Organize the File</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Structure breeds calmness. We establish a single source of truth master calendar for all transaction stakeholders.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-[#D8D2D4] shadow-sm space-y-2">
-              <div className="text-2xl font-black text-[#3A2E29] font-serif">M</div>
-              <h3 className="font-bold text-sm text-[#3A2E29]">Monitor the Milestones</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Proactive foresight eliminates last-minute closing drama. We stay three steps ahead of appraisal and loan commitment dates.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-[#D8D2D4] shadow-sm space-y-2">
-              <div className="text-2xl font-black text-[#0D9BA3] font-serif">E</div>
-              <h3 className="font-bold text-sm text-[#3A2E29]">Ease the Close</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                A seamless, celebratory finish. Final CD review, prompt CDA delivery to title, and complete brokerage archiving.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 5. MICHELLE’S PROMISE TO THE AGENT */}
-      <section className="py-20 bg-[#3A2E29] text-white border-y border-white/10">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          
-          <div className="inline-flex items-center space-x-2 bg-white/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-            <CheckCircle2 className="w-3.5 h-3.5" />
-            <span>Founder's Direct Commitment</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-serif leading-tight">
-            "My Promise to Every Florida Agent We Serve"
-          </h2>
-
-          <div className="max-w-3xl mx-auto space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed font-light">
-            <p>
-              "You’re not just hiring support. You’re hiring someone who treats your business like her own. When you grow, I grow. When you win, your clients win."
-            </p>
-            <p className="text-xs sm:text-sm text-slate-300">
-              "We take 20–40 administrative hours off your plate on every file so you can stay in front of buyers and sellers. We don't just push paper — we protect your deals and your reputation. That’s it. No more."
-            </p>
-          </div>
-
-          <div className="pt-4 flex flex-wrap justify-center items-center gap-6 text-xs text-slate-300 font-medium">
-            <div className="flex items-center space-x-2">
-              <Check className="w-4 h-4 text-[#0D9BA3]" />
-              <span>Tailored to Your Workflow</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Check className="w-4 h-4 text-[#0D9BA3]" />
-              <span>Human Care + Modern Systems</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Check className="w-4 h-4 text-[#0D9BA3]" />
-              <span>Florida Disclosure Tracking</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 6. PROFESSIONAL PHOTOGRAPHY & WORK WITH HTC CTA */}
-      <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#D8D2D4] shadow-sm">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="rounded-2xl overflow-hidden shadow-xl border border-[#D8D2D4] bg-[#F7F5F5] w-full max-w-md">
-                <img
-                  src="https://i.pinimg.com/736x/81/7c/ad/817cadd87957f8329e8ee56746fe85d2.jpg"
-                  alt="Michelle Martinez - Founder of Hometown Transaction Coordinators"
-                  className="w-full h-auto object-contain block mx-auto"
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
+            {/* Left Column: Story & Meaning */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-[#FE7311]/10 text-[#FE7311] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Let's Connect</span>
+              
+              <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-white px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
+                <Heart className="w-3.5 h-3.5 text-[#FE7311]" />
+                <span>HTC HONORS</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-black text-[#3A2E29] font-serif">
-                Ready for a calm, organized closing experience?
-              </h3>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight leading-tight">
+                Good Business. Good Community. Real Impact.
+              </h2>
 
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Whether you have an executed FAR/BAR contract ready for immediate onboarding or simply want to explore how our per-file support elevates your client experience, we invite you to start with a 15-minute fit call.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <button
-                  onClick={onBookCall}
-                  className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-md cursor-pointer"
-                >
-                  <PhoneCall className="w-4 h-4" />
-                  <span>Work With HTC</span>
-                </button>
-                <button
-                  onClick={onSubmitDeal}
-                  className="inline-flex items-center justify-center space-x-2 bg-[#0D9BA3] hover:bg-[#0b868d] text-white px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-md cursor-pointer"
-                >
-                  <FileCheck2 className="w-4 h-4" />
-                  <span>Submit a Transaction</span>
-                </button>
+              <div className="space-y-4 text-base sm:text-lg text-slate-700 font-normal leading-relaxed">
+                <p>
+                  HTC Honors is our way of giving back to the agents who support Hometown and turning that business into something bigger than the closing itself.
+                </p>
+                <p>
+                  Our agents earn HTC Honors points as they work with us. They can use those points for rewards or charitable giving, and when they choose to donate their points, HTC matches the donation.
+                </p>
+                <p>
+                  Our agents are busy people, and sometimes their points expire before they use them. We still find ways to turn that value into meaningful community support.
+                </p>
+                <p>
+                  Through HTC Honors, we give our time, financial support, food, hygiene products, care packages, and other needed items to organizations serving people in our communities. Supporting survivors of domestic violence is especially close to my heart.
+                </p>
               </div>
 
-              {onOpenMeetTheTribe && (
-                <div className="pt-2">
+            </div>
+
+            {/* Right Column: Impact at a Glance */}
+            <div className="lg:col-span-5">
+              <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#D8D2D4] shadow-sm space-y-8">
+                <div className="border-b border-[#D8D2D4] pb-4">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#0D9BA3]">
+                    IMPACT AT A GLANCE
+                  </span>
+                  <div className="text-xs text-slate-500 mt-1">Current published HTC Honors impact</div>
+                </div>
+
+                <div className="space-y-6">
+                  {/* 15+ */}
+                  <div className="flex items-baseline space-x-4">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif min-w-[90px]">
+                      15+
+                    </div>
+                    <div className="text-base sm:text-lg font-medium text-slate-700">
+                      Charities Supported
+                    </div>
+                  </div>
+
+                  <div className="border-t border-[#EEEAEB]" />
+
+                  {/* 100+ */}
+                  <div className="flex items-baseline space-x-4">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#FE7311] font-serif min-w-[90px]">
+                      100+
+                    </div>
+                    <div className="text-base sm:text-lg font-medium text-slate-700">
+                      Self-Care Kits for Survivors
+                    </div>
+                  </div>
+
+                  <div className="border-t border-[#EEEAEB]" />
+
+                  {/* $15,000 */}
+                  <div className="flex items-baseline space-x-4">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#0D9BA3] font-serif min-w-[90px]">
+                      $15,000
+                    </div>
+                    <div className="text-base sm:text-lg font-medium text-slate-700">
+                      Donated
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-500 italic pt-2">
+                  "Turning closed files into community care across Florida."
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* SECTION 6 — FOUNDER-LED. TEAM-DELIVERED. */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-16 sm:py-24 bg-white border-b border-[#D8D2D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            
+            {/* Image on left (desktop) / bottom (mobile) */}
+            <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
+              <div className="relative w-full max-w-sm sm:max-w-md">
+                <div className="rounded-3xl overflow-hidden border-2 border-[#D8D2D4] shadow-sm bg-[#F7F5F5]">
+                  <img
+                    src={FOUNDER_IMAGE}
+                    alt="Michelle Martinez - Founder & Leadership at HTC"
+                    className="w-full h-auto object-cover object-top aspect-[4/5]"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                  />
+                  <div className="p-5 bg-white border-t border-[#D8D2D4]">
+                    <div className="text-base font-bold text-[#3A2E29] font-serif">Michelle Martinez</div>
+                    <div className="text-xs font-bold text-[#0D9BA3] uppercase tracking-wider mt-0.5">
+                      Setting the Standard & Leading the Tribe
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Copy on right (desktop) / top (mobile) */}
+            <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
+              <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-[#EEEAEB] px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
+                <Users className="w-3.5 h-3.5 text-[#FE7311]" />
+                <span>THE STANDARD CONTINUES</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight leading-tight">
+                Hometown was never meant to stop with me.
+              </h2>
+
+              <div className="space-y-4 text-base sm:text-lg text-slate-700 font-normal leading-relaxed">
+                <p>
+                  My job is to set the standard, build the systems, and make sure the people carrying the Hometown name understand what it means.
+                </p>
+                <p>
+                  Today, HTC is a tech-enabled team built to carry that standard forward across every file we support.
+                </p>
+                <p className="font-medium text-[#3A2E29]">
+                  Meet the people helping carry it forward.
+                </p>
+              </div>
+
+              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                {onOpenMeetTheTribe ? (
                   <button
                     onClick={onOpenMeetTheTribe}
-                    className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#0D9BA3] hover:text-[#0a7f86] transition cursor-pointer group"
+                    className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg cursor-pointer group"
                   >
-                    <span>MEET THE TRIBE (OUR LEAD TCS & TEAM)</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <span>MEET THE TRIBE</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
-                </div>
-              )}
+                ) : (
+                  <button
+                    onClick={onBookCall}
+                    className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg cursor-pointer group"
+                  >
+                    <span>BOOK A 15-MINUTE FIT CALL</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                )}
+                <button
+                  onClick={onOpenWhyHtc}
+                  className="inline-flex items-center justify-center space-x-2 bg-white hover:bg-slate-50 text-[#3A2E29] border border-[#D8D2D4] px-6 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer group"
+                >
+                  <span>SEE WHY HTC</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
 
-              <p className="text-[11px] text-slate-500 pt-1">
-                Direct Line: <a href={`tel:${PHONE_NUMBER.replace(/\D/g, '')}`} className="font-bold text-[#3A2E29] hover:underline">{PHONE_NUMBER}</a> • <a href={`mailto:${EMAIL_ADDRESS}`} className="hover:underline">{EMAIL_ADDRESS}</a>
-              </p>
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* SECTION 7 — FOUNDER SIGN-OFF */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="py-20 sm:py-28 bg-[#EEEAEB]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
+          
+          {/* Exact Sign-off Text */}
+          <div className="space-y-3">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight">
+              FORWARD.
+            </div>
+            <div className="text-xl sm:text-2xl lg:text-3xl font-light text-[#0D9BA3] font-serif italic tracking-wide">
+              Always Forward.
+            </div>
+          </div>
+
+          {/* Founder Identity */}
+          <div className="pt-2 space-y-1">
+            <div className="text-lg sm:text-xl font-bold text-[#3A2E29] font-serif">
+              Michelle Martinez
+            </div>
+            <div className="text-xs font-bold uppercase tracking-widest text-[#FE7311]">
+              Founder + Owner
+            </div>
+            <div className="text-xs sm:text-sm font-medium text-slate-600">
+              Hometown Transaction Coordinators
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <button
+              onClick={onBookCall}
+              className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-lg cursor-pointer group"
+            >
+              <PhoneCall className="w-4 h-4" />
+              <span>BOOK A 15-MINUTE FIT CALL</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+            
+            {onOpenMeetTheTribe && (
+              <button
+                onClick={onOpenMeetTheTribe}
+                className="inline-flex items-center justify-center space-x-2 bg-white hover:bg-slate-50 text-[#3A2E29] border border-[#D8D2D4] px-6 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer group"
+              >
+                <span>MEET THE TRIBE</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            )}
+          </div>
+
         </div>
       </section>
 
