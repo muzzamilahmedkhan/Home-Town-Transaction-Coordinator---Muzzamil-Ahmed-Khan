@@ -12,13 +12,20 @@ export interface BlogPost {
   featured?: boolean;
 }
 
+export const PERMANENT_TOPIC_CATEGORIES = [
+  'Florida Contracts + Forms',
+  'Transaction Operations',
+  'Broker Compliance',
+  'Condo + HOA',
+  'Agent Growth + Leverage',
+  'Florida Real Estate Updates'
+] as const;
+
+export type TopicCategory = typeof PERMANENT_TOPIC_CATEGORIES[number];
+
 export const BLOG_CATEGORIES = [
-  'All Resources',
-  'FAR/BAR Contract Updates',
-  'Compliance & Audits',
-  'Escrow & Title',
-  'HOA/Condo Approvals',
-  'Agent Operations'
+  'All Dispatches',
+  ...PERMANENT_TOPIC_CATEGORIES
 ];
 
 export const DEMO_BLOG_POSTS: BlogPost[] = [
@@ -27,7 +34,7 @@ export const DEMO_BLOG_POSTS: BlogPost[] = [
     slug: 'navigating-far-bar-as-is-inspection-periods',
     title: 'Navigating FAR/BAR "AS IS" Inspection Periods in Florida',
     excerpt: 'A deep dive into computing time, repair requests, and maintaining leverage during the critical 15-day inspection window on Florida residential contracts.',
-    category: 'FAR/BAR Contract Updates',
+    category: 'Florida Contracts + Forms',
     author: 'Michelle Martinez, PA',
     reviewer: 'Florida Real Estate Attorney',
     dateUpdated: 'October 12, 2026',
@@ -40,7 +47,7 @@ export const DEMO_BLOG_POSTS: BlogPost[] = [
     slug: 'condo-milestone-inspections-sb-4d',
     title: 'How SB 4-D Milestone Inspections Impact Condo Closings',
     excerpt: 'What South Florida agents need to know about the new structural integrity reserves and how it delays financing and title commitments.',
-    category: 'HOA/Condo Approvals',
+    category: 'Condo + HOA',
     author: 'HTC Compliance Team',
     reviewer: 'Michelle Martinez, PA',
     dateUpdated: 'September 28, 2026',
@@ -52,7 +59,7 @@ export const DEMO_BLOG_POSTS: BlogPost[] = [
     slug: 'earnest-money-disputes-freo-guidance',
     title: 'Handling Earnest Money Disputes: FREC Escrow Disbursement',
     excerpt: 'Step-by-step guidance on filing an Escrow Disbursement Order (EDO) when buyers and sellers clash over the initial deposit.',
-    category: 'Escrow & Title',
+    category: 'Transaction Operations',
     author: 'Mary S.',
     reviewer: 'Michelle Martinez, PA',
     dateUpdated: 'September 15, 2026',
@@ -64,7 +71,7 @@ export const DEMO_BLOG_POSTS: BlogPost[] = [
     slug: 'broker-compliance-checklist-2026',
     title: 'The Ultimate 2026 Broker Compliance Checklist',
     excerpt: 'Ensure your files are audit-ready with our comprehensive pre-close checklist designed for Florida brokerages.',
-    category: 'Compliance & Audits',
+    category: 'Broker Compliance',
     author: 'HTC Operations',
     reviewer: 'Michelle Martinez, PA',
     dateUpdated: 'August 30, 2026',

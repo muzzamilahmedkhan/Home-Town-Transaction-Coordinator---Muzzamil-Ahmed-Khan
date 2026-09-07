@@ -1,14 +1,15 @@
 import React from 'react';
-import { ArrowLeft, Calendar, UserCheck, ShieldCheck, Info, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Calendar, UserCheck, ShieldCheck, Info, CheckCircle2, Calculator } from 'lucide-react';
 import { DEMO_BLOG_POSTS } from '../data/blog';
 
 interface Props {
   slug: string;
   onBackToBlog: () => void;
   onBookCall: () => void;
+  onOpenCalculator?: (hash?: string) => void;
 }
 
-export const BlogPostPage: React.FC<Props> = ({ slug, onBackToBlog, onBookCall }) => {
+export const BlogPostPage: React.FC<Props> = ({ slug, onBackToBlog, onBookCall, onOpenCalculator }) => {
   // Find post or fallback to first
   const post = DEMO_BLOG_POSTS.find(p => p.slug === slug) || DEMO_BLOG_POSTS[0];
 
@@ -23,7 +24,7 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onBackToBlog, onBookCall }
             className="flex items-center space-x-2 text-xs font-bold text-[#0D9BA3] uppercase tracking-wider hover:text-white transition cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Resources</span>
+            <span>Back to The Hometown Brief</span>
           </button>
 
           <div className="space-y-4 pt-4">
@@ -96,6 +97,75 @@ export const BlogPostPage: React.FC<Props> = ({ slug, onBackToBlog, onBookCall }
             <p className="text-sm text-slate-700 leading-relaxed mb-6">
               When HTC manages a contract, our timeline tracking immediately locks in the inspection expiration date. We send automated reminders to the buyer's agent on Day 3, Day 7, and 48 hours prior to expiration, ensuring no deadline is accidentally missed while waiting on roofing or plumbing reports.
             </p>
+
+            {/* AEO Interactive Resource Bridge: Run Your Own Numbers */}
+            <div className="mt-8 p-6 sm:p-8 bg-[#3A2E29] text-white rounded-2xl border border-[#0D9BA3]/40 shadow-lg space-y-5">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="space-y-1.5 text-center sm:text-left">
+                  <div className="inline-flex items-center space-x-1.5 text-[10px] font-bold text-[#0D9BA3] uppercase tracking-widest bg-white/10 px-2.5 py-1 rounded-full border border-[#0D9BA3]/30">
+                    <Calculator className="w-3 h-3 text-[#FE7311]" />
+                    <span>BUSINESS TOOL</span>
+                  </div>
+                  <h4 className="text-base sm:text-xl font-extrabold font-serif text-white">
+                    Don’t Guess. Run the Numbers.
+                  </h4>
+                  <p className="text-xs text-slate-300 max-w-xl leading-relaxed">
+                    See what your time is worth, compare hiring a TC with using HTC, or model what 20% more closed business could look like using your own numbers.
+                  </p>
+                </div>
+                {onOpenCalculator && (
+                  <button
+                    onClick={() => onOpenCalculator()}
+                    className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition whitespace-nowrap cursor-pointer shadow-md flex-shrink-0"
+                  >
+                    RUN THE NUMBERS →
+                  </button>
+                )}
+              </div>
+
+              {/* Supported Deep Links */}
+              <div className="pt-4 border-t border-white/15 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono">
+                <span className="text-white/50 text-[11px] uppercase tracking-wider">Deep Links:</span>
+                <a
+                  href="/agent-business-calculator/#time-worth"
+                  onClick={(e) => {
+                    if (onOpenCalculator) {
+                      e.preventDefault();
+                      onOpenCalculator('time-worth');
+                    }
+                  }}
+                  className="text-[#0D9BA3] hover:text-white transition-colors hover:underline"
+                >
+                  #time-worth
+                </a>
+                <span className="text-white/20">•</span>
+                <a
+                  href="/agent-business-calculator/#hire-or-htc"
+                  onClick={(e) => {
+                    if (onOpenCalculator) {
+                      e.preventDefault();
+                      onOpenCalculator('hire-or-htc');
+                    }
+                  }}
+                  className="text-[#0D9BA3] hover:text-white transition-colors hover:underline"
+                >
+                  #hire-or-htc
+                </a>
+                <span className="text-white/20">•</span>
+                <a
+                  href="/agent-business-calculator/#20-percent-more"
+                  onClick={(e) => {
+                    if (onOpenCalculator) {
+                      e.preventDefault();
+                      onOpenCalculator('20-percent-more');
+                    }
+                  }}
+                  className="text-[#0D9BA3] hover:text-white transition-colors hover:underline"
+                >
+                  #20-percent-more
+                </a>
+              </div>
+            </div>
 
           </div>
 

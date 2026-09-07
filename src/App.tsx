@@ -39,6 +39,7 @@ import { ReviewsPage } from './components/ReviewsPage';
 import { BlogResourcesPage } from './components/BlogResourcesPage';
 import { BlogPostPage } from './components/BlogPostPage';
 import { TcWorkshopPage } from './components/TcWorkshopPage';
+import { FreeGuidesPage } from './components/FreeGuidesPage';
 import { Language } from './types';
 
 export default function App() {
@@ -65,7 +66,18 @@ export default function App() {
     if (typeof window !== 'undefined') {
       window.history.pushState({}, '', path);
       setCurrentPath(path);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const hashIndex = path.indexOf('#');
+      if (hashIndex !== -1) {
+        const hash = path.substring(hashIndex + 1);
+        setTimeout(() => {
+          const el = document.getElementById(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 150);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 
@@ -89,6 +101,7 @@ export default function App() {
   const isSubmitDealPage = currentPath.includes('submit-deal') || currentPath.includes('submit-a-deal') || currentPath.includes('contract-intake');
   const isReviewsPage = currentPath.includes('reviews') || currentPath.includes('testimonials');
   const isTcWorkshopPage = currentPath.includes('tcworkshop') || currentPath.includes('workshop') || currentPath.includes('training');
+  const isGuidesPage = currentPath.includes('guides') || currentPath.includes('downloads');
 
   const pathParts = currentPath.split('/').filter(Boolean);
   const isBlogRoute = pathParts[0] === 'blog' || pathParts[0] === 'resources';
@@ -97,7 +110,7 @@ export default function App() {
   const currentPostSlug = isBlogPostPage ? pathParts[1] : '';
 
   const scrollToHomeMethod = () => {
-    if (isCalculatorPage || isHowItWorksPage || isWhyHtcPage || isTransactionCoordinationPage || isContractToClosePage || isRealtorTcPage || isListingCoordinationPage || isPricingPage || isAboutPage || isMeetTheTribePage || isWhoWeSupportPage || isMiamiTcPage || isMiamiDadeTcPage || isBrowardTcPage || isSouthFloridaTcPage || isFaqPage || isBookCallPage || isSubmitDealPage || isTcWorkshopPage) {
+    if (isCalculatorPage || isHowItWorksPage || isWhyHtcPage || isTransactionCoordinationPage || isContractToClosePage || isRealtorTcPage || isListingCoordinationPage || isPricingPage || isAboutPage || isMeetTheTribePage || isWhoWeSupportPage || isMiamiTcPage || isMiamiDadeTcPage || isBrowardTcPage || isSouthFloridaTcPage || isFaqPage || isBookCallPage || isSubmitDealPage || isTcWorkshopPage || isGuidesPage) {
       navigateTo('/');
       setTimeout(() => {
         const el = document.getElementById('home-method');
@@ -150,9 +163,10 @@ export default function App() {
       <main className="flex-grow">
         {isCalculatorPage ? (
           <AgentCalculatorPage
-            onBookCall={() => setBookCallOpen(true)}
-            onExploreServices={() => navigateTo('/pricing/')}
+            onBookCall={() => navigateTo('/book/')}
+            onExploreServices={() => navigateTo('/pricing/#contract-to-close')}
             onGoHome={() => navigateTo('/')}
+            onOpenResources={() => navigateTo('/resources/')}
           />
         ) : isHowItWorksPage ? (
           <HowHtcWorksPage
@@ -408,12 +422,26 @@ export default function App() {
             onGoHome={() => navigateTo('/')}
             onOpenPost={(slug) => navigateTo(`/resources/${slug}/`)}
             onBookCall={() => setBookCallOpen(true)}
+            onOpenCalculator={(hash?: string) =>
+              navigateTo(hash ? (hash.startsWith('#') ? `/agent-business-calculator/${hash}` : `/agent-business-calculator/#${hash}`) : '/agent-business-calculator/')
+            }
+            onOpenGuides={() => navigateTo('/free-guides-downloads/')}
           />
         ) : isBlogPostPage ? (
           <BlogPostPage
             slug={currentPostSlug}
             onBackToBlog={() => navigateTo('/resources/')}
             onBookCall={() => setBookCallOpen(true)}
+            onOpenCalculator={(hash?: string) =>
+              navigateTo(hash ? `/agent-business-calculator/#${hash}` : '/agent-business-calculator/')
+            }
+          />
+        ) : isGuidesPage ? (
+          <FreeGuidesPage
+            onGoHome={() => navigateTo('/')}
+            onBackToBlog={() => navigateTo('/resources/')}
+            onBookCall={() => setBookCallOpen(true)}
+            onOpenCalculator={() => navigateTo('/agent-business-calculator/')}
           />
         ) : isTcWorkshopPage ? (
           <TcWorkshopPage
