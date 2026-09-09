@@ -37,6 +37,7 @@ import { BookDiscoveryCallPage } from './components/BookDiscoveryCallPage';
 import { SubmitDealPage } from './components/SubmitDealPage';
 import { ReviewsPage } from './components/ReviewsPage';
 import { BlogResourcesPage } from './components/BlogResourcesPage';
+import { CategoryArchivePage } from './components/CategoryArchivePage';
 import { BlogPostPage } from './components/BlogPostPage';
 import { TcWorkshopPage } from './components/TcWorkshopPage';
 import { FreeGuidesPage } from './components/FreeGuidesPage';
@@ -105,9 +106,23 @@ export default function App() {
 
   const pathParts = currentPath.split('/').filter(Boolean);
   const isBlogRoute = pathParts[0] === 'blog' || pathParts[0] === 'resources';
-  const isBlogPostPage = isBlogRoute && pathParts.length > 1;
+  const subSlug = pathParts[1] || '';
+  const knownCategorySlugs = [
+    'contracts-forms',
+    'transaction-operations',
+    'broker-compliance',
+    'condo-hoa',
+    'agent-growth',
+    'florida-updates',
+    'agent-growth-leverage',
+    'florida-real-estate-updates',
+    'florida-contracts-forms'
+  ];
+  const isCategoryArchivePage = isBlogRoute && pathParts.length > 1 && knownCategorySlugs.includes(subSlug);
+  const isBlogPostPage = isBlogRoute && pathParts.length > 1 && !knownCategorySlugs.includes(subSlug);
   const isBlogIndexPage = isBlogRoute && pathParts.length === 1;
-  const currentPostSlug = isBlogPostPage ? pathParts[1] : '';
+  const currentPostSlug = isBlogPostPage ? subSlug : '';
+  const currentCategorySlug = isCategoryArchivePage ? subSlug : '';
 
   const scrollToHomeMethod = () => {
     if (isCalculatorPage || isHowItWorksPage || isWhyHtcPage || isTransactionCoordinationPage || isContractToClosePage || isRealtorTcPage || isListingCoordinationPage || isPricingPage || isAboutPage || isMeetTheTribePage || isWhoWeSupportPage || isMiamiTcPage || isMiamiDadeTcPage || isBrowardTcPage || isSouthFloridaTcPage || isFaqPage || isBookCallPage || isSubmitDealPage || isTcWorkshopPage || isGuidesPage) {
@@ -426,6 +441,14 @@ export default function App() {
               navigateTo(hash ? (hash.startsWith('#') ? `/agent-business-calculator/${hash}` : `/agent-business-calculator/#${hash}`) : '/agent-business-calculator/')
             }
             onOpenGuides={() => navigateTo('/free-guides-downloads/')}
+            onExploreServices={() => navigateTo('/pricing/')}
+            onNavigate={(path) => navigateTo(path)}
+          />
+        ) : isCategoryArchivePage ? (
+          <CategoryArchivePage
+            categorySlug={currentCategorySlug}
+            onNavigate={(path) => navigateTo(path)}
+            onBookCall={() => setBookCallOpen(true)}
           />
         ) : isBlogPostPage ? (
           <BlogPostPage
@@ -435,6 +458,13 @@ export default function App() {
             onOpenCalculator={(hash?: string) =>
               navigateTo(hash ? `/agent-business-calculator/#${hash}` : '/agent-business-calculator/')
             }
+            onOpenHowItWorks={() => navigateTo('/how-htc-works/')}
+            onOpenPricing={() => navigateTo('/pricing/')}
+            onOpenContractToClose={() => navigateTo('/contract-to-close-services/')}
+            onOpenListingCoordination={() => navigateTo('/listing-coordination/')}
+            onOpenGuides={() => navigateTo('/free-guides-downloads/')}
+            onOpenTcWorkshop={() => navigateTo('/tcworkshop/')}
+            onOpenArticle={(slug) => navigateTo(`/resources/${slug}/`)}
           />
         ) : isGuidesPage ? (
           <FreeGuidesPage
