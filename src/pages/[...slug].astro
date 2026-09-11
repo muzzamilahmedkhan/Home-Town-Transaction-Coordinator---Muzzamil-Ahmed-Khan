@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import App from '../App';
 import { DEMO_BLOG_POSTS } from '../data/blog';
+import { RESOURCE_LIBRARY_ITEMS, getResourceBySlug } from '../data/resourceLibraryData';
 
 export async function getStaticPaths() {
   const routes = [
@@ -30,20 +31,53 @@ export async function getStaticPaths() {
     'reviews',
     'resources',
     'blog',
-    'tcworkshop'
+    'tcworkshop',
+    'resources/free-guides-downloads',
+    'free-guides-downloads',
+    'resources/guides',
+    'guides'
   ];
 
   const blogRoutes = DEMO_BLOG_POSTS.map(post => `resources/${post.slug}`);
   const blogRoutesAlt = DEMO_BLOG_POSTS.map(post => `blog/${post.slug}`);
 
-  const allSlugs = [...routes, ...blogRoutes, ...blogRoutesAlt];
+  // Dynamic Resource Library routes for each individual resource
+  const resourceRoutes = RESOURCE_LIBRARY_ITEMS.map(
+    item => `resources/free-guides-downloads/${item.slug}`
+  );
+  const resourceRoutesAlt = RESOURCE_LIBRARY_ITEMS.map(
+    item => `free-guides-downloads/${item.slug}`
+  );
 
-  return allSlugs.map(slug => ({
-    params: { slug }
-  }));
+  const allSlugs = [...routes, ...blogRoutes, ...blogRoutesAlt, ...resourceRoutes, ...resourceRoutesAlt];
+
+  return allSlugs.map(slug => {
+    let title = "Hometown TC | Boutique Real Estate Support Agency for Florida Realtors";
+    let description = "Boutique real estate support for Florida Realtors — from Listing Launch to Contract-to-Close and Post-Close. South Florida-founded, serving statewide.";
+
+    if (slug === 'resources/free-guides-downloads' || slug === 'free-guides-downloads' || slug === 'resources/guides' || slug === 'guides') {
+      title = "Free Real Estate Tools, Guides & Templates | Hometown TC";
+      description = "Free tools for Florida Realtors, including transaction guides, checklists, templates, calculators, AI prompts, automation resources, and real estate classes.";
+    } else if (slug.startsWith('resources/free-guides-downloads/') || slug.startsWith('free-guides-downloads/')) {
+      const resourceSlug = slug.split('/').pop() || '';
+      const matchedResource = getResourceBySlug(resourceSlug);
+      if (matchedResource) {
+        title = matchedResource.seoTitle || `${matchedResource.title} | Hometown TC`;
+        description = matchedResource.seoDescription || matchedResource.shortDescription;
+      }
+    }
+
+    return {
+      params: { slug },
+      props: { title, description }
+    };
+  });
 }
+
+const { title, description } = Astro.props;
 ---
 
-<Layout title="Hometown TC | Boutique Real Estate Support Agency for Florida Realtors">
+<Layout title={title} description={description}>
   <App client:load />
 </Layout>
+

@@ -25,6 +25,7 @@ interface Props {
   onOpenWhyHtc: () => void;
   onOpenRoi: () => void;
   onOpenTcWorkshop?: () => void;
+  onOpenFaq?: () => void;
 }
 
 export const PricingPlansPage: React.FC<Props> = ({
@@ -33,6 +34,7 @@ export const PricingPlansPage: React.FC<Props> = ({
   onGoHome,
   onOpenRoi,
   onOpenTcWorkshop,
+  onOpenFaq,
 }) => {
   const [activeFaq, setActiveFaq] = useState<string | null>(null);
   const data = PRICING_PAGE_DATA;
@@ -666,6 +668,25 @@ export const PricingPlansPage: React.FC<Props> = ({
               );
             })}
           </div>
+
+          {/* Direct link to complete FAQ directory */}
+          {onOpenFaq && (
+            <div className="pt-6 border-t border-[#EAE4DC] flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#FBF9F5] p-6 rounded-2xl border">
+              <div className="space-y-1 text-center sm:text-left">
+                <h4 className="font-bold text-[#3A2E29] text-base">Have questions about workflows, clients, or technology?</h4>
+                <p className="text-xs text-[#6B5E55]">
+                  Explore all 6 categories in our complete FAQ directory including Services, Getting Started, Working Together, Your Clients, and Trust + Technology.
+                </p>
+              </div>
+              <button
+                onClick={onOpenFaq}
+                className="whitespace-nowrap inline-flex items-center space-x-2 bg-[#3A2E29] text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-[#251D19] transition cursor-pointer shadow-sm"
+              >
+                <span>VISIT COMPLETE FAQ DIRECTORY</span>
+                <ArrowRight className="w-4 h-4 text-[#0D9BA3]" />
+              </button>
+            </div>
+          )}
 
         </div>
       </section>

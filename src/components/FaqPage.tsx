@@ -1,44 +1,31 @@
 import React, { useState, useMemo } from 'react';
 import {
-  HelpCircle,
   Search,
   ChevronDown,
   ChevronUp,
-  MapPin,
-  Scale,
-  Layers,
-  Sparkles,
-  Calendar,
-  Globe2,
-  Zap,
-  ShieldCheck,
-  Send,
-  Lock,
   PhoneCall,
-  ArrowRight,
-  CheckCircle2,
-  FileCheck2,
-  FolderLock,
-  MessageSquare,
-  Clock,
-  Building2,
-  UserCheck,
+  Mail,
   X,
-  FileText
+  ArrowRight,
+  Sparkles,
+  Layers,
+  Clock,
+  FileCheck2
 } from 'lucide-react';
 import { PHONE_NUMBER, EMAIL_ADDRESS } from '../data/content';
+import { usePageSeo } from '../hooks/usePageSeo';
 
 interface Props {
   onBookCall: () => void;
-  onSubmitDeal: () => void;
+  onSubmitDeal?: () => void; // Kept in interface for props compatibility, strictly not rendered on page
   onGoHome: () => void;
   onOpenPricing: () => void;
   onOpenHowItWorks: () => void;
-  onOpenWhyHtc: () => void;
-  onOpenWhoWeSupport: () => void;
-  onOpenRoi: () => void;
-  onOpenTransactionCoordination: () => void;
-  onOpenListingCoordination: () => void;
+  onOpenWhyHtc?: () => void;
+  onOpenWhoWeSupport?: () => void;
+  onOpenRoi?: () => void;
+  onOpenTransactionCoordination?: () => void;
+  onOpenListingCoordination?: () => void;
   onOpenContractToClose?: () => void;
   onOpenRealtorTc?: () => void;
   onOpenMiamiTc?: () => void;
@@ -49,37 +36,609 @@ interface Props {
 
 interface FAQItem {
   id: string;
-  section: string;
+  categoryId: string;
   question: string;
-  answer: React.ReactNode;
+  answerParagraphs: string[];
+  actionLink?: {
+    label: string;
+    action: () => void;
+  };
   tags: string[];
+}
+
+interface CategoryDefinition {
+  id: string;
+  name: string;
+  subtitle: string;
 }
 
 export const FaqPage: React.FC<Props> = ({
   onBookCall,
-  onSubmitDeal,
   onGoHome,
   onOpenPricing,
   onOpenHowItWorks,
-  onOpenWhyHtc,
-  onOpenWhoWeSupport,
-  onOpenRoi,
-  onOpenTransactionCoordination,
-  onOpenListingCoordination,
-  onOpenContractToClose,
-  onOpenRealtorTc,
-  onOpenMiamiTc,
-  onOpenMiamiDadeTc,
-  onOpenBrowardTc,
   onOpenSouthFloridaTc
 }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [activeCategory, setActiveCategory] = useState<string>('services');
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({
-    'geo-1': true,
-    'scope-1': true,
-    'plans-1': true
+    'services-what-does-htc-do': true
   });
+
+  // ONLY the 6 specified categories
+  const categories: CategoryDefinition[] = [
+    {
+      id: 'services',
+      name: 'SERVICES',
+      subtitle: 'What do you do?'
+    },
+    {
+      id: 'pricing',
+      name: 'PRICING',
+      subtitle: 'What does it cost?'
+    },
+    {
+      id: 'getting-started',
+      name: 'GETTING STARTED',
+      subtitle: 'How do we set this up?'
+    },
+    {
+      id: 'working-together',
+      name: 'WORKING TOGETHER',
+      subtitle: 'Who does what and what should I expect?'
+    },
+    {
+      id: 'your-clients',
+      name: 'YOUR CLIENTS',
+      subtitle: 'What will my client experience?'
+    },
+    {
+      id: 'trust-technology',
+      name: 'TRUST + TECHNOLOGY',
+      subtitle: 'How do you use technology and protect our information?'
+    }
+  ];
+
+  // MOST ASKED quick links mapping to specific FAQs
+  const mostAskedLinks = [
+    {
+      id: 'services-what-does-htc-do',
+      categoryId: 'services',
+      question: 'What does HTC do?'
+    },
+    {
+      id: 'pricing-how-much-does-htc-cost',
+      categoryId: 'pricing',
+      question: 'How much does HTC cost?'
+    },
+    {
+      id: 'pricing-base-vs-pro',
+      categoryId: 'pricing',
+      question: 'What’s the difference between Base and Pro?'
+    },
+    {
+      id: 'working-together-htc-vs-agent-handle',
+      categoryId: 'working-together',
+      question: 'What does HTC handle vs. what do I still handle?'
+    },
+    {
+      id: 'your-clients-communicate-with-clients',
+      categoryId: 'your-clients',
+      question: 'Will HTC communicate directly with my buyers or sellers?'
+    },
+    {
+      id: 'getting-started-customize-business',
+      categoryId: 'getting-started',
+      question: 'How much can HTC customize for my business?'
+    },
+    {
+      id: 'trust-tech-what-does-tech-enabled-mean',
+      categoryId: 'trust-technology',
+      question: 'What do you mean when you say HTC is “tech-enabled”?'
+    },
+    {
+      id: 'trust-tech-protect-information',
+      categoryId: 'trust-technology',
+      question: 'What happens to the information and data I provide to HTC?'
+    }
+  ];
+
+  // Complete FAQ content categorized strictly into the 6 categories
+  const faqItems: FAQItem[] = [
+    // =========================================================================
+    // 1. SERVICES (What do you do?)
+    // =========================================================================
+    {
+      id: 'services-what-does-htc-do',
+      categoryId: 'services',
+      question: 'What does HTC do?',
+      answerParagraphs: [
+        'Hometown Transaction Coordinators is a boutique real estate support agency for Florida Realtors.',
+        'We support the operational work behind the transaction — from Listing Launch through Contract-to-Close and Post-Close — including file organization, milestone tracking, administrative follow-up, communication, and brokerage file support.'
+      ],
+      actionLink: {
+        label: 'SEE SERVICES + PRICING →',
+        action: onOpenPricing
+      },
+      tags: ['services', 'overview', 'listing launch', 'contract to close', 'what we do']
+    },
+    {
+      id: 'services-work-throughout-florida',
+      categoryId: 'services',
+      question: 'Do you work throughout Florida?',
+      answerParagraphs: [
+        'Yes. HTC is South Florida-founded and supports Realtors across Florida from coast to coast.'
+      ],
+      tags: ['florida', 'coverage', 'miami', 'broward', 'palm beach', 'statewide']
+    },
+    {
+      id: 'services-handle-listings',
+      categoryId: 'services',
+      question: 'Do you handle listings?',
+      answerParagraphs: [
+        'Yes. Our Listing Launch service handles the administrative work needed to help get a listing launched and organized.',
+        'Your licensed agent responsibilities, including the listing agreement, pricing, representation, and negotiations, remain with you.'
+      ],
+      tags: ['listings', 'listing launch', 'pre-listing', 'mls']
+    },
+    {
+      id: 'services-buyer-seller-transactions',
+      categoryId: 'services',
+      question: 'Do you handle buyer and seller transactions?',
+      answerParagraphs: [
+        'Yes. HTC supports both buyer-side and seller-side transactions.'
+      ],
+      tags: ['buyers', 'sellers', 'transactions']
+    },
+    {
+      id: 'services-wholesale-transactions',
+      categoryId: 'services',
+      question: 'Do you handle wholesale transactions?',
+      answerParagraphs: [
+        'Yes. We can support wholesale transactions when the file and administrative scope fit within our services.'
+      ],
+      tags: ['wholesale', 'investors', 'assignment']
+    },
+    {
+      id: 'services-commercial-transactions',
+      categoryId: 'services',
+      question: 'Do you handle commercial transactions?',
+      answerParagraphs: [
+        'Yes, on a case-by-case basis.',
+        'Commercial files are quoted based on the complexity and anticipated length of the transaction.'
+      ],
+      tags: ['commercial', 'case by case', 'quote']
+    },
+    {
+      id: 'services-broker-compliance-support',
+      categoryId: 'services',
+      question: 'What is Broker Compliance support?',
+      answerParagraphs: [
+        'Broker Compliance is for a transaction or rental you are already managing but need help getting through your brokerage’s file-review process.',
+        'HTC can review the file against the brokerage requirements, identify missing documents, help circulate approved documents for signature, organize and upload the file, and follow the file through the compliance process.',
+        'You remain responsible for the transaction, licensed activities, and any decisions requiring your broker or legal counsel.'
+      ],
+      tags: ['broker compliance', 'compliance', 'skyslope', 'dotloop', 'command', 'cda']
+    },
+
+    // =========================================================================
+    // 2. PRICING (What does it cost?)
+    // =========================================================================
+    {
+      id: 'pricing-how-much-does-htc-cost',
+      categoryId: 'pricing',
+      question: 'How much does HTC cost?',
+      answerParagraphs: [
+        'Our primary Contract-to-Close plans are:',
+        'Base — $375 per closed file',
+        'Pro — $475 per closed file',
+        'We also offer Listing Launch, Broker Compliance, and additional services.'
+      ],
+      actionLink: {
+        label: 'SEE ALL SERVICES + PRICING →',
+        action: onOpenPricing
+      },
+      tags: ['pricing', 'cost', 'fee', 'base', 'pro', 'rates', 'pay at closing']
+    },
+    {
+      id: 'pricing-base-vs-pro',
+      categoryId: 'pricing',
+      question: 'What’s the difference between Base and Pro?',
+      answerParagraphs: [
+        'Both plans give you HTC’s Contract-to-Close process and the support of your Lead TC and Dedicated Hometown Team.',
+        'With Base, you remain the primary point of contact for your buyer or seller.',
+        'With Pro, HTC provides more direct client communication and support as part of the file.'
+      ],
+      actionLink: {
+        label: 'COMPARE BASE + PRO →',
+        action: onOpenPricing
+      },
+      tags: ['base vs pro', 'base', 'pro', 'difference', 'compare', 'plans']
+    },
+    {
+      id: 'pricing-setup-fee',
+      categoryId: 'pricing',
+      question: 'Is there a setup fee?',
+      answerParagraphs: [
+        'Yes.',
+        'New HTC clients complete a one-time $399 Agent Setup Investment at registration.',
+        'That setup allows us to build your brokerage requirements, forms, communication preferences, service preferences, and client touches into the way HTC supports your files.'
+      ],
+      tags: ['setup fee', 'agent setup', 'registration', 'investment']
+    },
+    {
+      id: 'pricing-cancellation-policy',
+      categoryId: 'pricing',
+      question: 'What happens if my transaction cancels?',
+      answerParagraphs: [
+        'If a Contract-to-Close file cancels during the inspection period, there is no cancellation fee.',
+        'After the inspection period, an administrative support fee applies for work already completed on the file.'
+      ],
+      tags: ['cancellation', 'cancels', 'inspection contingency', 'deposit release']
+    },
+    {
+      id: 'pricing-window-coverage',
+      categoryId: 'pricing',
+      question: 'How long does the standard Contract-to-Close fee cover?',
+      answerParagraphs: [
+        'Our residential Contract-to-Close pricing is based on a typical 45-day processing window.'
+      ],
+      tags: ['processing window', 'timeline', '45 days', 'contract duration']
+    },
+    {
+      id: 'pricing-longer-than-expected',
+      categoryId: 'pricing',
+      question: 'What happens if my residential transaction takes longer than expected?',
+      answerParagraphs: [
+        'When a residential Contract-to-Close file extends beyond 60 days, an additional $100 timing fee is assessed.'
+      ],
+      tags: ['extensions', '60 days', 'timing fee', 'extended transaction']
+    },
+    {
+      id: 'pricing-commercial-transactions',
+      categoryId: 'pricing',
+      question: 'How are commercial transactions priced?',
+      answerParagraphs: [
+        'Commercial transaction support starts at $595 and is quoted case by case based on the complexity and anticipated length of the transaction.',
+        'Commercial files extending beyond 90 days require a $200 deposit.'
+      ],
+      tags: ['commercial', 'pricing', 'commercial fee', 'deposit', 'case by case']
+    },
+
+    // =========================================================================
+    // 3. GETTING STARTED (How do we set this up?)
+    // =========================================================================
+    {
+      id: 'getting-started-what-needed',
+      categoryId: 'getting-started',
+      question: 'What do I need to get started with HTC?',
+      answerParagraphs: [
+        'Start with a 15-Minute Fit Call.',
+        'If HTC is a fit, you will register, complete the one-time Agent Setup Investment, and schedule your Setup Call.',
+        'Once setup is complete, you can begin submitting files through the Quick File Drop.'
+      ],
+      actionLink: {
+        label: 'SCHEDULE A 15-MINUTE FIT CALL →',
+        action: onBookCall
+      },
+      tags: ['getting started', 'fit call', 'onboarding', 'quick file drop']
+    },
+    {
+      id: 'getting-started-setup-call',
+      categoryId: 'getting-started',
+      question: 'What happens during my Setup Call?',
+      answerParagraphs: [
+        'This is where we learn how your business works.',
+        'We review your brokerage requirements, forms, communication preferences, service preferences, client experience, and any unique touches you want HTC to understand before we begin supporting your files.'
+      ],
+      tags: ['setup call', 'onboarding call', 'preferences', 'client experience']
+    },
+    {
+      id: 'getting-started-customize-business',
+      categoryId: 'getting-started',
+      question: 'How much can HTC customize for my business?',
+      answerParagraphs: [
+        'A lot.',
+        'HTC has a structured process, but your business does not have to look like everyone else’s.',
+        'During setup, we build your approved brokerage requirements, communication preferences, templates, service choices, and client touches into your HTC workflow.'
+      ],
+      tags: ['customize', 'workflow', 'personalization', 'checklists', 'templates']
+    },
+    {
+      id: 'getting-started-brokerage-forms',
+      categoryId: 'getting-started',
+      question: 'Can HTC use my brokerage’s forms and requirements?',
+      answerParagraphs: [
+        'Yes.',
+        'We will need access to the appropriate brokerage form library, compliance checklist, and instructions necessary to support your files.'
+      ],
+      tags: ['brokerage forms', 'compliance checklist', 'broker requirements']
+    },
+    {
+      id: 'getting-started-underway-transaction',
+      categoryId: 'getting-started',
+      question: 'Can I send HTC a transaction that is already underway?',
+      answerParagraphs: [
+        'Usually, yes.',
+        'We will first review where the file currently stands, what milestones have already passed, and what remains outstanding so we can determine the cleanest way to step in.'
+      ],
+      tags: ['underway', 'mid contract', 'active transaction', 'takeover']
+    },
+
+    // =========================================================================
+    // 4. WORKING TOGETHER (Who does what and what should I expect?)
+    // =========================================================================
+    {
+      id: 'working-together-htc-vs-agent-handle',
+      categoryId: 'working-together',
+      question: 'What does HTC handle vs. what do I still handle?',
+      answerParagraphs: [
+        'HTC handles the administrative transaction work within our service scope: organizing the file, tracking milestones, administrative follow-up, coordinating information, and keeping the transaction workflow moving.',
+        'You remain responsible for licensed representation, client advice, negotiations, pricing, showings, and decisions requiring your professional judgment or broker involvement.'
+      ],
+      tags: ['what we handle', 'responsibilities', 'duties', 'realtor role', 'scope']
+    },
+    {
+      id: 'working-together-prepare-offers',
+      categoryId: 'working-together',
+      question: 'Do you prepare offers?',
+      answerParagraphs: [
+        'No. Preparing and negotiating offers remains with the licensed Realtor.'
+      ],
+      tags: ['offers', 'licensed activity', 'realtor role']
+    },
+    {
+      id: 'working-together-prepare-listing-agreements',
+      categoryId: 'working-together',
+      question: 'Do you prepare listing agreements?',
+      answerParagraphs: [
+        'No. Listing agreements remain with the licensed Realtor.'
+      ],
+      tags: ['listing agreements', 'licensed activity', 'realtor role']
+    },
+    {
+      id: 'working-together-addenda-extensions',
+      categoryId: 'working-together',
+      question: 'Can HTC prepare addenda or extensions?',
+      answerParagraphs: [
+        'HTC can assist with routine administrative addenda or extensions using approved forms and the agent’s written instructions.',
+        'The agent remains responsible for the terms, negotiations, client direction, and any legal or licensed decisions.'
+      ],
+      tags: ['addenda', 'extensions', 'routine administrative', 'written instructions']
+    },
+    {
+      id: 'working-together-communication-lead-tc',
+      categoryId: 'working-together',
+      question: 'How does HTC communicate with me?',
+      answerParagraphs: [
+        'Your Lead TC is your main day-to-day point of contact.',
+        'Behind your Lead TC is your Dedicated Hometown Team, supported by HTC’s systems and technology so the file does not depend on one person working alone.'
+      ],
+      tags: ['communication', 'lead tc', 'dedicated team', 'point of contact']
+    },
+    {
+      id: 'working-together-nights-weekends',
+      categoryId: 'working-together',
+      question: 'Are you available on nights or weekends?',
+      answerParagraphs: [
+        'Standard Base and Pro support is provided Monday through Friday during HTC business hours.',
+        'Routine night and weekend support is not included in those plans.',
+        'Expanded-hours support is part of the service direction we are building through SCALE.'
+      ],
+      tags: ['nights', 'weekends', 'hours', 'business hours', 'scale']
+    },
+    {
+      id: 'working-together-htc-honors',
+      categoryId: 'working-together',
+      question: 'What is HTC Honors?',
+      answerParagraphs: [
+        'HTC Honors is our client loyalty and community-impact program.',
+        'Qualifying activity earns points that can be used toward rewards, including opportunities to turn those rewards into charitable giving that HTC matches.',
+        'It is one of the ways we thank the agents who support Hometown while turning good business into something bigger than the closing itself.'
+      ],
+      tags: ['htc honors', 'loyalty', 'rewards', 'charitable giving', 'giving match']
+    },
+
+    // =========================================================================
+    // 5. YOUR CLIENTS (What will my client experience?)
+    // =========================================================================
+    {
+      id: 'your-clients-communicate-with-clients',
+      categoryId: 'your-clients',
+      question: 'Will HTC communicate directly with my buyers or sellers?',
+      answerParagraphs: [
+        'It depends on your plan.',
+        'With Base, you remain the primary point of contact for your client.',
+        'With Pro, HTC provides more direct client communication and support during the transaction.'
+      ],
+      tags: ['client communication', 'buyers', 'sellers', 'base', 'pro', 'direct communication']
+    },
+    {
+      id: 'your-clients-how-communicate',
+      categoryId: 'your-clients',
+      question: 'How does HTC communicate with my clients?',
+      answerParagraphs: [
+        'We communicate professionally, clearly, and as an extension of the client experience you established during setup.',
+        'Your communication preferences and approved client touches are part of how we build your HTC workflow.'
+      ],
+      tags: ['communication style', 'client experience', 'setup', 'workflow']
+    },
+    {
+      id: 'your-clients-weekly-seller-followup',
+      categoryId: 'your-clients',
+      question: 'Will HTC follow up with my seller every week?',
+      answerParagraphs: [
+        'Direct recurring client communication is part of the additional client-support experience available through Pro and follows the communication plan established during your setup.'
+      ],
+      tags: ['weekly follow up', 'sellers', 'recurring communication', 'pro plan']
+    },
+    {
+      id: 'your-clients-contact-htc-directly',
+      categoryId: 'your-clients',
+      question: 'Can my client contact HTC directly?',
+      answerParagraphs: [
+        'With Pro, yes — HTC can serve as a more direct administrative point of contact for transaction-related questions within our scope.',
+        'Licensed advice, negotiations, and decisions are always redirected to the Realtor.'
+      ],
+      tags: ['contact directly', 'inquiries', 'licensed advice', 'realtor boundary']
+    },
+    {
+      id: 'your-clients-english-spanish',
+      categoryId: 'your-clients',
+      question: 'Does HTC communicate in English and Spanish?',
+      answerParagraphs: [
+        'Yes. HTC provides bilingual English and Spanish support.'
+      ],
+      tags: ['english', 'spanish', 'bilingual', 'espanol', 'language']
+    },
+    {
+      id: 'your-clients-ask-for-reviews',
+      categoryId: 'your-clients',
+      question: 'Will HTC ask my clients for reviews?',
+      answerParagraphs: [
+        'HTC does not use your clients as our marketing list.',
+        'Any review or feedback touchpoint involving your client must fit the client experience and communication preferences established with you.'
+      ],
+      tags: ['reviews', 'feedback', 'marketing list', 'preferences']
+    },
+    {
+      id: 'your-clients-market-to-database',
+      categoryId: 'your-clients',
+      question: 'Does HTC market to my client database?',
+      answerParagraphs: [
+        'No.',
+        'Your client relationships belong to you. HTC does not use your client database to market our services.'
+      ],
+      tags: ['client database', 'privacy', 'non-solicitation', 'relationships']
+    },
+
+    // =========================================================================
+    // 6. TRUST + TECHNOLOGY (How do you use technology and protect our information?)
+    // =========================================================================
+    {
+      id: 'trust-tech-what-does-tech-enabled-mean',
+      categoryId: 'trust-technology',
+      question: 'What do you mean when you say HTC is “tech-enabled”?',
+      answerParagraphs: [
+        'It means your transaction is supported by people + systems + technology working together.',
+        'Your Lead TC remains your main point of contact, while the Dedicated Hometown Team uses HTC’s systems, automation, and technology to help organize information, maintain consistency, track work, and support the file.',
+        'Technology supports the team. It does not replace the team.'
+      ],
+      tags: ['tech-enabled', 'systems', 'automation', 'technology', 'lead tc', 'team']
+    },
+    {
+      id: 'trust-tech-use-ai',
+      categoryId: 'trust-technology',
+      question: 'How does HTC use AI?',
+      answerParagraphs: [
+        'HTC uses AI and automation as internal tools to help reduce repetitive administrative work, organize information, support workflows, and improve consistency.',
+        'AI does not replace the judgment, review, communication, or responsibility of the HTC team, and it does not make licensed or legal decisions.'
+      ],
+      tags: ['ai', 'automation', 'internal tools', 'consistency', 'human judgment']
+    },
+    {
+      id: 'trust-tech-protect-information',
+      categoryId: 'trust-technology',
+      question: 'What happens to the information and data I provide to HTC?',
+      answerParagraphs: [
+        'We use the information you provide to perform the services you have asked HTC to provide and within the systems required to support the file.',
+        'We do not sell or market your client database.',
+        'Sensitive and confidential information is handled differently from routine transaction information and is not casually distributed through third-party requests.'
+      ],
+      tags: ['information', 'data privacy', 'confidentiality', 'security', 'client data']
+    },
+    {
+      id: 'trust-tech-insurance',
+      categoryId: 'trust-technology',
+      question: 'Does HTC carry insurance?',
+      answerParagraphs: [
+        'Yes.',
+        'HTC carries Errors & Omissions coverage and liability coverage, including limited cybersecurity coverage.'
+      ],
+      tags: ['insurance', 'errors and omissions', 'e&o', 'liability', 'cybersecurity']
+    },
+    {
+      id: 'trust-tech-licensed-brokerage',
+      categoryId: 'trust-technology',
+      question: 'Is HTC a licensed real estate brokerage?',
+      answerParagraphs: [
+        'No.',
+        'HTC provides administrative transaction coordination support within Florida guidelines for unlicensed real estate support.',
+        'Licensed representation, negotiations, legal advice, and other licensed activities remain with the Realtor and broker.'
+      ],
+      tags: ['brokerage', 'unlicensed support', 'guidelines', 'florida', 'licensed representation']
+    },
+    {
+      id: 'trust-tech-wire-instructions',
+      categoryId: 'trust-technology',
+      question: 'Does HTC send or distribute wire instructions?',
+      answerParagraphs: [
+        'No.',
+        'HTC does not distribute wire instructions.',
+        'Wire information should be obtained directly from the appropriate title, escrow, or closing provider using their verified process.'
+      ],
+      tags: ['wire instructions', 'wire fraud', 'title', 'escrow', 'security']
+    },
+    {
+      id: 'trust-tech-third-party-sensitive-forms',
+      categoryId: 'trust-technology',
+      question: 'What happens if HTC receives a third-party form requesting sensitive or confidential information from my client?',
+      answerParagraphs: [
+        'HTC does not distribute third-party forms requesting sensitive or confidential client information.',
+        'If one is received by email, we delete it rather than forwarding it to your client.',
+        'The requesting party should contact the client directly through its own secure process.'
+      ],
+      tags: ['third-party forms', 'sensitive information', 'confidential', 'wire security', 'phishing']
+    }
+  ];
+
+  // Quick suggestion queries matching prompt
+  const quickSuggestions = [
+    'pricing',
+    'weekends',
+    'Base vs. Pro',
+    'AI',
+    'Spanish',
+    'wholesale',
+    'Broker Compliance'
+  ];
+
+  // Filter items:
+  // "Only show the selected category’s questions."
+  // If user is actively searching via the text box, show matching items within the active category,
+  // or provide a direct search experience across categories if user searched.
+  const filteredItems = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) {
+      // Strictly show ONLY the selected category's questions
+      return faqItems.filter((item) => item.categoryId === activeCategory);
+    }
+    // When searching, find matches across all categories
+    return faqItems.filter((item) => {
+      const qMatch = item.question.toLowerCase().includes(query);
+      const aMatch = item.answerParagraphs.some((p) => p.toLowerCase().includes(query));
+      const tMatch = item.tags.some((t) => t.toLowerCase().includes(query));
+      return qMatch || aMatch || tMatch;
+    });
+  }, [searchQuery, activeCategory]);
+
+  // Jump to specific FAQ from MOST ASKED quick links
+  const handleJumpToFaq = (categoryId: string, faqId: string) => {
+    setSearchQuery('');
+    setActiveCategory(categoryId);
+    setOpenItems((prev) => ({
+      ...prev,
+      [faqId]: true
+    }));
+
+    // Smooth scroll to the target question
+    setTimeout(() => {
+      const element = document.getElementById(faqId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 80);
+  };
 
   const toggleItem = (id: string) => {
     setOpenItems((prev) => ({
@@ -90,10 +649,8 @@ export const FaqPage: React.FC<Props> = ({
 
   const expandAll = () => {
     const all: Record<string, boolean> = {};
-    faqSections.forEach((sec) => {
-      sec.items.forEach((item) => {
-        all[item.id] = true;
-      });
+    filteredItems.forEach((item) => {
+      all[item.id] = true;
     });
     setOpenItems(all);
   };
@@ -102,756 +659,448 @@ export const FaqPage: React.FC<Props> = ({
     setOpenItems({});
   };
 
-  // Structured Sections exactly matching user-requested order
-  const faqSections: {
-    id: string;
-    orderNum: string;
-    title: string;
-    shortLabel: string;
-    icon: React.ElementType;
-    description: string;
-    items: FAQItem[];
-  }[] = [
-    {
-      id: 'service-area',
-      orderNum: '01',
-      title: 'Service Area & Geographic Coverage',
-      shortLabel: 'Service Area',
-      icon: MapPin,
-      description: 'Florida statewide transaction coordination with specialized deep-dive focus across Tri-County South Florida.',
-      items: [
-        {
-          id: 'geo-1',
-          section: 'service-area',
-          question: 'What regions and Florida counties does Hometown TC cover?',
-          tags: ['service area', 'florida', 'miami', 'broward', 'palm beach', 'counties'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                Hometown TC coordinates transactions across <strong>all 67 Florida counties</strong>, with concentrated on-the-ground expertise in South Florida's Tri-County area: <strong>Miami-Dade County, Broward County, and Palm Beach County</strong>.
-              </p>
-              <p>
-                Because Florida real estate practices, municipal requirements, and custom riders vary significantly by county (such as Miami-Dade WASD/DERM septic clearances versus Central Florida CDD disclosures), our specialized knowledge ensures your contracts conform to local customs wherever your deal is located.
-              </p>
-            </div>
-          )
-        },
-        {
-          id: 'geo-2',
-          section: 'service-area',
-          question: 'Do you handle transactions outside of South Florida (e.g., Orlando, Tampa, Naples)?',
-          tags: ['orlando', 'tampa', 'naples', 'statewide', 'florida'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                <strong>Yes.</strong> We manage contracts throughout the entire State of Florida, including the Greater Orlando area, Tampa Bay, Sarasota, Naples/Fort Myers, Jacksonville, and the Florida Panhandle.
-              </p>
-              <p>
-                As long as the transaction is governed by standard Florida Association of Realtors® / Florida Bar (FAR/BAR) contracts or approved local builder/board contracts, we manage the entire contract-to-close pipeline.
-              </p>
-            </div>
-          )
-        }
-      ]
-    },
-    {
-      id: 'scope-boundaries',
-      orderNum: '02',
-      title: 'Scope & Fiduciary Boundaries',
-      shortLabel: 'Scope & Boundaries',
-      icon: Scale,
-      description: 'Understanding what HTC handles versus the fiduciary duties that remain with the licensed Realtor®.',
-      items: [
-        {
-          id: 'scope-1',
-          section: 'scope-boundaries',
-          question: 'What does a Transaction Coordinator do vs. what the Realtor® remains responsible for?',
-          tags: ['scope', 'boundaries', 'duties', 'responsibilities', 'fiduciary'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                Hometown TC acts as your <strong>back-office operational engine</strong>. We manage the administrative, compliance, deadline-tracking, and vendor coordination logistics of the transaction:
-              </p>
-              <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-700">
-                <li><strong>HTC Handles:</strong> Milestone calendar tracking, escrow verification, HOA estoppel orders, title commitment tracking, lender appraisal check-ins, broker compliance uploads, repair addenda distribution, and CDA settlement review.</li>
-                <li><strong>Realtor® Remains Responsible For:</strong> Fiduciary advisory, price guidance, property showings, attending inspections/walkthroughs, and negotiating terms, repairs, or concessions with clients and cooperating agents.</li>
-              </ul>
-            </div>
-          )
-        },
-        {
-          id: 'scope-2',
-          section: 'scope-boundaries',
-          question: 'Do you coordinate both Buyer and Seller representations?',
-          tags: ['buyer', 'seller', 'listing', 'dual agency', 'representation'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                <strong>Yes, absolutely.</strong> We provide full contract-to-close coordination for:
-              </p>
-              <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-slate-700">
-                <li><strong>Buyer-Side Representation:</strong> Escrow deposits, inspection timelines, financing/appraisal deadlines, homeowner's insurance quotes, and final walk-through scheduling.</li>
-                <li><strong>Seller-Side Representation:</strong> Payoff ordering, HOA/condo estoppel delivery, municipal lien/permit clearance tracking, title document execution, and closing proceeds disbursement verification.</li>
-                <li><strong>Listing Coordination:</strong> Pre-listing MLS data entry, photography scheduling, showing instruction setup, and disclosures packaging.</li>
-              </ul>
-            </div>
-          )
-        }
-      ]
-    },
-    {
-      id: 'base-vs-pro',
-      orderNum: '03',
-      title: 'Base Plan vs. Pro Plan Comparison',
-      shortLabel: 'Base vs. Pro',
-      icon: Layers,
-      description: 'Choosing the right level of client-facing touchpoints and operational communication for your brand.',
-      items: [
-        {
-          id: 'plans-1',
-          section: 'base-vs-pro',
-          question: 'What is the key difference between the Base Plan ($375) and the Pro Plan ($475)?',
-          tags: ['base plan', 'pro plan', 'pricing', 'difference', 'communication'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                Both plans deliver <strong>100% full-service transaction coordination</strong> behind the scenes with title, lenders, co-op agents, and broker portals. The key difference lies in <strong>client-facing communication</strong>:
-              </p>
-              <div className="grid sm:grid-cols-2 gap-3 pt-2">
-                <div className="bg-[#EEEAEB] p-4 rounded-xl border border-[#D8D2D4]">
-                  <strong className="text-[#3A2E29] block text-xs uppercase tracking-wide">Base Plan ($375 / closed file)</strong>
-                  <p className="text-xs text-slate-600 mt-1">
-                    Behind-the-scenes engine. We coordinate all vendors and alert you to milestones, allowing you to maintain 100% of direct contact with your buyer or seller.
-                  </p>
-                </div>
-                <div className="bg-[#FE7311]/10 p-4 rounded-xl border border-[#FE7311]/30">
-                  <strong className="text-[#FE7311] block text-xs uppercase tracking-wide">Pro Plan ($475 / closed file)</strong>
-                  <p className="text-xs text-slate-700 mt-1">
-                    High-touch client concierge. Includes co-branded client intro emails, weekly progress check-ins, and direct milestone guidance to your buyers/sellers.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )
-        },
-        {
-          id: 'plans-2',
-          section: 'base-vs-pro',
-          question: 'Can I switch between Base and Pro plans on a per-deal basis?',
-          tags: ['switch plans', 'flexibility', 'per-deal', 'client choice'],
-          answer: (
-            <p>
-              <strong>Yes.</strong> You have full flexibility to select the Base Plan for an investor or repeat client who needs minimal contact, and the Pro Plan for a first-time homebuyer or out-of-state luxury seller who appreciates constant proactive milestone updates.
-            </p>
-          )
-        }
-      ]
-    },
-    {
-      id: 'cancellation-onboarding',
-      orderNum: '04',
-      title: 'Cancellation Policy & Onboarding',
-      shortLabel: 'Cancellation & Onboarding',
-      icon: Clock,
-      description: 'Zero-risk, performance-based pricing: no upfront retainers or cancellation fees.',
-      items: [
-        {
-          id: 'cancel-1',
-          section: 'cancellation-onboarding',
-          question: 'What happens if a contract cancels or falls through during inspection or financing?',
-          tags: ['cancellation', 'falls through', 'refund', 'no fee', 'risk'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                <strong>You pay $0.</strong> Hometown TC operates on a strict <strong>pay-at-closing</strong> philosophy. If a deal cancels during the inspection period, financing contingency, appraisal gap, or condo document review, you owe nothing for our coordination work.
-              </p>
-              <p>
-                We also draft or distribute the formal Termination and Escrow Release (Release of Deposit) addenda to ensure your buyer's earnest money is returned promptly and your broker file is marked cancelled cleanly.
-              </p>
-            </div>
-          )
-        },
-        {
-          id: 'cancel-2',
-          section: 'cancellation-onboarding',
-          question: 'Is there an onboarding fee, setup charge, or monthly subscription?',
-          tags: ['onboarding fee', 'retainer', 'subscription', 'monthly cost'],
-          answer: (
-            <p>
-              <strong>No.</strong> There are no setup fees, sign-up costs, or monthly recurring charges. You only pay when a transaction successfully closes.
-            </p>
-          )
-        }
-      ]
-    },
-    {
-      id: 'bilingual-support',
-      orderNum: '05',
-      title: 'Bilingual Support (English & Spanish)',
-      shortLabel: 'Bilingual Support',
-      icon: Globe2,
-      description: 'Native English and Spanish coordination for diverse South Florida and international transactions.',
-      items: [
-        {
-          id: 'lang-1',
-          section: 'bilingual-support',
-          question: 'Do you offer bilingual English and Spanish transaction coordination?',
-          tags: ['bilingual', 'spanish', 'espanol', 'latin america', 'foreign buyers'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                <strong>Yes, fully bilingual.</strong> Michelle Martinez and the Hometown TC team provide fluent English and Spanish written and verbal communication.
-              </p>
-              <p>
-                This is invaluable in South Florida, where cross-border buyers from Latin America, foreign sellers navigating FIRPTA withholdings, and Spanish-speaking condo associations require culturally nuanced, clear, and reassuring guidance.
-              </p>
-            </div>
-          )
-        },
-        {
-          id: 'lang-2',
-          section: 'bilingual-support',
-          question: 'Are milestone updates and emails available in Spanish for clients?',
-          tags: ['spanish emails', 'spanish updates', 'foreign national'],
-          answer: (
-            <p>
-              Yes. On our Pro Plan, we can tailor all client-facing introductory packets, milestone alerts (Escrow confirmed, Inspection deadline, Appraisal passed, Clear to Close), and title communication in fluent Spanish based on your client's preference.
-            </p>
-          )
-        }
-      ]
-    },
-    {
-      id: 'quick-start',
-      orderNum: '06',
-      title: 'How Quickly an Agent Can Start',
-      shortLabel: 'How Quickly to Start',
-      icon: Zap,
-      description: 'Submit an executed contract today and have an active milestone schedule within hours.',
-      items: [
-        {
-          id: 'start-1',
-          section: 'quick-start',
-          question: 'How fast can I start working with Hometown TC on an active contract?',
-          tags: ['start today', 'onboarding time', 'turnaround', 'fast', 'immediate'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                <strong>Immediately.</strong> You do not need to wait for a complex software setup. As soon as you have a signed, executed FAR/BAR contract:
-              </p>
-              <ol className="list-decimal pl-5 space-y-1.5 text-xs sm:text-sm text-slate-700">
-                <li>Submit your contract via our 3-minute online intake portal or email the executed PDF.</li>
-                <li>Within <strong>24 business hours</strong> (often within 2–4 hours), we conduct a full contract audit, calculate statutory milestone dates, introduce ourselves to Title and Lender, and set up your broker compliance file.</li>
-              </ol>
-            </div>
-          )
-        },
-        {
-          id: 'start-2',
-          section: 'quick-start',
-          question: 'Can I submit a deal that is already midway through the contract period?',
-          tags: ['midway deal', 'rescue', 'takeover', 'existing contract'],
-          answer: (
-            <p>
-              Yes. If you are overwhelmed mid-transaction, our "Mid-Contract Takeover" service allows us to audit the existing file, verify that past contingency dates were satisfied, confirm escrow receipt, and manage the remaining path to close.
-            </p>
-          )
-        }
-      ]
-    },
-    {
-      id: 'legal-licensed-duties',
-      orderNum: '07',
-      title: 'Legal Advice & Licensed Duties Boundaries',
-      shortLabel: 'Legal & Licensed Duties',
-      icon: ShieldCheck,
-      description: 'Clear operational parameters under Florida DBPR regulations and Florida Bar guidelines.',
-      items: [
-        {
-          id: 'legal-1',
-          section: 'legal-licensed-duties',
-          question: 'Does Hometown TC provide legal advice or interpret complex title defects?',
-          tags: ['legal advice', 'florida bar', 'attorney', 'title defect', 'dbpr'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                <strong>No.</strong> Hometown TC operates strictly as an administrative transaction management service in compliance with Florida Department of Business and Professional Regulation (DBPR) rules.
-              </p>
-              <p>
-                We do not give legal advice, interpret complex title defects, or draft custom legal clauses. For legal matters, we facilitate communication directly with the designated closing attorney or title underwriter.
-              </p>
-            </div>
-          )
-        },
-        {
-          id: 'legal-2',
-          section: 'legal-licensed-duties',
-          question: 'Can Hometown TC draft contract addenda for repair negotiations?',
-          tags: ['addenda', 'repair credits', 'amendments', 'negotiation'],
-          answer: (
-            <p>
-              We distribute and format standard FAR/BAR addenda (e.g., standard extension of closing, repair credit, or price change) based strictly on terms already negotiated and agreed upon by the licensed agents. We never negotiate terms directly on your behalf.
-            </p>
-          )
-        }
-      ]
-    },
-    {
-      id: 'submission-communication',
-      orderNum: '08',
-      title: 'Submission & Communication Workflow',
-      shortLabel: 'Submission & Comms',
-      icon: MessageSquare,
-      description: 'How files are transmitted, tracking methods, office hours, and response time standards.',
-      items: [
-        {
-          id: 'comm-1',
-          section: 'submission-communication',
-          question: 'How do I submit a new executed contract to Hometown TC?',
-          tags: ['submission', 'upload', 'intake', 'email deal', 'form'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                You can submit a contract in whichever way is easiest for you:
-              </p>
-              <ul className="list-disc pl-5 space-y-1 text-xs sm:text-sm text-slate-700">
-                <li><strong>Online Submission Portal:</strong> Use our secure, mobile-friendly intake form to upload your executed PDF and enter key contacts in under 3 minutes.</li>
-                <li><strong>Direct Email:</strong> Email the executed contract and contact sheets directly to <a href={`mailto:${EMAIL_ADDRESS}`} className="text-[#0D9BA3] font-bold hover:underline">{EMAIL_ADDRESS}</a>.</li>
-                <li><strong>Broker Platform Share:</strong> Add us directly as a coordinator inside your Dotloop, SkySlope, Command, or Brokermint loop.</li>
-              </ul>
-            </div>
-          )
-        },
-        {
-          id: 'comm-2',
-          section: 'submission-communication',
-          question: 'What are your business hours and response time guarantees?',
-          tags: ['hours', 'response time', 'weekends', 'availability'],
-          answer: (
-            <p>
-              Our primary operational hours are <strong>Monday through Friday, 8:30 AM to 6:00 PM EST</strong>. Urgent milestone issues (such as same-day inspection deadline extensions or escrow receipt notices) are prioritized promptly. We prioritize prompt responses to all agent inquiries during business hours.
-            </p>
-          )
-        }
-      ]
-    },
-    {
-      id: 'data-security',
-      orderNum: '09',
-      title: 'Data Privacy & Wire Fraud Security',
-      shortLabel: 'Data & Security',
-      icon: FolderLock,
-      description: 'Rigorous encryption, wire fraud warning protocols, and non-public personal information protection.',
-      items: [
-        {
-          id: 'sec-1',
-          section: 'data-security',
-          question: 'How does Hometown TC protect my clients against wire fraud?',
-          tags: ['wire fraud', 'security', 'cybersecurity', 'wiring instructions'],
-          answer: (
-            <div className="space-y-3">
-              <p>
-                Wire fraud is the single greatest financial threat in residential real estate. We implement strict defense protocols:
-              </p>
-              <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-700">
-                <li><strong>Never Emailing Wiring Instructions Directly:</strong> We never transmit plain wiring numbers over unencrypted email.</li>
-                <li><strong>Verbal Verification Reminders:</strong> Every communication reminds buyers and sellers to verbally verify wiring instructions directly with the title company using a verified phone number prior to sending funds.</li>
-                <li><strong>Encrypted Document Handling:</strong> All documents containing Non-Public Personal Information (NPI), such as SSNs or account numbers, are stored in bank-grade secure environments.</li>
-              </ul>
-            </div>
-          )
-        },
-        {
-          id: 'sec-2',
-          section: 'data-security',
-          question: 'Do you share or market to my client database?',
-          tags: ['privacy', 'client database', 'confidentiality', 'non-compete'],
-          answer: (
-            <p>
-              <strong>Never.</strong> Your client relationships and contact data belong 100% to you and your brokerage. We maintain strict non-disclosure, confidentiality, and data privacy standards. We will never market, solicit, or share your clients' information with third parties.
-            </p>
-          )
-        }
-      ]
-    }
-  ];
-
-  // Filtered FAQ items based on search query and category
-  const filteredSections = useMemo(() => {
-    return faqSections
-      .map((section) => {
-        if (activeCategory !== 'all' && section.id !== activeCategory) {
-          return null;
-        }
-
-        const filteredItems = section.items.filter((item) => {
-          if (!searchQuery.trim()) return true;
-          const query = searchQuery.toLowerCase();
-          const matchQuestion = item.question.toLowerCase().includes(query);
-          const matchTags = item.tags.some((t) => t.toLowerCase().includes(query));
-          return matchQuestion || matchTags;
-        });
-
-        if (filteredItems.length === 0) return null;
-
-        return {
-          ...section,
-          items: filteredItems
-        };
-      })
-      .filter(Boolean) as typeof faqSections;
-  }, [searchQuery, activeCategory]);
-
-  const totalQuestions = faqSections.reduce((acc, sec) => acc + sec.items.length, 0);
-
-  // FAQ Schema for SEO / AEO Rich Results
+  // Structured Data (JSON-LD) for FAQ Rich Snippets (AEO / SEO)
   const faqSchemaData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqSections.flatMap((sec) =>
-      sec.items.map((item) => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": typeof item.answer === 'string'
-            ? item.answer
-            : `Hometown TC provides comprehensive transaction coordination for Florida agents. Contact us at ${PHONE_NUMBER} or ${EMAIL_ADDRESS} for direct details.`
-        }
-      }))
-    )
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answerParagraphs.join(' ')
+      }
+    }))
   };
+
+  // Apply page SEO
+  usePageSeo({
+    title: 'Frequently Asked Questions | Hometown TC',
+    description:
+      'Quick answers about working with Hometown TC: services, pricing ($375 Base / $475 Pro), client communication, technology, and what to expect.',
+    canonicalUrl: 'https://hometowntc.com/faq/',
+    breadcrumbs: [
+      { name: 'Home', url: 'https://hometowntc.com/' },
+      { name: 'Frequently Asked Questions', url: 'https://hometowntc.com/faq/' }
+    ],
+    structuredData: [faqSchemaData]
+  });
+
+  const activeCategoryObj = categories.find((c) => c.id === activeCategory);
 
   return (
     <div className="bg-[#EEEAEB] text-[#3A2E29] min-h-screen">
-      {/* Schema.org FAQ Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaData) }}
-      />
-      
-      {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#3A2E29] via-[#2A211D] to-[#3A2E29] text-white pt-32 pb-20 lg:pt-36 lg:pb-24 border-b border-[#D8D2D4]/20">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#0D9BA3_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* ========================================================================= */}
+      {/* 1. HERO — COMPACT, SEARCH-FIRST, NO KNOWLEDGE BASE, NO SUBMIT DEAL CTA   */}
+      {/* ========================================================================= */}
+      <section className="bg-white border-b border-[#D8D2D4] pt-28 pb-10 sm:pt-32 sm:pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
           
           {/* Breadcrumb */}
-          <div className="flex items-center space-x-2 text-xs font-semibold text-[#0D9BA3] tracking-widest uppercase mb-4">
-            <button onClick={onGoHome} className="hover:text-white transition cursor-pointer">Home</button>
+          <nav aria-label="Breadcrumb" className="flex items-center justify-center space-x-2 text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500">
+            <button onClick={onGoHome} className="hover:text-[#0D9BA3] transition cursor-pointer">
+              Home
+            </button>
             <span>/</span>
-            <span className="text-white">Frequently Asked Questions</span>
+            <span className="text-[#3A2E29]">FAQ</span>
+          </nav>
+
+          {/* Eyebrow strictly matching prompt */}
+          <div className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#0D9BA3]">
+            FREQUENTLY ASKED QUESTIONS
           </div>
 
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/20 border border-[#0D9BA3]/40 px-3.5 py-1.5 rounded-full text-xs font-bold text-[#0D9BA3] tracking-wide">
-              <HelpCircle className="w-3.5 h-3.5" />
-              <span>FLORIDA TRANSACTION COORDINATION KNOWLEDGE BASE</span>
+          {/* Main H1 Title strictly matching prompt */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight leading-tight">
+            Got a question? Start here.
+          </h1>
+
+          {/* Subheading strictly matching prompt */}
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
+            Quick answers about working with HTC, our services, pricing, client communication, technology, and what to expect.
+          </p>
+
+          {/* Search field strictly matching prompt:
+              Label: Search FAQs
+              Placeholder: Try “pricing,” “weekends,” “Base vs. Pro,” “AI,” “Spanish”... */}
+          <div className="pt-2 max-w-2xl mx-auto">
+            <label htmlFor="faq-search-input" className="sr-only">
+              Search FAQs
+            </label>
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" />
+              <input
+                id="faq-search-input"
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder='Try “pricing,” “weekends,” “Base vs. Pro,” “AI,” “Spanish”...'
+                className="w-full bg-[#FAF8F5] text-[#3A2E29] placeholder:text-slate-400 pl-12 pr-10 py-3.5 sm:py-4 rounded-2xl text-sm font-medium border border-[#D8D2D4] focus:outline-none focus:ring-2 focus:ring-[#0D9BA3] focus:bg-white shadow-xs transition"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  aria-label="Clear search"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-[#3A2E29] transition cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight font-serif">
-              Frequently Asked Questions <br />
-              <span className="text-[#0D9BA3]">Everything You Need to Know</span>
-            </h1>
+            {/* Quick Suggestion Chips */}
+            <div className="mt-2.5 flex flex-wrap items-center justify-center gap-1.5 text-xs text-slate-600">
+              <span className="text-[11px] font-mono uppercase text-slate-400 mr-1">Popular searches:</span>
+              {quickSuggestions.map((term) => (
+                <button
+                  key={term}
+                  type="button"
+                  onClick={() => {
+                    setSearchQuery(term);
+                  }}
+                  className="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#EEEAEB] hover:bg-[#0D9BA3]/10 hover:text-[#0D9BA3] transition text-[11px] font-medium cursor-pointer border border-[#D8D2D4]/60"
+                >
+                  {term}
+                </button>
+              ))}
+            </div>
 
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-light">
-              Clear, transparent answers regarding our Florida service area, scope of practice, plan differences, cancellation policy, bilingual capabilities, and security protocols.
-            </p>
+          </div>
 
-            {/* Search Input in Hero */}
-            <div className="pt-2">
-              <div className="relative max-w-xl">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search questions (e.g., cancellation, broker compliance, Spanish, Base vs Pro)..."
-                  className="w-full bg-white text-[#3A2E29] pl-12 pr-10 py-4 rounded-2xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0D9BA3] shadow-lg"
-                />
-                {searchQuery && (
+          {/* ========================================================================= */}
+          {/* MOST ASKED — SIMPLE QUICK LINKS (NOT CARDS)                              */}
+          {/* ========================================================================= */}
+          <div className="mt-8 pt-6 border-t border-[#D8D2D4]/70 max-w-3xl mx-auto text-left">
+            <div className="flex items-center space-x-2 mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-[#0D9BA3]" />
+              <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#0D9BA3]">
+                MOST ASKED
+              </span>
+            </div>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-xs sm:text-sm">
+              {mostAskedLinks.map((item) => (
+                <li key={item.id}>
                   <button
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1"
+                    onClick={() => handleJumpToFaq(item.categoryId, item.id)}
+                    className="group flex items-start text-left text-slate-700 hover:text-[#0D9BA3] transition cursor-pointer font-medium py-1"
                   >
-                    <X className="w-4 h-4" />
+                    <span className="text-[#0D9BA3] mr-2 font-mono group-hover:translate-x-0.5 transition-transform flex-shrink-0">
+                      →
+                    </span>
+                    <span className="underline decoration-[#D8D2D4] underline-offset-4 group-hover:decoration-[#0D9BA3]">
+                      {item.question}
+                    </span>
                   </button>
-                )}
-              </div>
-            </div>
-
-            {/* Quick Action CTAs */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
-              <button
-                onClick={onBookCall}
-                className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-xl hover:shadow-[#FE7311]/25 cursor-pointer"
-              >
-                <PhoneCall className="w-4 h-4" />
-                <span>Book a Fit Call</span>
-              </button>
-              <button
-                onClick={onSubmitDeal}
-                className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer backdrop-blur-sm"
-              >
-                <Send className="w-4 h-4 text-[#0D9BA3]" />
-                <span>Submit an Executed Deal</span>
-              </button>
-            </div>
-
+                </li>
+              ))}
+            </ul>
           </div>
+
         </div>
       </section>
 
-      {/* 2. CATEGORY JUMP BAR & EXPAND/COLLAPSE CONTROLS */}
-      <section className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border-b border-[#D8D2D4] shadow-sm py-3.5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      {/* ========================================================================= */}
+      {/* 2. FAQ CATEGORIES — USE ONLY THESE SIX, SHOW SELECTED CATEGORY QUESTIONS */}
+      {/* ========================================================================= */}
+      <section className="sticky top-16 sm:top-20 z-20 bg-white/95 backdrop-blur-md border-b border-[#D8D2D4] py-3.5 shadow-2xs">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Category Filter Pills */}
-          <div className="flex items-center space-x-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none text-xs font-bold">
-            <button
-              onClick={() => {
-                setActiveCategory('all');
-                setSearchQuery('');
-              }}
-              className={`px-3.5 py-1.5 rounded-full whitespace-nowrap transition cursor-pointer ${
-                activeCategory === 'all'
-                  ? 'bg-[#3A2E29] text-white'
-                  : 'bg-[#EEEAEB] text-[#3A2E29] hover:bg-[#D8D2D4]'
-              }`}
-            >
-              All Questions ({totalQuestions})
-            </button>
-            {faqSections.map((sec) => (
-              <button
-                key={sec.id}
-                onClick={() => {
-                  setActiveCategory(sec.id);
-                  setSearchQuery('');
-                }}
-                className={`px-3 py-1.5 rounded-full whitespace-nowrap transition cursor-pointer ${
-                  activeCategory === sec.id
-                    ? 'bg-[#0D9BA3] text-white'
-                    : 'bg-[#EEEAEB] text-slate-700 hover:bg-[#D8D2D4]'
-                }`}
-              >
-                {sec.shortLabel}
-              </button>
-            ))}
-          </div>
-
-          {/* Quick Actions (Expand/Collapse) */}
-          <div className="flex items-center space-x-3 text-xs font-bold text-slate-500 flex-shrink-0">
-            <button
-              onClick={expandAll}
-              className="hover:text-[#0D9BA3] transition cursor-pointer underline"
-            >
-              Expand All
-            </button>
-            <span>•</span>
-            <button
-              onClick={collapseAll}
-              className="hover:text-[#0D9BA3] transition cursor-pointer underline"
-            >
-              Collapse All
-            </button>
+          {/* Grid of the 6 Categories */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+            {categories.map((cat) => {
+              const isSelected = activeCategory === cat.id && !searchQuery;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => {
+                    setActiveCategory(cat.id);
+                    setSearchQuery('');
+                  }}
+                  className={`p-2.5 rounded-xl text-left transition cursor-pointer flex flex-col justify-between border ${
+                    isSelected
+                      ? 'bg-[#3A2E29] text-white border-[#3A2E29] shadow-sm'
+                      : 'bg-[#FAF8F5] text-[#3A2E29] border-[#D8D2D4] hover:border-[#0D9BA3] hover:bg-white'
+                  }`}
+                >
+                  <span className={`text-[11px] font-montserrat font-extrabold tracking-wider block ${
+                    isSelected ? 'text-[#FE7311]' : 'text-[#3A2E29]'
+                  }`}>
+                    {cat.name}
+                  </span>
+                  <span className={`text-[10px] leading-tight mt-1 font-medium line-clamp-1 ${
+                    isSelected ? 'text-slate-300' : 'text-slate-500'
+                  }`}>
+                    {cat.subtitle}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
         </div>
       </section>
 
-      {/* 3. STRUCTURED FAQ SECTIONS (IN EXACT MANDATED ORDER) */}
-      <section className="py-16 lg:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      {/* ========================================================================= */}
+      {/* 3. QUESTIONS & ANSWERS — ONLY SHOW SELECTED CATEGORY'S QUESTIONS          */}
+      {/* ========================================================================= */}
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         
-        {filteredSections.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-3xl border border-[#D8D2D4] p-8 space-y-4">
-            <HelpCircle className="w-12 h-12 text-slate-400 mx-auto" />
-            <h3 className="text-xl font-bold text-[#3A2E29]">No matching questions found</h3>
-            <p className="text-sm text-slate-600 max-w-md mx-auto">
-              We couldn't find any questions matching "{searchQuery}". Try searching for terms like "deposit", "cancel", "broker", "spanish", or book a call with Michelle.
-            </p>
-            <div className="pt-2">
+        {/* Active Category Header when not searching */}
+        {!searchQuery && activeCategoryObj && (
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#D8D2D4] pb-4 gap-2">
+            <div>
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
+                CATEGORY: {activeCategoryObj.name}
+              </span>
+              <h2 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+                {activeCategoryObj.subtitle}
+              </h2>
+            </div>
+
+            <div className="flex items-center space-x-3 text-xs font-mono font-bold text-slate-500 flex-shrink-0">
+              <button
+                onClick={expandAll}
+                className="hover:text-[#0D9BA3] transition cursor-pointer"
+              >
+                Expand all
+              </button>
+              <span>•</span>
+              <button
+                onClick={collapseAll}
+                className="hover:text-[#0D9BA3] transition cursor-pointer"
+              >
+                Collapse all
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Search Feedback Bar when searching */}
+        {searchQuery && (
+          <div className="mb-6 flex items-center justify-between bg-white px-4 py-3 rounded-xl border border-[#D8D2D4] text-xs">
+            <div className="text-slate-600">
+              Found <strong className="text-[#3A2E29]">{filteredItems.length}</strong> {filteredItems.length === 1 ? 'answer' : 'answers'} matching “<strong className="text-[#0D9BA3]">{searchQuery}</strong>”
+            </div>
+            <button
+              onClick={() => setSearchQuery('')}
+              className="text-[#0D9BA3] font-bold hover:underline cursor-pointer"
+            >
+              Clear search
+            </button>
+          </div>
+        )}
+
+        {/* Empty State */}
+        {filteredItems.length === 0 ? (
+          <div className="bg-white rounded-2xl border border-[#D8D2D4] p-10 text-center space-y-4 shadow-xs">
+            <div className="w-12 h-12 rounded-full bg-[#EEEAEB] flex items-center justify-center mx-auto text-slate-400">
+              <Search className="w-6 h-6" />
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-lg font-montserrat font-bold text-[#3A2E29]">
+                No answers found for “{searchQuery}”
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
+                Try searching for “pricing”, “weekends”, “Base vs. Pro”, or click any category above.
+              </p>
+            </div>
+            <div className="pt-2 flex justify-center gap-3">
               <button
                 onClick={() => setSearchQuery('')}
-                className="px-6 py-2.5 bg-[#3A2E29] text-white rounded-xl text-xs font-bold uppercase tracking-wider"
+                className="px-4 py-2 bg-[#EEEAEB] hover:bg-[#D8D2D4] text-[#3A2E29] rounded-xl text-xs font-bold transition cursor-pointer"
               >
-                Clear Search Query
+                Reset Search
+              </button>
+              <button
+                onClick={onBookCall}
+                className="px-4 py-2 bg-[#0D9BA3] hover:bg-[#087177] text-white rounded-xl text-xs font-bold transition cursor-pointer"
+              >
+                Ask Michelle Directly
               </button>
             </div>
           </div>
         ) : (
-          filteredSections.map((sec) => {
-            const Icon = sec.icon;
-            return (
-              <div key={sec.id} id={sec.id} className="space-y-6 scroll-mt-36">
-                
-                {/* Section Header */}
-                <div className="flex items-start space-x-4 border-b border-[#D8D2D4] pb-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#3A2E29] text-white flex items-center justify-center flex-shrink-0 mt-1 shadow-sm">
-                    <Icon className="w-5 h-5 text-[#0D9BA3]" />
-                  </div>
-                  <div>
-                    <div className="flex items-center space-x-2 text-[11px] font-extrabold uppercase tracking-widest text-[#0D9BA3]">
-                      <span>SECTION {sec.orderNum}</span>
+          /* Accordion List for the Selected Category */
+          <div className="space-y-3">
+            {filteredItems.map((item) => {
+              const isOpen = !!openItems[item.id] || (searchQuery.trim().length > 0);
+              return (
+                <article
+                  key={item.id}
+                  id={item.id}
+                  className={`bg-white rounded-2xl border transition shadow-xs overflow-hidden scroll-mt-32 ${
+                    isOpen ? 'border-[#0D9BA3] ring-1 ring-[#0D9BA3]/20' : 'border-[#D8D2D4] hover:border-slate-400'
+                  }`}
+                >
+                  <button
+                    onClick={() => toggleItem(item.id)}
+                    aria-expanded={isOpen}
+                    className="w-full p-4 sm:p-5 text-left flex items-start justify-between gap-4 cursor-pointer group"
+                  >
+                    <div className="space-y-1 pr-2">
+                      {searchQuery && (
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3] block">
+                          {categories.find((c) => c.id === item.categoryId)?.name}
+                        </span>
+                      )}
+                      <h3 className="text-sm sm:text-base font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
+                        {item.question}
+                      </h3>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
-                      {sec.title}
-                    </h2>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                      {sec.description}
-                    </p>
-                  </div>
-                </div>
 
-                {/* Question Accordion List */}
-                <div className="space-y-4">
-                  {sec.items.map((item) => {
-                    const isOpen = !!openItems[item.id];
-                    return (
-                      <div
-                        key={item.id}
-                        className={`bg-white rounded-2xl border transition shadow-sm overflow-hidden ${
-                          isOpen ? 'border-[#0D9BA3] ring-1 ring-[#0D9BA3]/20' : 'border-[#D8D2D4] hover:border-slate-400'
-                        }`}
-                      >
-                        <button
-                          onClick={() => toggleItem(item.id)}
-                          className="w-full p-5 sm:p-6 text-left flex items-start justify-between space-x-4 cursor-pointer"
-                        >
-                          <span className="font-bold text-sm sm:text-base text-[#3A2E29] leading-snug">
-                            {item.question}
-                          </span>
-                          <div className="w-7 h-7 rounded-full bg-[#EEEAEB] flex items-center justify-center flex-shrink-0 mt-0.5 text-[#3A2E29]">
-                            {isOpen ? <ChevronUp className="w-4 h-4 text-[#0D9BA3]" /> : <ChevronDown className="w-4 h-4" />}
-                          </div>
-                        </button>
+                    <div className="w-8 h-8 rounded-full bg-[#EEEAEB] flex items-center justify-center flex-shrink-0 text-[#3A2E29] group-hover:bg-[#0D9BA3] group-hover:text-white transition">
+                      {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                    </div>
+                  </button>
 
-                        {isOpen && (
-                          <div className="px-5 pb-6 sm:px-6 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-[#D8D2D4]/50 pt-4 bg-[#EEEAEB]/20">
-                            {item.answer}
-                          </div>
-                        )}
+                  {isOpen && (
+                    <div className="px-4 pb-5 sm:px-6 sm:pb-6 pt-0 border-t border-[#D8D2D4]/50 bg-[#FAF8F5]/40 space-y-3">
+                      {/* Formatted Customer-Facing Answer Paragraphs */}
+                      <div className="pt-3 space-y-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                        {item.answerParagraphs.map((para, pIdx) => (
+                          <p key={pIdx}>{para}</p>
+                        ))}
                       </div>
-                    );
-                  })}
-                </div>
 
-              </div>
-            );
-          })
+                      {/* Explicit Action Links (e.g., SEE SERVICES + PRICING →) */}
+                      {item.actionLink && (
+                        <div className="pt-2">
+                          <button
+                            onClick={item.actionLink.action}
+                            className="inline-flex items-center space-x-1.5 text-xs font-montserrat font-extrabold uppercase tracking-wider text-[#0D9BA3] hover:text-[#FE7311] transition cursor-pointer"
+                          >
+                            <span>{item.actionLink.label}</span>
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </div>
         )}
 
-      </section>
+      </main>
 
-      {/* 4. FAST TOPIC SHORTCUTS */}
-      <section className="py-16 bg-white border-y border-[#D8D2D4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <h3 className="text-2xl font-bold text-[#3A2E29] font-serif">
-              Looking for Specific Coordination Details?
+      {/* ========================================================================= */}
+      {/* 4. FAST TOPIC JUMPS — HELPFUL EXPLORATION WITHOUT OVERWHELM               */}
+      {/* ========================================================================= */}
+      <section className="bg-white border-y border-[#D8D2D4] py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <div className="text-center space-y-1">
+            <h3 className="text-lg font-montserrat font-bold text-[#3A2E29]">
+              Explore Detailed Pages
             </h3>
             <p className="text-xs sm:text-sm text-slate-600">
-              Explore our specialized operational pages for deep dives on regional practices and pricing.
+              Need deeper breakdowns of our plans, timelines, and regional coverage?
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
             <button
               onClick={onOpenPricing}
-              className="p-5 bg-[#EEEAEB] rounded-2xl border border-[#D8D2D4] hover:border-[#0D9BA3] text-left space-y-2 transition group cursor-pointer"
+              className="p-4 bg-[#FAF8F5] rounded-xl border border-[#D8D2D4] hover:border-[#0D9BA3] transition text-left space-y-1.5 group cursor-pointer shadow-2xs"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#3A2E29] text-white flex items-center justify-center group-hover:bg-[#0D9BA3] transition">
-                <Layers className="w-4 h-4" />
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
+                  Plans & Pricing Matrix
+                </span>
+                <Layers className="w-4 h-4 text-[#0D9BA3]" />
               </div>
-              <h4 className="text-sm font-bold text-[#3A2E29]">Pricing & Plans Matrix</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">Full feature matrix for Base ($375) vs Pro ($475).</p>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                Full feature comparison for Base ($375) vs. Pro ($475).
+              </p>
             </button>
 
             <button
-              onClick={onOpenContractToClose}
-              className="p-5 bg-[#EEEAEB] rounded-2xl border border-[#D8D2D4] hover:border-[#0D9BA3] text-left space-y-2 transition group cursor-pointer"
+              onClick={onOpenHowItWorks}
+              className="p-4 bg-[#FAF8F5] rounded-xl border border-[#D8D2D4] hover:border-[#0D9BA3] transition text-left space-y-1.5 group cursor-pointer shadow-2xs"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#3A2E29] text-white flex items-center justify-center group-hover:bg-[#0D9BA3] transition">
-                <FileCheck2 className="w-4 h-4" />
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
+                  How HTC Works
+                </span>
+                <Clock className="w-4 h-4 text-[#0D9BA3]" />
               </div>
-              <h4 className="text-sm font-bold text-[#3A2E29]">Contract-to-Close Process</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">The 5-phase timeline from execution to funding.</p>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                The onboarding flow from contract execution to funding day.
+              </p>
             </button>
 
             <button
-              onClick={onOpenRealtorTc}
-              className="p-5 bg-[#EEEAEB] rounded-2xl border border-[#D8D2D4] hover:border-[#0D9BA3] text-left space-y-2 transition group cursor-pointer"
+              onClick={onOpenSouthFloridaTc}
+              className="p-4 bg-[#FAF8F5] rounded-xl border border-[#D8D2D4] hover:border-[#0D9BA3] transition text-left space-y-1.5 group cursor-pointer shadow-2xs"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#3A2E29] text-white flex items-center justify-center group-hover:bg-[#0D9BA3] transition">
-                <ShieldCheck className="w-4 h-4" />
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
+                  Florida Coverage
+                </span>
+                <FileCheck2 className="w-4 h-4 text-[#0D9BA3]" />
               </div>
-              <h4 className="text-sm font-bold text-[#3A2E29]">Realtor® Workflow & Fiduciary</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">Licensed duties vs back-office compliance.</p>
-            </button>
-
-            <button
-              onClick={onOpenMiamiDadeTc}
-              className="p-5 bg-[#EEEAEB] rounded-2xl border border-[#D8D2D4] hover:border-[#0D9BA3] text-left space-y-2 transition group cursor-pointer"
-            >
-              <div className="w-8 h-8 rounded-lg bg-[#3A2E29] text-white flex items-center justify-center group-hover:bg-[#0D9BA3] transition">
-                <MapPin className="w-4 h-4" />
-              </div>
-              <h4 className="text-sm font-bold text-[#3A2E29]">Miami-Dade & Tri-County</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">WASD/DERM, condo SB 4-D, and county customs.</p>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                Tri-County Miami-Dade, Broward, Palm Beach, and statewide.
+              </p>
             </button>
           </div>
-
         </div>
       </section>
 
-      {/* 5. FINAL HIGH-CONVERSION CTA */}
-      <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#3A2E29] text-white rounded-3xl p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl relative overflow-hidden text-center space-y-8">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#0D9BA3]/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FE7311]/10 rounded-full blur-3xl pointer-events-none" />
+      {/* ========================================================================= */}
+      {/* 5. STILL HAVE A QUESTION? (STRICTLY NO SUBMIT AN EXECUTED DEAL CTA)      */}
+      {/* ========================================================================= */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <div className="bg-[#3A2E29] text-white rounded-3xl p-6 sm:p-10 border border-white/10 shadow-xl relative overflow-hidden text-center space-y-5">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#0D9BA3]/15 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FE7311]/15 rounded-full blur-2xl pointer-events-none" />
 
-          <div className="max-w-3xl mx-auto space-y-4 relative z-10">
-            <div className="inline-flex items-center space-x-2 bg-white/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+          <div className="relative z-10 space-y-3">
+            <div className="inline-flex items-center space-x-1.5 bg-white/10 text-[#0D9BA3] px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Still Have a Question?</span>
+              <span>STILL HAVE A QUESTION?</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-serif leading-tight">
-              Have a Specific Question About Your Next Deal?
+            <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-white">
+              Can’t find your answer? Let’s talk.
             </h2>
 
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              Speak directly with Michelle Martinez. We'll discuss your brokerage requirements, transaction volume, and how Hometown TC can streamline your closing pipeline immediately.
+            <p className="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+              Michelle Martinez and our transaction team are happy to answer any questions about your workflow, broker compliance, or upcoming deals.
             </p>
 
-            <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
+            {/* ONLY Book a Call & Direct Contacts — STRICTLY NO SUBMIT DEAL CTA */}
+            <div className="pt-2 flex flex-col sm:flex-row justify-center items-center gap-3">
               <button
                 onClick={onBookCall}
-                className="w-full sm:w-auto px-8 py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-xl hover:shadow-[#FE7311]/25 cursor-pointer flex items-center justify-center space-x-2"
+                className="w-full sm:w-auto px-7 py-3.5 bg-[#FE7311] hover:bg-[#e06209] text-white font-montserrat font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md hover:shadow-[#FE7311]/25 cursor-pointer flex items-center justify-center space-x-2"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Fit Call</span>
+                <span>Book a Quick Fit Call</span>
               </button>
-              <button
-                onClick={onSubmitDeal}
-                className="w-full sm:w-auto px-7 py-4 bg-[#0D9BA3] hover:bg-[#0b868d] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer shadow-md flex items-center justify-center space-x-2"
-              >
-                <Send className="w-4 h-4" />
-                <span>Submit an Executed Deal ($375)</span>
-              </button>
+
               <button
                 onClick={onOpenPricing}
-                className="w-full sm:w-auto px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer border border-white/20"
+                className="w-full sm:w-auto px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-montserrat font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer border border-white/20"
               >
-                View Plans & Pricing
+                <span>View Plans & Pricing</span>
               </button>
             </div>
 
-            <div className="pt-4 flex flex-wrap justify-center items-center gap-4 text-xs text-slate-400">
-              <span>Direct Phone: <a href={`tel:${PHONE_NUMBER.replace(/\D/g, '')}`} className="text-white font-bold hover:underline">{PHONE_NUMBER}</a></span>
+            {/* Direct Phone and Email */}
+            <div className="pt-3 flex flex-wrap justify-center items-center gap-4 text-xs text-slate-400 font-mono">
+              <span className="flex items-center space-x-1.5">
+                <PhoneCall className="w-3.5 h-3.5 text-[#0D9BA3]" />
+                <span>Direct: <a href={`tel:${PHONE_NUMBER.replace(/\D/g, '')}`} className="text-white font-bold hover:underline">{PHONE_NUMBER}</a></span>
+              </span>
               <span>•</span>
-              <span>Email: <a href={`mailto:${EMAIL_ADDRESS}`} className="text-white font-bold hover:underline">{EMAIL_ADDRESS}</a></span>
+              <span className="flex items-center space-x-1.5">
+                <Mail className="w-3.5 h-3.5 text-[#0D9BA3]" />
+                <span>Email: <a href={`mailto:${EMAIL_ADDRESS}`} className="text-white font-bold hover:underline">{EMAIL_ADDRESS}</a></span>
+              </span>
             </div>
+
           </div>
         </div>
       </section>

@@ -16,7 +16,8 @@ import {
   X,
   CheckCircle2,
   Calendar,
-  AlertCircle
+  AlertCircle,
+  ShieldCheck
 } from 'lucide-react';
 import { 
   CATEGORY_ARCHIVE_CONFIGS, 
@@ -170,52 +171,52 @@ export const CategoryArchivePage: React.FC<Props> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#1A1A1A] font-sans antialiased selection:bg-[#0D2C4D] selection:text-[#FAF8F5]">
+    <div className="min-h-screen bg-[#EEEAEB] text-[#3A2E29] font-sans antialiased selection:bg-[#0D9BA3] selection:text-white">
       
       {/* 1. TOP DATELINE & BREADCRUMB BAR */}
-      <div className="border-b border-[#E5E0D8] bg-[#F4EFEA] text-[11px] uppercase tracking-widest text-[#666666] font-mono py-2.5 px-4 sm:px-6">
+      <div className="border-b border-[#D8D2D4] bg-[#EEEAEB]/70 text-[11px] uppercase tracking-widest text-[#3A2E29]/70 font-mono py-2.5 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <a 
               href="/resources/" 
               onClick={(e) => handleLinkClick(e, '/resources/')}
-              className="hover:text-[#0D2C4D] flex items-center gap-1 font-semibold transition-colors"
+              className="hover:text-[#0D9BA3] flex items-center gap-1 font-bold text-[#3A2E29] transition-colors"
             >
-              <ArrowLeft className="w-3 h-3" />
+              <ArrowLeft className="w-3.5 h-3.5 text-[#0D9BA3]" />
               THE HOMETOWN BRIEF
             </a>
-            <span className="text-[#B3A89B]">/</span>
-            <span className="text-[#0D2C4D] font-bold">{config.deskCode}</span>
-            <span className="text-[#B3A89B]">/</span>
-            <span className="text-[#1A1A1A] font-medium">{config.name}</span>
+            <span className="text-[#D8D2D4]">/</span>
+            <span className="text-[#0D9BA3] font-extrabold">{config.deskCode}</span>
+            <span className="text-[#D8D2D4]">/</span>
+            <span className="text-[#3A2E29] font-medium">{config.name}</span>
           </div>
 
-          <div className="flex items-center gap-4 text-[10px] text-[#7A7369]">
-            <span>FLORIDA ARCHIVE EDITION</span>
+          <div className="flex items-center gap-4 text-[10px] text-slate-500">
+            <span className="font-semibold text-[#3A2E29]">FLORIDA ARCHIVE EDITION</span>
             <span className="hidden sm:inline">•</span>
             <span className="hidden sm:inline font-mono">EST. HOMETOWN TITLE & CLOSING</span>
             <button
               onClick={handleShare}
-              className="flex items-center gap-1 hover:text-[#0D2C4D] transition-colors"
+              className="flex items-center gap-1 font-bold hover:text-[#0D9BA3] transition-colors cursor-pointer text-[#3A2E29]"
               title="Share category URL"
             >
-              <Share2 className="w-3 h-3" />
+              <Share2 className="w-3 h-3 text-[#0D9BA3]" />
               {copiedLink ? 'COPIED LINK' : 'SHARE ARCHIVE'}
             </button>
           </div>
         </div>
       </div>
 
-      {/* 2. BROADSHEET MASTHEAD & SEARCH */}
-      <header className="border-b-4 border-[#0D2C4D] pt-8 pb-6 px-4 sm:px-6 bg-[#FAF8F5]">
+      {/* 2. MASTHEAD & SEARCH */}
+      <header className="border-b border-[#D8D2D4] pt-10 pb-8 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* Desk Kicker */}
-          <div className="flex items-center justify-between border-b border-[#D8D2C5] pb-2 mb-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#C84B31] font-bold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#C84B31]"></span>
+          <div className="flex items-center justify-between border-b border-[#D8D2D4] pb-3 mb-6">
+            <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#FE7311] animate-pulse"></span>
               DEPARTMENTAL ARCHIVE DISPATCH • {config.deskCode}
             </span>
-            <span className="font-mono text-[11px] text-[#7A7369] uppercase tracking-wider">
+            <span className="text-xs text-slate-500 font-semibold bg-[#EEEAEB] px-2.5 py-1 rounded-full border border-[#D8D2D4]">
               {categoryArticles.length} FILED BRIEFS IN ARCHIVE
             </span>
           </div>
@@ -223,47 +224,47 @@ export const CategoryArchivePage: React.FC<Props> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
             {/* H1 Headline */}
             <div className="lg:col-span-8">
-              <span className="font-serif italic text-lg text-[#7A7369] block mb-1">
-                The Hometown Brief Archive
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black tracking-tight text-[#0D2C4D] leading-none mb-3">
+              <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                <span>The Hometown Brief Archive</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold tracking-tight text-[#3A2E29] leading-none mb-3">
                 {config.name}
               </h1>
-              <p className="text-base sm:text-lg text-[#4A453E] max-w-2xl font-serif">
+              <p className="text-base sm:text-lg text-slate-600 max-w-2xl font-medium">
                 {config.tagline}
               </p>
             </div>
 
             {/* In-Category Search Bar */}
             <div className="lg:col-span-4">
-              <div className="bg-white border-2 border-[#1A1A1A] p-2 shadow-[3px_3px_0px_0px_#1A1A1A]">
-                <label htmlFor="cat-search" className="block text-[10px] font-mono uppercase tracking-widest text-[#7A7369] mb-1 font-bold">
+              <div className="bg-white border border-[#D8D2D4] p-3 rounded-2xl shadow-sm hover:border-[#0D9BA3] transition-all">
+                <label htmlFor="cat-search" className="block text-[11px] uppercase tracking-wider text-[#3A2E29] mb-1.5 font-bold">
                   SEARCH {config.name.toUpperCase()} BRIEFS
                 </label>
                 <div className="relative flex items-center">
-                  <Search className="w-4 h-4 text-[#7A7369] absolute left-2.5 pointer-events-none" />
+                  <Search className="w-4 h-4 text-[#0D9BA3] absolute left-3 pointer-events-none" />
                   <input
                     id="cat-search"
                     type="search"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search keywords, contracts, clauses..."
-                    className="w-full bg-[#F4EFEA] border border-[#D8D2C5] pl-8 pr-8 py-2 text-sm text-[#1A1A1A] placeholder-[#8A8378] focus:outline-none focus:border-[#0D2C4D] font-sans"
+                    className="w-full bg-[#EEEAEB]/40 rounded-xl border border-[#D8D2D4] pl-9 pr-9 py-2 text-sm text-[#3A2E29] placeholder-slate-400 focus:outline-none focus:border-[#0D9BA3] focus:ring-2 focus:ring-[#0D9BA3]/20 font-sans"
                   />
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery('')}
-                      className="absolute right-2 text-[#7A7369] hover:text-[#1A1A1A]"
+                      className="absolute right-3 text-slate-400 hover:text-[#3A2E29]"
                       aria-label="Clear search"
                     >
                       <X className="w-4 h-4" />
                     </button>
                   )}
                 </div>
-                <div className="text-[10px] font-mono text-[#8A8378] mt-1.5 flex justify-between">
+                <div className="text-[10px] text-slate-500 mt-2 flex justify-between font-medium">
                   <span>Searches titles, The Brief, & bodies</span>
                   {searchQuery && (
-                    <span className="font-bold text-[#C84B31]">
+                    <span className="font-bold text-[#FE7311]">
                       {searchResults.length} {searchResults.length === 1 ? 'match' : 'matches'}
                     </span>
                   )}
@@ -275,11 +276,11 @@ export const CategoryArchivePage: React.FC<Props> = ({
       </header>
 
       {/* 3. TOPIC NAVIGATION (ALL 6 CRAWLABLE ARCHIVES) */}
-      <nav aria-label="Topic Navigation" className="border-b border-[#E5E0D8] bg-[#F4EFEA] sticky top-0 z-30 shadow-xs">
+      <nav aria-label="Topic Navigation" className="border-b border-[#D8D2D4] bg-white/95 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center overflow-x-auto py-2.5 gap-2 scrollbar-none">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-[#7A7369] font-bold shrink-0 mr-2 flex items-center gap-1.5">
-              <SlidersHorizontal className="w-3 h-3 text-[#C84B31]" />
+          <div className="flex items-center overflow-x-auto py-3 gap-2 scrollbar-none">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#3A2E29] shrink-0 mr-1 flex items-center gap-1.5">
+              <SlidersHorizontal className="w-3.5 h-3.5 text-[#0D9BA3]" />
               DEPARTMENTS:
             </span>
 
@@ -287,7 +288,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
             <a
               href="/resources/"
               onClick={(e) => handleLinkClick(e, '/resources/')}
-              className="px-3 py-1.5 text-xs font-mono font-medium tracking-wider uppercase border border-[#D8D2C5] bg-white text-[#4A453E] hover:border-[#0D2C4D] hover:text-[#0D2C4D] transition-colors shrink-0 whitespace-nowrap"
+              className="px-3.5 py-1.5 text-xs font-bold tracking-wider uppercase rounded-full border border-[#D8D2D4] bg-[#EEEAEB] text-[#3A2E29] hover:border-[#0D9BA3] hover:text-[#0D9BA3] hover:bg-white transition-colors shrink-0 whitespace-nowrap"
             >
               ALL DISPATCHES
             </a>
@@ -300,10 +301,10 @@ export const CategoryArchivePage: React.FC<Props> = ({
                   key={cat.slug}
                   href={`/resources/${cat.slug}/`}
                   onClick={(e) => handleLinkClick(e, `/resources/${cat.slug}/`)}
-                  className={`px-3 py-1.5 text-xs font-mono font-bold tracking-wider uppercase border transition-all shrink-0 whitespace-nowrap ${
+                  className={`px-3.5 py-1.5 text-xs font-bold tracking-wider uppercase rounded-full transition-all shrink-0 whitespace-nowrap ${
                     isActive
-                      ? 'bg-[#0D2C4D] text-[#FAF8F5] border-[#0D2C4D] shadow-[2px_2px_0px_0px_#1A1A1A]'
-                      : 'bg-white text-[#4A453E] border-[#D8D2C5] hover:border-[#0D2C4D] hover:text-[#0D2C4D]'
+                      ? 'bg-[#0D9BA3] text-white shadow-sm'
+                      : 'bg-[#EEEAEB] text-[#3A2E29] border border-[#D8D2D4] hover:border-[#0D9BA3] hover:text-[#0D9BA3] hover:bg-white'
                   }`}
                 >
                   {cat.name}
@@ -315,23 +316,23 @@ export const CategoryArchivePage: React.FC<Props> = ({
       </nav>
 
       {/* MAIN CONTAINER */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
         
         {/* SEARCH RESULTS VIEW (IF SEARCHING) */}
         {searchQuery.trim().length > 0 ? (
-          <section className="mb-12 border-2 border-[#1A1A1A] bg-white p-6 sm:p-8 shadow-[4px_4px_0px_0px_#1A1A1A]">
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b-2 border-[#1A1A1A] pb-4 mb-6">
+          <section className="mb-12 bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#D8D2D4] pb-4 mb-6">
               <div>
-                <span className="font-mono text-xs uppercase tracking-widest text-[#C84B31] font-bold block mb-1">
+                <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold block mb-1">
                   SEARCH RESULTS
                 </span>
-                <h2 className="text-2xl font-serif font-black text-[#0D2C4D]">
+                <h2 className="text-2xl font-montserrat font-extrabold text-[#3A2E29]">
                   Matches for &ldquo;{searchQuery}&rdquo; in {config.name}
                 </h2>
               </div>
               <button
                 onClick={() => setSearchQuery('')}
-                className="px-3 py-1.5 text-xs font-mono uppercase tracking-wider bg-[#F4EFEA] border border-[#1A1A1A] hover:bg-[#E5E0D8] transition-colors"
+                className="px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider bg-[#EEEAEB] border border-[#D8D2D4] hover:bg-[#0D9BA3] hover:text-white rounded-xl transition-colors cursor-pointer"
               >
                 Clear Search
               </button>
@@ -339,25 +340,25 @@ export const CategoryArchivePage: React.FC<Props> = ({
 
             {searchResults.length === 0 ? (
               <div className="py-8 text-center">
-                <AlertCircle className="w-8 h-8 text-[#8A8378] mx-auto mb-2" />
-                <p className="font-serif text-lg text-[#4A453E]">No briefs found matching &ldquo;{searchQuery}&rdquo;.</p>
-                <p className="text-xs font-mono text-[#7A7369] mt-1">Try searching broader keywords or view all briefs below.</p>
+                <AlertCircle className="w-8 h-8 text-[#FE7311] mx-auto mb-2" />
+                <p className="text-lg font-bold text-[#3A2E29]">No briefs found matching &ldquo;{searchQuery}&rdquo;.</p>
+                <p className="text-xs text-slate-500 mt-1">Try searching broader keywords or view all briefs below.</p>
               </div>
             ) : (
-              <div className="divide-y divide-[#E5E0D8]">
+              <div className="divide-y divide-[#D8D2D4]">
                 {searchResults.map((result) => (
-                  <article key={result.id} className="py-4 first:pt-0 last:pb-0 group">
-                    <div className="flex flex-wrap items-center gap-2 mb-1.5 text-[11px] font-mono">
-                      <span className="bg-[#FAF8F5] border border-[#D8D2C5] px-2 py-0.5 font-bold text-[#0D2C4D]">
+                  <article key={result.id} className="py-5 first:pt-0 last:pb-0 group">
+                    <div className="flex flex-wrap items-center gap-2 mb-2 text-xs">
+                      <span className="bg-[#0D9BA3]/10 text-[#0D9BA3] border border-[#0D9BA3]/20 px-2.5 py-0.5 rounded-full font-bold">
                         {result.category}
                       </span>
-                      <span className="text-[#8A8378] flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
+                      <span className="text-slate-500 flex items-center gap-1 font-medium">
+                        <Clock className="w-3.5 h-3.5 text-[#0D9BA3]" />
                         {result.readTime}
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-serif font-bold text-[#1A1A1A] group-hover:text-[#0D2C4D] transition-colors mb-1.5">
+                    <h3 className="text-lg sm:text-xl font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2">
                       <a 
                         href={`/resources/${result.slug}/`}
                         onClick={(e) => handleLinkClick(e, `/resources/${result.slug}/`)}
@@ -368,16 +369,17 @@ export const CategoryArchivePage: React.FC<Props> = ({
                     </h3>
 
                     {/* SHORT SUMMARY - strictly no giant excerpts! */}
-                    <p className="text-sm font-sans text-[#5A554E] leading-relaxed mb-2 font-mono">
+                    <p className="text-sm text-slate-600 leading-relaxed mb-3">
                       {result.shortSummary}
                     </p>
 
                     <a
                       href={`/resources/${result.slug}/`}
                       onClick={(e) => handleLinkClick(e, `/resources/${result.slug}/`)}
-                      className="inline-flex items-center gap-1 text-xs font-mono font-bold text-[#0D2C4D] hover:text-[#C84B31] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0D9BA3] group-hover:text-[#FE7311] transition-colors"
                     >
-                      READ BRIEF <ArrowRight className="w-3 h-3" />
+                      <span>READ BRIEF</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </article>
                 ))}
@@ -388,24 +390,24 @@ export const CategoryArchivePage: React.FC<Props> = ({
 
         {/* 4. [CATEGORY INTRO COPY] SECTION */}
         <section aria-labelledby="category-intro-heading" className="mb-12">
-          <div className="bg-white border-2 border-[#1A1A1A] p-6 sm:p-8 shadow-[4px_4px_0px_0px_#1A1A1A]">
-            <div className="flex items-center justify-between border-b border-[#D8D2C5] pb-3 mb-4">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#C84B31] font-bold flex items-center gap-2">
-                <FolderOpen className="w-4 h-4 text-[#C84B31]" />
+          <div className="bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 shadow-sm">
+            <div className="flex items-center justify-between border-b border-[#D8D2D4] pb-3 mb-4">
+              <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold flex items-center gap-2">
+                <FolderOpen className="w-4 h-4 text-[#0D9BA3]" />
                 [CATEGORY INTRO COPY]
               </span>
-              <span className="text-[10px] font-mono text-[#7A7369] uppercase tracking-wider bg-[#F4EFEA] px-2 py-0.5 border border-[#D8D2C5]">
+              <span className="text-[11px] text-slate-500 uppercase tracking-wider bg-[#EEEAEB] px-2.5 py-1 rounded-full border border-[#D8D2D4] font-medium">
                 HTC will provide the category copy later
               </span>
             </div>
 
-            <div className="prose max-w-none">
-              <p className="font-mono text-sm sm:text-base text-[#4A453E] leading-relaxed bg-[#FAF8F5] p-4 sm:p-5 border border-dashed border-[#B3A89B]">
+            <div>
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed bg-[#EEEAEB]/40 p-5 rounded-xl border border-[#D8D2D4] font-medium">
                 {config.categoryIntroPlaceholder}
               </p>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-[#E5E0D8] flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-[#7A7369]">
+            <div className="mt-4 pt-3 border-t border-[#D8D2D4] flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-slate-500">
               <span>DESK: {config.name.toUpperCase()}</span>
               <span>CANONICAL URL: {config.canonicalUrl}</span>
             </div>
@@ -414,46 +416,46 @@ export const CategoryArchivePage: React.FC<Props> = ({
 
         {/* 5. [ARTICLE LIST] SECTION */}
         <section aria-labelledby="article-list-heading" className="mb-14">
-          <div className="border-b-2 border-[#1A1A1A] pb-3 mb-6 flex flex-wrap items-end justify-between gap-4">
+          <div className="border-b border-[#D8D2D4] pb-3 mb-6 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-[#7A7369] font-bold block mb-1">
+              <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold block mb-1">
                 INDEX OF FILED DISPATCHES
               </span>
-              <h2 id="article-list-heading" className="text-2xl sm:text-3xl font-serif font-black text-[#0D2C4D]">
+              <h2 id="article-list-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
                 [ARTICLE LIST] • {config.name.toUpperCase()}
               </h2>
             </div>
-            <span className="font-mono text-xs text-[#7A7369] bg-[#F4EFEA] px-3 py-1 border border-[#D8D2C5]">
+            <span className="text-xs text-slate-600 bg-white px-3 py-1.5 rounded-full border border-[#D8D2D4] font-medium">
               SHOWING {categoryArticles.length} BRIEFS
             </span>
           </div>
 
-          {/* Editorial Article Grid with thin newspaper divider rules */}
+          {/* Article Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {categoryArticles.map((article, idx) => (
               <article
                 key={article.id}
-                className="bg-white border-2 border-[#1A1A1A] p-6 flex flex-col justify-between shadow-[3px_3px_0px_0px_#1A1A1A] hover:shadow-[5px_5px_0px_0px_#0D2C4D] transition-all group"
+                className="bg-white border border-[#D8D2D4] rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:border-[#0D9BA3] hover:shadow-md transition-all group"
               >
                 <div>
                   {/* Top Taxonomy Bar: [CATEGORY] & [READ TIME] */}
-                  <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[#E5E0D8] text-[11px] font-mono">
-                    <span className="font-bold text-[#0D2C4D] bg-[#F4EFEA] px-2 py-0.5 border border-[#D8D2C5]">
+                  <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[#D8D2D4] text-xs">
+                    <span className="font-bold text-[#0D9BA3] bg-[#0D9BA3]/10 px-2.5 py-0.5 rounded-full border border-[#0D9BA3]/20">
                       {article.category}
                     </span>
-                    <span className="text-[#7A7369] flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
+                    <span className="text-slate-500 flex items-center gap-1 font-medium">
+                      <Clock className="w-3.5 h-3.5 text-[#0D9BA3]" />
                       {article.readTime}
                     </span>
                   </div>
 
                   {/* Article Entry Tag */}
-                  <span className="text-[10px] font-mono text-[#C84B31] font-bold uppercase tracking-widest block mb-1">
+                  <span className="text-[11px] text-[#FE7311] font-bold uppercase tracking-wider block mb-1">
                     ENTRY 0{idx + 1} • {article.deskCode}
                   </span>
 
                   {/* [ARTICLE TITLE] */}
-                  <h3 className="text-lg font-serif font-bold text-[#1A1A1A] group-hover:text-[#0D2C4D] transition-colors leading-snug mb-3 font-serif">
+                  <h3 className="text-base sm:text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors leading-snug mb-3">
                     <a
                       href={`/resources/${article.slug}/`}
                       onClick={(e) => handleLinkClick(e, `/resources/${article.slug}/`)}
@@ -464,7 +466,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                   </h3>
 
                   {/* [ARTICLE SUMMARY] */}
-                  <p className="font-mono text-xs text-[#5A554E] leading-relaxed mb-4 p-2.5 bg-[#FAF8F5] border border-dashed border-[#D8D2C5]">
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4 p-3 bg-[#EEEAEB]/40 rounded-xl border border-[#D8D2D4]">
                     {article.placeholderSummary}
                   </p>
 
@@ -473,7 +475,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                     {article.tags.slice(0, 3).map((tag, tagIdx) => (
                       <span
                         key={tagIdx}
-                        className="text-[10px] font-mono bg-[#F4EFEA] text-[#666666] px-1.5 py-0.5 border border-[#E5E0D8]"
+                        className="text-[10px] bg-[#EEEAEB] text-slate-600 px-2 py-0.5 rounded-md border border-[#D8D2D4] font-medium"
                       >
                         #{tag}
                       </span>
@@ -482,15 +484,16 @@ export const CategoryArchivePage: React.FC<Props> = ({
                 </div>
 
                 {/* Read Action */}
-                <div className="pt-3 border-t border-[#E5E0D8] flex items-center justify-between">
+                <div className="pt-3 border-t border-[#D8D2D4] flex items-center justify-between">
                   <a
                     href={`/resources/${article.slug}/`}
                     onClick={(e) => handleLinkClick(e, `/resources/${article.slug}/`)}
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#0D2C4D] group-hover:text-[#C84B31] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0D9BA3] group-hover:text-[#FE7311] transition-colors"
                   >
-                    READ ARTICLE BLUEPRINT <ArrowRight className="w-3.5 h-3.5" />
+                    <span>READ ARTICLE BLUEPRINT</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </a>
-                  <span className="text-[10px] font-mono text-[#8A8378]">HTC FIELD NOTE</span>
+                  <span className="text-[10px] text-slate-400 font-medium">HTC FIELD NOTE</span>
                 </div>
               </article>
             ))}
@@ -498,15 +501,15 @@ export const CategoryArchivePage: React.FC<Props> = ({
         </section>
 
         {/* 6. INTERNAL LINKING DIRECTORY (ALL 11 CLIENT-MANDATED DESTINATIONS) */}
-        <section aria-labelledby="internal-links-heading" className="mb-14 bg-[#F4EFEA] border-2 border-[#1A1A1A] p-6 sm:p-8">
-          <div className="border-b border-[#D8D2C5] pb-3 mb-6">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#C84B31] font-bold block mb-1">
+        <section aria-labelledby="internal-links-heading" className="mb-14 bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 shadow-sm">
+          <div className="border-b border-[#D8D2D4] pb-3 mb-6">
+            <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold block mb-1">
               INTERNAL RESOURCES & OPERATIONAL NAVIGATION
             </span>
-            <h2 id="internal-links-heading" className="text-xl sm:text-2xl font-serif font-black text-[#0D2C4D]">
+            <h2 id="internal-links-heading" className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
               Direct Links to Florida Real Estate Operations
             </h2>
-            <p className="text-xs font-mono text-[#7A7369] mt-1">
+            <p className="text-xs text-slate-500 mt-1 font-medium">
               Standard crawlable HTML links connecting this archive to all HTC tools, services, calculators, and guides.
             </p>
           </div>
@@ -517,18 +520,18 @@ export const CategoryArchivePage: React.FC<Props> = ({
                 key={link.id}
                 href={link.url}
                 onClick={(e) => handleLinkClick(e, link.url)}
-                className="bg-white border border-[#D8D2C5] p-3.5 hover:border-[#0D2C4D] hover:shadow-[2px_2px_0px_0px_#0D2C4D] transition-all flex flex-col justify-between group"
+                className="bg-[#EEEAEB]/40 border border-[#D8D2D4] rounded-xl p-4 hover:border-[#0D9BA3] hover:bg-white hover:shadow-md transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <span className="text-xs font-mono font-bold text-[#0D2C4D] group-hover:text-[#C84B31] transition-colors flex items-center gap-1.5 mb-1">
+                  <span className="text-xs font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors flex items-center gap-1.5 mb-1">
                     {link.label}
-                    <ArrowRight className="w-3 h-3 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                    <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[#0D9BA3]" />
                   </span>
-                  <p className="text-[11px] text-[#666666] leading-normal font-sans">
+                  <p className="text-xs text-slate-600 leading-normal">
                     {link.description}
                   </p>
                 </div>
-                <span className="text-[9px] font-mono text-[#8A8378] mt-2 block">
+                <span className="text-[10px] font-mono text-slate-400 mt-2 block">
                   URL: {link.url}
                 </span>
               </a>
@@ -537,31 +540,31 @@ export const CategoryArchivePage: React.FC<Props> = ({
         </section>
 
         {/* 7. RUN THE NUMBERS TOOL BANNER */}
-        <section className="mb-14 bg-[#0D2C4D] text-[#FAF8F5] border-2 border-[#1A1A1A] p-6 sm:p-8 shadow-[4px_4px_0px_0px_#1A1A1A]">
+        <section className="mb-14 bg-[#3A2E29] text-white rounded-2xl p-8 sm:p-10 border border-[#0D9BA3]/30 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            <div className="lg:col-span-8">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#F2C94C] font-bold block mb-1">
-                INTERACTIVE AGENT BUSINESS TOOL
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-black mb-2">
+            <div className="lg:col-span-8 space-y-2">
+              <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/20 text-[#0D9BA3] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-[#0D9BA3]/30">
+                <span>INTERACTIVE AGENT BUSINESS TOOL</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-white">
                 Run the Numbers for Your Real Estate Business
               </h2>
-              <p className="text-sm font-serif text-[#D0D7DE] leading-relaxed max-w-2xl">
+              <p className="text-sm text-slate-300 leading-relaxed max-w-2xl font-medium">
                 See exactly what 15 administrative hours per file are costing your production. Model what happens when you reinvest freed hours into client acquisition.
               </p>
             </div>
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-2">
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
               <a
                 href="/agent-business-calculator/"
                 onClick={(e) => handleLinkClick(e, '/agent-business-calculator/')}
-                className="w-full text-center px-4 py-3 bg-[#F2C94C] text-[#0D2C4D] font-mono text-xs font-black uppercase tracking-wider hover:bg-white transition-colors border border-[#1A1A1A]"
+                className="w-full text-center px-5 py-3.5 bg-[#FE7311] hover:bg-[#e05f03] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg cursor-pointer"
               >
                 LAUNCH CALCULATOR →
               </a>
               <a
                 href="/free-guides-downloads/"
                 onClick={(e) => handleLinkClick(e, '/free-guides-downloads/')}
-                className="w-full text-center px-4 py-2.5 bg-transparent text-white font-mono text-xs font-bold uppercase tracking-wider border border-[#D0D7DE] hover:bg-white/10 transition-colors"
+                className="w-full text-center px-4 py-3 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl border border-white/20 transition-colors cursor-pointer"
               >
                 FREE GUIDES + DOWNLOADS
               </a>
@@ -570,124 +573,35 @@ export const CategoryArchivePage: React.FC<Props> = ({
         </section>
 
         {/* 8. FINAL CTA */}
-        <section className="border-2 border-[#1A1A1A] bg-white p-8 sm:p-10 text-center shadow-[4px_4px_0px_0px_#1A1A1A] mb-12">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#C84B31] font-bold block mb-2">
-            EXPERIENCE FLORIDA-BASED TRANSACTION COORDINATION
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-black text-[#0D2C4D] mb-3">
+        <section className="bg-[#3A2E29] text-white rounded-2xl p-8 sm:p-12 text-center border border-[#0D9BA3]/30 shadow-xl mb-12">
+          <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-black/30 px-4 py-1.5 rounded-full border border-[#0D9BA3]/40 mb-4">
+            <ShieldCheck className="w-4 h-4 text-[#FE7311]" />
+            <span>EXPERIENCE FLORIDA-BASED TRANSACTION COORDINATION</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-white mb-3 leading-tight max-w-3xl mx-auto">
             Want us to handle the work instead?
           </h2>
-          <p className="text-base text-[#5A554E] max-w-xl mx-auto font-serif mb-6 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto mb-8 leading-relaxed font-medium">
             From contract intake to title execution, our Florida-based team manages deadlines, documents, and disclosures so you can focus on clients.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={onBookCall}
-              className="px-6 py-3 bg-[#0D2C4D] text-[#FAF8F5] font-mono text-xs font-bold uppercase tracking-wider border-2 border-[#1A1A1A] shadow-[3px_3px_0px_0px_#1A1A1A] hover:bg-[#1A3D66] transition-all"
+              className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-xl transition inline-flex items-center space-x-2 cursor-pointer"
             >
-              BOOK A 15-MINUTE FIT CALL
+              <span>BOOK A 15-MINUTE FIT CALL</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
             <a
               href="/pricing/"
               onClick={(e) => handleLinkClick(e, '/pricing/')}
-              className="px-6 py-3 bg-[#F4EFEA] text-[#0D2C4D] font-mono text-xs font-bold uppercase tracking-wider border-2 border-[#1A1A1A] hover:bg-[#E5E0D8] transition-colors"
+              className="bg-white/10 hover:bg-white/20 text-white border border-white/25 px-8 py-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider transition inline-flex items-center cursor-pointer"
             >
               EXPLORE SERVICES & PRICING
             </a>
           </div>
         </section>
       </main>
-
-      {/* 9. FOOTER */}
-      <footer className="border-t-4 border-[#0D2C4D] bg-[#F4EFEA] text-[#4A453E] py-10 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <span className="font-serif font-black text-xl text-[#0D2C4D] block mb-2">
-              The Hometown Brief
-            </span>
-            <p className="text-xs font-serif text-[#666666] leading-relaxed">
-              Florida real estate operations, without the fluff. Published by Hometown Title & Closing.
-            </p>
-          </div>
-
-          <div>
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0D2C4D] block mb-3">
-              ARCHIVE DEPARTMENTS
-            </span>
-            <ul className="space-y-1.5 text-xs font-mono">
-              {Object.values(CATEGORY_ARCHIVE_CONFIGS).map((cat) => (
-                <li key={cat.slug}>
-                  <a
-                    href={`/resources/${cat.slug}/`}
-                    onClick={(e) => handleLinkClick(e, `/resources/${cat.slug}/`)}
-                    className="hover:text-[#C84B31] transition-colors"
-                  >
-                    {cat.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0D2C4D] block mb-3">
-              RESOURCES & TOOLS
-            </span>
-            <ul className="space-y-1.5 text-xs font-mono">
-              <li>
-                <a href="/agent-business-calculator/" onClick={(e) => handleLinkClick(e, '/agent-business-calculator/')} className="hover:text-[#C84B31]">
-                  Run the Numbers
-                </a>
-              </li>
-              <li>
-                <a href="/how-htc-works/" onClick={(e) => handleLinkClick(e, '/how-htc-works/')} className="hover:text-[#C84B31]">
-                  How HTC Works
-                </a>
-              </li>
-              <li>
-                <a href="/why-htc/" onClick={(e) => handleLinkClick(e, '/why-htc/')} className="hover:text-[#C84B31]">
-                  Why HTC
-                </a>
-              </li>
-              <li>
-                <a href="/tcworkshop/" onClick={(e) => handleLinkClick(e, '/tcworkshop/')} className="hover:text-[#C84B31]">
-                  Florida TC Workshop
-                </a>
-              </li>
-              <li>
-                <a href="/free-guides-downloads/" onClick={(e) => handleLinkClick(e, '/free-guides-downloads/')} className="hover:text-[#C84B31]">
-                  Free Guides + Downloads
-                </a>
-              </li>
-              <li>
-                <a href="/faq/" onClick={(e) => handleLinkClick(e, '/faq/')} className="hover:text-[#C84B31]">
-                  FAQ
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0D2C4D] block mb-3">
-              CONNECT
-            </span>
-            <p className="text-xs font-sans text-[#666666] mb-3">
-              Have a question on Florida FAR/BAR contract timelines or compliance?
-            </p>
-            <button
-              onClick={onBookCall}
-              className="w-full px-4 py-2 bg-[#0D2C4D] text-white font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#1A3D66] transition-colors"
-            >
-              SCHEDULE A FIT CALL
-            </button>
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto pt-6 border-t border-[#D8D2C5] flex flex-wrap items-center justify-between text-[11px] font-mono text-[#7A7369]">
-          <span>© 2026 Hometown Title & Closing • All Rights Reserved</span>
-          <span>FLORIDA REAL ESTATE OPERATIONS • WITHOUT THE FLUFF</span>
-        </div>
-      </footer>
     </div>
   );
 };

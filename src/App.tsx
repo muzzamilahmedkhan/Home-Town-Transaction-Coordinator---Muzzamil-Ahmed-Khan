@@ -41,6 +41,7 @@ import { CategoryArchivePage } from './components/CategoryArchivePage';
 import { BlogPostPage } from './components/BlogPostPage';
 import { TcWorkshopPage } from './components/TcWorkshopPage';
 import { FreeGuidesPage } from './components/FreeGuidesPage';
+import { ResourceLandingPage } from './components/ResourceLandingPage';
 import { Language } from './types';
 
 export default function App() {
@@ -105,7 +106,27 @@ export default function App() {
   const isGuidesPage = currentPath.includes('guides') || currentPath.includes('downloads');
 
   const pathParts = currentPath.split('/').filter(Boolean);
-  const isBlogRoute = pathParts[0] === 'blog' || pathParts[0] === 'resources';
+
+  // Dedicated Resource Landing Page (Option B) vs Main Free Guides Library:
+  // Supported URL structures:
+  // /resources/free-guides-downloads/[resource-slug]/
+  // /free-guides-downloads/[resource-slug]/
+  // /resources/guides/[resource-slug]/
+  const isResourceDetailPage = (() => {
+    if (!isGuidesPage) return false;
+    if (pathParts[0] === 'resources' && (pathParts[1] === 'free-guides-downloads' || pathParts[1] === 'guides' || pathParts[1] === 'downloads') && pathParts.length >= 3) {
+      return true;
+    }
+    if ((pathParts[0] === 'free-guides-downloads' || pathParts[0] === 'guides' || pathParts[0] === 'downloads') && pathParts.length >= 2) {
+      return true;
+    }
+    return false;
+  })();
+
+  const currentResourceSlug = isResourceDetailPage ? pathParts[pathParts.length - 1] : '';
+
+  // Blog route must NOT capture guides or downloads
+  const isBlogRoute = (pathParts[0] === 'blog' || pathParts[0] === 'resources') && !isGuidesPage;
   const subSlug = pathParts[1] || '';
   const knownCategorySlugs = [
     'contracts-forms',
@@ -125,7 +146,7 @@ export default function App() {
   const currentCategorySlug = isCategoryArchivePage ? subSlug : '';
 
   const scrollToHomeMethod = () => {
-    if (isCalculatorPage || isHowItWorksPage || isWhyHtcPage || isTransactionCoordinationPage || isContractToClosePage || isRealtorTcPage || isListingCoordinationPage || isPricingPage || isAboutPage || isMeetTheTribePage || isWhoWeSupportPage || isMiamiTcPage || isMiamiDadeTcPage || isBrowardTcPage || isSouthFloridaTcPage || isFaqPage || isBookCallPage || isSubmitDealPage || isTcWorkshopPage || isGuidesPage) {
+    if (isCalculatorPage || isHowItWorksPage || isWhyHtcPage || isTransactionCoordinationPage || isContractToClosePage || isRealtorTcPage || isListingCoordinationPage || isPricingPage || isAboutPage || isMeetTheTribePage || isWhoWeSupportPage || isMiamiTcPage || isMiamiDadeTcPage || isBrowardTcPage || isSouthFloridaTcPage || isFaqPage || isBookCallPage || isSubmitDealPage || isTcWorkshopPage || isGuidesPage || isResourceDetailPage) {
       navigateTo('/');
       setTimeout(() => {
         const el = document.getElementById('home-method');
@@ -171,6 +192,7 @@ export default function App() {
         onOpenServicesPricing={() => navigateTo('/pricing/')}
         onOpenReviews={() => navigateTo('/reviews/')}
         onOpenBlog={() => navigateTo('/resources/')}
+        onOpenGuides={() => navigateTo('/free-guides-downloads/')}
         onGoHome={() => navigateTo('/')}
       />
 
@@ -346,6 +368,7 @@ export default function App() {
             onOpenWhyHtc={() => navigateTo('/why-htc/')}
             onOpenRoi={() => navigateTo('/agent-business-calculator/')}
             onOpenTcWorkshop={() => navigateTo('/tcworkshop/')}
+            onOpenFaq={() => navigateTo('/faq/')}
           />
         ) : isMeetTheTribePage ? (
           <MeetTheTribePage
@@ -462,9 +485,19 @@ export default function App() {
             onOpenPricing={() => navigateTo('/pricing/')}
             onOpenContractToClose={() => navigateTo('/contract-to-close-services/')}
             onOpenListingCoordination={() => navigateTo('/listing-coordination/')}
-            onOpenGuides={() => navigateTo('/free-guides-downloads/')}
+            onOpenGuides={() => navigateTo('/resources/free-guides-downloads/')}
             onOpenTcWorkshop={() => navigateTo('/tcworkshop/')}
             onOpenArticle={(slug) => navigateTo(`/resources/${slug}/`)}
+          />
+        ) : isResourceDetailPage ? (
+          <ResourceLandingPage
+            slug={currentResourceSlug}
+            onBackToLibrary={() => navigateTo('/resources/free-guides-downloads/')}
+            onNavigate={(path) => navigateTo(path)}
+            onBookCall={() => setBookCallOpen(true)}
+            onExploreServices={() => navigateTo('/pricing/')}
+            onGoHome={() => navigateTo('/')}
+            onOpenCalculator={() => navigateTo('/agent-business-calculator/')}
           />
         ) : isGuidesPage ? (
           <FreeGuidesPage
@@ -472,6 +505,7 @@ export default function App() {
             onBackToBlog={() => navigateTo('/resources/')}
             onBookCall={() => setBookCallOpen(true)}
             onOpenCalculator={() => navigateTo('/agent-business-calculator/')}
+            onNavigate={(path) => navigateTo(path)}
           />
         ) : isTcWorkshopPage ? (
           <TcWorkshopPage
@@ -576,6 +610,7 @@ export default function App() {
         onOpenServicesPricing={() => navigateTo('/pricing/')}
         onOpenReviews={() => navigateTo('/reviews/')}
         onOpenBlog={() => navigateTo('/resources/')}
+        onOpenGuides={() => navigateTo('/free-guides-downloads/')}
         onOpenTcWorkshop={() => navigateTo('/tcworkshop/')}
         language={language}
         onLanguageChange={setLanguage}

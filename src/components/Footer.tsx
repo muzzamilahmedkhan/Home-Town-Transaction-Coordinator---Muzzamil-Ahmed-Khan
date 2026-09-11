@@ -27,6 +27,7 @@ interface Props {
   onOpenPricingPlans?: () => void;
   onOpenReviews?: () => void;
   onOpenBlog?: () => void;
+  onOpenGuides?: () => void;
   onOpenTcWorkshop?: () => void;
   language?: Language;
   onLanguageChange?: (lang: Language) => void;
@@ -56,6 +57,7 @@ export const Footer: React.FC<Props> = ({
   onOpenPricingPlans,
   onOpenReviews,
   onOpenBlog,
+  onOpenGuides,
   onOpenTcWorkshop,
   language = 'en',
   onLanguageChange
@@ -194,10 +196,26 @@ export const Footer: React.FC<Props> = ({
               </li>
               <li>
                 <button
+                  onClick={onOpenBlog || onOpenRoi}
+                  className="hover:text-white transition cursor-pointer text-left"
+                >
+                  The Hometown Brief
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={onOpenGuides || onOpenBlog}
+                  className="hover:text-white transition cursor-pointer text-left text-[#0D9BA3] font-bold"
+                >
+                  Free Guides + Downloads
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={onOpenRoi}
                   className="hover:text-white transition cursor-pointer text-left"
                 >
-                  Resources
+                  Run the Numbers (Calculator)
                 </button>
               </li>
             </ul>

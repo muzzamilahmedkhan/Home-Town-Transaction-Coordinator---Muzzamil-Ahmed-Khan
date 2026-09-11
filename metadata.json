@@ -1,6 +1,6 @@
 {
   "name": "Hometown Transaction Coordinators",
-  "description": "Boutique Real Estate Support Agency website for Florida Realtors",
+  "description": "Florida real estate transaction coordination agency platform with comprehensive Free Guides & Downloads resource library, dedicated resource landing pages, and Florida contract toolkits",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

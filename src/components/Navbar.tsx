@@ -25,6 +25,7 @@ interface Props {
   onOpenServicesPricing?: () => void;
   onOpenReviews?: () => void;
   onOpenBlog?: () => void;
+  onOpenGuides?: () => void;
   onGoHome?: () => void;
 }
 
@@ -41,6 +42,7 @@ export const Navbar: React.FC<Props> = ({
   onOpenServicesPricing,
   onOpenReviews,
   onOpenBlog,
+  onOpenGuides,
   onGoHome
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -180,7 +182,7 @@ export const Navbar: React.FC<Props> = ({
 
                   {/* 3. Free Guides + Downloads */}
                   <button
-                    onClick={() => handleLink(onOpenBlog)}
+                    onClick={() => handleLink(onOpenGuides || onOpenBlog)}
                     className="w-full text-left p-3 rounded-xl hover:bg-[#EEEAEB] transition group flex items-start space-x-3 cursor-pointer"
                   >
                     <div className="p-2 rounded-lg bg-[#0D9BA3]/10 text-[#0D9BA3] group-hover:bg-[#0D9BA3] group-hover:text-white transition">
@@ -341,7 +343,7 @@ export const Navbar: React.FC<Props> = ({
                 </button>
 
                 <button
-                  onClick={() => handleLink(onOpenBlog)}
+                  onClick={() => handleLink(onOpenGuides || onOpenBlog)}
                   className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
                 >
                   <div className="text-xs font-bold text-[#3A2E29]">Free Guides + Downloads</div>
