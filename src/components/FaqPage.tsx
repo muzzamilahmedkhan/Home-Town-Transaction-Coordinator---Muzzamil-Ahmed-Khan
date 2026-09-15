@@ -1077,7 +1077,7 @@ export const FaqPage: React.FC<Props> = ({
                 className="w-full sm:w-auto px-7 py-3.5 bg-[#FE7311] hover:bg-[#e06209] text-white font-montserrat font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md hover:shadow-[#FE7311]/25 cursor-pointer flex items-center justify-center space-x-2"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Quick Fit Call</span>
+                <span>BOOK A 15-MINUTE FIT CALL</span>
               </button>
 
               <button

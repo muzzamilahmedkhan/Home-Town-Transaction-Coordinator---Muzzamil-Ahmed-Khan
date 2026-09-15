@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, PhoneCall, CheckCircle2, ShieldCheck, Clock } from 'lucide-react';
+import { PHONE_NUMBER } from '../data/content';
 
 interface Props {
   onBookCall: () => void;
@@ -34,7 +35,7 @@ export const Section10FinalCta: React.FC<Props> = ({
 
           <div className="inline-flex items-center space-x-2 text-[11px] font-mono text-slate-300">
             <ShieldCheck className="w-3.5 h-3.5 text-[#0D9BA3]" />
-            <span>FLORIDA-LICENSED COORDINATION DESK</span>
+            <span>BOUTIQUE REAL ESTATE SUPPORT AGENCY</span>
           </div>
         </div>
 
@@ -116,7 +117,7 @@ export const Section10FinalCta: React.FC<Props> = ({
         </div>
 
         <div className="pt-1 text-[11px] font-mono text-slate-400">
-          Direct desk line: (305) 902-6632 • Serving agents & brokerages across all 67 Florida counties
+          Direct desk line: {PHONE_NUMBER} • Serving agents & brokerages across all 67 Florida counties
         </div>
 
       </div>

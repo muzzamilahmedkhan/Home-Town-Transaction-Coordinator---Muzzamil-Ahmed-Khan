@@ -98,7 +98,7 @@ export const AI_AUTOMATION_RESOURCES: AiAutomationItem[] = [
     badge: 'LEGAL DRAFTING',
     stampLabel: 'REPAIR SCRIPT',
     title: 'Inspection Repair Request & Credit Addendum Drafting Prompt Pack',
-    whatThisHelpsAgentDo: 'Transforms messy 45-page home inspection PDF reports into neutral, legally sound FAR/BAR repair addenda or seller closing credit requests that listing agents actually accept.',
+    whatThisHelpsAgentDo: 'Transforms messy 45-page home inspection PDF reports into neutral, structured FAR/BAR repair addenda or seller closing credit requests that listing agents actually accept.',
     actionCta: 'GET THE PROMPT →',
     formatDuration: 'Prompt Pack • 3 Scenario Templates',
     placeholderTitle: '[AI / AUTOMATION RESOURCE TITLE: Inspection Repair Request & Credit Addendum Drafting Prompt Pack]',
@@ -281,7 +281,7 @@ function isWeekendOrHoliday(date) {
     prerequisites: 'None — Printable PDF & Copyable Google Doc',
     highlights: [
       'Minute 0–15: Verify all signatures, initials, and FAR/BAR Paragraph 19 addenda attachments',
-      'Minute 16–35: Dispatch escrow instructions, wire fraud warnings, and title intake package',
+      'Minute 16–35: Coordinate title intake package and reiterate wire fraud safety protocols',
       'Minute 36–60: Build milestone calendar, introduce TC desk to lender/title, and send welcome brief'
     ],
     guideSteps: [

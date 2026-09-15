@@ -361,7 +361,7 @@ export const RealtorTransactionCoordinatorPage: React.FC<Props> = ({
                   <CheckCircle2 className="w-5 h-5 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#3A2E29] block">Commission Disbursement Authorization (CDA):</strong>
-                    We ensure your CDA is approved, signed by your managing broker, and delivered to the title company to guarantee same-day funding at table.
+                    We coordinate your CDA approval, ensure it is signed by your managing broker, and deliver it to the title company to support prompt disbursement at closing.
                   </div>
                 </div>
               </div>

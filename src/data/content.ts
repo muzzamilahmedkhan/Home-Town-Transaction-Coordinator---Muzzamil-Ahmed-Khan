@@ -252,7 +252,7 @@ export const TESTIMONIALS: Testimonial[] = [
     brokerage: 'Vance Realty Group',
     location: 'Florida Statewide',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400',
-    quote: 'Having HTC as our backend transaction team gives our brokerage a defensible, broker-ready paper trail for every transaction. They are always one step ahead.',
+    quote: 'Having HTC as our dedicated transaction team gives our brokerage a defensible, broker-ready paper trail for every transaction. They are always one step ahead.',
     highlight: 'Defensible, broker-ready files for complete operational confidence.',
     rating: 5
   }

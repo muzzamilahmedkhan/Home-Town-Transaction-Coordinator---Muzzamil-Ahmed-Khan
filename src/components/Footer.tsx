@@ -100,7 +100,7 @@ export const Footer: React.FC<Props> = ({
                 Founder Sign-Off
               </div>
               <div className="inline-flex items-center space-x-2 font-montserrat font-extrabold text-sm text-white bg-black/30 px-3.5 py-2 rounded-xl border border-[#0D9BA3]/40">
-                <span>Always forward. →</span>
+                <span>FORWARD. Always Forward.</span>
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ export const Footer: React.FC<Props> = ({
                   }}
                   className="hover:text-white transition cursor-pointer text-left"
                 >
-                  Plans & Pricing
+                  Services + Pricing
                 </button>
               </li>
               <li>
@@ -215,7 +215,7 @@ export const Footer: React.FC<Props> = ({
                   onClick={onOpenRoi}
                   className="hover:text-white transition cursor-pointer text-left"
                 >
-                  Run the Numbers (Calculator)
+                  Run the Numbers
                 </button>
               </li>
             </ul>
@@ -232,7 +232,7 @@ export const Footer: React.FC<Props> = ({
                   onClick={onSubmitDeal}
                   className="hover:text-white transition cursor-pointer text-left text-[#FE7311] font-bold"
                 >
-                  Submit a New deal
+                  Submit a New Deal
                 </button>
               </li>
               <li>
@@ -273,6 +273,16 @@ export const Footer: React.FC<Props> = ({
             </ul>
           </div>
 
+        </div>
+
+        {/* Legal & Administrative Disclaimer */}
+        <div className="pt-6 pb-4 border-t border-white/10 text-[11px] text-slate-400 leading-relaxed font-normal space-y-2">
+          <p>
+            <strong className="text-slate-300">Administrative Support Notice:</strong> Hometown Transaction Coordinators (HTC) provides administrative transaction coordination support within Florida guidelines for unlicensed real estate support. HTC is not a law firm, real estate brokerage, statutory compliance authority, or licensed TC organization, and does not provide legal counsel, legal interpretation, formal advice, or representation. Licensed representation, client advisory, negotiations, pricing decisions, and broker/legal determinations remain strictly with the licensed agent and managing broker.
+          </p>
+          <p>
+            HTC does not guarantee contract results, deposit receipts, third-party deadlines, broker approvals, lender funding, or closing occurrences. HTC never distributes wire instructions; wire verification protocols must be executed directly with verified title, escrow, or closing providers.
+          </p>
         </div>
 
         {/* Bottom Copyright */}

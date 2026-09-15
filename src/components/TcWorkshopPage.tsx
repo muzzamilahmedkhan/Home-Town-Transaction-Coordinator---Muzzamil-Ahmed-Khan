@@ -423,7 +423,7 @@ export const TcWorkshopPage: React.FC<Props> = ({ onGoHome, onBookCall }) => {
                 </div>
                 <div>
                   <div className="font-bold text-xs text-[#3A2E29]">Gio C.</div>
-                  <div className="text-[11px] text-slate-500">Licensed TC · New Jersey</div>
+                  <div className="text-[11px] text-slate-500">Real Estate TC · New Jersey</div>
                 </div>
               </div>
             </div>

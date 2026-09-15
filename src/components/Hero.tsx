@@ -49,7 +49,7 @@ export const Hero: React.FC<Props> = ({ onBookCall, onExploreServices, onSeeHowI
                 We provide organized listing and contract support behind your real estate business so you can stay client-facing.
               </p>
               <p className="text-sm sm:text-base text-[#3A2E29]">
-                Listing Launch. Contract-to-Close. Post-Close. From Yes to Sold, HTC keeps the back end organized and moving for Florida Realtors.
+                Listing Launch. Contract-to-Close. Post-Close. From Yes to Sold, HTC keeps the operational workflow organized and moving for Florida Realtors.
               </p>
               <p className="text-xs sm:text-sm font-extrabold text-[#0D9BA3] uppercase tracking-wider">
                 Protect the Agent · Protect the Broker · Protect the Client.

@@ -119,7 +119,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
           'headline': `${config.name} Archive | The Hometown Brief`,
           'isPartOf': {
             '@type': 'WebSite',
-            'name': 'The Hometown Brief • Hometown Title & Closing',
+            'name': 'The Hometown Brief • Hometown Transaction Coordinators',
             'url': 'https://hometowntc.com/resources/'
           }
         },
@@ -194,7 +194,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
           <div className="flex items-center gap-4 text-[10px] text-slate-500">
             <span className="font-semibold text-[#3A2E29]">FLORIDA ARCHIVE EDITION</span>
             <span className="hidden sm:inline">•</span>
-            <span className="hidden sm:inline font-mono">EST. HOMETOWN TITLE & CLOSING</span>
+            <span className="hidden sm:inline font-mono">EST. HOMETOWN TRANSACTION COORDINATORS</span>
             <button
               onClick={handleShare}
               className="flex items-center gap-1 font-bold hover:text-[#0D9BA3] transition-colors cursor-pointer text-[#3A2E29]"

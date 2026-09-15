@@ -214,7 +214,7 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
         features: [
           'Everything included in Base Plan',
           'Direct client introductory email & weekly milestone progress updates',
-          'Proactive buyer/seller milestone reminders (utilities, walk-through, wires)',
+          'Proactive buyer/seller milestone reminders (utilities, walk-through, closing prep)',
           'HUD / ALTA settlement statement review for fee accuracy',
           'Post-closing testimonial request & client review prompt',
           'Full white-glove communication representing your brand',
@@ -257,12 +257,12 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
       {
         type: 'Rental / Lease File',
         price: '$100',
-        paymentNote: 'Due when order is placed',
+        paymentNote: 'Due when file is submitted',
       },
       {
         type: 'Sale / Purchase Contract',
         price: '$195',
-        paymentNote: 'Due when order is placed',
+        paymentNote: 'Due when file is submitted',
       },
     ],
     ctaText: 'SUBMIT COMPLIANCE FILE',
@@ -304,7 +304,7 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     name: 'SCALE',
     shortName: 'SCALE',
     eyebrow: 'SCALE · COMING SOON',
-    headline: 'Need more help after 5 PM?',
+    headline: 'Need more help after 6 PM?',
     description:
       'SCALE extends access to the HTC team beyond standard hours, from agreement through Post-Close.',
     status: 'coming-soon',
@@ -320,7 +320,7 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
       question: 'What do I need to get started?',
       answerParagraphs: [
         'Start with a 15-Minute Fit Call. Once we confirm we’re a fit, the one-time $399 Agent Setup Investment gives us the time to build your business into the HTC workflow — your brokerage requirements, templates, preferred communication, service preferences, and the unique touches you want your clients to experience.',
-        'Once that setup is complete, your future orders can plug directly into the workflow we created for you.',
+        'Once that setup is complete, your future files can plug directly into the workflow we created for you.',
       ],
       links: [
         {
@@ -335,8 +335,8 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
       answerParagraphs: [],
       paymentBreakdown: [
         { item: 'Agent Setup Investment', timing: 'Due at registration. Once paid, we’ll schedule your Setup Call.' },
-        { item: 'Listing Launch', timing: 'When the order is placed.' },
-        { item: 'Broker Compliance', timing: 'When the order is placed.' },
+        { item: 'Listing Launch', timing: 'When the file is submitted.' },
+        { item: 'Broker Compliance', timing: 'When the file is submitted.' },
         { item: 'Contract-to-Close', timing: 'At closing.' },
       ],
     },
@@ -365,7 +365,7 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
       id: 'faq-listing-without-ctc',
       question: 'Can I use Listing Launch without Contract-to-Close?',
       answerParagraphs: [
-        'Yes. Listing Launch is a separate service and can be ordered on its own.',
+        'Yes. Listing Launch is a separate service and can be submitted on its own.',
         'If you want HTC to stay with the file once it goes under contract, you can add Contract-to-Close support and keep the same team involved through Post-Close.',
       ],
       links: [

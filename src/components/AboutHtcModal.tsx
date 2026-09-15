@@ -119,7 +119,7 @@ export const AboutHtcModal: React.FC<Props> = ({ isOpen, onClose, onBookCall }) 
                 <CheckCircle2 className="w-5 h-5 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">Stage 4: Ease the Close</span>
-                  <p className="text-xs text-[#3A2E29]/80 mt-0.5">Final walk-through verification, CD review, wire instructions, funding authorization, and broker archive.</p>
+                  <p className="text-xs text-[#3A2E29]/80 mt-0.5">Final walk-through verification, CD review, escrow reconciliation, funding authorization, and broker archive.</p>
                 </div>
               </div>
             </div>
@@ -152,7 +152,7 @@ export const AboutHtcModal: React.FC<Props> = ({ isOpen, onClose, onBookCall }) 
                 Founded in South Florida with deep roots in Miami-Dade and Broward, Michelle Martinez established Hometown Transaction Coordinators after recognizing a systemic bottleneck in high-volume real estate: top-producing Realtors losing hours every day to administrative gridlock, HOA approval delays, and compliance anxiety.
               </p>
               <p>
-                With 30+ years supporting real estate professionals, Michelle developed the H.O.M.E. Close Method™ and scaled HTC into a boutique agency. Rather than relying on a solo coordinator, HTC provides agents with a dedicated support team and bilingual specialists offering consistent backend support.
+                With 30+ years supporting real estate professionals, Michelle developed the H.O.M.E. Close Method™ and scaled HTC into a boutique agency. Rather than relying on a solo coordinator, HTC provides agents with a dedicated support team and bilingual specialists offering consistent operational support.
               </p>
             </div>
 

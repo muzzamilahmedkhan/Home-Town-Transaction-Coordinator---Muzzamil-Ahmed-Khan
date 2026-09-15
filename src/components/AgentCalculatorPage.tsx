@@ -801,7 +801,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                         Want to see what support would fit your business?
                       </div>
                       <p className="text-xs text-slate-300 font-medium">
-                        Compare plan details or book a short discovery call to walk through your file volume.
+                        Compare plan details or book a 15-Minute Fit Call to walk through your file volume.
                       </p>
                     </div>
 
@@ -1107,7 +1107,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                         Want to see what support would fit your business?
                       </div>
                       <p className="text-xs text-slate-300 font-medium">
-                        Compare plan details or book a short discovery call to walk through your file volume.
+                        Compare plan details or book a 15-Minute Fit Call to walk through your file volume.
                       </p>
                     </div>
 
@@ -1400,7 +1400,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                         Want to see what support would fit your business?
                       </div>
                       <p className="text-xs text-slate-300 font-medium">
-                        Compare plan details or book a short discovery call to walk through your file volume.
+                        Compare plan details or book a 15-Minute Fit Call to walk through your file volume.
                       </p>
                     </div>
 
@@ -1548,7 +1548,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                 <span>Should I hire an in-house TC or outsource transaction coordination?</span>
               </h3>
               <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                The decision centers on fixed versus variable overhead. An in-house hire creates a fixed annual expense of $55,000 to $80,000+ (salary, payroll taxes, worker's compensation, healthcare, software seats, and training), which must be paid regardless of seasonal market slowdowns. Outsourced transaction coordination (such as Hometown Title & Closing) converts support into a variable cost: you only invest when a file closes, scaling up or down with your active production with zero overhead during slow months.
+                The decision centers on fixed versus variable overhead. An in-house hire creates a fixed annual expense of $55,000 to $80,000+ (salary, payroll taxes, worker's compensation, healthcare, software seats, and training), which must be paid regardless of seasonal market slowdowns. Outsourced transaction coordination with Hometown Transaction Coordinators converts support into a predictable per-file cost: scaling up or down with your active production without carrying a full-time in-house salary during slow months.
               </p>
             </article>
 
@@ -1603,7 +1603,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                 <span>What does outsourced transaction coordination cost?</span>
               </h3>
               <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                Outsourced coordination with Hometown Title & Closing is flat, transparent, and pay-at-closing: $375 per closed file for Base Contract-to-Close coordination and $475 per closed file for Pro Contract-to-Close coordination. There are zero onboarding fees, no monthly retainer minimums, and no coordination fee if a transaction cancels before closing.
+                Our primary Contract-to-Close plans are Base at $375 per closed file and Pro at $475 per closed file. New clients complete a one-time $399 Agent Setup Investment at registration so we can build your brokerage requirements, forms, and preferences into your HTC workflow. If a Contract-to-Close file cancels during the inspection period, there is no cancellation fee.
               </p>
             </article>
 

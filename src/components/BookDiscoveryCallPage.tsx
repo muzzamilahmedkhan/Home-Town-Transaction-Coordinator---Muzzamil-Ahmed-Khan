@@ -235,35 +235,22 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
                 </div>
               </div>
 
-              {/* Quick Trust Highlights */}
+              {/* Trust Highlights */}
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <div className="bg-white/5 rounded-xl p-3.5 border border-white/10">
                   <div className="flex items-center space-x-2 text-xs font-bold text-white">
                     <CheckCircle2 className="w-4 h-4 text-[#0D9BA3]" />
-                    <span></span>
+                    <span>Dedicated Team</span>
                   </div>
-                  <p className="text-[11px] text-slate-300 mt-1">$0</p>
+                  <p className="text-[11px] text-slate-300 mt-1">Lead TC + Support Team</p>
                 </div>
                 <div className="bg-white/5 rounded-xl p-3.5 border border-white/10">
                   <div className="flex items-center space-x-2 text-xs font-bold text-white">
                     <CheckCircle2 className="w-4 h-4 text-[#0D9BA3]" />
-                    <span>24-Hr File Setup</span>
+                    <span>Customized Setup</span>
                   </div>
-                  <p className="text-[11px] text-slate-300 mt-1">Immediate timeline generation</p>
+                  <p className="text-[11px] text-slate-300 mt-1">Tailored to your brokerage</p>
                 </div>
-              </div>
-
-              {/* Alternative Action */}
-              <div className="pt-2">
-                <p className="text-xs text-slate-400">
-                  Already have an executed contract under agreement today?{' '}
-                  <button
-                    onClick={onSubmitDeal}
-                    className="text-[#0D9BA3] font-bold underline hover:text-white transition cursor-pointer"
-                  >
-                    Submit Deal Directly ($375) →
-                  </button>
-                </p>
               </div>
             </div>
 

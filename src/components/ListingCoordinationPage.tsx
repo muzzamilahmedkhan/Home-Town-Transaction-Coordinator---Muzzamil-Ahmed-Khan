@@ -745,7 +745,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
             Information Required Before the Clock Starts
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            To guarantee our 3-business-day standard (or 1-business-day rush) turnaround, our intake team requires 5 complete items before initiation.
+            To achieve our 3-business-day standard (or 1-business-day rush) turnaround window, our intake team requires 5 complete items before initiation.
           </p>
         </div>
 

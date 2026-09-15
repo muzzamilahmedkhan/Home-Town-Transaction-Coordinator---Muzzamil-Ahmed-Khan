@@ -129,7 +129,7 @@ export const HTC_INTERNAL_LINKS: InternalLinkItem[] = [
     id: 'why-htc',
     label: 'Why HTC',
     url: '/why-htc/',
-    description: 'Why Florida agents trust Hometown Title & Closing over generic virtual assistants.'
+    description: 'Why Florida agents trust Hometown Transaction Coordinators over generic virtual assistants.'
   },
   {
     id: 'listing-launch',

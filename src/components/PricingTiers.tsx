@@ -40,7 +40,7 @@ export const PricingTiers: React.FC<Props> = ({ onExploreServices }) => {
                 Listing Services
               </h3>
               <p className="text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
-                Listing Launch support for preparing and coordinating the back-end work required to get a property ready to go live.
+                Listing Launch support for preparing and coordinating the administrative work required to get a property ready to go live.
               </p>
             </div>
 
@@ -66,7 +66,7 @@ export const PricingTiers: React.FC<Props> = ({ onExploreServices }) => {
                 Team + Brokerage Support
               </h3>
               <p className="text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
-                Customized support for teams and brokerages that need a more structured back-end solution.
+                Customized support for teams and brokerages that need a more structured operational solution.
               </p>
             </div>
 

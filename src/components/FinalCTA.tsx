@@ -17,7 +17,7 @@ export const FinalCTA: React.FC<Props> = ({ onBookCall, onSubmitDeal }) => {
         </div>
 
         <h2 className="text-3xl sm:text-5xl lg:text-6xl font-montserrat font-extrabold text-white tracking-tight leading-tight max-w-3xl mx-auto">
-          From Yes to Sold, you don't have to carry the back end alone.
+          From Yes to Sold, you don't have to carry the file alone.
         </h2>
 
         <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium">

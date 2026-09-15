@@ -71,7 +71,7 @@ export const AgentPain: React.FC<Props> = () => {
         {/* Clean Conclusion */}
         <div className="text-center max-w-3xl mx-auto pt-2">
           <p className="text-2xl sm:text-3xl font-montserrat font-extrabold text-white">
-            You stay client-facing. <span className="text-[#0D9BA3]">We keep the back end moving.</span>
+            You stay client-facing. <span className="text-[#0D9BA3]">We keep the file moving.</span>
           </p>
         </div>
 

@@ -327,7 +327,7 @@ export const FREE_CLASSES_DATA: FreeClassItem[] = [
         lessonNumber: 4,
         title: 'Florida Statute 475.5015 5-Year Document Retention Standards',
         duration: '6:15',
-        summary: 'Brokerage compliance archive architecture: What must be saved for 5 years to guarantee a flawless DBPR/FREC audit.'
+        summary: 'Brokerage compliance archive architecture: What must be saved for 5 years to maintain an audit-ready file under DBPR/FREC standards.'
       }
     ],
     keyTakeaways: [
@@ -400,7 +400,7 @@ export const FREE_CLASSES_DATA: FreeClassItem[] = [
     areaTag: 'AI & SMART WORKFLOWS',
     badge: 'NEW WORKSHOP',
     title: 'AI-Powered Contract Intake & Automated Timeline Extraction for Realtors',
-    shortDescription: 'How to use structured prompt engineering to ingest Florida contract PDFs, extract all party contacts, and auto-populate milestone dates in seconds with zero calculation errors.',
+    shortDescription: 'How to use structured prompt engineering to ingest Florida contract PDFs, extract party contacts, and auto-populate milestone dates in seconds with high precision.',
     formatDuration: 'Interactive Video Lab • 18 Minutes',
     actionLabel: 'START THE CLASS →',
     

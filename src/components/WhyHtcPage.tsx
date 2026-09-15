@@ -425,7 +425,7 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-[#D8D2D4]/60 pb-4">
                   <span className="text-xs font-mono font-bold text-[#0D9BA3] tracking-widest uppercase">
-                    EDITORIAL BLOCK
+                    CORE PILLAR
                   </span>
                   <span className="font-mono text-xl sm:text-2xl font-bold text-[#0D9BA3]">
                     01
@@ -445,7 +445,7 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-[#D8D2D4]/60 pb-4">
                   <span className="text-xs font-mono font-bold text-[#0D9BA3] tracking-widest uppercase">
-                    EDITORIAL BLOCK
+                    CORE PILLAR
                   </span>
                   <span className="font-mono text-xl sm:text-2xl font-bold text-[#0D9BA3]">
                     02
@@ -465,7 +465,7 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-[#D8D2D4]/60 pb-4">
                   <span className="text-xs font-mono font-bold text-[#0D9BA3] tracking-widest uppercase">
-                    EDITORIAL BLOCK
+                    CORE PILLAR
                   </span>
                   <span className="font-mono text-xl sm:text-2xl font-bold text-[#0D9BA3]">
                     03
@@ -494,7 +494,7 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-[#D8D2D4]/60 pb-4">
                   <span className="text-xs font-mono font-bold text-[#0D9BA3] tracking-widest uppercase">
-                    EDITORIAL BLOCK
+                    CORE PILLAR
                   </span>
                   <span className="font-mono text-xl sm:text-2xl font-bold text-[#0D9BA3]">
                     04
@@ -834,7 +834,7 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
                   ))}
                 </div>
                 <p className="text-sm sm:text-base text-[#3A2E29] font-normal leading-relaxed italic">
-                  “Their attention to detail, organization, and communication are truly unmatched. They keep every file on track and make the entire process smooth.”
+                  “Michelle and Mary are absolutely amazing Transaction Coordinators! Their attention to detail, organization, and communication are truly unmatched. They keep every file on track and make the entire process smooth and stress-free. So grateful to have them on our team!”
                 </p>
               </div>
 
@@ -857,7 +857,7 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
                   ))}
                 </div>
                 <p className="text-sm sm:text-base text-[#3A2E29] font-normal leading-relaxed italic">
-                  “Michelle is my go-to transaction coordinator for all of my real estate deals. She is always organized, professional, and on top of every detail from start to finish.”
+                  “Michelle is my go to transaction coordinator for all of my real estate deals. She is always organized, professional, and on top of every detail from start to finish. I honestly couldn’t do my transactions without her support.”
                 </p>
               </div>
 
@@ -880,7 +880,7 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
                   ))}
                 </div>
                 <p className="text-sm sm:text-base text-[#3A2E29] font-normal leading-relaxed italic">
-                  “Michelle takes so much weight off my shoulders and keeps everything running smoothly at all times.”
+                  “Michelle takes so much weight off my shoulders and keeps everything running smoothly at all times. Her understanding of real estate laws and compliance gives me complete peace of mind because I know nothing is being overlooked.”
                 </p>
               </div>
 

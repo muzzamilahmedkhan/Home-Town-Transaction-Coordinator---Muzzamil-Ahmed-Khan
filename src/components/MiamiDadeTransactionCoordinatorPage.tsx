@@ -368,7 +368,7 @@ export const MiamiDadeTransactionCoordinatorPage: React.FC<Props> = ({
               </div>
 
               <p className="text-xs sm:text-sm text-slate-200 leading-relaxed italic font-serif">
-                "Real estate in Miami-Dade County is fast, multilingual, and highly nuanced. Whether you're closing a townhouse in Doral, a luxury condo in Sunny Isles, or acreage in Homestead, our job is to protect your time, keep your clients calm, and guarantee 100% brokerage compliance."
+                "Real estate in Miami-Dade County is fast, multilingual, and highly nuanced. Whether you're closing a townhouse in Doral, a luxury condo in Sunny Isles, or acreage in Homestead, our job is to protect your time, keep your clients calm, and deliver complete, audit-ready brokerage compliance."
               </p>
 
               <div className="pt-4 border-t border-white/10 grid grid-cols-2 gap-4 text-xs">
@@ -413,7 +413,7 @@ export const MiamiDadeTransactionCoordinatorPage: React.FC<Props> = ({
 
           <div className="bg-[#EEEAEB] p-8 sm:p-10 rounded-3xl border border-[#D8D2D4] shadow-sm space-y-6 relative">
             <p className="text-base sm:text-lg text-[#3A2E29] italic font-serif leading-relaxed">
-              "Managing transactions across multiple Miami-Dade cities used to give me headaches — dealing with different city permit portals, bilingual buyers, and strict condo boards. Hometown TC stepped in and completely organized our backend. Our files are always compliant and our clients rave about the communication."
+              "Managing transactions across multiple Miami-Dade cities used to give me headaches — dealing with different city permit portals, bilingual buyers, and strict condo boards. Hometown TC stepped in and completely organized our operations. Our files are always compliant and our clients rave about the communication."
             </p>
 
             <div className="flex items-center space-x-4 pt-4 border-t border-[#D8D2D4]">

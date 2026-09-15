@@ -452,18 +452,19 @@ export const MiamiTransactionCoordinatorPage: React.FC<Props> = ({
 
           <div className="bg-[#EEEAEB] p-8 sm:p-10 rounded-3xl border border-[#D8D2D4] shadow-sm space-y-6 relative">
             <p className="text-base sm:text-lg text-[#3A2E29] italic font-serif leading-relaxed">
-              "HTC brings structure and complete clarity to every Miami transaction. In a market where condo board approvals, foreign buyers, and bilingual communications can easily derail a closing, Michelle Martinez and her team are always ten steps ahead. My clients feel supported, and I can stay focused on closing luxury deals."
+              "Michelle and her team have helped me improve my productivity and also provide my clients with luxury customer service no matter the price of the transaction, which has increased my referrals. Love HTC!"
             </p>
 
             <div className="flex items-center space-x-4 pt-4 border-t border-[#D8D2D4]">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
-                alt="Sophia Sterling - Luxury Real Estate Agent Miami"
+                src="https://lh3.googleusercontent.com/a-/ALV-UjXrj7QV57FfECpzA6RHFD6V5WBrHuz8DIPXkZkyP5uWcHmkFnZwgw=w72-h72-p-rp-mo-br100"
+                alt="Karla Sucre - Florida Realtor"
                 className="w-12 h-12 rounded-full object-cover border border-[#D8D2D4]"
+                referrerPolicy="no-referrer"
               />
               <div>
-                <strong className="block text-sm font-bold text-[#3A2E29]">Sophia Sterling</strong>
-                <span className="text-xs text-slate-500">Luxury Real Estate Agent • ONE Sotheby's International Realty (Miami)</span>
+                <strong className="block text-sm font-bold text-[#3A2E29]">Karla Sucre</strong>
+                <span className="text-xs text-slate-500">Florida Realtor • Google Verified Review</span>
               </div>
             </div>
           </div>

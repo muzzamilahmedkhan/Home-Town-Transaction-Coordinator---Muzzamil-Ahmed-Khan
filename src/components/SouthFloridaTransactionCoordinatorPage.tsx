@@ -340,7 +340,7 @@ export const SouthFloridaTransactionCoordinatorPage: React.FC<Props> = ({
             <div className="space-y-3 text-xs text-slate-700">
               <div className="p-4 bg-white rounded-xl border border-[#D8D2D4] shadow-sm space-y-1">
                 <strong className="text-[#3A2E29] block">Stress-Free Spanish Milestone Explanations:</strong>
-                <span>We clearly articulate escrow wire instructions, inspection deadlines, and closing logistics in native Spanish, ensuring clients feel secure throughout the process.</span>
+                <span>We clearly articulate escrow milestones, inspection deadlines, and closing logistics in native Spanish, ensuring clients feel secure throughout the process.</span>
               </div>
 
               <div className="p-4 bg-white rounded-xl border border-[#D8D2D4] shadow-sm space-y-1">
@@ -513,7 +513,7 @@ export const SouthFloridaTransactionCoordinatorPage: React.FC<Props> = ({
             </h2>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              Partner with a seasoned, South Florida-founded transaction coordination team. Save 12–18 hours per file and guarantee broker-ready compliance on every closing.
+              Partner with a seasoned, South Florida-founded transaction coordination team. Save 12–18 hours per file and achieve broker-ready compliance on every closing.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">

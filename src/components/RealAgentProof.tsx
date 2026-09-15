@@ -28,7 +28,7 @@ const supportingReviews: Review[] = [
     name: 'Cindy Rios',
     source: 'Google My Business',
     image: 'https://lh3.googleusercontent.com/a-/ALV-UjWdguXoyY1fUwmN1Eu4zcLq6rU1-jhRRaBS_NyrEfPnsSovnx8R=w72-h72-p-rp-mo-br100',
-    quote: 'Michelle takes so much weight off my shoulders and keeps everything running smoothly at all times. Her understanding of real estate laws gives me complete peace of mind because I know nothing is being overlooked.',
+    quote: 'Michelle takes so much weight off my shoulders and keeps everything running smoothly at all times. Her understanding of real estate laws and compliance gives me complete peace of mind because I know nothing is being overlooked.',
     rating: 5,
     highlight: 'Complete Peace of Mind',
     brokerage: 'Florida Realtor'

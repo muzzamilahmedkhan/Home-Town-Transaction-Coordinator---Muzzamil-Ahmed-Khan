@@ -151,7 +151,7 @@ export const BlogPostPage: React.FC<Props> = ({
     setMetaTag('property', 'og:type', 'article');
     setMetaTag('property', 'og:url', canonicalUrl);
     setMetaTag('property', 'og:image', ogImg);
-    setMetaTag('property', 'og:site_name', 'The Hometown Brief • Hometown Title & Closing');
+    setMetaTag('property', 'og:site_name', 'The Hometown Brief • Hometown Transaction Coordinators');
     setMetaTag('property', 'article:published_time', pubIso);
     setMetaTag('property', 'article:modified_time', modIso);
     setMetaTag('property', 'article:author', article.author);
@@ -225,7 +225,7 @@ export const BlogPostPage: React.FC<Props> = ({
           } : {}),
           publisher: {
             '@type': 'Organization',
-            name: 'Hometown Title & Closing',
+            name: 'Hometown Transaction Coordinators',
             url: 'https://hometowntc.com/',
             logo: {
               '@type': 'ImageObject',

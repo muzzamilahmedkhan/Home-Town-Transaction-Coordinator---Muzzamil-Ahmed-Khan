@@ -149,7 +149,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
     },
     {
       category: 'Escrow & Deadlines',
-      htcExecutes: 'Distributes wire instructions, follows up with escrow agent for deposit receipt, sends calendar invites to all parties.',
+      htcExecutes: 'Confirms escrow holder details, reminds parties to obtain wire instructions directly from title/closing agent, tracks deposit receipt.',
       agentRetains: 'Advises client on financing strategy, lender selection, and earnest money deposit amounts.'
     },
     {
@@ -181,11 +181,11 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
     },
     {
       q: 'When should I submit an accepted contract to HTC?',
-      a: 'As soon as the contract is fully signed by all buyers and sellers. Submitting within 24 hours of effective acceptance allows us to audit every page for compliance, establish the critical milestone calendar, and deliver introductory wire instructions before Day 1 deadlines arrive.'
+      a: 'As soon as the contract is fully signed by all buyers and sellers. Submitting within 24 hours of effective acceptance allows us to audit every page for completeness, establish the critical milestone calendar, and connect with all parties before Day 1 deadlines arrive.'
     },
     {
       q: 'What happens if a contract terminates during the inspection period?',
-      a: 'Because our contract-to-close services operate strictly on a pay-at-closing basis, you pay $0 if a transaction cancels prior to closing. We collect the signed Cancellation and Release of Escrow agreement and archive the file cleanly.'
+      a: 'If a transaction cancels during the inspection period, there is no cancellation fee. After the inspection period, an administrative support fee applies for work already completed on the file.'
     },
     {
       q: 'Do you work directly with my broker compliance portal?',
@@ -289,7 +289,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
               The Florida Contract-to-Close Timeline
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Every accepted contract follows a controlled 5-phase execution roadmap designed to protect contingencies, align closing parties, and guarantee broker-ready compliance.
+              Every accepted contract follows a controlled 5-phase execution roadmap designed to track contingencies, align closing parties, and support broker-ready compliance.
             </p>
           </div>
 
@@ -432,7 +432,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
               The H.O.M.E. Close Method™
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Our proven contract-to-close framework that guarantees every Florida real estate file moves with structure, absolute clarity, and proactive care.
+              Our proven contract-to-close framework designed so every Florida real estate file moves with structure, absolute clarity, and proactive care.
             </p>
           </div>
 
@@ -520,7 +520,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
               Choose Your Contract-to-Close Package
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Purely performance-based. Zero monthly subscription retainers, zero onboarding fees, and $0 owed if a contract terminates during contingencies.
+              Transparent per-closed-file pricing backed by your Lead TC and Dedicated Hometown Team.
             </p>
           </div>
 

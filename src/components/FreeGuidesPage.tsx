@@ -455,7 +455,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
                 </p>
                 
                 <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-                  Practical tools, templates, guides, and free training built to make the work a little easier. Designed by Florida-licensed transaction coordinators for solo agents, high-volume teams, and managing brokers statewide.
+                  Practical tools, templates, guides, and free training built to make the work a little easier. Designed by experienced Florida transaction coordinators for solo agents, high-volume teams, and managing brokers statewide.
                 </p>
               </div>
 

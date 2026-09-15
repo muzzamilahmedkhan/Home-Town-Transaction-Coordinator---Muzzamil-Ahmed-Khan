@@ -147,12 +147,12 @@ export const HowHtcWorksPage: React.FC<Props> = ({
   // The FAQs (Section 5)
   const faqs = [
     {
-      q: 'Do I have to complete Setup every time I send an order?',
+      q: 'Do I have to complete Setup every time I send a file?',
       a: 'No. Setup is completed once. If your brokerage, preferences, templates, or business needs change, we can update your setup.'
     },
     {
-      q: 'How do I submit a new order?',
-      a: 'Existing HTC clients use Quick File Drop to submit Listing Launch, Contract-to-Close, and Broker Compliance orders.',
+      q: 'How do I submit a new file?',
+      a: 'Existing HTC clients use Quick File Drop to submit Listing Launch, Contract-to-Close, and Broker Compliance files.',
       linkText: 'SUBMIT A NEW DEAL →',
       linkAction: onSubmitDeal
     },

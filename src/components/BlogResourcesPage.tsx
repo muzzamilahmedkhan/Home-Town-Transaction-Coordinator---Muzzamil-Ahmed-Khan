@@ -154,7 +154,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
           'description': 'Quick, practical answers for Florida Realtors on transaction coordination, contracts, compliance, condo and HOA issues, agent operations, and business growth.',
           'publisher': {
             '@type': 'Organization',
-            'name': 'Hometown Title & Closing',
+            'name': 'Hometown Transaction Coordinators',
             'url': 'https://hometowntc.com/'
           }
         },
@@ -204,16 +204,16 @@ export const BlogResourcesPage: React.FC<Props> = ({
                 onClick={(e) => handleLinkClick(e, '/')}
                 className="hover:text-[#0D9BA3] flex items-center gap-1.5 font-bold transition-colors text-[#3A2E29]"
               >
-                HOMETOWN TITLE & CLOSING
+                HOMETOWN TRANSACTION COORDINATORS
               </a>
               <span className="text-[#D8D2D4]">|</span>
               <span className="text-[#0D9BA3] font-extrabold">STATEWIDE FLORIDA DISPATCH</span>
             </div>
 
             <div className="flex items-center gap-4 text-[10px] text-slate-500">
-              <span className="font-semibold text-[#3A2E29]">VOL. XXIV • NO. 42</span>
+              <span className="font-semibold text-[#3A2E29]">FLORIDA TRANSACTION OPERATIONS</span>
               <span className="hidden sm:inline">•</span>
-              <span className="hidden sm:inline">67 COUNTIES MONITORED</span>
+              <span className="hidden sm:inline">UPDATED WEEKLY</span>
               <span className="hidden sm:inline">•</span>
               <button
                 onClick={handleShare}

@@ -597,7 +597,7 @@ export const MeetTheTribePage: React.FC<Props> = ({
                   <div className="text-xs text-[#0D9BA3] font-extrabold uppercase tracking-wider">Main Point of Contact</div>
                 </div>
                 <p className="text-xs text-slate-700 leading-normal font-medium">
-                  Knows your business, communicates with you, oversees the work, and alerts you when attention is needed.
+                  Learns your business and preferences, communicates with you, oversees the work, and surfaces items needing your attention.
                 </p>
               </div>
 
@@ -617,17 +617,17 @@ export const MeetTheTribePage: React.FC<Props> = ({
                 </div>
               </div>
 
-              {/* Box 3: DEDICATED TEAM + SYSTEMS */}
+              {/* Box 3: DEDICATED HOMETOWN TEAM + SYSTEMS */}
               <div className="lg:col-span-3 bg-white rounded-2xl p-6 border-2 border-[#D8D2D4] text-center space-y-3 shadow-xs">
                 <div className="w-12 h-12 rounded-xl bg-[#FE7311]/10 text-[#FE7311] mx-auto flex items-center justify-center">
                   <ShieldCheck className="w-6 h-6 text-[#FE7311]" />
                 </div>
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-[#3A2E29] font-serif">HTC Team + Systems</div>
-                  <div className="text-xs text-[#3A2E29] font-extrabold uppercase tracking-wider">Working The File</div>
+                  <div className="text-base font-bold text-[#3A2E29] font-serif">Dedicated Hometown Team + Systems</div>
+                  <div className="text-xs text-[#FE7311] font-extrabold uppercase tracking-wider">Supporting The File</div>
                 </div>
                 <p className="text-xs text-slate-600 leading-normal">
-                  People, systems, and technology working together to move the work across every service you hire us to handle.
+                  People, systems, and technology working together with shared processes and cross-coverage.
                 </p>
               </div>
 
@@ -645,25 +645,29 @@ export const MeetTheTribePage: React.FC<Props> = ({
                   <span>YOUR LEAD TC</span>
                 </div>
                 <h3 className="text-2xl font-bold text-[#3A2E29] font-serif">
-                  Your main point of contact.
+                  Your main day-to-day point of contact.
                 </h3>
                 <p className="text-sm text-slate-700 font-normal leading-relaxed">
-                  Your Lead TC knows your business, communicates with you, oversees the work, and makes sure you know when something needs your attention.
+                  Your Lead TC learns your business and preferences, communicates directly with you, oversees the work, and surfaces items needing your attention.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-[#D8D2D4] space-y-2 text-xs text-slate-700">
                 <div className="flex items-center space-x-2 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                  <span>Direct relationship partner across your active pipeline</span>
+                  <span>Main day-to-day point of contact</span>
                 </div>
                 <div className="flex items-center space-x-2 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                  <span>Learns your client tone, custom forms & broker guidelines</span>
+                  <span>Learns your business and preferences</span>
                 </div>
                 <div className="flex items-center space-x-2 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                  <span>Coordinates escrow, title, lender & client communications</span>
+                  <span>Communicates with the agent and oversees the work</span>
+                </div>
+                <div className="flex items-center space-x-2 font-medium">
+                  <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
+                  <span>Surfaces items needing the agent's attention</span>
                 </div>
               </div>
             </div>
@@ -679,22 +683,22 @@ export const MeetTheTribePage: React.FC<Props> = ({
                   The team working behind the file.
                 </h3>
                 <p className="text-sm text-slate-700 font-normal leading-relaxed">
-                  HTC uses people, systems, and technology together to move the work across the services you hire us to handle.
+                  People, systems, and technology working together to support the work through a shared process and built-in cross-coverage.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-[#D8D2D4] space-y-2 text-xs text-slate-700">
                 <div className="flex items-center space-x-2 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                  <span>Built-in cross-coverage so files never pause or stall</span>
+                  <span>People + systems + technology supporting the work</span>
                 </div>
                 <div className="flex items-center space-x-2 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                  <span>Standardized compliance checklists & document verification</span>
+                  <span>Shared process and seamless cross-coverage</span>
                 </div>
                 <div className="flex items-center space-x-2 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                  <span>Continuous milestone tracking with zero reliance on solo memory</span>
+                  <span>Standardized compliance checklists & milestone tracking</span>
                 </div>
               </div>
             </div>
