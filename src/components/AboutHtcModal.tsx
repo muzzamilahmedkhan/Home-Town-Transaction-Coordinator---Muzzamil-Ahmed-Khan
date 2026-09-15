@@ -142,7 +142,7 @@ export const AboutHtcModal: React.FC<Props> = ({ isOpen, onClose, onBookCall }) 
                   Michelle Martinez, Founder
                 </h3>
                 <p className="text-xs text-[#0D9BA3] font-semibold">
-                  Serving Realtors Since 1995 • South Florida Founded
+                  Serving Realtors Since 1995 • HTC Founded 2018
                 </p>
               </div>
             </div>

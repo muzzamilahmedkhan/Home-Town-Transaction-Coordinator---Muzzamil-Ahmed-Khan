@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, CheckCircle2, ArrowRight, ShieldCheck, FileCheck, Calendar, Info, Sparkles, UserPlus } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight, ShieldCheck, FileCheck, Calendar, Info, Sparkles, UserPlus, Users } from 'lucide-react';
 import { CENTRAL_SERVICES_PRICING } from '../data/content';
 
 interface Props {
@@ -52,16 +52,18 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
               {data.agencyPositioning}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
               {data.serviceLanes.map((lane) => (
-                <div key={lane.id} className="bg-[#EEEAEB] p-4 rounded-xl border border-[#D8D2D4] space-y-1">
-                  <div className="text-xs font-bold text-[#3A2E29] flex items-center justify-between">
-                    <span>{lane.title}</span>
-                    <span className="text-[10px] uppercase bg-white px-2 py-0.5 rounded font-extrabold text-[#0D9BA3] border border-[#D8D2D4]">{lane.tagline}</span>
+                <div key={lane.id} className="bg-[#EEEAEB] p-4 rounded-xl border border-[#D8D2D4] space-y-1 flex flex-col justify-between">
+                  <div className="space-y-1">
+                    <div className="text-xs font-bold text-[#3A2E29] flex items-center justify-between">
+                      <span>{lane.title}</span>
+                      <span className="text-[10px] uppercase bg-white px-2 py-0.5 rounded font-extrabold text-[#0D9BA3] border border-[#D8D2D4]">{lane.tagline}</span>
+                    </div>
+                    <p className="text-xs text-[#3A2E29]/80 font-medium leading-relaxed">
+                      {lane.desc}
+                    </p>
                   </div>
-                  <p className="text-xs text-[#3A2E29]/80 font-medium leading-relaxed">
-                    {lane.desc}
-                  </p>
                   {lane.note && (
                     <p className="text-[11px] text-[#FE7311] font-semibold pt-1">
                       * {lane.note}
@@ -216,6 +218,34 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
               </div>
             </div>
 
+          </div>
+
+          {/* Team + Brokerage Support */}
+          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#D8D2D4] space-y-4 shadow-sm">
+            <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3]">
+              <Users className="w-4 h-4 text-[#FE7311]" />
+              <span>TEAM & BROKERAGE OPERATIONAL SOLUTIONS</span>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-base sm:text-lg font-montserrat font-extrabold text-[#3A2E29]">
+                Structured Coordination for Teams & Managing Brokers
+              </h3>
+              <p className="text-xs sm:text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
+                Customized support for high-volume Florida real estate teams and boutique brokerages that need dedicated operational structure: standardized broker audit preparation, shared pipeline visibility, seamless agent onboarding, and scalable file capacity across all 67 Florida counties.
+              </p>
+            </div>
+            <div className="pt-1">
+              <button
+                onClick={() => {
+                  onClose();
+                  onBookCall();
+                }}
+                className="bg-[#3A2E29] hover:bg-[#2A201C] text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer inline-flex items-center space-x-2"
+              >
+                <span>Discuss Team / Brokerage Fit</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#FE7311]" />
+              </button>
+            </div>
           </div>
 
           {/* Section 7: Future Customer vs. Client Structure */}

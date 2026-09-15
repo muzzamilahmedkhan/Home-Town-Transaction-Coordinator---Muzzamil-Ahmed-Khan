@@ -92,7 +92,7 @@ export const ChooseYourPath: React.FC<Props> = ({ onSubmitDeal, onExploreService
                 onClick={onSubmitDeal}
                 className="bg-[#0D9BA3] hover:bg-[#0b868d] text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow transition flex items-center space-x-2 cursor-pointer"
               >
-                <span>Submit a New Deal</span>
+                <span>SUBMIT A NEW DEAL</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
               <p className="text-[11px] text-slate-300 font-medium leading-normal">

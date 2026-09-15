@@ -41,6 +41,12 @@ export const CENTRAL_SERVICES_PRICING = {
       title: 'Contract Services',
       tagline: 'Transaction support ONCE executed through closing',
       desc: 'Complete contract administration, timeline tracking, escrow monitoring, buyer/seller/lender alignment, CD review, and broker compliance.'
+    },
+    {
+      id: 'team-brokerage-services',
+      title: 'Team + Brokerage Support',
+      tagline: 'Customized operational solutions',
+      desc: 'Customized support for high-volume teams and brokerages that need dedicated coordination workflows, standardized compliance auditing, and shared pipeline visibility.'
     }
   ],
   

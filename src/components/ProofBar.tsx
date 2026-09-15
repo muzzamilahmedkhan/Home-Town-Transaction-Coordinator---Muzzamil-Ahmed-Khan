@@ -5,22 +5,22 @@ export const ProofBar: React.FC = () => {
   const proofItems = [
     {
       icon: Calendar,
-      title: 'Serving Realtors Since 1995',
-      sublabel: '30+ Years Industry Experience'
+      title: 'Serving Realtors since 1995',
+      sublabel: 'Founder Experience · HTC Founded 2018'
     },
     {
       icon: FileCheck,
-      title: '20,000+ Contracts',
+      title: '20,000+ contracts',
       sublabel: 'Coordinated to Closing'
     },
     {
       icon: MapPin,
-      title: 'Florida Statewide',
-      sublabel: 'Florida Statewide Support'
+      title: 'Florida focused',
+      sublabel: 'Contract-to-Close Statewide'
     },
     {
       icon: Languages,
-      title: 'English + Español',
+      title: 'English + Spanish',
       sublabel: 'Bilingual Team Support'
     }
   ];

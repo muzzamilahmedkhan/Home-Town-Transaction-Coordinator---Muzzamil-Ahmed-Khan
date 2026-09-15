@@ -7,7 +7,6 @@ import { HomeMethod } from './components/HomeMethod';
 import { ChooseYourPath } from './components/ChooseYourPath';
 import { AgentPain } from './components/AgentPain';
 import { WhatMovesOffPlate } from './components/WhatMovesOffPlate';
-import { PricingTiers } from './components/PricingTiers';
 import { RealAgentProof } from './components/RealAgentProof';
 import { MichelleFounder } from './components/MichelleFounder';
 import { FloridaPositioning } from './components/FloridaPositioning';
@@ -525,8 +524,9 @@ export default function App() {
             {/* 2. PROOF BAR */}
             <ProofBar />
 
-            {/* 3. INTRODUCE H.O.M.E. EARLY */}
+            {/* 3. INTRODUCE H.O.M.E. CLOSE METHOD */}
             <HomeMethod
+              onSeeHowItWorks={() => navigateTo('/how-htc-works/')}
               onOpenAbout={() => setAboutOpen(true)}
               onBookCall={() => setBookCallOpen(true)}
             />
@@ -550,15 +550,7 @@ export default function App() {
               onExploreServices={() => setServicesPricingOpen(true)}
             />
 
-            {/* 7. BASE + PRO PREVIEW */}
-            <PricingTiers
-              onBookCall={() => setBookCallOpen(true)}
-              onSubmitDeal={() => navigateTo('/submit-deal/')}
-              onOpenRoi={() => navigateTo('/agent-business-calculator/')}
-              onExploreServices={() => setServicesPricingOpen(true)}
-            />
-
-            {/* 8. REAL AGENT PROOF */}
+            {/* 7. REAL AGENT PROOF */}
             <RealAgentProof />
 
             {/* 11. MEET THE TEAM (Agency & Founder Authority) */}
