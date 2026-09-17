@@ -1548,7 +1548,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                 <span>Should I hire an in-house TC or outsource transaction coordination?</span>
               </h3>
               <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                The decision centers on fixed versus variable overhead. An in-house hire creates a fixed annual expense of $55,000 to $80,000+ (salary, payroll taxes, worker's compensation, healthcare, software seats, and training), which must be paid regardless of seasonal market slowdowns. Outsourced transaction coordination with Hometown Transaction Coordinators converts support into a predictable per-file cost: scaling up or down with your active production without carrying a full-time in-house salary during slow months.
+                The decision centers on fixed versus variable overhead. An in-house hire creates substantial fixed annual overhead (salaried payroll, payroll taxes, worker's compensation, healthcare, software seats, and training), which must be paid regardless of seasonal market slowdowns. Coordination support with Hometown Transaction Coordinators converts operational help into a predictable per-file investment: scaling up or down with your active production without carrying full-time fixed payroll during slow months.
               </p>
             </article>
 
