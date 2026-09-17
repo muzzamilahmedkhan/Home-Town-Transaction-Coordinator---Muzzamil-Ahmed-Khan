@@ -417,7 +417,7 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
             </p>
           </div>
 
-          {/* 4 Clean Editorial Blocks (2x2 Editorial Layout with Refined Number Accents) */}
+          {/* 4 Feature Columns (2x2 Layout with Refined Number Accents) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             
             {/* Block 01 */}
