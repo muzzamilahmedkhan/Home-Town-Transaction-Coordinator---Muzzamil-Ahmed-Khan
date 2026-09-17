@@ -237,7 +237,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-4 rounded-xl font-bold text-sm tracking-wide transition cursor-pointer backdrop-blur-sm"
               >
                 <Send className="w-4 h-4 text-[#0D9BA3]" />
-                <span>Submit an Executed Deal ($375)</span>
+                <span>Submit a New Deal</span>
               </button>
             </div>
           </div>
@@ -581,7 +581,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
                   onClick={onSubmitDeal}
                   className="w-full py-3.5 bg-[#3A2E29] hover:bg-[#2A211D] text-white rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer shadow-md text-center"
                 >
-                  Submit a Base Contract ($375)
+                  Get Started with Base
                 </button>
               </div>
             </div>
