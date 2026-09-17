@@ -367,7 +367,7 @@ export const FREE_CLASSES_DATA: FreeClassItem[] = [
         lessonNumber: 1,
         title: 'The Real Hourly Value of a Florida Realtor: Lead Gen vs. Paperwork',
         duration: '8:00',
-        summary: 'Calculating your true effective hourly rate and why handling paperwork costs you $150 to $300/hr in lost client meetings.'
+        summary: 'Calculating your true effective hourly rate and why handling paperwork costs you valuable hours in lost client meetings.'
       },
       {
         lessonNumber: 2,
