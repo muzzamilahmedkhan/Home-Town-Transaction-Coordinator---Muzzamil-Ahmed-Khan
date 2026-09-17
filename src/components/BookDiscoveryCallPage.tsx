@@ -394,7 +394,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
                         required
                         value={formData.phone}
                         onChange={handleInputChange}
-                        placeholder="(305) 555-0199"
+                        placeholder="(954) 377-8330"
                         className="w-full bg-[#EEEAEB] border border-[#D8D2D4] rounded-xl px-3.5 py-2.5 text-xs font-medium focus:ring-2 focus:ring-[#0D9BA3] focus:outline-none"
                       />
                     </div>
