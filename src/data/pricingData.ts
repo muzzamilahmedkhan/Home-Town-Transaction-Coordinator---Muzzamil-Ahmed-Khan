@@ -188,7 +188,7 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
       {
         id: 'base',
         name: 'Base Plan',
-        price: '$395',
+        price: '$375',
         priceNote: 'per closed residential transaction',
         summary:
           'HTC manages the file while you remain the primary point of contact for your clients.',
@@ -205,7 +205,7 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
       {
         id: 'pro',
         name: 'Pro Plan',
-        price: '$495',
+        price: '$475',
         priceNote: 'per closed residential transaction',
         isPopular: true,
         badge: 'MOST POPULAR',
