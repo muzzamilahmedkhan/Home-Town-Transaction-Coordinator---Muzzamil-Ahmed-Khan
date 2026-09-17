@@ -274,7 +274,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                   className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl transition inline-flex items-center space-x-2.5 cursor-pointer"
                 >
                   <PhoneCall className="w-4 h-4" />
-                  <span>Book a Fit Call</span>
+                  <span>BOOK A 15-MINUTE FIT CALL</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
@@ -283,7 +283,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                   className="bg-white/10 hover:bg-white/20 text-white px-7 py-4 rounded-xl font-bold text-sm border border-white/20 transition inline-flex items-center space-x-2 cursor-pointer"
                 >
                   <FileCheck2 className="w-4 h-4 text-[#0D9BA3]" />
-                  <span>Submit an Executed File</span>
+                  <span>Submit a New Deal</span>
                 </button>
               </div>
 
@@ -550,7 +550,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                     Base Contract-to-Close
                   </h3>
                   <div className="text-3xl font-montserrat font-extrabold text-[#3A2E29] mt-2">
-                    $425 <span className="text-xs font-bold text-slate-500">/ closed file</span>
+                    $375 <span className="text-xs font-bold text-slate-500">/ closed file</span>
                   </div>
                   <p className="text-xs text-[#3A2E29]/80 font-medium mt-1">
                     Complete statutory deadline management, escrow verification, CDA setup, and broker compliance.
@@ -572,7 +572,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                   onClick={onSubmitDeal}
                   className="w-full bg-[#3A2E29] hover:bg-[#2B221E] text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer"
                 >
-                  Submit Base File
+                  Get Started with Base
                 </button>
               </div>
             </div>
@@ -592,7 +592,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                     Full Service Pro
                   </h3>
                   <div className="text-3xl font-montserrat font-extrabold text-white mt-2">
-                    $495 <span className="text-xs font-bold text-slate-300">/ closed file</span>
+                    $475 <span className="text-xs font-bold text-slate-300">/ closed file</span>
                   </div>
                   <p className="text-xs text-slate-300 font-medium mt-1">
                     Includes everything in Base plus high-touch client concierge, utility guides, and automated review generation.
@@ -617,7 +617,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                   className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-lg transition cursor-pointer flex items-center justify-center space-x-2"
                 >
                   <PhoneCall className="w-4 h-4" />
-                  <span>Book a Fit Call to Discuss Plans</span>
+                  <span>BOOK A 15-MINUTE FIT CALL</span>
                 </button>
               </div>
             </div>
@@ -729,10 +729,10 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               <div className="p-5 rounded-2xl bg-white border border-[#D8D2D4] space-y-2">
                 <div className="text-sm font-bold text-[#3A2E29]">
-                  $0 Fee on Cancelled Deals
+                  No Fee During Inspection
                 </div>
                 <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                  If a buyer exercises their inspection right or a transaction cancels before closing, you owe $0 for our coordination time. We succeed only when you close.
+                  If a Contract-to-Close file cancels during the inspection period, there is no cancellation fee. After the inspection period, an administrative support fee applies for work completed.
                 </p>
               </div>
 
@@ -832,7 +832,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               className="w-full sm:w-auto bg-[#FE7311] hover:bg-[#e05f03] text-white px-9 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-2xl hover:shadow-orange-500/20 transition flex items-center justify-center space-x-2.5 cursor-pointer"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Book a Fit Call</span>
+              <span>BOOK A 15-MINUTE FIT CALL</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
@@ -841,7 +841,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-sm border border-white/20 transition flex items-center justify-center space-x-2 cursor-pointer"
             >
               <FileCheck2 className="w-4 h-4 text-[#0D9BA3]" />
-              <span>Submit an Executed File</span>
+              <span>Submit a New Deal</span>
             </button>
           </div>
 
