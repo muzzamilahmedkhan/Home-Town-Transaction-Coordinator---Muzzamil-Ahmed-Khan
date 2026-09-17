@@ -520,10 +520,8 @@ export function searchBriefs(query: string, categoryFilter: string = 'All Dispat
       else if (article.category.toLowerCase().includes(q)) matchedField = 'category';
       else matchedField = 'body';
 
-      // Keep summary short and compact (strictly no giant excerpts!)
-      const rawSummary = article.placeholderSummary
-        .replace(/^\[ARTICLE SUMMARY:\s*/, '')
-        .replace(/\]$/, '');
+      // Keep summary short and compact
+      const rawSummary = article.placeholderSummary;
       const shortSummary = rawSummary.length > 130 
         ? `${rawSummary.substring(0, 127)}...` 
         : rawSummary;
@@ -532,8 +530,8 @@ export function searchBriefs(query: string, categoryFilter: string = 'All Dispat
         id: article.id,
         slug: article.slug,
         headline: article.placeholderTitle,
-        shortSummary: `[SHORT SUMMARY: ${shortSummary}]`,
-        category: `[CATEGORY: ${article.category}]`,
+        shortSummary,
+        category: article.category,
         readTime: article.readTime,
         matchedField
       };
