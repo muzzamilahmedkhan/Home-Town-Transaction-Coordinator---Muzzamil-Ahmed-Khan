@@ -238,7 +238,7 @@ export const FaqPage: React.FC<Props> = ({
         label: 'SEE ALL SERVICES + PRICING →',
         action: onOpenPricing
       },
-      tags: ['pricing', 'cost', 'fee', 'base', 'pro', 'rates', 'pay at closing']
+      tags: ['pricing', 'cost', 'fee', 'base', 'pro', 'rates', 'closed transaction']
     },
     {
       id: 'pricing-base-vs-pro',
