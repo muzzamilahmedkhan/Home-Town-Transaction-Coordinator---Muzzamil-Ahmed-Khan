@@ -123,19 +123,7 @@ export const FromHometownBriefSection: React.FC<FromHometownBriefSectionProps> =
 
         {/* Blueprint Mode Toggle */}
         <div className="flex items-center space-x-3 self-start md:self-end shrink-0">
-          <button
-            type="button"
-            onClick={() => setLocalBlueprintOverride(prev => prev === null ? !effectiveBlueprintMode : !prev)}
-            className={`inline-flex items-center space-x-1.5 text-xs font-mono font-bold px-3 py-1.5 rounded-lg border transition cursor-pointer ${
-              effectiveBlueprintMode 
-                ? 'bg-[#0D9BA3] text-white border-[#0D9BA3] shadow-2xs' 
-                : 'bg-white text-slate-600 border-[#D8D2D4] hover:border-slate-400'
-            }`}
-            title="Toggle between Production copy and Blueprint Placeholders"
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>{effectiveBlueprintMode ? 'PLACEHOLDERS: ACTIVE' : 'SHOW PLACEHOLDERS'}</span>
-          </button>
+          
         </div>
       </div>
 
