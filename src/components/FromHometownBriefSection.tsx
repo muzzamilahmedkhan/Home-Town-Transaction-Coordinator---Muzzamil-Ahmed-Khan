@@ -360,7 +360,7 @@ export const FromHometownBriefSection: React.FC<FromHometownBriefSectionProps> =
                   {activeBrief.companionResourceTitle}
                 </p>
                 <p className="text-xs text-slate-600">
-                  Put this legal brief into practice immediately using our free, field-tested resource.
+                  Put this brief into practice immediately using our free resource.
                 </p>
                 <button
                   type="button"
