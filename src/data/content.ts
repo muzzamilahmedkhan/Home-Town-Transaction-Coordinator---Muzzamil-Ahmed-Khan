@@ -41,12 +41,6 @@ export const CENTRAL_SERVICES_PRICING = {
       title: 'Contract Services',
       tagline: 'Transaction support ONCE executed through closing',
       desc: 'Complete contract administration, timeline tracking, escrow monitoring, buyer/seller/lender alignment, CD review, and broker compliance.'
-    },
-    {
-      id: 'team-brokerage-services',
-      title: 'Team + Brokerage Support',
-      tagline: 'Customized operational solutions',
-      desc: 'Customized support for high-volume teams and brokerages that need dedicated coordination workflows, standardized compliance auditing, and shared pipeline visibility.'
     }
   ],
   
@@ -230,36 +224,36 @@ export const HOME_STEPS: HomeStep[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    id: 'sophia-s',
-    name: 'Sophia Sterling',
-    role: 'LUXURY REAL ESTATE AGENT',
-    brokerage: "ONE Sotheby's International Realty",
-    location: 'Miami & Statewide Florida',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400',
-    quote: 'HTC brings structure and complete clarity to every transaction. My buyers and sellers feel supported, and I can stay focused on my clients.',
-    highlight: 'Peace of mind and organized client communication on every file.',
+    id: 'zuzel-g',
+    name: 'Zuzel Gonzalez',
+    role: 'FLORIDA REALTOR',
+    brokerage: 'Active Florida Producer',
+    location: 'South Florida',
+    image: 'https://lh3.googleusercontent.com/a/ACg8ocK6Qs8mWgTN--8BMsdGhmLUzxCzkLFw3MGMsqU1dJE1HIV1gw=w72-h72-p-rp-mo-br100',
+    quote: 'Michelle is my go to transaction coordinator for all of my real estate deals. She is always organized, professional, and on top of every detail from start to finish. I honestly couldn’t do my transactions without her support.',
+    highlight: 'Essential Transaction Partner',
     rating: 5
   },
   {
-    id: 'elena-r',
-    name: 'Elena Rodriguez',
-    role: 'PRODUCING REALTOR',
-    brokerage: 'Compass Florida',
-    location: 'Central & South Florida',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400',
-    quote: 'Working with Hometown TC reduced my daily stress significantly. No more chasing title updates or tracking down missing disclosures yourself.',
-    highlight: 'Fewer inbox loops and clear, visible deadline tracking.',
-    rating: 5
-  },
-  {
-    id: 'marcus-v',
-    name: 'Marcus Vance',
-    role: 'BROKER & TEAM LEAD',
-    brokerage: 'Vance Realty Group',
+    id: 'cindy-r',
+    name: 'Cindy Rios',
+    role: 'FLORIDA REALTOR',
+    brokerage: 'Active Florida Producer',
     location: 'Florida Statewide',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400',
-    quote: 'Having HTC as our dedicated transaction team gives our brokerage a defensible, broker-ready paper trail for every transaction. They are always one step ahead.',
-    highlight: 'Defensible, broker-ready files for complete operational confidence.',
+    image: 'https://lh3.googleusercontent.com/a-/ALV-UjWdguXoyY1fUwmN1Eu4zcLq6rU1-jhRRaBS_NyrEfPnsSovnx8R=w72-h72-p-rp-mo-br100',
+    quote: 'Michelle takes so much weight off my shoulders and keeps everything running smoothly at all times. Her understanding of real estate laws and compliance gives me complete peace of mind because I know nothing is being overlooked.',
+    highlight: 'Complete Peace of Mind',
+    rating: 5
+  },
+  {
+    id: 'jill-c',
+    name: 'Jill Cox',
+    role: 'BUSY REAL ESTATE PROFESSIONAL',
+    brokerage: 'Active Florida Producer',
+    location: 'Florida Statewide',
+    image: 'https://lh3.googleusercontent.com/a-/ALV-UjXgtaHo5mlNfHSLiqw5fMSp_ZmhbFvb13yQvK5P7KhHpb9G514SZg=w72-h72-p-rp-mo-ba12-br100',
+    quote: 'Michelle and her powerhouse team at Hometown TC are a game-changer for real estate agents. Ultra-organized, super proactive, and an above-and-beyond approach to supporting busy real estate professionals. You’ll be endlessly thankful you did.',
+    highlight: 'Game-Changer for Agents',
     rating: 5
   }
 ];
