@@ -421,9 +421,8 @@ export const FaqPage: React.FC<Props> = ({
       categoryId: 'working-together',
       question: 'Are you available on nights or weekends?',
       answerParagraphs: [
-        'Standard Base and Pro support is provided Monday through Friday during HTC business hours.',
-        'Routine night and weekend support is not included in those plans.',
-        'Expanded-hours support is part of the service direction we are building through SCALE.'
+        'Standard Base and Pro support is provided Monday through Friday during HTC business hours (8:00 AM–6:00 PM EST). Routine night and weekend support is not included.',
+        'Expanded-hours support is being developed through SCALE.'
       ],
       tags: ['nights', 'weekends', 'hours', 'business hours', 'scale']
     },
@@ -553,7 +552,7 @@ export const FaqPage: React.FC<Props> = ({
       question: 'Does HTC carry insurance?',
       answerParagraphs: [
         'Yes.',
-        'HTC carries Errors & Omissions coverage and liability coverage, including limited cybersecurity coverage.'
+        'For information about HTC\'s current coverage, please contact us directly.'
       ],
       tags: ['insurance', 'errors and omissions', 'e&o', 'liability', 'cybersecurity']
     },
@@ -1026,7 +1025,7 @@ export const FaqPage: React.FC<Props> = ({
                 <Clock className="w-4 h-4 text-[#0D9BA3]" />
               </div>
               <p className="text-[11px] text-slate-600 leading-relaxed">
-                The onboarding flow from contract execution to funding day.
+                The customer journey from Fit Call and Setup through file submission and supported service.
               </p>
             </button>
 
@@ -1067,7 +1066,7 @@ export const FaqPage: React.FC<Props> = ({
             </h2>
 
             <p className="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
-              Michelle Martinez and our transaction team are happy to answer any questions about your workflow, broker compliance, or upcoming deals.
+              Still have a question? Book a 15-Minute Fit Call and our team will help you determine the right next step.
             </p>
 
             {/* ONLY Book a Call & Direct Contacts — STRICTLY NO SUBMIT DEAL CTA */}
