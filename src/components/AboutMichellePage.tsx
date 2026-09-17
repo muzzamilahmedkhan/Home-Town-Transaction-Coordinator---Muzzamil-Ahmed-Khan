@@ -133,10 +133,10 @@ export const AboutMichellePage: React.FC<Props> = ({
               {/* Primary AEO Answer & Core Body */}
               <div className="space-y-4 text-base sm:text-lg text-slate-700 font-normal leading-relaxed">
                 <p>
-                  Michelle Martinez is the founder and owner of Hometown Transaction Coordinators, a boutique Florida real estate support agency. She has served Realtors since 1995 and founded HTC in 2018.
+                  "I'm Michelle Martinez, founder of Hometown Transaction Coordinators. I've served Realtors since 1995 and worked across more than 20,000 contracts.
                 </p>
                 <p>
-                  Across more than 20,000 contracts, one thing has never changed: there are real people behind every transaction. The work matters because they matter.
+                  After all those files, one thing has never changed: there are real people behind every transaction. The work matters because they matter."
                 </p>
               </div>
 
@@ -471,9 +471,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                   </div>
                 </div>
 
-                <p className="text-xs text-slate-500 italic pt-2">
-                  "Turning closed files into community care across Florida."
-                </p>
+
               </div>
             </div>
 
