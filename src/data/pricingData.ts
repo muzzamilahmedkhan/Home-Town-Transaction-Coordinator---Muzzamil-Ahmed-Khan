@@ -145,14 +145,14 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     options: [
       {
         title: 'Standard Launch',
-        price: 'Included in Pro / Inquire',
-        turnaround: '24–48 Business Hours',
+        price: '$125',
+        turnaround: '3 Business Days',
         description: 'Standard turnaround for scheduled listing dates.',
       },
       {
         title: 'Priority Launch',
-        price: 'Rush Add-On / Inquire',
-        turnaround: 'Rush Turnaround (Same / Next Business Day)',
+        price: '$225',
+        turnaround: '1 Business Day',
         badge: 'RUSH',
         description: 'Expedited priority queue for time-sensitive go-live dates.',
       },
@@ -160,8 +160,13 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     addons: [
       {
         name: 'Condo / HOA Estoppel & Application Research',
-        price: 'Add-On / Inquire',
+        price: '$100',
         note: 'Association rules, contact verification, and buyer packet setup',
+      },
+      {
+        name: '5-Photo Virtual Staging',
+        price: '$50',
+        note: 'Professional virtual staging for up to 5 listing photos',
       },
       {
         name: 'Additional MLS Board Entry',
