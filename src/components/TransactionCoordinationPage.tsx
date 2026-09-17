@@ -542,7 +542,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                   <span className="text-xs font-extrabold uppercase tracking-wider text-slate-500 bg-white px-3 py-1 rounded-full border border-[#D8D2D4]">
                     Essential Standard
                   </span>
-                  <span className="text-xs font-bold text-[#3A2E29]">Paid at Closing</span>
+                  <span className="text-xs font-bold text-[#3A2E29]">Billed at Closing</span>
                 </div>
 
                 <div>
