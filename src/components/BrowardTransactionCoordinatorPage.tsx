@@ -93,7 +93,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Broward Fit Call</span>
+                <span>BOOK A 15-MINUTE FIT CALL</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
               <button
@@ -101,7 +101,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-4 rounded-xl font-bold text-sm tracking-wide transition cursor-pointer backdrop-blur-sm"
               >
                 <FileCheck2 className="w-4 h-4 text-[#0D9BA3]" />
-                <span>Submit a Broward Deal ($375)</span>
+                <span>Submit a New Deal</span>
               </button>
             </div>
           </div>
@@ -173,11 +173,11 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
-                    <span><strong>No Fixed Salary or Benefits:</strong> Pay strictly per closed file. If you have a quiet month, your administrative overhead is $0.</span>
+                    <span><strong>No Fixed Salary or Benefits:</strong> Pay strictly per closed file. No fixed salary or payroll overhead — pay per file.</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
-                    <span><strong>Protect Critical Deadlines:</strong> Escrow deposits, loan applications, inspection cure periods, and title commitments tracked without error.</span>
+                    <span><strong>Protect Critical Deadlines:</strong> Escrow deposits, loan applications, inspection cure periods, and title commitments tracked systematically.</span>
                   </li>
                 </ul>
               </div>
@@ -450,13 +450,13 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-8 py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-xl hover:shadow-[#FE7311]/25 cursor-pointer"
               >
-                Book a Broward Fit Call
+                BOOK A 15-MINUTE FIT CALL
               </button>
               <button
                 onClick={onSubmitDeal}
                 className="w-full sm:w-auto px-7 py-4 bg-[#0D9BA3] hover:bg-[#0b868d] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer shadow-md"
               >
-                Submit a Broward Deal
+                Submit a New Deal
               </button>
               <button
                 onClick={onOpenPricing}
