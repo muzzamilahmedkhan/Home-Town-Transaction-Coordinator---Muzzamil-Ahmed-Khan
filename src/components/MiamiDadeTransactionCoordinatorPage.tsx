@@ -94,7 +94,7 @@ export const MiamiDadeTransactionCoordinatorPage: React.FC<Props> = ({
                 className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Book a Fit Call</span>
+                <span>BOOK A 15-MINUTE FIT CALL</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
               <button
