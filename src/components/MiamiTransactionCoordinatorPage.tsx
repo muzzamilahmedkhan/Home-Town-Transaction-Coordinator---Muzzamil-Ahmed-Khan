@@ -126,7 +126,7 @@ export const MiamiTransactionCoordinatorPage: React.FC<Props> = ({
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-bold text-[#3A2E29]">
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Flat Fee ($375 / $475)</span>
-              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Paid at Closing</span>
+              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Per-File Billing</span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Fluent English & Español</span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ 30+ Years FL Experience</span>
             </div>
@@ -358,7 +358,7 @@ export const MiamiTransactionCoordinatorPage: React.FC<Props> = ({
                 </div>
                 <div className="flex justify-between text-slate-600">
                   <span>Payment Timing:</span>
-                  <strong className="text-[#0D9BA3]">At Closing Table Only</strong>
+                  <strong className="text-[#0D9BA3]">Billed at Closing Table</strong>
                 </div>
               </div>
             </div>
