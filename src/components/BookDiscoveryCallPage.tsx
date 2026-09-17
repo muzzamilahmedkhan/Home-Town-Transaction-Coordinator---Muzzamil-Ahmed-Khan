@@ -104,7 +104,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
     }
   ];
 
-  const whatMichelleWillAsk = [
+  const whatWeWillDiscuss = [
     {
       num: '01',
       question: 'Your Average Monthly Volume & Pipeline',
@@ -162,7 +162,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Book a Transaction Coordinator fit call - Hometown TC",
-    "description": "Schedule a focused 15-minute discovery consultation with Michelle Martinez, Founder of Hometown TC, to evaluate transaction coordinator support for your Florida real estate business.",
+    "description": "Schedule a focused 15-minute fit call with Hometown Transaction Coordinators to evaluate transaction coordinator support for your Florida real estate business.",
     "url": "https://hometowntc.com/book-discovery-call/",
     "mainEntity": {
       "@type": "Service",
@@ -213,12 +213,11 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight font-serif">
-                Book a 15-Minute <br />
-                <span className="text-[#0D9BA3]">fit call</span>
+                Let's See If We're a Fit.
               </h1>
 
               <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-light">
-                A focused, 15-minute call with Michelle Martinez to identify your brokerage needs, determine the ideal support tier (Base $375 vs. Pro $475), and get your next contract ready to onboard seamlessly.
+                A focused 15-minute conversation to learn what you need and determine whether HTC is the right fit for your business.
               </p>
 
               {/* Founder Brief Card */}
@@ -440,7 +439,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
 
                   <div>
                     <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
-                      Anything specific you'd like Michelle to cover? (Optional)
+                      Anything specific you'd like us to cover? (Optional)
                     </label>
                     <textarea
                       name="notes"
@@ -484,7 +483,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
                       <PhoneCall className="w-3.5 h-3.5 text-[#0D9BA3]" />
                       <span>Direct Contact Details:</span>
                     </div>
-                    <p className="text-slate-600 text-[11px]">Michelle Martinez: {PHONE_NUMBER}</p>
+                    <p className="text-slate-600 text-[11px]">HTC Office: {PHONE_NUMBER}</p>
                     <p className="text-slate-600 text-[11px]">Email: {EMAIL_ADDRESS}</p>
                   </div>
                   <button
@@ -552,7 +551,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
         </div>
       </section>
 
-      {/* 3. REQUIRED SECTION: WHAT MICHELLE WILL ASK */}
+      {/* 3. REQUIRED SECTION: WHAT WE WILL DISCUSS */}
       <section className="py-16 bg-white border-y border-[#D8D2D4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
@@ -562,7 +561,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
               <span>Section 02</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
-              What Michelle Will Ask During the 15 Minutes
+              What We'll Discuss During the 15 Minutes
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               We respect your time. The consultation is focused on understanding your operating rhythm and matching you with the right coordination workflow.
@@ -570,7 +569,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whatMichelleWillAsk.map((q) => (
+            {whatWeWillDiscuss.map((q) => (
               <div
                 key={q.num}
                 className="bg-[#EEEAEB] rounded-2xl p-6 border border-[#D8D2D4] space-y-3"
@@ -693,7 +692,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
             <div className="space-y-3 bg-[#EEEAEB] p-5 rounded-2xl border border-[#D8D2D4]">
               <h4 className="font-bold text-[#3A2E29]">Prefer Not to Book a Call?</h4>
               <p className="text-xs text-slate-600">
-                You can reach Michelle Martinez directly through any of these alternate channels:
+                You can reach our team directly through any of these alternate channels:
               </p>
               <div className="space-y-2 pt-1 text-xs">
                 <div className="flex items-center space-x-2 text-[#3A2E29]">
