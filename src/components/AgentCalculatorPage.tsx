@@ -94,7 +94,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
     let metaDesc = document.querySelector('meta[name="description"]');
     const originalMetaContent = metaDesc ? metaDesc.getAttribute('content') : '';
     const targetMetaContent =
-      'Use Hometown TC’s free real estate business calculators to estimate the value of your time, compare hiring a transaction coordinator with HTC, and model a 20% growth scenario.';
+      'Use Hometown TC’s free real estate business calculators to estimate the value of your time, compare hiring a transaction coordinator with HTC, and model potential business growth scenarios.';
 
     if (metaDesc) {
       metaDesc.setAttribute('content', targetMetaContent);
@@ -121,7 +121,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
         browserRequirements: 'Requires JavaScript. Requires HTML5.',
         url: `${origin}/agent-business-calculator/`,
         description:
-          'Free real estate business calculators to estimate hourly time value, compare hiring an in-house transaction coordinator vs. Hometown TC, and model a 20% closed business growth scenario.',
+          'Free real estate business calculators to estimate hourly time value, compare hiring an in-house transaction coordinator vs. Hometown TC, and model closed business production scenarios.',
         offers: {
           '@type': 'Offer',
           price: '0',
@@ -1239,7 +1239,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                   </p>
                 </div>
 
-                {/* 3. Fixed 20% Growth Badge */}
+                {/* 3. Production Growth Potential */}
                 <div className="pt-3 border-t border-[#D8D2D4] space-y-1">
                   <div className="flex justify-between items-center text-xs font-extrabold text-[#3A2E29]">
                     <span>Growth Scenario:</span>
@@ -1559,7 +1559,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                 <span>How much does a transaction coordinator cost?</span>
               </h3>
               <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                In Florida, professional independent and agency transaction coordinators typically charge between $350 and $500 per closed transaction. In contrast, an in-house administrative employee costs approximately $45,000 to $65,000 in base salary plus 15% to 20% in employer taxes, benefits, equipment, and management overhead, resulting in an effective total cost of $55,000 to $80,000+ annually.
+                In Florida, professional independent and agency transaction coordinators typically charge between $375 and $550 per closed transaction. In contrast, an in-house administrative employee carries substantial overhead in fixed salary, employer taxes, benefits, equipment, and management overhead.
               </p>
             </article>
 
@@ -1581,7 +1581,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                 <span>What is my time worth as a Realtor?</span>
               </h3>
               <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                Your effective hourly value is calculated by dividing your annual Gross Commission Income (GCI) by your annual working hours (typically 1,800 to 2,200 hours per year). For example, an agent generating $150,000 in GCI working 40 hours per week for 50 weeks produces an effective business value of $75 per working hour. Spending 12 to 15 hours of your own time managing paperwork and follow-up on a single transaction represents an opportunity cost of $900 to $1,125 per closing.
+                Your effective hourly value is calculated by dividing your annual Gross Commission Income (GCI) by your annual working hours (typically 1,800 to 2,200 hours per year). For example, an agent generating $200,000 in GCI working 40 hours per week for 50 weeks produces an effective business value of $100 per working hour. Spending substantial hours of your own time managing paperwork and administrative follow-up on a single transaction represents significant opportunity cost per closing.
               </p>
             </article>
 
@@ -1614,7 +1614,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                 <span>What could increasing my real estate production look like?</span>
               </h3>
               <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                Reclaiming 10 to 15 administrative hours per closing frees up 150 to 300 productive hours annually for an agent closing 15 to 20 sides. In real estate sales, redirecting just one additional working day each month toward sphere-of-influence outreach, active showings, and prospecting typically models a 20% increase in closed volume—translating to 3 to 5 additional closings and tens of thousands of dollars in incremental GCI.
+                Reclaiming administrative hours per closing frees up hundreds of productive hours annually for active agents. In real estate sales, redirecting time each month toward sphere-of-influence outreach, active showings, and prospecting unlocks significant growth potential—translating to additional closings and tens of thousands of dollars in incremental GCI.
               </p>
             </article>
 
