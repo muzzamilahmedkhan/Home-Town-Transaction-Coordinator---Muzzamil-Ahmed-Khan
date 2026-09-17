@@ -1,5 +1,6 @@
 import React from 'react';
-import { Users, ArrowRight } from 'lucide-react';
+import { Users, ArrowRight, ShieldCheck } from 'lucide-react';
+import { MEET_MICHELLE_IMAGE } from '../data/content';
 
 interface Props {
   onBookCall?: () => void;
@@ -7,9 +8,12 @@ interface Props {
 }
 
 export const MichelleFounder: React.FC<Props> = ({ onOpenAbout }) => {
-  const teamMembers = [
-    'Michelle', 'Mary', 'Laura', 'Mariandrea',
-    'Ronald', 'Angela', 'Andrew', 'Yvonne'
+  const operationsTeam = [
+    { name: 'Michelle Martinez', role: 'Founder + Owner' },
+    { name: 'Mary Martinez', role: 'Trainer' },
+    { name: 'Angela Paniagua', role: 'HTC Billing Department' },
+    { name: 'Laura Villalobos', role: 'Executive Assistant' },
+    { name: 'Dedicated Hometown Team', role: 'Lead TCs & Operational Support' }
   ];
 
   return (
@@ -34,45 +38,46 @@ export const MichelleFounder: React.FC<Props> = ({ onOpenAbout }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left: Neutral Team Photo Placeholder Card */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl border-2 border-dashed border-[#0D9BA3]/60 bg-black/30 p-10 sm:p-14 text-center flex flex-col items-center justify-center min-h-[280px] sm:min-h-[320px] space-y-4">
-              <div className="w-16 h-16 rounded-2xl bg-[#0D9BA3]/20 border border-[#0D9BA3]/40 text-[#0D9BA3] flex items-center justify-center">
-                <Users className="w-8 h-8 text-[#FE7311]" />
-              </div>
-              <div className="space-y-1.5 max-w-sm">
-                <div className="text-base font-bold text-white tracking-wide">
-                  HTC Corporate Team Photo
-                </div>
-                <p className="text-xs text-slate-300 font-medium leading-relaxed">
-                  Placeholder — Photo of Michelle, Mary, Laura, Mariandrea, Ronald, Angela, Andrew, and Yvonne will be placed here.
-                </p>
+          {/* Left: Founder & Support Model Card */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-black/40 shadow-2xl">
+              <img
+                src={MEET_MICHELLE_IMAGE}
+                alt="Michelle Martinez - Founder of Hometown Transaction Coordinators"
+                className="w-full h-80 sm:h-96 object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3A2E29] via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#3A2E29]/90 backdrop-blur-md rounded-2xl border border-white/10">
+                <div className="text-sm font-bold text-white">Michelle Martinez</div>
+                <div className="text-xs text-[#0D9BA3] font-semibold">Founder & Owner • Serving Florida Realtors Since 1995</div>
               </div>
             </div>
           </div>
 
-          {/* Right: Team Members Roster & CTA */}
-          <div className="lg:col-span-6 space-y-8">
+          {/* Right: Operations Team Roster & CTA */}
+          <div className="lg:col-span-7 space-y-8">
             
             {/* Team Members List */}
             <div className="space-y-4">
-              <div className="text-xs font-bold uppercase tracking-widest text-[#0D9BA3]">
-                HTC TEAM MEMBERS
+              <div className="text-xs font-bold uppercase tracking-widest text-[#0D9BA3] flex items-center space-x-2">
+                <ShieldCheck className="w-4 h-4 text-[#FE7311]" />
+                <span>HTC OPERATIONS TEAM</span>
               </div>
-              <div className="flex flex-wrap gap-2.5">
-                {teamMembers.map((member, idx) => (
-                  <span 
+              <div className="grid sm:grid-cols-2 gap-3">
+                {operationsTeam.map((member, idx) => (
+                  <div 
                     key={idx}
-                    className="px-4 py-2 rounded-xl bg-white/10 text-sm font-semibold text-white border border-white/15 tracking-wide"
+                    className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1"
                   >
-                    {member}
-                  </span>
+                    <div className="text-sm font-bold text-white">{member.name}</div>
+                    <div className="text-xs text-slate-400">{member.role}</div>
+                  </div>
                 ))}
               </div>
             </div>
 
             {/* Direct CTA */}
-            <div>
+            <div className="pt-2">
               <button
                 onClick={onOpenAbout}
                 className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition inline-flex items-center space-x-2.5 cursor-pointer"
@@ -90,6 +95,3 @@ export const MichelleFounder: React.FC<Props> = ({ onOpenAbout }) => {
     </section>
   );
 };
-
-
-
