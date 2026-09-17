@@ -19,7 +19,6 @@ import {
   FileCheck2
 } from 'lucide-react';
 import { PHONE_NUMBER, MEET_MICHELLE_IMAGE, FOUNDER_IMAGE } from '../data/content';
-import { REAL_REVIEWS } from '../data/reviews';
 
 interface Props {
   onBookCall: () => void;
@@ -194,8 +193,6 @@ export const MeetTheTribePage: React.FC<Props> = ({
     }
   ];
 
-  const featuredReviews = REAL_REVIEWS.slice(0, 3);
-
   return (
     <main className="bg-[#EEEAEB] text-[#3A2E29] min-h-screen">
       {/* Schema.org Breadcrumb, AboutPage, Organization/Person, and FAQ JSON-LD */}
@@ -292,15 +289,15 @@ export const MeetTheTribePage: React.FC<Props> = ({
               <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 border-t border-[#D8D2D4]/60 text-xs">
                 <div className="space-y-0.5">
                   <div className="font-extrabold text-[#3A2E29]">1 Lead TC</div>
-                  <div className="text-slate-500 text-[11px]">Primary Contact</div>
+                  <div className="text-slate-500 text-[11px]">Main Point of Contact</div>
                 </div>
                 <div className="space-y-0.5">
-                  <div className="font-extrabold text-[#0D9BA3]">Team Backing</div>
-                  <div className="text-slate-500 text-[11px]">Zero Bottlenecks</div>
+                  <div className="font-extrabold text-[#0D9BA3]">Dedicated Team</div>
+                  <div className="text-slate-500 text-[11px]">Shared Support</div>
                 </div>
                 <div className="space-y-0.5">
                   <div className="font-extrabold text-[#3A2E29]">Tech-Enabled</div>
-                  <div className="text-slate-500 text-[11px]">Master Calendars</div>
+                  <div className="text-slate-500 text-[11px]">People + Systems + Technology</div>
                 </div>
                 <div className="space-y-0.5">
                   <div className="font-extrabold text-[#FE7311]">Bilingual</div>
@@ -334,7 +331,7 @@ export const MeetTheTribePage: React.FC<Props> = ({
                       <span>Your Lead Transaction Coordinator</span>
                     </div>
                     <p className="text-xs text-slate-700 leading-normal">
-                      Direct phone, text, and email partner. Manages contract deadlines, coordinates inspections, and handles buyer/seller touchpoints.
+                      Direct phone, text, and email partner. Coordinates the communication and follow-up included in the service you selected.
                     </p>
                   </div>
 
@@ -694,11 +691,11 @@ export const MeetTheTribePage: React.FC<Props> = ({
                 </div>
                 <div className="flex items-center space-x-2 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                  <span>Shared process and seamless cross-coverage</span>
+                  <span>Built-in cross-coverage so another team member can step in when needed.</span>
                 </div>
                 <div className="flex items-center space-x-2 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] flex-shrink-0" />
-                  <span>Standardized compliance checklists & milestone tracking</span>
+                  <span>Structured milestone tracking supported by shared HTC systems.</span>
                 </div>
               </div>
             </div>
@@ -917,83 +914,12 @@ export const MeetTheTribePage: React.FC<Props> = ({
         </div>
       </section>
 
+            {/* ------------------------------------------------------------------ */}
+      {/* BILINGUAL SUPPORT */}
       {/* ------------------------------------------------------------------ */}
-      {/* SECTION 4 — HOW YOUR TEAM OPERATES DAY-TO-DAY */}
-      {/* ------------------------------------------------------------------ */}
-      <section className="py-16 sm:py-24 bg-[#EEEAEB] border-b border-[#D8D2D4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-white px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
-              <Layers className="w-3.5 h-3.5 text-[#FE7311]" />
-              <span>THE WORKFLOW EXPERIENCE</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif">
-              How you experience your Lead TC and team day-to-day.
-            </h2>
-            <p className="text-base text-slate-700 font-normal leading-relaxed">
-              From onboarding through your 50th closing, the workflow is built to protect your focus and elevate your client experience.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            
-            {/* Step 1 */}
-            <div className="bg-white p-6 rounded-3xl border border-[#D8D2D4] space-y-3 shadow-sm">
-              <div className="text-xs font-extrabold uppercase tracking-wider text-[#0D9BA3]">
-                STEP 1
-              </div>
-              <h3 className="text-base font-bold text-[#3A2E29] font-serif">
-                Setup & Profile Alignment
-              </h3>
-              <p className="text-xs text-slate-700 leading-relaxed font-normal">
-                During your 15-minute onboarding, we capture your brokerage system, custom email templates, and communication preferences so your team never has to ask twice.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="bg-white p-6 rounded-3xl border border-[#D8D2D4] space-y-3 shadow-sm">
-              <div className="text-xs font-extrabold uppercase tracking-wider text-[#0D9BA3]">
-                STEP 2
-              </div>
-              <h3 className="text-base font-bold text-[#3A2E29] font-serif">
-                Instant File Intake
-              </h3>
-              <p className="text-xs text-slate-700 leading-relaxed font-normal">
-                Send us your executed contract or listing details. Your Lead TC audits riders, verifies escrow timelines, and generates your Master Calendar within hours.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="bg-white p-6 rounded-3xl border border-[#D8D2D4] space-y-3 shadow-sm">
-              <div className="text-xs font-extrabold uppercase tracking-wider text-[#0D9BA3]">
-                STEP 3
-              </div>
-              <h3 className="text-base font-bold text-[#3A2E29] font-serif">
-                Proactive Communication
-              </h3>
-              <p className="text-xs text-slate-700 leading-relaxed font-normal">
-                Your Lead TC coordinates directly with your buyer, seller, title agent, and lender — keeping every party aligned while copying you on all key correspondence.
-              </p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="bg-white p-6 rounded-3xl border border-[#D8D2D4] space-y-3 shadow-sm">
-              <div className="text-xs font-extrabold uppercase tracking-wider text-[#0D9BA3]">
-                STEP 4
-              </div>
-              <h3 className="text-base font-bold text-[#3A2E29] font-serif">
-                Clean Broker Compliance
-              </h3>
-              <p className="text-xs text-slate-700 leading-relaxed font-normal">
-                Your Dedicated Hometown Team audits the final Closing Disclosure, uploads all files to your brokerage portal, and secures CDA approval for prompt pay.
-              </p>
-            </div>
-
-          </div>
-
-          {/* Bilingual callout banner */}
-          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#D8D2D4] flex flex-col sm:flex-row items-center justify-between gap-6">
+      <section className="py-12 sm:py-16 bg-white border-b border-[#D8D2D4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#EEEAEB] p-6 sm:p-8 rounded-3xl border border-[#D8D2D4] flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 rounded-2xl bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center flex-shrink-0">
                 <Globe2 className="w-6 h-6 text-[#0D9BA3]" />
@@ -1002,8 +928,8 @@ export const MeetTheTribePage: React.FC<Props> = ({
                 <h4 className="text-base sm:text-lg font-bold text-[#3A2E29] font-serif">
                   Bilingual Transaction Support in English & Spanish
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal">
-                  Our coordinators are fully fluent in Spanish, delivering confident communication to your Spanish-speaking clients.
+                <p className="text-xs sm:text-sm text-slate-700 font-normal">
+                  HTC provides English + Spanish support for agents and transaction communication.
                 </p>
               </div>
             </div>
@@ -1022,71 +948,10 @@ export const MeetTheTribePage: React.FC<Props> = ({
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
-
         </div>
       </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/* SECTION 5 — AGENT TESTIMONIALS (REAL FEEDBACK) */}
-      {/* ------------------------------------------------------------------ */}
-      <section className="py-16 sm:py-24 bg-white border-b border-[#D8D2D4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-            <div className="space-y-3 max-w-2xl">
-              <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-[#EEEAEB] px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
-                <Star className="w-3.5 h-3.5 text-[#FE7311] fill-current" />
-                <span>WHAT AGENTS SAY</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif">
-                Realtor trust built over thousands of Florida closings.
-              </h2>
-            </div>
-
-            {onOpenReviews && (
-              <button
-                onClick={onOpenReviews}
-                className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#0D9BA3] hover:text-[#0a7f86] transition cursor-pointer group"
-              >
-                <span>READ MORE AGENT REVIEWS</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            )}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredReviews.map((review, idx) => (
-              <div
-                key={idx}
-                className="bg-[#EEEAEB] rounded-3xl p-6 sm:p-8 border border-[#D8D2D4] space-y-4 flex flex-col justify-between"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-1">
-                    {[...Array(review.rating || 5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-[#FE7311] fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal italic">
-                    "{review.quote}"
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-[#D8D2D4] space-y-0.5">
-                  <div className="text-xs font-bold text-[#3A2E29]">
-                    {review.name}
-                  </div>
-                  <div className="text-[11px] text-slate-500 font-normal">
-                    {review.brokerage || review.highlight || 'Florida Realtor'}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------------ */}
+{/* ------------------------------------------------------------------ */}
       {/* SECTION 7 — FAQ */}
       {/* ------------------------------------------------------------------ */}
       <section className="py-16 sm:py-24 bg-[#EEEAEB] border-b border-[#D8D2D4]">
