@@ -1,31 +1,22 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { 
-  Download, 
   ArrowRight, 
   ArrowLeft, 
-  CheckCircle2, 
   Search, 
   X, 
   FileText, 
   Sparkles, 
-  ExternalLink, 
-  Copy, 
-  PlayCircle, 
   Calculator, 
-  Check, 
+  GraduationCap, 
+  Layers, 
+  PhoneCall,
+  ShieldCheck,
   Tag,
-  GraduationCap,
-  Layers,
-  Clock
+  BookOpen,
+  TrendingUp,
+  ExternalLink
 } from 'lucide-react';
-import { 
-  RESOURCE_LIBRARY_ITEMS, 
-  ResourceItem, 
-  SimpleResourceCategory,
-  SIMPLE_RESOURCE_CATEGORIES,
-  getSimpleCategory,
-  ProblemTopicTag
-} from '../data/resourceLibraryData';
+import { PHONE_NUMBER } from '../data/content';
 import { usePageSeo } from '../hooks/usePageSeo';
 import { getMainLibrarySeoData } from '../utils/seoUtils';
 
@@ -37,14 +28,94 @@ interface Props {
   onNavigate?: (path: string) => void;
 }
 
-// Approved Topic Tags from client specification
-const APPROVED_TOPIC_TAGS: ProblemTopicTag[] = [
+export type SimpleCategory = 
+  | 'Guides + Checklists'
+  | 'Templates + Client Tools'
+  | 'AI + Automation'
+  | 'Classes + Workshops';
+
+const CATEGORIES: SimpleCategory[] = [
+  'Guides + Checklists',
+  'Templates + Client Tools',
+  'AI + Automation',
+  'Classes + Workshops'
+];
+
+export type TopicTag = 
+  | 'Transactions'
+  | 'Listings'
+  | 'Condo + HOA'
+  | 'Broker Compliance'
+  | 'Agent Operations'
+  | 'Business Growth';
+
+const TOPIC_TAGS: TopicTag[] = [
   'Transactions',
   'Listings',
   'Condo + HOA',
   'Broker Compliance',
   'Agent Operations',
   'Business Growth'
+];
+
+interface ApprovedResource {
+  id: string;
+  title: string;
+  category: SimpleCategory;
+  tags: TopicTag[];
+  format: string;
+  description: string;
+  actionText: string;
+  actionType: 'calculator' | 'blog' | 'workshop' | 'pricing' | 'call';
+  destinationUrl: string;
+}
+
+// Only approved, functional operational tools & resources from HTC
+const APPROVED_RESOURCES: ApprovedResource[] = [
+  {
+    id: 'res-calc',
+    title: 'Run the Numbers: Agent Transaction Leverage & Hourly Value Calculator',
+    category: 'Templates + Client Tools',
+    tags: ['Agent Operations', 'Business Growth'],
+    format: 'Interactive Calculator',
+    description: 'Calculate how many hours you spend on paperwork each month, your effective hourly rate, and the commission revenue gained by delegating file coordination.',
+    actionText: 'Launch Calculator',
+    actionType: 'calculator',
+    destinationUrl: '/agent-business-calculator/'
+  },
+  {
+    id: 'res-brief',
+    title: 'The Hometown Brief: Florida Contract & Compliance Analysis',
+    category: 'Guides + Checklists',
+    tags: ['Transactions', 'Broker Compliance'],
+    format: 'Weekly Operational Guide',
+    description: 'Practical analysis covering Florida FAR/BAR contract timelines, condo milestone inspection requirements (SB 4-D), and brokerage compliance standards.',
+    actionText: 'Read The Hometown Brief',
+    actionType: 'blog',
+    destinationUrl: '/blog/'
+  },
+  {
+    id: 'res-workshop',
+    title: 'Florida Transaction Coordinator Workshop & Professional Training',
+    category: 'Classes + Workshops',
+    tags: ['Agent Operations', 'Transactions'],
+    format: 'Workshop & Curriculum',
+    description: 'Specialized operational workshop for Florida real estate agents and aspiring transaction coordinators seeking complete mastery of contract-to-close files.',
+    actionText: 'Explore Workshop Details',
+    actionType: 'workshop',
+    destinationUrl: '/tcworkshop/'
+  },
+  {
+    id: 'res-pricing',
+    title: 'HTC Services & Operational Support Overview',
+    category: 'Templates + Client Tools',
+    tags: ['Listings', 'Transactions', 'Agent Operations'],
+    format: 'Operational Service Guide',
+    description: 'A complete operational breakdown of HTC\'s Listing Launch, Contract-to-Close, and Post-Close support packages designed specifically for Florida Realtors.',
+    actionText: 'Explore Services + Pricing',
+    actionType: 'pricing',
+    destinationUrl: '/pricing/'
+  }
 ];
 
 export const FreeGuidesPage: React.FC<Props> = ({
@@ -58,24 +129,10 @@ export const FreeGuidesPage: React.FC<Props> = ({
   const seoData = useMemo(() => getMainLibrarySeoData(), []);
   usePageSeo(seoData);
 
-  // Filter States
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<SimpleResourceCategory | 'All Resources'>('All Resources');
-  const [selectedTag, setSelectedTag] = useState<ProblemTopicTag | 'All Topics'>('All Topics');
+  const [selectedCategory, setSelectedCategory] = useState<SimpleCategory | 'All Resources'>('All Resources');
+  const [selectedTag, setSelectedTag] = useState<TopicTag | 'All Topics'>('All Topics');
 
-  // Interactive Modal States
-  const [activeDownloadItem, setActiveDownloadItem] = useState<ResourceItem | null>(null);
-  const [downloadName, setDownloadName] = useState('');
-  const [downloadEmail, setDownloadEmail] = useState('');
-  const [downloadSubmitted, setDownloadSubmitted] = useState(false);
-
-  const [activePromptItem, setActivePromptItem] = useState<ResourceItem | null>(null);
-  const [promptCopied, setPromptCopied] = useState(false);
-
-  const [activeClassItem, setActiveClassItem] = useState<ResourceItem | null>(null);
-  const [classRegistered, setClassRegistered] = useState(false);
-
-  // Set Page Title on Mount
   useEffect(() => {
     document.title = 'HTC Resource Library | Free Real Estate Guides & Tools | Hometown TC';
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -84,118 +141,83 @@ export const FreeGuidesPage: React.FC<Props> = ({
   // Category counts
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {
-      'All Resources': RESOURCE_LIBRARY_ITEMS.length,
+      'All Resources': APPROVED_RESOURCES.length,
       'Guides + Checklists': 0,
       'Templates + Client Tools': 0,
       'AI + Automation': 0,
       'Classes + Workshops': 0
     };
-
-    RESOURCE_LIBRARY_ITEMS.forEach(item => {
-      const cat = getSimpleCategory(item);
-      if (counts[cat] !== undefined) {
-        counts[cat]++;
-      }
+    APPROVED_RESOURCES.forEach((r) => {
+      counts[r.category] = (counts[r.category] || 0) + 1;
     });
-
     return counts;
   }, []);
 
-  // Filtered resources based on Search, Category, and Topic Tag
+  // Filtered resources
   const filteredResources = useMemo(() => {
-    return RESOURCE_LIBRARY_ITEMS.filter(item => {
-      const itemCategory = getSimpleCategory(item);
-
-      // Category filter
-      if (selectedCategory !== 'All Resources' && itemCategory !== selectedCategory) {
+    return APPROVED_RESOURCES.filter((r) => {
+      if (selectedCategory !== 'All Resources' && r.category !== selectedCategory) {
         return false;
       }
-
-      // Topic tag filter
-      if (selectedTag !== 'All Topics') {
-        const itemTags = item.topicTags || item.topics || [];
-        const matchesTag = itemTags.includes(selectedTag) || item.topic === selectedTag;
-        if (!matchesTag) return false;
+      if (selectedTag !== 'All Topics' && !r.tags.includes(selectedTag)) {
+        return false;
       }
-
-      // Search query filter
       if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase().trim();
-        const titleMatch = item.title.toLowerCase().includes(query);
-        const descMatch = item.shortDescription.toLowerCase().includes(query);
-        const formatMatch = (item.format || '').toLowerCase().includes(query);
-        const tagsMatch = (item.topicTags || item.topics || []).some(t => t.toLowerCase().includes(query));
-        if (!titleMatch && !descMatch && !formatMatch && !tagsMatch) {
+        const q = searchQuery.toLowerCase().trim();
+        const matchTitle = r.title.toLowerCase().includes(q);
+        const matchDesc = r.description.toLowerCase().includes(q);
+        const matchFormat = r.format.toLowerCase().includes(q);
+        const matchTags = r.tags.some(t => t.toLowerCase().includes(q));
+        if (!matchTitle && !matchDesc && !matchFormat && !matchTags) {
           return false;
         }
       }
-
       return true;
     });
   }, [searchQuery, selectedCategory, selectedTag]);
 
-  // Handle Primary Card Action
-  const handlePrimaryAction = (item: ResourceItem) => {
-    if (item.deliveryMethod === 'copy_prompt' || item.resourceType === 'AI Prompt') {
-      setActivePromptItem(item);
-      setPromptCopied(false);
-    } else if (item.deliveryMethod === 'class_registration' || item.resourceType === 'Class' || item.resourceType === 'Mini-Course') {
-      setActiveClassItem(item);
-      setClassRegistered(false);
-    } else if (item.deliveryMethod === 'interactive_tool' || item.resourceType === 'Calculator') {
-      if (onOpenCalculator) {
-        onOpenCalculator();
-      } else if (onNavigate) {
-        onNavigate(`/resources/free-guides-downloads/${item.slug}/`);
-      }
+  const handleAction = (resource: ApprovedResource) => {
+    if (resource.actionType === 'calculator') {
+      if (onOpenCalculator) onOpenCalculator();
+      else if (onNavigate) onNavigate('/agent-business-calculator/');
+    } else if (resource.actionType === 'blog') {
+      if (onBackToBlog) onBackToBlog();
+      else if (onNavigate) onNavigate('/blog/');
+    } else if (resource.actionType === 'workshop') {
+      if (onNavigate) onNavigate('/tcworkshop/');
+    } else if (resource.actionType === 'pricing') {
+      if (onNavigate) onNavigate('/pricing/');
     } else {
-      // Direct download or Canva template
-      setActiveDownloadItem(item);
-      setDownloadSubmitted(false);
+      onBookCall();
     }
   };
 
-  // Copy prompt helper
-  const handleCopyPrompt = (promptText?: string) => {
-    if (!promptText) return;
-    navigator.clipboard.writeText(promptText);
-    setPromptCopied(true);
-    setTimeout(() => setPromptCopied(false), 3000);
-  };
-
-  // Category Pill Colors
-  const getCategoryStyles = (category: SimpleResourceCategory) => {
+  const getCategoryStyles = (category: SimpleCategory) => {
     switch (category) {
       case 'Guides + Checklists':
         return {
           badge: 'bg-[#0D9BA3]/10 text-[#0D9BA3] border-[#0D9BA3]/30',
-          dot: 'bg-[#0D9BA3]',
           icon: <FileText className="w-3.5 h-3.5 text-[#0D9BA3]" />
         };
       case 'Templates + Client Tools':
         return {
           badge: 'bg-[#FE7311]/10 text-[#FE7311] border-[#FE7311]/30',
-          dot: 'bg-[#FE7311]',
           icon: <Layers className="w-3.5 h-3.5 text-[#FE7311]" />
         };
       case 'AI + Automation':
         return {
           badge: 'bg-purple-50 text-purple-700 border-purple-200',
-          dot: 'bg-purple-600',
           icon: <Sparkles className="w-3.5 h-3.5 text-purple-600" />
         };
       case 'Classes + Workshops':
         return {
           badge: 'bg-blue-50 text-blue-700 border-blue-200',
-          dot: 'bg-blue-600',
           icon: <GraduationCap className="w-3.5 h-3.5 text-blue-600" />
         };
     }
   };
 
-  const isFiltered = searchQuery.trim() !== '' || selectedCategory !== 'All Resources' || selectedTag !== 'All Topics';
-
-  const clearAllFilters = () => {
+  const clearFilters = () => {
     setSearchQuery('');
     setSelectedCategory('All Resources');
     setSelectedTag('All Topics');
@@ -251,7 +273,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search guides, checklists, templates, AI prompts, classes..."
+                  placeholder="Search guides, tools, templates, classes..."
                   className="w-full pl-11 pr-10 py-3 bg-[#EEEAEB]/50 border border-[#D8D2D4] rounded-xl text-sm text-[#3A2E29] placeholder:text-slate-500 focus:outline-none focus:border-[#0D9BA3] focus:bg-white transition"
                 />
                 {searchQuery && (
@@ -294,7 +316,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
               </span>
             </button>
 
-            {SIMPLE_RESOURCE_CATEGORIES.map((cat) => (
+            {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
@@ -331,7 +353,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
               All Topics
             </button>
 
-            {APPROVED_TOPIC_TAGS.map((tag) => (
+            {TOPIC_TAGS.map((tag) => (
               <button
                 key={tag}
                 onClick={() => setSelectedTag(selectedTag === tag ? 'All Topics' : tag)}
@@ -350,22 +372,21 @@ export const FreeGuidesPage: React.FC<Props> = ({
       </div>
 
       {/* ========================================================================= */}
-      {/* RESOURCE LISTING                                                          */}
+      {/* APPROVED RESOURCE LISTING                                                 */}
       {/* ========================================================================= */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         
-        {/* Results Count & Reset Filter Indicator */}
+        {/* Results Header */}
         <div className="flex items-center justify-between pb-6 text-xs text-slate-600 border-b border-[#D8D2D4] mb-8">
           <div className="font-medium">
-            Showing <strong className="text-[#3A2E29]">{filteredResources.length}</strong> {filteredResources.length === 1 ? 'resource' : 'resources'}
+            Showing <strong className="text-[#3A2E29]">{filteredResources.length}</strong> {filteredResources.length === 1 ? 'approved resource' : 'approved resources'}
             {selectedCategory !== 'All Resources' && <span> in <strong className="text-[#0D9BA3]">{selectedCategory}</strong></span>}
             {selectedTag !== 'All Topics' && <span> tagged <strong className="text-[#3A2E29]">"{selectedTag}"</strong></span>}
-            {searchQuery.trim() && <span> matching <strong className="text-[#3A2E29]">"{searchQuery}"</strong></span>}
           </div>
 
-          {isFiltered && (
+          {(searchQuery || selectedCategory !== 'All Resources' || selectedTag !== 'All Topics') && (
             <button
-              onClick={clearAllFilters}
+              onClick={clearFilters}
               className="text-[#0D9BA3] hover:text-[#3A2E29] font-bold flex items-center space-x-1 cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
@@ -380,14 +401,14 @@ export const FreeGuidesPage: React.FC<Props> = ({
             <Search className="w-10 h-10 text-slate-300 mx-auto" />
             <div className="space-y-1">
               <h3 className="text-lg font-montserrat font-bold text-[#3A2E29]">
-                No resources found
+                No resources match your selection
               </h3>
               <p className="text-xs text-slate-500">
-                No approved resources matched your current search or topic filter.
+                Try selecting "All Resources" or "All Topics" to browse our approved operational tools.
               </p>
             </div>
             <button
-              onClick={clearAllFilters}
+              onClick={clearFilters}
               className="bg-[#0D9BA3] text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-[#087177] transition cursor-pointer"
             >
               Reset Filters
@@ -395,48 +416,46 @@ export const FreeGuidesPage: React.FC<Props> = ({
           </div>
         ) : (
           /* Clean Resource Cards Grid */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
             {filteredResources.map((item) => {
-              const category = getSimpleCategory(item);
-              const catStyles = getCategoryStyles(category);
-              const itemTags = item.topicTags || item.topics || [];
+              const catStyles = getCategoryStyles(item.category);
 
               return (
                 <article
                   key={item.id}
-                  className="bg-white rounded-2xl border border-[#D8D2D4] p-6 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-[#0D9BA3]/50 transition duration-200 group"
+                  className="bg-white rounded-2xl border border-[#D8D2D4] p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md hover:border-[#0D9BA3]/50 transition duration-200 group"
                 >
                   <div className="space-y-4">
                     
-                    {/* Card Header: Category Badge + Format Pill */}
+                    {/* Header: Category Badge + Format Pill */}
                     <div className="flex items-center justify-between gap-2">
                       <div className={`inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold border ${catStyles.badge}`}>
                         {catStyles.icon}
-                        <span>{category}</span>
+                        <span>{item.category}</span>
                       </div>
                       
-                      <span className="text-[10px] font-semibold text-slate-500 bg-[#EEEAEB]/80 px-2 py-0.5 rounded border border-[#D8D2D4]">
+                      <span className="text-[10px] font-semibold text-slate-500 bg-[#EEEAEB]/80 px-2.5 py-0.5 rounded border border-[#D8D2D4]">
                         {item.format}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
+                    <h3 className="text-xl font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
                       {item.title}
                     </h3>
 
                     {/* Short Description */}
-                    <p className="text-xs sm:text-sm text-[#3A2E29]/75 leading-relaxed font-normal">
-                      {item.shortDescription}
+                    <p className="text-sm text-[#3A2E29]/80 leading-relaxed font-normal">
+                      {item.description}
                     </p>
 
                     {/* Topic Tags */}
-                    {itemTags.length > 0 && (
+                    {item.tags.length > 0 && (
                       <div className="flex flex-wrap gap-1.5 pt-1">
-                        {itemTags.map((tag) => (
+                        {item.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="inline-flex items-center text-[10px] font-semibold text-slate-600 bg-[#EEEAEB]/60 px-2 py-0.5 rounded"
+                            className="inline-flex items-center text-[10px] font-semibold text-slate-600 bg-[#EEEAEB]/60 px-2.5 py-0.5 rounded"
                           >
                             <Tag className="w-2.5 h-2.5 mr-1 text-slate-400" />
                             {tag}
@@ -447,43 +466,15 @@ export const FreeGuidesPage: React.FC<Props> = ({
 
                   </div>
 
-                  {/* Card Footer: Action Buttons */}
-                  <div className="pt-6 border-t border-[#D8D2D4]/70 mt-6 space-y-2">
+                  {/* Card Footer: Action Button */}
+                  <div className="pt-6 border-t border-[#D8D2D4]/70 mt-6">
                     <button
-                      onClick={() => handlePrimaryAction(item)}
-                      className="w-full bg-[#3A2E29] hover:bg-[#0D9BA3] text-white py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer shadow-xs"
+                      onClick={() => handleAction(item)}
+                      className="w-full bg-[#3A2E29] hover:bg-[#0D9BA3] text-white py-3.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer shadow-xs"
                     >
-                      {item.deliveryMethod === 'copy_prompt' || item.resourceType === 'AI Prompt' ? (
-                        <>
-                          <Copy className="w-3.5 h-3.5" />
-                          <span>View & Copy Prompt</span>
-                        </>
-                      ) : item.deliveryMethod === 'class_registration' || item.resourceType === 'Class' || item.resourceType === 'Mini-Course' ? (
-                        <>
-                          <PlayCircle className="w-3.5 h-3.5" />
-                          <span>Watch Free Class</span>
-                        </>
-                      ) : item.deliveryMethod === 'interactive_tool' || item.resourceType === 'Calculator' ? (
-                        <>
-                          <Calculator className="w-3.5 h-3.5" />
-                          <span>Launch Calculator</span>
-                        </>
-                      ) : (
-                        <>
-                          <Download className="w-3.5 h-3.5" />
-                          <span>Download Free</span>
-                        </>
-                      )}
+                      <span>{item.actionText}</span>
+                      <ArrowRight className="w-4 h-4" />
                     </button>
-
-                    {onNavigate && (
-                      <button
-                        onClick={() => onNavigate(`/resources/free-guides-downloads/${item.slug}/`)}
-                        className="w-full text-center text-xs text-slate-500 hover:text-[#0D9BA3] font-semibold py-1 transition cursor-pointer"
-                      >
-                        View Full Overview & Details →
-                      </button>
-                    )}
                   </div>
 
                 </article>
@@ -495,295 +486,144 @@ export const FreeGuidesPage: React.FC<Props> = ({
       </main>
 
       {/* ========================================================================= */}
-      {/* FINAL CTA — CONNECTING TO HTC SERVICES                                    */}
+      {/* SIMPLE CROSS-LINKS SECTION (Client Brief Requirement)                    */}
       {/* ========================================================================= */}
-      <section className="bg-white border-t border-[#D8D2D4] py-14 sm:py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center space-x-2 bg-[#FE7311]/10 border border-[#FE7311]/30 px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest text-[#FE7311]">
-            <span>NEED MORE THAN A TEMPLATE?</span>
+      <section className="bg-white border-y border-[#D8D2D4] py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+            <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
+              Explore Hometown TC Tools & Insights
+            </h2>
+            <p className="text-sm text-slate-600">
+              Direct access to our live operational resources and service information.
+            </p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
-            Smooth Closings. <span className="text-[#FE7311]">Period.</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Cross-Link 1: Read The Hometown Brief */}
+            <div 
+              onClick={() => {
+                if (onBackToBlog) onBackToBlog();
+                else if (onNavigate) onNavigate('/blog/');
+              }}
+              className="bg-[#EEEAEB]/50 hover:bg-[#EEEAEB] border border-[#D8D2D4] rounded-2xl p-6 transition cursor-pointer flex flex-col justify-between group"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[#0D9BA3]/10 flex items-center justify-center text-[#0D9BA3]">
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
+                  Read The Hometown Brief
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Weekly Florida real estate contract, compliance, and operations analysis written for practicing Realtors.
+                </p>
+              </div>
+              <div className="pt-4 text-xs font-bold text-[#0D9BA3] flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                <span>Browse Articles</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </div>
+
+            {/* Cross-Link 2: Run the Numbers */}
+            <div 
+              onClick={() => {
+                if (onOpenCalculator) onOpenCalculator();
+                else if (onNavigate) onNavigate('/agent-business-calculator/');
+              }}
+              className="bg-[#EEEAEB]/50 hover:bg-[#EEEAEB] border border-[#D8D2D4] rounded-2xl p-6 transition cursor-pointer flex flex-col justify-between group"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[#FE7311]/10 flex items-center justify-center text-[#FE7311]">
+                  <Calculator className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#FE7311] transition">
+                  Run the Numbers
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Calculate paperwork hours vs. commission income to see the exact financial leverage of a dedicated TC.
+                </p>
+              </div>
+              <div className="pt-4 text-xs font-bold text-[#FE7311] flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                <span>Launch Calculator</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </div>
+
+            {/* Cross-Link 3: Explore Services + Pricing */}
+            <div 
+              onClick={() => {
+                if (onNavigate) onNavigate('/pricing/');
+              }}
+              className="bg-[#EEEAEB]/50 hover:bg-[#EEEAEB] border border-[#D8D2D4] rounded-2xl p-6 transition cursor-pointer flex flex-col justify-between group"
+            >
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[#3A2E29]/10 flex items-center justify-center text-[#3A2E29]">
+                  <TrendingUp className="w-5 h-5" />
+                </div>
+                <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
+                  Explore Services + Pricing
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  Review our Listing Launch, Contract-to-Close, and Post-Close support packages built for Florida Realtors.
+                </p>
+              </div>
+              <div className="pt-4 text-xs font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                <span>View Pricing</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </div>
+
+          </div>
+
+          {/* Legal / Operational Disclaimer */}
+          <div className="mt-10 p-4 bg-[#EEEAEB]/40 rounded-xl border border-[#D8D2D4] text-[11px] text-slate-500 leading-relaxed text-center max-w-4xl mx-auto">
+            <strong>Operational Disclaimer:</strong> All guides, checklists, templates, tools, and materials provided by Hometown Transaction Coordinators (HTC) are for educational and administrative operational support only. HTC does not provide legal advice. Florida Realtors should consult their managing broker or licensed real estate attorney for specific legal determinations.
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* FINAL CTA — EXACT CLIENT SPECIFICATION                                    */}
+      {/* ========================================================================= */}
+      <section className="bg-white py-16 sm:py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-[#3A2E29]">
+            Need more than a resource?
           </h2>
 
-          <p className="text-sm sm:text-base text-[#3A2E29]/80 max-w-2xl mx-auto leading-relaxed font-medium">
-            From Listing Launch to Contract-to-Close, Hometown TC keeps the operational work behind the transaction moving so Florida Realtors can stay client-facing.
+          <p className="text-base sm:text-lg text-[#3A2E29]/85 max-w-2xl mx-auto leading-relaxed font-medium">
+            If you are ready to hand off the administrative work instead of doing it yourself, book a Fit Call and we will see whether HTC fits your business.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <button
               onClick={onBookCall}
-              className="w-full sm:w-auto bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition flex items-center justify-center space-x-2 cursor-pointer"
+              className="w-full sm:w-auto bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition flex items-center justify-center space-x-2 cursor-pointer"
             >
-              <span>BOOK A FIT CALL</span>
+              <span>BOOK A 15-MINUTE FIT CALL</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             
             <button
-              onClick={onGoHome}
-              className="w-full sm:w-auto text-[#3A2E29] hover:text-[#0D9BA3] font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-xl border border-[#D8D2D4] hover:border-[#0D9BA3] transition cursor-pointer"
+              onClick={() => {
+                if (onNavigate) onNavigate('/pricing/');
+              }}
+              className="w-full sm:w-auto text-[#3A2E29] hover:text-[#0D9BA3] font-bold text-xs sm:text-sm uppercase tracking-wider py-4 px-8 rounded-xl border border-[#D8D2D4] hover:border-[#0D9BA3] transition cursor-pointer"
             >
-              <span>EXPLORE ALL SERVICES</span>
+              <span>EXPLORE SERVICES + PRICING</span>
             </button>
           </div>
+
+          <div className="pt-2 text-xs text-slate-500">
+            Direct desk line: <a href={`tel:${PHONE_NUMBER.replace(/[^0-9]/g, '')}`} className="text-[#3A2E29] hover:text-[#0D9BA3] font-bold underline underline-offset-2">(954) 377-8330</a> • Serving Florida Realtors statewide
+          </div>
+
         </div>
       </section>
-
-      {/* ========================================================================= */}
-      {/* MODAL 1: INSTANT DOWNLOAD MODAL                                           */}
-      {/* ========================================================================= */}
-      {activeDownloadItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 space-y-6 shadow-xl border border-[#D8D2D4] relative">
-            <button
-              onClick={() => setActiveDownloadItem(null)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {!downloadSubmitted ? (
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-[#0D9BA3]/10 text-[#0D9BA3]">
-                    <Download className="w-3 h-3" />
-                    <span>FREE DOWNLOAD</span>
-                  </div>
-                  <h3 className="text-xl font-montserrat font-bold text-[#3A2E29]">
-                    {activeDownloadItem.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Enter your details below for instant access to this Florida real estate resource.
-                  </p>
-                </div>
-
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setDownloadSubmitted(true);
-                  }}
-                  className="space-y-3"
-                >
-                  <div>
-                    <label className="block text-xs font-bold text-[#3A2E29] mb-1">
-                      Your Full Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={downloadName}
-                      onChange={(e) => setDownloadName(e.target.value)}
-                      placeholder="e.g. Sarah Jenkins"
-                      className="w-full px-3.5 py-2.5 bg-[#EEEAEB]/50 border border-[#D8D2D4] rounded-xl text-xs text-[#3A2E29] focus:outline-none focus:border-[#0D9BA3] focus:bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-[#3A2E29] mb-1">
-                      Your Email Address
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={downloadEmail}
-                      onChange={(e) => setDownloadEmail(e.target.value)}
-                      placeholder="sarah@floridarealty.com"
-                      className="w-full px-3.5 py-2.5 bg-[#EEEAEB]/50 border border-[#D8D2D4] rounded-xl text-xs text-[#3A2E29] focus:outline-none focus:border-[#0D9BA3] focus:bg-white"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer shadow-md mt-2 flex items-center justify-center space-x-2"
-                  >
-                    <Download className="w-4 h-4" />
-                    <span>GET INSTANT ACCESS</span>
-                  </button>
-                </form>
-
-                <p className="text-[11px] text-slate-400 text-center">
-                  We respect your privacy. No spam, ever.
-                </p>
-              </div>
-            ) : (
-              <div className="text-center py-4 space-y-4">
-                <CheckCircle2 className="w-12 h-12 text-[#0D9BA3] mx-auto" />
-                <div className="space-y-1">
-                  <h4 className="text-lg font-montserrat font-bold text-[#3A2E29]">
-                    Access Ready!
-                  </h4>
-                  <p className="text-xs text-slate-600 max-w-xs mx-auto">
-                    A copy of <strong>{activeDownloadItem.title}</strong> has been prepared for you.
-                  </p>
-                </div>
-
-                <div className="pt-2">
-                  <a
-                    href={activeDownloadItem.externalUrl || '#'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 bg-[#0D9BA3] hover:bg-[#087177] text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition"
-                  >
-                    <span>OPEN RESOURCE</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-
-                <button
-                  onClick={() => setActiveDownloadItem(null)}
-                  className="block mx-auto text-xs text-slate-500 hover:text-[#3A2E29] pt-2 cursor-pointer"
-                >
-                  Close Window
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================================= */}
-      {/* MODAL 2: AI PROMPT COPY MODAL                                             */}
-      {/* ========================================================================= */}
-      {activePromptItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-xl w-full p-6 sm:p-8 space-y-5 shadow-xl border border-[#D8D2D4] relative max-h-[90vh] flex flex-col">
-            <button
-              onClick={() => setActivePromptItem(null)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="space-y-1 pr-8">
-              <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-purple-100 text-purple-700">
-                <Sparkles className="w-3 h-3" />
-                <span>AI PROMPT TEMPLATE</span>
-              </div>
-              <h3 className="text-xl font-montserrat font-bold text-[#3A2E29]">
-                {activePromptItem.title}
-              </h3>
-              <p className="text-xs text-slate-600">
-                Copy and paste this structured prompt into ChatGPT, Claude, or Gemini alongside your contract files.
-              </p>
-            </div>
-
-            <div className="flex-1 overflow-y-auto bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs leading-relaxed select-all">
-              {activePromptItem.promptContent || 'Prompt content currently updating for Florida FAR/BAR standards.'}
-            </div>
-
-            <div className="flex items-center justify-between pt-2">
-              <button
-                onClick={() => handleCopyPrompt(activePromptItem.promptContent)}
-                className="bg-[#0D9BA3] hover:bg-[#087177] text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition flex items-center space-x-2 cursor-pointer shadow-xs"
-              >
-                {promptCopied ? (
-                  <>
-                    <Check className="w-4 h-4 text-emerald-300" />
-                    <span>COPIED TO CLIPBOARD!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4" />
-                    <span>COPY PROMPT</span>
-                  </>
-                )}
-              </button>
-
-              <button
-                onClick={() => setActivePromptItem(null)}
-                className="text-xs text-slate-500 hover:text-[#3A2E29] font-semibold cursor-pointer"
-              >
-                Done
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================================= */}
-      {/* MODAL 3: FREE CLASS ACCESS MODAL                                          */}
-      {/* ========================================================================= */}
-      {activeClassItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 space-y-6 shadow-xl border border-[#D8D2D4] relative">
-            <button
-              onClick={() => setActiveClassItem(null)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {!classRegistered ? (
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-md text-[10px] font-bold bg-blue-100 text-blue-700">
-                    <PlayCircle className="w-3 h-3" />
-                    <span>ON-DEMAND CLASS</span>
-                  </div>
-                  <h3 className="text-xl font-montserrat font-bold text-[#3A2E29]">
-                    {activeClassItem.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Access this free Florida real estate training session instantly.
-                  </p>
-                </div>
-
-                <div className="space-y-2 text-xs text-slate-600 bg-[#EEEAEB]/60 p-3.5 rounded-xl border border-[#D8D2D4]">
-                  <div className="flex items-center space-x-2">
-                    <Clock className="w-3.5 h-3.5 text-[#0D9BA3]" />
-                    <span>Format: On-Demand Video + Reference Materials</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Free for all Florida licensed real estate agents</span>
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => setClassRegistered(true)}
-                  className="w-full bg-[#0D9BA3] hover:bg-[#087177] text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer shadow-md flex items-center justify-center space-x-2"
-                >
-                  <PlayCircle className="w-4 h-4" />
-                  <span>WATCH TRAINING NOW</span>
-                </button>
-              </div>
-            ) : (
-              <div className="text-center py-4 space-y-4">
-                <CheckCircle2 className="w-12 h-12 text-[#0D9BA3] mx-auto" />
-                <div className="space-y-1">
-                  <h4 className="text-lg font-montserrat font-bold text-[#3A2E29]">
-                    Class Access Unlocked
-                  </h4>
-                  <p className="text-xs text-slate-600 max-w-xs mx-auto">
-                    Enjoy the training session. Contact Hometown TC anytime if you'd like our team to manage this workflow for you.
-                  </p>
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    onClick={() => {
-                      setActiveClassItem(null);
-                      if (onBookCall) onBookCall();
-                    }}
-                    className="inline-flex items-center space-x-2 bg-[#FE7311] hover:bg-[#e05f03] text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer"
-                  >
-                    <span>SCHEDULE A FIT CALL</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-
-                <button
-                  onClick={() => setActiveClassItem(null)}
-                  className="block mx-auto text-xs text-slate-500 hover:text-[#3A2E29] pt-2 cursor-pointer"
-                >
-                  Close Window
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
 
     </div>
   );
