@@ -445,7 +445,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
                   <span className="text-[#FE7311] font-bold text-xs">STATEWIDE SCOPE</span>
                 </div>
 
-                {/* [ARTICLE TITLE] */}
+                
                 <h2 id="todays-brief-heading" className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-[#3A2E29] leading-tight mb-4">
                   <a
                     href={`/resources/${leadBrief.slug}/`}
@@ -456,7 +456,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
                   </a>
                 </h2>
 
-                {/* [ARTICLE SUMMARY] */}
+                
                 <div className="p-4 bg-[#EEEAEB]/50 rounded-xl border border-[#D8D2D4] mb-4">
                   <p className="text-sm text-slate-700 leading-relaxed font-medium">
                     {leadBrief.placeholderSummary}
@@ -573,7 +573,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
                     COLUMN 0{idx + 1}
                   </span>
 
-                  {/* [ARTICLE TITLE] */}
+                  
                   <h3 className="text-base sm:text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors leading-snug mb-3">
                     <a
                       href={`/resources/${article.slug}/`}
@@ -584,7 +584,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
                     </a>
                   </h3>
 
-                  {/* [ARTICLE SUMMARY] */}
+                  
                   <p className="text-xs text-slate-600 leading-relaxed mb-4 p-3 bg-[#EEEAEB]/40 rounded-xl border border-[#D8D2D4]">
                     {article.placeholderSummary}
                   </p>
@@ -832,7 +832,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
                             ENTRY 0{idx + 1}
                           </span>
 
-                          {/* [ARTICLE TITLE] */}
+                          
                           <h4 className="font-montserrat font-bold text-sm sm:text-base text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2 leading-snug">
                             <a
                               href={`/resources/${article.slug}/`}
@@ -843,7 +843,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
                             </a>
                           </h4>
 
-                          {/* [ARTICLE SUMMARY] */}
+                          
                           <p className="text-xs text-slate-600 leading-relaxed mb-3 p-2.5 bg-white rounded-lg border border-[#D8D2D4]">
                             {article.placeholderSummary}
                           </p>
