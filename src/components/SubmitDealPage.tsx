@@ -30,7 +30,7 @@ export const SubmitDealPage: React.FC<Props> = ({
     {
       icon: <FileText className="w-5 h-5 text-[#0D9BA3]" />,
       title: "Signed Agreement",
-      desc: "Have the signed agreement that apply to this order ready to upload in one single file."
+      desc: "Have the signed agreements that apply to this file ready to upload in one single file."
     },
     {
       icon: <Users className="w-5 h-5 text-[#FE7311]" />,
@@ -101,7 +101,7 @@ export const SubmitDealPage: React.FC<Props> = ({
               <h4 className="font-bold text-[#3A2E29] text-sm uppercase tracking-wider">What Happens Next?</h4>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed">
-              A confirmation email will be in your inbox after you submit your order. Please review it to make sure everything is correct and reply directly to that email if anything needs to be changed.
+              A confirmation email will be in your inbox after you submit your file. Please review it to make sure everything is correct and reply directly to that email if anything needs to be changed.
             </p>
             <p className="text-xs text-slate-600 leading-relaxed">
               Files are opened in the order received. Requests received before <strong className="text-[#3A2E29]">3:00 PM EST</strong> are expected to be opened the same business day.
