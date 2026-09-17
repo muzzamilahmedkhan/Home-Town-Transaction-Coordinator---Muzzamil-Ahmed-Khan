@@ -130,7 +130,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
             <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-bold text-[#3A2E29]">
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ All Broward Municipalities & Enclaves</span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ $375 Contract Base • $475 Pro</span>
-              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Paid at Closing Table • Zero Retainer</span>
+              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Transparent Per-File Investment • No Inspection Cancellation Fee</span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ 30+ Years South Florida Experience</span>
             </div>
           </div>
@@ -376,7 +376,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
               />
               <div className="space-y-0.5">
                 <span className="text-xs text-[#0D9BA3] font-bold uppercase tracking-wider">Your Broward Coordinator</span>
-                <h4 className="text-sm font-bold text-white">Michelle Martinez • (954) 377-8330</h4>
+                <h4 className="text-sm font-bold text-white">Hometown TC Direct Desk • (954) 377-8330</h4>
                 <p className="text-[11px] text-slate-300">Ready to take files off your plate today.</p>
               </div>
             </div>
