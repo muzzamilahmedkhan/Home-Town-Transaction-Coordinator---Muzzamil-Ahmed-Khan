@@ -388,16 +388,16 @@ export const CategoryArchivePage: React.FC<Props> = ({
           </section>
         ) : null}
 
-        {/* 4. [CATEGORY INTRO COPY] SECTION */}
+        {/* 4. CATEGORY OVERVIEW SECTION */}
         <section aria-labelledby="category-intro-heading" className="mb-12">
           <div className="bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 shadow-sm">
             <div className="flex items-center justify-between border-b border-[#D8D2D4] pb-3 mb-4">
               <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold flex items-center gap-2">
                 <FolderOpen className="w-4 h-4 text-[#0D9BA3]" />
-                [CATEGORY INTRO COPY]
+                CATEGORY OVERVIEW
               </span>
               <span className="text-[11px] text-slate-500 uppercase tracking-wider bg-[#EEEAEB] px-2.5 py-1 rounded-full border border-[#D8D2D4] font-medium">
-                HTC will provide the category copy later
+                OPERATIONAL BRIEFING
               </span>
             </div>
 
@@ -422,7 +422,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                 INDEX OF FILED DISPATCHES
               </span>
               <h2 id="article-list-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
-                [ARTICLE LIST] • {config.name.toUpperCase()}
+                {config.name.toUpperCase()} ARTICLES & DISPATCHES
               </h2>
             </div>
             <span className="text-xs text-slate-600 bg-white px-3 py-1.5 rounded-full border border-[#D8D2D4] font-medium">
@@ -454,7 +454,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                     ENTRY 0{idx + 1} • {article.deskCode}
                   </span>
 
-                  {/* [ARTICLE TITLE] */}
+                  
                   <h3 className="text-base sm:text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors leading-snug mb-3">
                     <a
                       href={`/resources/${article.slug}/`}
@@ -465,7 +465,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                     </a>
                   </h3>
 
-                  {/* [ARTICLE SUMMARY] */}
+                  
                   <p className="text-xs text-slate-600 leading-relaxed mb-4 p-3 bg-[#EEEAEB]/40 rounded-xl border border-[#D8D2D4]">
                     {article.placeholderSummary}
                   </p>
