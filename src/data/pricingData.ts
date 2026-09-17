@@ -145,13 +145,13 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     options: [
       {
         title: 'Standard Launch',
-        price: '$150',
+        price: 'Included in Pro / Inquire',
         turnaround: '24–48 Business Hours',
         description: 'Standard turnaround for scheduled listing dates.',
       },
       {
         title: 'Priority Launch',
-        price: '$200',
+        price: 'Rush Add-On / Inquire',
         turnaround: 'Rush Turnaround (Same / Next Business Day)',
         badge: 'RUSH',
         description: 'Expedited priority queue for time-sensitive go-live dates.',
@@ -160,7 +160,7 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     addons: [
       {
         name: 'Condo / HOA Estoppel & Application Research',
-        price: '+$75',
+        price: 'Add-On / Inquire',
         note: 'Association rules, contact verification, and buyer packet setup',
       },
       {
@@ -230,7 +230,7 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
       },
       {
         name: 'Dual Agency / Double-Sided File',
-        price: '+$150',
+        price: '+$200',
         description: 'Managing both buyer and seller compliance streams simultaneously.',
       },
     ],
