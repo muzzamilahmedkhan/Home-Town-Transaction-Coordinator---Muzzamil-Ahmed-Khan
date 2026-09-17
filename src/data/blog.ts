@@ -38,7 +38,7 @@ export const CATEGORY_ARCHIVE_CONFIGS: Record<string, CategoryArchiveConfig> = {
     deskCode: 'DESK 01',
     metaTitle: 'Contracts + Forms Archive | The Hometown Brief • Florida Real Estate Operations',
     metaDescription: 'Practical Florida real estate guidance on FAR/BAR contracts, riders, addenda, and timeline calculations.',
-    categoryIntroPlaceholder: '[CATEGORY INTRO COPY: HTC will provide the category copy later. This archive will house practical operational briefs, clause breakdowns, and deadline computation guides for the Florida FAR/BAR "AS IS" and Standard contracts, statutory riders, and escrow deposit procedures.]',
+    categoryIntroPlaceholder: 'HTC will provide the category copy later. This archive will house practical operational briefs, clause breakdowns, and deadline computation guides for the Florida FAR/BAR "AS IS" and Standard contracts, statutory riders, and escrow deposit procedures.',
     canonicalUrl: 'https://hometowntc.com/resources/contracts-forms/',
     tagline: 'FAR/BAR AS IS, Standard F day counting, repair addenda, and contingency deadlines.'
   },
@@ -48,7 +48,7 @@ export const CATEGORY_ARCHIVE_CONFIGS: Record<string, CategoryArchiveConfig> = {
     deskCode: 'DESK 02',
     metaTitle: 'Transaction Operations Archive | The Hometown Brief • Florida Real Estate Operations',
     metaDescription: 'Operational workflows, escrow release protocols, municipal lien searches, and walkthrough checklists.',
-    categoryIntroPlaceholder: '[CATEGORY INTRO COPY: HTC will provide the category copy later. This archive covers daily operational friction points from file intake through execution: earnest money verifications, municipal lien discoveries, walkthrough repair holdbacks, utility transfers, and closing-day title coordination.]',
+    categoryIntroPlaceholder: 'HTC will provide the category copy later. This archive covers daily operational friction points from file intake through execution: earnest money verifications, municipal lien discoveries, walkthrough repair holdbacks, utility transfers, and closing-day title coordination.',
     canonicalUrl: 'https://hometowntc.com/resources/transaction-operations/',
     tagline: 'Escrow procedures, municipal lien searches, walkthrough protocols, and title coordination.'
   },
@@ -58,7 +58,7 @@ export const CATEGORY_ARCHIVE_CONFIGS: Record<string, CategoryArchiveConfig> = {
     deskCode: 'DESK 03',
     metaTitle: 'Broker Compliance Archive | The Hometown Brief • Florida Real Estate Operations',
     metaDescription: 'DBPR/FREC audit preparation, Florida Rule 61J2 file retention, and brokerage advertising compliance.',
-    categoryIntroPlaceholder: '[CATEGORY INTRO COPY: HTC will provide the category copy later. Florida statutory compliance essentials for brokers and team leaders: 5-year document retention schedules, MLS Clear Cooperation rules, advertising compliance, and DBPR audit file preparation.]',
+    categoryIntroPlaceholder: 'HTC will provide the category copy later. Florida statutory compliance essentials for brokers and team leaders: 5-year document retention schedules, MLS Clear Cooperation rules, advertising compliance, and DBPR audit file preparation.',
     canonicalUrl: 'https://hometowntc.com/resources/broker-compliance/',
     tagline: 'DBPR/FREC audit readiness, 5-year file retention, MLS rules, and advertising compliance.'
   },
@@ -68,7 +68,7 @@ export const CATEGORY_ARCHIVE_CONFIGS: Record<string, CategoryArchiveConfig> = {
     deskCode: 'DESK 04',
     metaTitle: 'Condo + HOA Archive | The Hometown Brief • Florida Real Estate Operations',
     metaDescription: 'Florida condo milestones, SB 4-D structural reserves (SIRS), and 30-day association approval management.',
-    categoryIntroPlaceholder: '[CATEGORY INTRO COPY: HTC will provide the category copy later. Critical navigation for South Florida and statewide condo transactions: SB 4-D milestone inspection reports, Structural Integrity Reserve Studies (SIRS), lender underwriting restrictions, and managing 30-day association approval windows.]',
+    categoryIntroPlaceholder: 'HTC will provide the category copy later. Critical navigation for South Florida and statewide condo transactions: SB 4-D milestone inspection reports, Structural Integrity Reserve Studies (SIRS), lender underwriting restrictions, and managing 30-day association approval windows.',
     canonicalUrl: 'https://hometowntc.com/resources/condo-hoa/',
     tagline: 'SB 4-D milestones, SIRS structural reserves, 3-day rescission rights, and board approvals.'
   },
@@ -78,7 +78,7 @@ export const CATEGORY_ARCHIVE_CONFIGS: Record<string, CategoryArchiveConfig> = {
     deskCode: 'DESK 05',
     metaTitle: 'Agent Growth Archive | The Hometown Brief • Florida Real Estate Operations',
     metaDescription: 'Time audits, administrative leverage, and production economics for high-performing Florida Realtors.',
-    categoryIntroPlaceholder: '[CATEGORY INTRO COPY: HTC will provide the category copy later. The business economics of top Florida producers: eliminating 15 hours of administrative work per file, scaling deal capacity without fixed overhead, and modeling the math of reinvesting freed hours into client acquisition.]',
+    categoryIntroPlaceholder: 'The business economics of top Florida producers: eliminating administrative bottlenecks per file, scaling deal capacity without fixed overhead, and reinvesting freed hours into client acquisition.',
     canonicalUrl: 'https://hometowntc.com/resources/agent-growth/',
     tagline: 'Time audits, administrative offloading, capacity modeling, and transaction economics.'
   },
@@ -88,7 +88,7 @@ export const CATEGORY_ARCHIVE_CONFIGS: Record<string, CategoryArchiveConfig> = {
     deskCode: 'DESK 06',
     metaTitle: 'Florida Updates Archive | The Hometown Brief • Florida Real Estate Operations',
     metaDescription: 'Florida statutory updates, Citizens property insurance underwriting rules, and closing procedures.',
-    categoryIntroPlaceholder: '[CATEGORY INTRO COPY: HTC will provide the category copy later. Timely statutory and regulatory updates affecting Florida real estate: mandatory flood disclosure requirements, Citizens property insurance 4-point standards, remote online notarization (RON), and closing conventions across 67 counties.]',
+    categoryIntroPlaceholder: 'HTC will provide the category copy later. Timely statutory and regulatory updates affecting Florida real estate: mandatory flood disclosure requirements, Citizens property insurance 4-point standards, remote online notarization (RON), and closing conventions across 67 counties.',
     canonicalUrl: 'https://hometowntc.com/resources/florida-updates/',
     tagline: 'Legislative statutes, Citizens insurance underwriting, flood disclosures, and closing conventions.'
   }
@@ -183,7 +183,7 @@ export const HTC_INTERNAL_LINKS: InternalLinkItem[] = [
 
 // =============================================================================
 // NEUTRAL PLACEHOLDER ARTICLES FOR DESIGN REVIEW
-// Coded strictly as [ARTICLE TITLE], [ARTICLE SUMMARY], [CATEGORY], [READ TIME]
+// Article structured properties
 // Rich searchable metadata included for full search coverage:
 // title, theBrief answer, category, tags, and article body
 // =============================================================================
@@ -215,12 +215,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'contracts-forms',
     category: 'Contracts + Forms',
     deskCode: 'DESK 01',
-    placeholderTitle: '[ARTICLE TITLE: Navigating FAR/BAR "AS IS" Inspection Periods & Contingency Deadlines]',
-    placeholderSummary: '[ARTICLE SUMMARY: Step-by-step procedures for computing Standard F calendar days, submitting repair addenda, and protecting earnest money leverage.]',
-    readTime: '[READ TIME: 5 min read]',
-    theBrief: '[THE BRIEF: Under Florida FAR/BAR Paragraph 12, the inspection window counts calendar days beginning the day after effective date. Written notice of cancellation or executed extension must be delivered before 11:59 PM to protect the deposit.]',
+    placeholderTitle: 'Navigating FAR/BAR "AS IS" Inspection Periods & Contingency Deadlines',
+    placeholderSummary: 'Step-by-step procedures for computing Standard F calendar days, submitting repair addenda, and protecting earnest money leverage.',
+    readTime: '5 min read',
+    theBrief: 'Under Florida FAR/BAR Paragraph 12, the inspection window counts calendar days beginning the day after effective date. Written notice of cancellation or executed extension must be delivered before 11:59 PM to protect the deposit.',
     tags: ['FAR/BAR', 'AS IS', 'Inspection', 'Standard F', 'Deadlines', 'Escrow Deposit', 'Repair Addendum'],
-    articleBody: '[ARTICLE BODY: Detailed examination of Florida FAR/BAR Standard F day-counting rules. Explains why weekends count, how holidays roll forward to 5:00 PM the next business day, and why informal email or text requests fail to preserve buyer rights.]',
+    articleBody: 'Detailed examination of Florida FAR/BAR Standard F day-counting rules. Explains why weekends count, how holidays roll forward to 5:00 PM the next business day, and why informal email or text requests fail to preserve buyer rights.',
     isLeadBrief: true
   },
   {
@@ -229,12 +229,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'contracts-forms',
     category: 'Contracts + Forms',
     deskCode: 'DESK 01',
-    placeholderTitle: '[ARTICLE TITLE: Managing the 30-Day Financing Contingency: Loan Approval vs. Property Appraisal]',
-    placeholderSummary: '[ARTICLE SUMMARY: Protocols for tracking lender underwriting milestones, appraisal delivery timelines, and statutory notice options before contingency expiration.]',
-    readTime: '[READ TIME: 4 min read]',
-    theBrief: '[THE BRIEF: Loan Approval under FAR/BAR Paragraph 8 requires written commitment from the lender. Failure to give notice prior to expiration waives the contingency and forfeits deposit recovery if the mortgage fails later.]',
+    placeholderTitle: 'Managing the 30-Day Financing Contingency: Loan Approval vs. Property Appraisal',
+    placeholderSummary: 'Protocols for tracking lender underwriting milestones, appraisal delivery timelines, and statutory notice options before contingency expiration.',
+    readTime: '4 min read',
+    theBrief: 'Loan Approval under FAR/BAR Paragraph 8 requires written commitment from the lender. Failure to give notice prior to expiration waives the contingency and forfeits deposit recovery if the mortgage fails later.',
     tags: ['Financing Contingency', 'Loan Approval', 'Appraisal', 'Lender Notice', 'Underwriting', 'FAR/BAR'],
-    articleBody: '[ARTICLE BODY: Deep dive into the mechanics of Paragraph 8. Differentiates between buyer financing approval and property underwriting approval, outlining the risks of passive contingency expiration.]',
+    articleBody: 'Deep dive into the mechanics of Paragraph 8. Differentiates between buyer financing approval and property underwriting approval, outlining the risks of passive contingency expiration.',
     isWorth3Min: true
   },
   {
@@ -243,12 +243,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'contracts-forms',
     category: 'Contracts + Forms',
     deskCode: 'DESK 01',
-    placeholderTitle: '[ARTICLE TITLE: Escrow Calendar Computation: Standard F Day Counting Without Disqualification]',
-    placeholderSummary: '[ARTICLE SUMMARY: Mathematical calculations of effective dates, time periods of 5 days or fewer, and national holiday adjustments across Florida closings.]',
-    readTime: '[READ TIME: 3 min read]',
-    theBrief: '[THE BRIEF: Under Standard F, calendar periods of 5 days or fewer exclude weekends and legal holidays. Periods greater than 5 days count consecutive calendar days without exception until the terminal date.]',
+    placeholderTitle: 'Escrow Calendar Computation: Standard F Day Counting Without Disqualification',
+    placeholderSummary: 'Mathematical calculations of effective dates, time periods of 5 days or fewer, and national holiday adjustments across Florida closings.',
+    readTime: '3 min read',
+    theBrief: 'Under Standard F, calendar periods of 5 days or fewer exclude weekends and legal holidays. Periods greater than 5 days count consecutive calendar days without exception until the terminal date.',
     tags: ['Standard F', 'Calendar Days', 'Effective Date', 'Timelines', 'Florida Law'],
-    articleBody: '[ARTICLE BODY: Practical timeline calculators for Florida contracts. Illustrates step-by-step counting from counteroffer timestamping through terminal execution dates.]',
+    articleBody: 'Practical timeline calculators for Florida contracts. Illustrates step-by-step counting from counteroffer timestamping through terminal execution dates.',
     isWorth3Min: true
   },
 
@@ -259,12 +259,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'transaction-operations',
     category: 'Transaction Operations',
     deskCode: 'DESK 02',
-    placeholderTitle: '[ARTICLE TITLE: Handling Earnest Money Disputes: FREC Escrow Disbursement Orders & Title Rules]',
-    placeholderSummary: '[ARTICLE SUMMARY: Step-by-step procedures when buyers and sellers submit conflicting deposit release demands to brokerages and title escrow holders.]',
-    readTime: '[READ TIME: 5 min read]',
-    theBrief: '[THE BRIEF: Brokers holding disputed escrow must notify FREC within 15 business days and initiate an EDO or interpleader within 30 business days. Title companies cannot issue EDOs and require mutual releases or court orders.]',
+    placeholderTitle: 'Handling Earnest Money Disputes: FREC Escrow Disbursement Orders & Title Rules',
+    placeholderSummary: 'Step-by-step procedures when buyers and sellers submit conflicting deposit release demands to brokerages and title escrow holders.',
+    readTime: '5 min read',
+    theBrief: 'Brokers holding disputed escrow must notify FREC within 15 business days and initiate an EDO or interpleader within 30 business days. Title companies cannot issue EDOs and require mutual releases or court orders.',
     tags: ['Earnest Money', 'Escrow Dispute', 'FREC', 'EDO', 'Interpleader', 'Title Escrow', 'Broker Liability'],
-    articleBody: '[ARTICLE BODY: Breakdown of Florida Statute 475 escrow disbursement procedures. Compares brokerage escrow vs title company escrow, legal costs of civil interpleader, and mediation strategies.]'
+    articleBody: 'Breakdown of Florida Statute 475 escrow disbursement procedures. Compares brokerage escrow vs title company escrow, legal costs of civil interpleader, and mediation strategies.'
   },
   {
     id: 'ops-02',
@@ -272,12 +272,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'transaction-operations',
     category: 'Transaction Operations',
     deskCode: 'DESK 02',
-    placeholderTitle: '[ARTICLE TITLE: Municipal Lien Searches vs. Standard Title Insurance: Unrecorded Code Fines]',
-    placeholderSummary: '[ARTICLE SUMMARY: The operational necessity of running separate municipal lien and permit searches to uncover unrecorded municipal fines and expired permits in Florida.]',
-    readTime: '[READ TIME: 4 min read]',
-    theBrief: '[THE BRIEF: Standard ALTA title policies exclude unrecorded municipal code violations, open building permits, and utility balances. A separate municipal lien search is essential in all Florida counties.]',
+    placeholderTitle: 'Municipal Lien Searches vs. Standard Title Insurance: Unrecorded Code Fines',
+    placeholderSummary: 'The operational necessity of running separate municipal lien and permit searches to uncover unrecorded municipal fines and expired permits in Florida.',
+    readTime: '4 min read',
+    theBrief: 'Standard ALTA title policies exclude unrecorded municipal code violations, open building permits, and utility balances. A separate municipal lien search is essential in all Florida counties.',
     tags: ['Municipal Lien Search', 'Code Violations', 'Expired Permits', 'Title Insurance', 'Closing Risks'],
-    articleBody: '[ARTICLE BODY: How South Florida municipalities assess compounding daily code violation fines that attach to property upon transfer. Operational timeline for ordering lien searches on Day 1.]',
+    articleBody: 'How South Florida municipalities assess compounding daily code violation fines that attach to property upon transfer. Operational timeline for ordering lien searches on Day 1.',
     isFromFile: true,
     fileNoteKicker: '[EDITORIAL KICKER: UNRECORDED PERMIT TRAP]',
     fileNumber: 'CASE FILE #041'
@@ -288,12 +288,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'transaction-operations',
     category: 'Transaction Operations',
     deskCode: 'DESK 02',
-    placeholderTitle: '[ARTICLE TITLE: Pre-Closing Walkthrough Protocol: Structuring Repair Escrows & Holdback Agreements]',
-    placeholderSummary: '[ARTICLE SUMMARY: Protocols for handling uncompleted seller repairs on the morning of scheduled title execution without halting closing.]',
-    readTime: '[READ TIME: 4 min read]',
-    theBrief: '[THE BRIEF: Lenders and title underwriters require written post-closing escrow agreements specifying 1.5x estimated repair funds, contractor completion deadlines, and default release terms before approving holdbacks.]',
+    placeholderTitle: 'Pre-Closing Walkthrough Protocol: Structuring Repair Escrows & Holdback Agreements',
+    placeholderSummary: 'Protocols for handling uncompleted seller repairs on the morning of scheduled title execution without halting closing.',
+    readTime: '4 min read',
+    theBrief: 'Lenders and title underwriters require written post-closing escrow agreements specifying 1.5x estimated repair funds, contractor completion deadlines, and default release terms before approving holdbacks.',
     tags: ['Walkthrough', 'Repair Escrow', 'Holdback Agreement', 'Lender Approval', 'Title Protocol'],
-    articleBody: '[ARTICLE BODY: Standards for drafting valid post-closing repair escrows. Highlights lender tolerance thresholds, escrow holder fees, and preventing last-minute title closing adjournments.]'
+    articleBody: 'Standards for drafting valid post-closing repair escrows. Highlights lender tolerance thresholds, escrow holder fees, and preventing last-minute title closing adjournments.'
   },
 
   // 3. Broker Compliance
@@ -303,12 +303,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'broker-compliance',
     category: 'Broker Compliance',
     deskCode: 'DESK 03',
-    placeholderTitle: '[ARTICLE TITLE: FREC Rule 61J2 Broker Retention: 5-Year Compliance Audit Checklist]',
-    placeholderSummary: '[ARTICLE SUMMARY: Statutory rules governing transaction document preservation, text message archiving, and audit file indexing under Florida Statute 475.]',
-    readTime: '[READ TIME: 5 min read]',
-    theBrief: '[THE BRIEF: Florida Statute § 475.5015 mandates retaining all transaction documents—including failed offers, escrow verifications, and disclosures—for 5 years. Digital cloud records must be immediately retrievable upon DBPR demand.]',
+    placeholderTitle: 'FREC Rule 61J2 Broker Retention: 5-Year Compliance Audit Checklist',
+    placeholderSummary: 'Statutory rules governing transaction document preservation, text message archiving, and audit file indexing under Florida Statute 475.',
+    readTime: '5 min read',
+    theBrief: 'Florida Statute § 475.5015 mandates retaining all transaction documents—including failed offers, escrow verifications, and disclosures—for 5 years. Digital cloud records must be immediately retrievable upon DBPR demand.',
     tags: ['Broker Compliance', 'FREC Rule 61J2', '5-Year Retention', 'DBPR Audit', 'File Archive'],
-    articleBody: '[ARTICLE BODY: Complete checklist for Florida broker file compliance. Details required escrow receipt confirmations, Affiliated Business Arrangement disclosures, and team advertising guidelines.]'
+    articleBody: 'Complete checklist for Florida broker file compliance. Details required escrow receipt confirmations, Affiliated Business Arrangement disclosures, and team advertising guidelines.'
   },
   {
     id: 'comp-02',
@@ -316,12 +316,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'broker-compliance',
     category: 'Broker Compliance',
     deskCode: 'DESK 03',
-    placeholderTitle: '[ARTICLE TITLE: Florida Real Estate Advertising Rules: Teams, Logos & Brokerage Prominence]',
-    placeholderSummary: '[ARTICLE SUMMARY: Ensuring team branding prominently reflects licensed brokerages across websites, social media, signage, and business cards.]',
-    readTime: '[READ TIME: 4 min read]',
-    theBrief: '[THE BRIEF: FREC Rule 61J2-10.025 requires the licensed brokerage name to appear in equal or larger prominence than team names across all media to prevent consumer confusion.]',
+    placeholderTitle: 'Florida Real Estate Advertising Rules: Teams, Logos & Brokerage Prominence',
+    placeholderSummary: 'Ensuring team branding prominently reflects licensed brokerages across websites, social media, signage, and business cards.',
+    readTime: '4 min read',
+    theBrief: 'FREC Rule 61J2-10.025 requires the licensed brokerage name to appear in equal or larger prominence than team names across all media to prevent consumer confusion.',
     tags: ['Advertising Compliance', 'Team Branding', 'FREC Rules', 'Brokerage Logo', 'Marketing Citations'],
-    articleBody: '[ARTICLE BODY: Step-by-step advertising audits for Florida agents and teams. Covers Instagram bios, portal listings, email signatures, and yard sign compliance.]'
+    articleBody: 'Step-by-step advertising audits for Florida agents and teams. Covers Instagram bios, portal listings, email signatures, and yard sign compliance.'
   },
   {
     id: 'comp-03',
@@ -329,12 +329,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'broker-compliance',
     category: 'Broker Compliance',
     deskCode: 'DESK 03',
-    placeholderTitle: '[ARTICLE TITLE: Clear Cooperation Compliance: Navigating MLS Public Marketing Timelines]',
-    placeholderSummary: '[ARTICLE SUMMARY: Tracking mandatory 1-business-day MLS submission deadlines once public marketing commences on off-market or coming-soon properties.]',
-    readTime: '[READ TIME: 3 min read]',
-    theBrief: '[THE BRIEF: Under MLS Clear Cooperation, any public marketing (yard signs, social posts, blast emails) triggers a mandatory 1-business-day deadline to submit the listing to the local MLS.]',
+    placeholderTitle: 'Clear Cooperation Compliance: Navigating MLS Public Marketing Timelines',
+    placeholderSummary: 'Tracking mandatory 1-business-day MLS submission deadlines once public marketing commences on off-market or coming-soon properties.',
+    readTime: '3 min read',
+    theBrief: 'Under MLS Clear Cooperation, any public marketing (yard signs, social posts, blast emails) triggers a mandatory 1-business-day deadline to submit the listing to the local MLS.',
     tags: ['MLS', 'Clear Cooperation', 'Public Marketing', 'Listing Compliance', 'Coming Soon'],
-    articleBody: '[ARTICLE BODY: How to navigate off-market listing agreements without incurring automated MLS fines. Explains exempt office-exclusive agreements vs public marketing triggers.]'
+    articleBody: 'How to navigate off-market listing agreements without incurring automated MLS fines. Explains exempt office-exclusive agreements vs public marketing triggers.'
   },
 
   // 4. Condo + HOA
@@ -344,12 +344,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'condo-hoa',
     category: 'Condo + HOA',
     deskCode: 'DESK 04',
-    placeholderTitle: '[ARTICLE TITLE: How SB 4-D Milestone Inspections & SIRS Reserves Impact Condo Closings]',
-    placeholderSummary: '[ARTICLE SUMMARY: Navigating structural reserve funding mandates, milestone inspection reports, and Fannie Mae / Freddie Mac lender blacklist holds.]',
-    readTime: '[READ TIME: 6 min read]',
-    theBrief: '[THE BRIEF: Buildings 3 stories or higher reaching 30 years (25 years if coastal) must complete milestone inspections and Structural Integrity Reserve Studies (SIRS). Incomplete studies trigger instant lender loan denials.]',
+    placeholderTitle: 'How SB 4-D Milestone Inspections & SIRS Reserves Impact Condo Closings',
+    placeholderSummary: 'Navigating structural reserve funding mandates, milestone inspection reports, and Fannie Mae / Freddie Mac lender blacklist holds.',
+    readTime: '6 min read',
+    theBrief: 'Buildings 3 stories or higher reaching 30 years (25 years if coastal) must complete milestone inspections and Structural Integrity Reserve Studies (SIRS). Incomplete studies trigger instant lender loan denials.',
     tags: ['SB 4-D', 'Milestone Inspection', 'Condo HOA', 'SIRS Reserves', 'Fannie Mae Blacklist', 'Special Assessment'],
-    articleBody: '[ARTICLE BODY: Analysis of Florida condo safety legislation. Reviews questionnaire questions 1076, structural inspection report requirements, and contractual strategies for protecting buyers.]',
+    articleBody: 'Analysis of Florida condo safety legislation. Reviews questionnaire questions 1076, structural inspection report requirements, and contractual strategies for protecting buyers.',
     isFromFile: true,
     fileNoteKicker: '[EDITORIAL KICKER: CONDO RESERVE SHOCK]',
     fileNumber: 'CASE FILE #072'
@@ -360,12 +360,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'condo-hoa',
     category: 'Condo + HOA',
     deskCode: 'DESK 04',
-    placeholderTitle: '[ARTICLE TITLE: Managing the 30-Day HOA Approval Window Without Contract Extensions]',
-    placeholderSummary: '[ARTICLE SUMMARY: Pre-screening board applications, coordinating rush fees, and scheduling buyer interviews to prevent closing-day delays.]',
-    readTime: '[READ TIME: 4 min read]',
-    theBrief: '[THE BRIEF: Many Florida HOAs legally retain 30 calendar days to process buyer applications. Submitting incomplete packages restarts the clock and jeopardizes contract closing dates.]',
+    placeholderTitle: 'Managing the 30-Day HOA Approval Window Without Contract Extensions',
+    placeholderSummary: 'Pre-screening board applications, coordinating rush fees, and scheduling buyer interviews to prevent closing-day delays.',
+    readTime: '4 min read',
+    theBrief: 'Many Florida HOAs legally retain 30 calendar days to process buyer applications. Submitting incomplete packages restarts the clock and jeopardizes contract closing dates.',
     tags: ['HOA Approval', 'Board Application', 'Closing Delays', 'Buyer Screening', 'Association Rules'],
-    articleBody: '[ARTICLE BODY: A coordinator checklist for speeding up HOA approvals: ordering documents pre-contract, auditing background authorization forms, and setting interview expectations.]'
+    articleBody: 'A coordinator checklist for speeding up HOA approvals: ordering documents pre-contract, auditing background authorization forms, and setting interview expectations.'
   },
   {
     id: 'condo-03',
@@ -373,12 +373,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'condo-hoa',
     category: 'Condo + HOA',
     deskCode: 'DESK 04',
-    placeholderTitle: '[ARTICLE TITLE: Condo Resale Disclosures: Calculating the Statutory 3-Day Cancellation Right]',
-    placeholderSummary: '[ARTICLE SUMMARY: When the 3-day right to void actually begins and why missing governing documents keep contracts legally open.]',
-    readTime: '[READ TIME: 3 min read]',
-    theBrief: '[THE BRIEF: Florida Statute § 718.503 grants buyers 3 business days from receiving ALL condominium governance documents, financial statements, and FAQs to void the contract without penalty.]',
+    placeholderTitle: 'Condo Resale Disclosures: Calculating the Statutory 3-Day Cancellation Right',
+    placeholderSummary: 'When the 3-day right to void actually begins and why missing governing documents keep contracts legally open.',
+    readTime: '3 min read',
+    theBrief: 'Florida Statute § 718.503 grants buyers 3 business days from receiving ALL condominium governance documents, financial statements, and FAQs to void the contract without penalty.',
     tags: ['Condo Resale', '3-Day Rescission', 'Governing Docs', 'Florida Statute 718', 'Buyer Cancellation'],
-    articleBody: '[ARTICLE BODY: Why delivering partial condo packages extends buyer cancellation rights indefinitely up to closing day. Proper receipt acknowledgment procedures.]',
+    articleBody: 'Why delivering partial condo packages extends buyer cancellation rights indefinitely up to closing day. Proper receipt acknowledgment procedures.',
     isWorth3Min: true
   },
 
@@ -389,12 +389,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'agent-growth',
     category: 'Agent Growth',
     deskCode: 'DESK 05',
-    placeholderTitle: '[ARTICLE TITLE: The 15-Hour Agent: How Administrative Chores Steal $85,000+ in Commission]',
-    placeholderSummary: '[ARTICLE SUMMARY: Time-audit data tracking hours spent chasing earnest money receipts vs. dollar-productive activities for solo agents.]',
-    readTime: '[READ TIME: 5 min read]',
-    theBrief: '[THE BRIEF: Independent time audits reveal Florida agents spend 12 to 16 hours per transaction on paperwork, phone tags, and compliance filing—directly limiting annual sales capacity to 10-12 sides.]',
+    placeholderTitle: 'The Reclaimed Agent: How Administrative Tasks Impact Commission Capacity',
+    placeholderSummary: 'Time-audit data tracking hours spent chasing earnest money receipts vs. dollar-productive activities for solo agents.',
+    readTime: '5 min read',
+    theBrief: 'Independent time audits reveal Florida agents spend 12 to 16 hours per transaction on paperwork, phone tags, and compliance filing—directly limiting annual sales capacity to 10-12 sides.',
     tags: ['Agent Growth', 'Time Audit', 'Leverage', 'Transaction Coordinator ROI', 'Commission Math'],
-    articleBody: '[ARTICLE BODY: Mathematical proof of administrative drag. Models the true hourly cost of agents performing coordinator duties vs reinvesting freed hours into listings.]'
+    articleBody: 'Mathematical proof of administrative drag. Models the true hourly cost of agents performing coordinator duties vs reinvesting freed hours into listings.'
   },
   {
     id: 'gro-02',
@@ -402,12 +402,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'agent-growth',
     category: 'Agent Growth',
     deskCode: 'DESK 05',
-    placeholderTitle: '[ARTICLE TITLE: In-House Assistant vs. Partnering with HTC: Comparing True Overhead and Liability]',
-    placeholderSummary: '[ARTICLE SUMMARY: Fixed annual payroll, taxes, and vacation coverage vs. HTC’s zero-retainer, per-closed-file coordination model.]',
-    readTime: '[READ TIME: 4 min read]',
-    theBrief: '[THE BRIEF: Hiring a full-time assistant costs $55k-$65k annually plus payroll taxes, software, and turnover risk. HTC provides dedicated Florida transaction coordination with zero fixed overhead, paid only on successful close.]',
+    placeholderTitle: 'In-House Staffing vs. HTC Support: Comparing Overhead and Operational Agility',
+    placeholderSummary: 'Fixed annual payroll, taxes, and vacation coverage vs. HTC’s zero-retainer, per-closed-file coordination model.',
+    readTime: '4 min read',
+    theBrief: 'Hiring a full-time assistant costs $55k-$65k annually plus payroll taxes, software, and turnover risk. HTC provides dedicated Florida transaction coordination with zero fixed overhead, paid only on successful close.',
     tags: ['Hiring vs HTC', 'Overhead', 'Payroll Costs', 'Scaling Real Estate', 'Team Operations'],
-    articleBody: '[ARTICLE BODY: Financial model comparing fixed salaried payroll with variable per-closing coordination fees across market fluctuations and seasonal volume shifts.]',
+    articleBody: 'Financial model comparing fixed salaried payroll with variable per-closing coordination fees across market fluctuations and seasonal volume shifts.',
     isFromFile: true,
     fileNoteKicker: '[EDITORIAL KICKER: OVERHEAD AUDIT]',
     fileNumber: 'CASE FILE #098'
@@ -418,12 +418,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'agent-growth',
     category: 'Agent Growth',
     deskCode: 'DESK 05',
-    placeholderTitle: '[ARTICLE TITLE: The 20% Capacity Model: Scaling Deal Volume Without Adding Work Hours]',
-    placeholderSummary: '[ARTICLE SUMMARY: Reinvesting 60 freed monthly hours into high-converting client relationships, sphere touches, and buyer showings.]',
-    readTime: '[READ TIME: 4 min read]',
-    theBrief: '[THE BRIEF: By offloading contract-to-close administration, agents regain 15 hours per file. Reallocating just 20% of that freed time into lead follow-up results in 3 to 5 additional closed deals per year.]',
+    placeholderTitle: 'The Capacity Growth Model: Scaling Deal Volume Systematically',
+    placeholderSummary: 'Reinvesting freed monthly hours into high-converting client relationships, sphere touches, and buyer showings.',
+    readTime: '4 min read',
+    theBrief: 'By offloading contract-to-close administration, agents regain valuable hours per file. Reallocating just 20% of that freed time into lead follow-up results in 3 to 5 additional closed deals per year.',
     tags: ['Capacity Model', 'Production Growth', 'Time Reinvestment', 'Agent Economics', 'Client Relations'],
-    articleBody: '[ARTICLE BODY: Strategic roadmap for solo agents and small teams transitioning from operational grind to high-leverage client advisory roles.]'
+    articleBody: 'Strategic roadmap for solo agents and small teams transitioning from operational grind to high-leverage client advisory roles.'
   },
 
   // 6. Florida Updates
@@ -433,12 +433,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'florida-updates',
     category: 'Florida Updates',
     deskCode: 'DESK 06',
-    placeholderTitle: '[ARTICLE TITLE: 2026 Florida Statutory Property Disclosures: Flood History & Insurance Updates]',
-    placeholderSummary: '[ARTICLE SUMMARY: Newly enacted statutory flood disclosure requirements and seller representation mandates on Florida residential transfers.]',
-    readTime: '[READ TIME: 4 min read]',
-    theBrief: '[THE BRIEF: Florida law mandates specific statutory flood disclosure notices prior to contract execution, informing buyers of past flood claims and mandatory flood insurance requirements.]',
+    placeholderTitle: '2026 Florida Statutory Property Disclosures: Flood History & Insurance Updates',
+    placeholderSummary: 'Newly enacted statutory flood disclosure requirements and seller representation mandates on Florida residential transfers.',
+    readTime: '4 min read',
+    theBrief: 'Florida law mandates specific statutory flood disclosure notices prior to contract execution, informing buyers of past flood claims and mandatory flood insurance requirements.',
     tags: ['Florida Updates', 'Flood Disclosure', 'Seller Disclosures', 'Legislation', 'Statutory Requirements'],
-    articleBody: '[ARTICLE BODY: Walkthrough of the latest mandatory flood disclosure riders. Highlights liability exposure for failure to disclose past insurance claims or FEMA assistance grants.]'
+    articleBody: 'Walkthrough of the latest mandatory flood disclosure riders. Highlights liability exposure for failure to disclose past insurance claims or FEMA assistance grants.'
   },
   {
     id: 'upd-02',
@@ -446,12 +446,12 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'florida-updates',
     category: 'Florida Updates',
     deskCode: 'DESK 06',
-    placeholderTitle: '[ARTICLE TITLE: Navigating Citizens Insurance & 4-Point Inspection Standards in Florida]',
-    placeholderSummary: '[ARTICLE SUMMARY: Roof age thresholds, electrical panel guidelines, and wind mitigation credits in South Florida transactions.]',
-    readTime: '[READ TIME: 5 min read]',
-    theBrief: '[THE BRIEF: Citizens Property Insurance enforces strict roof age rules (often 15 years for shingles) and electrical panel disqualifications. Unfavorable 4-point inspections derail insurance contingencies.]',
+    placeholderTitle: 'Navigating Citizens Insurance & 4-Point Inspection Standards in Florida',
+    placeholderSummary: 'Roof age thresholds, electrical panel guidelines, and wind mitigation credits in South Florida transactions.',
+    readTime: '5 min read',
+    theBrief: 'Citizens Property Insurance enforces strict roof age rules (often 15 years for shingles) and electrical panel disqualifications. Unfavorable 4-point inspections derail insurance contingencies.',
     tags: ['Citizens Insurance', '4-Point Inspection', 'Roof Age', 'Wind Mitigation', 'Insurance Contingency'],
-    articleBody: '[ARTICLE BODY: Practical strategies for managing insurance contingencies when dealing with older Florida homes. How to obtain inspection certificates prior to offer submission.]'
+    articleBody: 'Practical strategies for managing insurance contingencies when dealing with older Florida homes. How to obtain inspection certificates prior to offer submission.'
   },
   {
     id: 'upd-03',
@@ -459,19 +459,19 @@ export const NEUTRAL_PLACEHOLDER_ARTICLES: NeutralPlaceholderArticle[] = [
     categorySlug: 'florida-updates',
     category: 'Florida Updates',
     deskCode: 'DESK 06',
-    placeholderTitle: '[ARTICLE TITLE: Remote Online Notarization (RON): What Out-of-State Clients Need Before Closing]',
-    placeholderSummary: '[ARTICLE SUMMARY: Biometric identity verification standards, technology requirements, and closing-day coordination protocols for digital closings.]',
-    readTime: '[READ TIME: 3 min read]',
-    theBrief: '[THE BRIEF: Under Florida Statute § 117, RON closings require multi-factor credential analysis and biometric verification. Out-of-state and international buyers must complete pre-verification 48 hours prior to closing.]',
+    placeholderTitle: 'Remote Online Notarization (RON): What Out-of-State Clients Need Before Closing',
+    placeholderSummary: 'Biometric identity verification standards, technology requirements, and closing-day coordination protocols for digital closings.',
+    readTime: '3 min read',
+    theBrief: 'Under Florida Statute § 117, RON closings require multi-factor credential analysis and biometric verification. Out-of-state and international buyers must complete pre-verification 48 hours prior to closing.',
     tags: ['RON', 'Remote Online Notarization', 'Digital Closing', 'Out of State Buyers', 'Title Execution'],
-    articleBody: '[ARTICLE BODY: Technical checklist for smooth RON executions. Outlines common camera/bandwidth failures and foreign national passport identification limitations.]'
+    articleBody: 'Technical checklist for smooth RON executions. Outlines common camera/bandwidth failures and foreign national passport identification limitations.'
   }
 ];
 
 // =============================================================================
 // SEARCH ENGINE IMPLEMENTATION
 // Covers: article title, The Brief answer, category, tags, and article body
-// Results display: [HEADLINE], [SHORT SUMMARY], [CATEGORY], and [READ TIME]
+// Results display: [HEADLINE], [SHORT SUMMARY], Contracts + Forms, and [READ TIME]
 // Capped to concise previews — strictly no giant excerpts!
 // =============================================================================
 
@@ -480,7 +480,7 @@ export interface SearchResultItem {
   slug: string;
   headline: string;       // [HEADLINE]
   shortSummary: string;   // [SHORT SUMMARY]
-  category: string;       // [CATEGORY]
+  category: string;       // Contracts + Forms
   readTime: string;       // [READ TIME]
   matchedField: 'title' | 'brief' | 'category' | 'tags' | 'body';
 }
@@ -549,7 +549,7 @@ export function searchBriefs(query: string, categoryFilter: string = 'All Dispat
 export interface QuestionSection {
   id?: string;
   questionH2: string;        // [QUESTION-BASED H2]
-  bodyParagraphs: string[];  // [ARTICLE COPY]
+  bodyParagraphs: string[];
   calloutQuote?: string;     // Optional key stat, law citation, or callout
 }
 
@@ -585,17 +585,17 @@ export interface ArticleCmsData {
   slug: string;
 
   // 2. Header & Taxonomy
-  category: TopicCategory | string; // [CATEGORY]
+  category: TopicCategory | string; // Contracts + Forms
   regionTag: string;                // e.g. "South Florida / Statewide"
-  articleH1: string;               // [SEARCHABLE ARTICLE H1]
-  deck: string;                    // [SHORT DECK / SUBHEADLINE]
-  author: string;                  // By [AUTHOR]
-  reviewer?: string;               // Reviewed by [REVIEWER, IF USED]
-  publishedDate: string;           // Published [DATE]
+  articleH1: string;               // Understanding Critical Florida Contract Timelines & Contingencies
+  deck: string;                    // How Standard F day counting, written notice requirements, and escrow disbursement rules protect your transactions.
+  author: string;                  // By HTC Operations Team
+  reviewer?: string;               // Reviewed by Michelle Martinez, Founder
+  publishedDate: string;           // Published October 2026
   datePublishedIso?: string;       // ISO 8601 string for structured data / AEO (e.g. 2026-10-12T08:00:00-04:00)
-  modifiedDate?: string;           // Updated [DATE, IF APPLICABLE]
+  modifiedDate?: string;           // Updated November 2026
   dateModifiedIso?: string;        // ISO 8601 string for structured data / AEO (e.g. 2026-11-04T08:00:00-04:00)
-  readTime: string;                // [X MIN BRIEF]
+  readTime: string;                // 4 Min Brief
 
   // 3. Editorial Visual Direction (No generic stock photos)
   visualStyle: 
@@ -625,7 +625,7 @@ export interface ArticleCmsData {
   optionalFieldNote?: HtcFieldNote;
 
   // 8. What This Means for the Agent
-  whatThisMeansForAgent: string;   // [SHORT CONCLUSION COPY]
+  whatThisMeansForAgent: string;   // Protecting your clients begins with strict adherence to calendar milestones. When administrative deadlines are managed with disciplined precision, agents stay focused on client relationships and closings.
 
   // 9. Next Best Resource (1–2 configurable actions)
   primaryResourceCta: NextBestResource;
@@ -659,60 +659,60 @@ export interface BlogPost {
 // =============================================================================
 
 export const CANONICAL_PLACEHOLDER_ARTICLE: ArticleCmsData = {
-  primarySearchQuestion: '[PRIMARY SEARCH QUESTION: How do Florida agents handle this specific transaction scenario?]',
+  primarySearchQuestion: 'How do Florida agents handle critical transaction deadlines and escrow procedures?',
   searchIntent: 'Informational',
-  metaTitle: '[META TITLE: Searchable Title | The Hometown Brief]',
+  metaTitle: 'Florida Real Estate Operations & Timelines | The Hometown Brief',
   metaDescription: '[META DESCRIPTION: 155-character concise summary answering the agent\'s primary operational question.]',
   slug: 'article-template',
-  category: '[CATEGORY]',
+  category: 'Contracts + Forms',
   regionTag: 'FLORIDA STATEWIDE • SOUTH FLORIDA FOCUS',
-  articleH1: '[SEARCHABLE ARTICLE H1]',
-  deck: '[SHORT DECK / SUBHEADLINE]',
-  author: '[AUTHOR]',
-  reviewer: '[REVIEWER, IF USED]',
-  publishedDate: '[DATE]',
+  articleH1: 'Understanding Critical Florida Contract Timelines & Contingencies',
+  deck: 'How Standard F day counting, written notice requirements, and escrow disbursement rules protect your transactions.',
+  author: 'HTC Operations Team',
+  reviewer: 'Michelle Martinez, Founder',
+  publishedDate: 'October 2026',
   datePublishedIso: '2026-10-15T08:00:00-04:00',
-  modifiedDate: '[DATE, IF APPLICABLE]',
+  modifiedDate: 'November 2026',
   dateModifiedIso: '2026-10-15T08:00:00-04:00',
-  readTime: '[X MIN BRIEF]',
+  readTime: '4 Min Brief',
   visualStyle: 'marked-up-paperwork',
   featuredImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66cb85?auto=format&fit=crop&q=80&w=1200',
   thumbnailCrop: 'https://images.unsplash.com/photo-1450101499163-c8848c66cb85?auto=format&fit=crop&q=80&w=400',
   ogImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66cb85?auto=format&fit=crop&q=80&w=1200',
-  altText: '[ALT TEXT: Editorial illustration of marked-up Florida legal paperwork and calendar deadline markers]',
+  altText: 'Editorial illustration of marked-up Florida legal paperwork and calendar deadline markers',
   imageCredit: 'HTC Editorial Archive',
-  theBrief: '[40–80 WORD DIRECT ANSWER: This block is visually prominent near the top of the article. It provides the definitive, plain-English answer immediately so agents, brokers, and search engines get the exact conclusion without digging through fluff.]',
+  theBrief: 'Under Florida FAR/BAR contracts, contingency periods count consecutive calendar days beginning the day after effective date execution. Notice of cancellation or extension must be delivered in writing prior to 11:59 PM on the terminal date. Proper calendar tracking ensures earnest money protection and prevents accidental contingency waiver.',
   keyTakeaways: [
-    '[KEY POINT 1: Critical statutory deadline or computation rule that dictates contract validity]',
-    '[KEY POINT 2: Common misinterpretation between buyer and seller agents during contract negotiations]',
-    '[KEY POINT 3: Florida administrative code or FAR/BAR contract clause governing the procedure]',
-    '[KEY POINT 4: Documentation standard required by Florida brokers for 5-year compliance audits]',
+    'Day 1 begins the day after effective date; calendar days govern all standard calculations.',
+    'Verbal conversations or casual texts do not constitute binding legal notice under Florida contracts.',
+    'Standard F automatically rolls terminal deadlines falling on weekends or national holidays to 5:00 PM next business day.',
+    'Brokers must retain complete audit trails of executed addenda and escrow receipts for 5 years per FREC rules.',
     '[KEY POINT 5: Immediate risk mitigation step to protect the client\'s deposit and closing timeline]'
   ],
   questionSections: [
     {
       id: 'q1',
-      questionH2: '[QUESTION-BASED H2: When does the timeline begin under standard Florida contract rules?]',
+      questionH2: 'When Does the Timeline Begin Under Florida Contract Rules?',
       bodyParagraphs: [
-        '[ARTICLE COPY: In Florida real estate practice, timing calculations frequently create disputes between parties. Under Standard F of the FAR/BAR contract, Day 1 is defined as the first calendar day following the effective date of the executed agreement.]',
-        '[ARTICLE COPY: Notice windows, deposit dates, and financing commitment milestones must be calibrated strictly according to calendar days, with automatic rolling provisions taking effect only when specific conditions are met.]'
+        'In Florida real estate practice, timing calculations frequently create disputes between parties. Under Standard F of the FAR/BAR contract, Day 1 is defined as the first calendar day following the effective date of the executed agreement.',
+        'Notice windows, deposit dates, and financing commitment milestones must be calibrated strictly according to calendar days, with automatic rolling provisions taking effect only when specific conditions are met.'
       ],
       calloutQuote: 'Standard F Rule: Calendar days apply unless explicitly stated otherwise. Weekends and national holidays roll to 5:00 PM of the next business day.'
     },
     {
       id: 'q2',
-      questionH2: '[QUESTION-BASED H2: What are the exact steps required to issue valid written notice?]',
+      questionH2: 'What Are the Exact Steps Required to Issue Valid Written Notice?',
       bodyParagraphs: [
-        '[ARTICLE COPY: Verbal conversations, voicemail updates, and casual text messages do not constitute legal notice under Florida residential contracts. Notice must be delivered in writing to the party or their authorized transaction broker via email or approved delivery mechanisms.]',
-        '[ARTICLE COPY: Failure to transmit written cancellation before 11:59 PM on the final day of the period causes the contingency to expire, locking the buyer into the purchase without contractual right to deposit recovery.]'
+        'Verbal conversations, voicemail updates, and casual text messages do not constitute legal notice under Florida residential contracts. Notice must be delivered in writing to the party or their authorized transaction broker via email or approved delivery mechanisms.',
+        'Failure to transmit written cancellation before 11:59 PM on the final day of the period causes the contingency to expire, locking the buyer into the purchase without contractual right to deposit recovery.'
       ]
     },
     {
       id: 'q3',
-      questionH2: '[QUESTION-BASED H2: How does this impact escrow disbursement if a dispute arises?]',
+      questionH2: 'How Does This Impact Escrow Disbursement if a Dispute Arises?',
       bodyParagraphs: [
-        '[ARTICLE COPY: When conflicting demands are placed upon an earnest money deposit held in escrow, the escrow agent must follow statutory notification procedures under Florida Administrative Code Chapter 61J2-10.032 within 30 business days.]',
-        '[ARTICLE COPY: Understanding whether the escrow agent is a licensed Florida title company or a real estate broker determines whether an Escrow Disbursement Order (EDO) or civil interpleader action is the mandatory dispute mechanism.]'
+        'When conflicting demands are placed upon an earnest money deposit held in escrow, the escrow agent must follow statutory notification procedures under Florida Administrative Code Chapter 61J2-10.032 within 30 business days.',
+        'Understanding whether the escrow agent is a licensed Florida title company or a real estate broker determines whether an Escrow Disbursement Order (EDO) or civil interpleader action is the mandatory dispute mechanism.'
       ]
     }
   ],
@@ -885,7 +885,7 @@ export const CMS_ARTICLES: Record<string, ArticleCmsData> = {
         questionH2: 'Why are condo mortgage approvals falling through at the eleventh hour?',
         bodyParagraphs: [
           'Lenders operating in Florida are now under strict underwriting scrutiny from Fannie Mae and Freddie Mac. When a condominium association questionnaire reveals that a required Phase 1 milestone inspection has not been completed, or that a Phase 2 visual test found significant concrete spalling without funded repairs, conventional financing is immediately rejected.',
-          'Cash buyers also risk purchasing into multi-million dollar special assessments that can cost individual unit owners $50,000 to $150,000 within months of closing.'
+          'Cash buyers also risk purchasing into multi-million dollar special assessments that can cost individual unit owners $50,000 to $100,000+ within months of closing.'
         ]
       },
       {
