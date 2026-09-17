@@ -50,11 +50,14 @@ export const SubmitDealPage: React.FC<Props> = ({
       {/* 1. HERO */}
       <section className="bg-[#3A2E29] text-white pt-28 pb-10 px-4 sm:px-6 lg:px-8 border-b border-[#0D9BA3]/30">
         <div className="max-w-4xl mx-auto space-y-3 text-center">
+          <div className="inline-flex items-center space-x-1.5 bg-[#0D9BA3]/20 text-[#0D9BA3] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span>FOR EXISTING HTC CLIENTS · QUICK FILE DROP</span>
+          </div>
           <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white font-serif">
             Submit a New Deal
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
-            Nice work — you've got business moving. Give us the details below and we'll take it from here.
+            Submit your file details for Listing Launch, Contract-to-Close, or Broker Compliance below and our team will take it from here.
           </p>
         </div>
       </section>
