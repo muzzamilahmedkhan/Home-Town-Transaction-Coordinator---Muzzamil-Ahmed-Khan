@@ -119,7 +119,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                   className="inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
                 >
                   <PhoneCall className="w-4 h-4" />
-                  <span>Book a Fit Call</span>
+                  <span>BOOK A 15-MINUTE FIT CALL</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </button>
                 <button
@@ -818,7 +818,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
             onClick={onSubmitDeal}
             className="px-6 py-3 bg-[#0D9BA3] hover:bg-[#0b868d] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition flex-shrink-0 cursor-pointer shadow-md"
           >
-            Access Submit Portal
+            Submit a New Deal
           </button>
         </div>
       </section>
@@ -980,7 +980,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
               className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-wide transition shadow-xl hover:shadow-[#FE7311]/25 transform hover:-translate-y-0.5 cursor-pointer"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Book a Fit Call</span>
+              <span>BOOK A 15-MINUTE FIT CALL</span>
               <ArrowRight className="w-4 h-4 ml-1" />
             </button>
             <button
