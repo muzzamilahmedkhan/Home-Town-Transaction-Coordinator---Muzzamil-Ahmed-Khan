@@ -193,31 +193,6 @@ export const ResourceLandingPage: React.FC<Props> = ({
           </nav>
 
           <div className="flex items-center space-x-3">
-            {/* View Mode Toggle */}
-            <div className="inline-flex items-center p-1 bg-white rounded-xl border border-[#D8D2D4] shadow-xs text-xs">
-              <span className="px-2 text-slate-400 font-medium text-[11px]">View:</span>
-              <button
-                onClick={() => setViewMode('live')}
-                className={`px-3 py-1 rounded-lg text-xs font-bold transition cursor-pointer ${
-                  viewMode === 'live'
-                    ? 'bg-[#0D9BA3] text-white shadow-xs'
-                    : 'text-slate-600 hover:text-[#3A2E29]'
-                }`}
-              >
-                Production View
-              </button>
-              <button
-                onClick={() => setViewMode('blueprint')}
-                className={`px-3 py-1 rounded-lg text-xs font-bold transition cursor-pointer ${
-                  viewMode === 'blueprint'
-                    ? 'bg-[#3A2E29] text-white shadow-xs'
-                    : 'text-slate-600 hover:text-[#3A2E29]'
-                }`}
-              >
-                [Blueprint Schema]
-              </button>
-            </div>
-
             <button
               onClick={onBackToLibrary}
               className="text-xs font-bold text-[#0D9BA3] hover:text-[#FE7311] inline-flex items-center space-x-1.5 bg-white border border-[#D8D2D4] px-3 py-1.5 rounded-lg shadow-2xs transition cursor-pointer"
@@ -231,20 +206,6 @@ export const ResourceLandingPage: React.FC<Props> = ({
       </div>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
-        
-        {/* Blueprint Schema Notice Banner */}
-        {viewMode === 'blueprint' && (
-          <div className="p-4 bg-white border-2 border-[#0D9BA3] rounded-2xl shadow-sm space-y-1.5">
-            <div className="flex items-center space-x-2 text-[#0D9BA3] font-bold text-xs uppercase tracking-wider">
-              <Code className="w-4 h-4" />
-              <span>OPTION B — DEDICATED RESOURCE LANDING PAGE SCHEMA TOKENS</span>
-            </div>
-            <p className="text-xs text-slate-700 leading-relaxed font-medium">
-              This layout exposes all required reusable fields: <span className="font-mono text-[#0D9BA3]">[RESOURCE TYPE]</span>, <span className="font-mono text-[#0D9BA3]">[RESOURCE TITLE]</span>, <span className="font-mono text-[#0D9BA3]">[SHORT INTRO]</span>, <span className="font-mono text-[#0D9BA3]">[RESOURCE PREVIEW]</span>, <span className="font-mono text-[#0D9BA3]">[WHAT THIS RESOURCE HELPS WITH]</span>, <span className="font-mono text-[#0D9BA3]">[PRIMARY CTA]</span>, <span className="font-mono text-[#0D9BA3]">[RELATED HOMETOWN BRIEF ARTICLES]</span>, and <span className="font-mono text-[#0D9BA3]">[RELATED RESOURCES]</span>.
-            </p>
-          </div>
-        )}
-
         {/* ========================================================================= */}
         {/* 2. RESOURCE HEADER & HERO DISPLAY                                         */}
         {/* ========================================================================= */}
@@ -266,9 +227,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
 
                 {/* [RESOURCE TYPE] Marker */}
                 <div className={`border ${markerInfo.stampBorder} ${markerInfo.stampBg} ${markerInfo.stampText} px-2.5 py-1 rounded-xs font-mono text-xs font-black uppercase tracking-wider rotate-[-0.5deg]`}>
-                  {viewMode === 'blueprint' 
-                    ? `[RESOURCE TYPE: ${resource.resourceType.toUpperCase()}]` 
-                    : resource.resourceType}
+                  {resource.resourceType}
                 </div>
 
                 {/* Stamp Label */}
@@ -297,16 +256,12 @@ export const ResourceLandingPage: React.FC<Props> = ({
                 
                 {/* [RESOURCE TITLE] */}
                 <h1 className="text-2xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight leading-[1.12]">
-                  {viewMode === 'blueprint' 
-                    ? resource.placeholderTitle 
-                    : resource.title}
+                  {resource.title}
                 </h1>
 
                 {/* [SHORT INTRO] */}
                 <p className="text-base sm:text-xl text-[#3A2E29]/90 font-medium leading-relaxed">
-                  {viewMode === 'blueprint'
-                    ? `[SHORT INTRO: ${resource.shortIntro || resource.shortDescription}]`
-                    : (resource.shortIntro || resource.shortDescription)}
+                  {(resource.shortIntro || resource.shortDescription)}
                 </p>
 
                 {/* Extended description if available */}
@@ -776,7 +731,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
                 Let Hometown TC Manage Your {resource.relatedService.name}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                {resource.relatedService.description || 'Save 15+ hours per file. Our Florida transaction coordinators handle all buyer/seller communications, escrow verifications, deadline reminders, and compliance audits.'}
+                {resource.relatedService.description || 'Reclaim valuable production hours on every transaction. Our Florida transaction coordinators handle all buyer/seller communications, escrow verifications, deadline reminders, and compliance audits.'}
               </p>
             </div>
 
