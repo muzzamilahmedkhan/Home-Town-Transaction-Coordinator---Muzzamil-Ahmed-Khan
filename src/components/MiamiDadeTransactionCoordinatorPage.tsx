@@ -131,7 +131,7 @@ export const MiamiDadeTransactionCoordinatorPage: React.FC<Props> = ({
             <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-bold text-[#3A2E29]">
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ All 34 Municipalities & Unincorporated</span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Flat $375 / $475 Fee</span>
-              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ No Retainer • Paid at Closing</span>
+              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Transparent Per-File Investment • No Inspection Cancellation Fee</span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Native English & Spanish Fluency</span>
             </div>
           </div>
@@ -378,7 +378,7 @@ export const MiamiDadeTransactionCoordinatorPage: React.FC<Props> = ({
                 </div>
                 <div>
                   <span className="text-slate-400 block text-[11px]">Payment Terms:</span>
-                  <strong className="text-[#0D9BA3] text-sm">Paid at Closing Table</strong>
+                  <strong className="text-[#0D9BA3] text-sm">Billed at Closing Table</strong>
                 </div>
               </div>
 
@@ -413,18 +413,18 @@ export const MiamiDadeTransactionCoordinatorPage: React.FC<Props> = ({
 
           <div className="bg-[#EEEAEB] p-8 sm:p-10 rounded-3xl border border-[#D8D2D4] shadow-sm space-y-6 relative">
             <p className="text-base sm:text-lg text-[#3A2E29] italic font-serif leading-relaxed">
-              "Managing transactions across multiple Miami-Dade cities used to give me headaches — dealing with different city permit portals, bilingual buyers, and strict condo boards. Hometown TC stepped in and completely organized our operations. Our files are always compliant and our clients rave about the communication."
+              "Michelle is my go-to transaction coordinator for all of my real estate deals. She is always organized, professional, and on top of every detail from start to finish. I honestly couldn’t do my transactions without her support."
             </p>
 
             <div className="flex items-center space-x-4 pt-4 border-t border-[#D8D2D4]">
               <img
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400"
-                alt="Carlos Mendoza - Miami-Dade Team Leader"
+                src="https://lh3.googleusercontent.com/a/ACg8ocK6Qs8mWgTN--8BMsdGhmLUzxCzkLFw3MGMsqU1dJE1HIV1gw=w72-h72-p-rp-mo-br100"
+                alt="Zuzel Gonzalez - Florida Realtor"
                 className="w-12 h-12 rounded-full object-cover border border-[#D8D2D4]"
               />
               <div>
-                <strong className="block text-sm font-bold text-[#3A2E29]">Carlos Mendoza</strong>
-                <span className="text-xs text-slate-500">Managing Broker & Team Leader • Miami-Dade & Coral Gables</span>
+                <strong className="block text-sm font-bold text-[#3A2E29]">Zuzel Gonzalez</strong>
+                <span className="text-xs text-slate-500">Florida Realtor • Google Verified Review</span>
               </div>
             </div>
           </div>
