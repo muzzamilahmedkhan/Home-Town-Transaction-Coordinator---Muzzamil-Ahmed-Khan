@@ -232,16 +232,16 @@ export const WhoWeSupportPage: React.FC<Props> = ({
             <div className="flex justify-between items-center pb-4 border-b border-[#D8D2D4]">
               <div>
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Team Economics</span>
-                <h3 className="text-lg font-bold text-[#3A2E29]">In-House Salary vs. HTC On-Demand</h3>
+                <h3 className="text-lg font-bold text-[#3A2E29]">In-House Staffing vs. HTC Support</h3>
               </div>
-              <span className="px-3 py-1 bg-[#FE7311]/10 text-[#FE7311] text-xs font-black rounded-full">Save $45,000+/yr</span>
+              <span className="px-3 py-1 bg-[#0D9BA3]/10 text-[#0D9BA3] text-xs font-black rounded-full">Zero Fixed Overhead</span>
             </div>
 
             <div className="grid grid-cols-2 gap-4 text-xs">
               <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
                 <strong className="text-slate-700 block">In-House Full-Time TC</strong>
                 <ul className="space-y-1.5 text-slate-500">
-                  <li>• $55,000–$75,000 salary</li>
+                  <li>• Fixed salaried payroll commitments</li>
                   <li>• Payroll taxes & benefits</li>
                   <li>• Paid during slow winter months</li>
                   <li>• Turnover & retraining risk</li>
@@ -643,7 +643,7 @@ export const WhoWeSupportPage: React.FC<Props> = ({
                 <span>Bargain Shoppers Seeking Cheap "Data Entry"</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                If you are looking for a cut-rate $150 virtual assistant who blindly moves files without reading clauses or auditing FAR/BAR riders, HTC is not the right match. We are senior risk managers, not passive data entry workers.
+                If you are looking for a cut-rate overseas virtual assistant who blindly moves files without reading clauses or auditing FAR/BAR riders, HTC is not the right match. We are senior risk managers, not passive data entry workers.
               </p>
             </div>
 
