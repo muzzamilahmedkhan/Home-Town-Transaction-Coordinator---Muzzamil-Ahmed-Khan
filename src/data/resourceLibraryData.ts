@@ -116,6 +116,37 @@ export const PROBLEM_TOPICS_METADATA: ProblemTopicInfo[] = [
 
 export type ResourceTopic = ProblemTopicTag | 'All Topics';
 
+export type SimpleResourceCategory = 
+  | 'Guides + Checklists'
+  | 'Templates + Client Tools'
+  | 'AI + Automation'
+  | 'Classes + Workshops';
+
+export const SIMPLE_RESOURCE_CATEGORIES: SimpleResourceCategory[] = [
+  'Guides + Checklists',
+  'Templates + Client Tools',
+  'AI + Automation',
+  'Classes + Workshops'
+];
+
+export function getSimpleCategory(item: { resourceType?: string; category?: SimpleResourceCategory }): SimpleResourceCategory {
+  if (item.category) return item.category;
+  const t = item.resourceType || '';
+  if (t === 'Guide' || t === 'Checklist' || t === 'Quick Reference' || t === 'Worksheet' || t.includes('Guide') || t.includes('Checklist')) {
+    return 'Guides + Checklists';
+  }
+  if (t === 'Template' || t === 'Canva Template' || t === 'Calculator' || t === 'Interactive Tool' || t.includes('Calculator') || t.includes('Template')) {
+    return 'Templates + Client Tools';
+  }
+  if (t === 'AI Prompt' || t === 'Automation / Apps Script' || t === 'Apps Script Tool' || t.includes('AI') || t.includes('Script')) {
+    return 'AI + Automation';
+  }
+  if (t === 'Class' || t === 'Mini-Course' || t.includes('Course') || t.includes('Class')) {
+    return 'Classes + Workshops';
+  }
+  return 'Guides + Checklists';
+}
+
 /**
  * REUSABLE RESOURCE CONTENT FIELDS
  * Created so HTC can add resources without asking for a redesign.
@@ -130,6 +161,7 @@ export interface ResourceItem {
 
   // Core content fields requested by HTC:
   title: string; // Resource Title
+  category?: SimpleResourceCategory; // Simple category: Guides + Checklists, Templates + Client Tools, etc.
   placeholderTitle: string; // Blueprint schema placeholder
   resourceType: ResourceType; // Resource Type
   shortDescription: string; // Short Description
