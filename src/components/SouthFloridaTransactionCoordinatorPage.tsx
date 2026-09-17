@@ -130,7 +130,7 @@ export const SouthFloridaTransactionCoordinatorPage: React.FC<Props> = ({
             <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-bold text-[#3A2E29]">
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Tri-County & Statewide Coverage</span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Flat $375 Base / $475 Pro Fee</span>
-              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Paid at Closing Table • Zero Monthly Retainers</span>
+              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Transparent Per-File Pricing • Zero Monthly Retainers</span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ 30+ Years South Florida Proven Roots</span>
             </div>
           </div>
@@ -244,7 +244,7 @@ export const SouthFloridaTransactionCoordinatorPage: React.FC<Props> = ({
           <div className="bg-[#3A2E29] text-white p-8 rounded-3xl border border-white/10 shadow-lg grid md:grid-cols-3 gap-6">
             <div className="space-y-2">
               <span className="text-xs font-bold text-[#FE7311] uppercase tracking-wider">01. Purely Performance-Based</span>
-              <h4 className="text-base font-bold text-white">Paid at Closing Table</h4>
+              <h4 className="text-base font-bold text-white">Billed at Closing Table</h4>
               <p className="text-xs text-slate-300">No retainers, onboarding setup fees, or monthly subscription commitments. If a file cancels, our fee is waived.</p>
             </div>
             <div className="space-y-2">
@@ -382,7 +382,7 @@ export const SouthFloridaTransactionCoordinatorPage: React.FC<Props> = ({
                 </div>
                 <div>
                   <span className="text-slate-400 block text-[11px]">Fee Schedule:</span>
-                  <strong className="text-[#0D9BA3] text-sm">Paid at Closing Table</strong>
+                  <strong className="text-[#0D9BA3] text-sm">Billed at Closing Table</strong>
                 </div>
               </div>
 
