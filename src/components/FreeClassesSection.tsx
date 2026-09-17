@@ -108,19 +108,7 @@ export const FreeClassesSection: React.FC<FreeClassesSectionProps> = ({
           </div>
 
           {/* Placeholder Blueprint Toggle */}
-          <button
-            type="button"
-            onClick={() => setLocalBlueprintOverride(prev => prev === null ? !effectiveBlueprintMode : !prev)}
-            className={`inline-flex items-center space-x-1.5 text-xs font-mono font-bold px-3 py-1.5 rounded-lg border transition cursor-pointer ${
-              effectiveBlueprintMode 
-                ? 'bg-[#0D9BA3] text-white border-[#0D9BA3] shadow-2xs' 
-                : 'bg-white text-slate-600 border-[#D8D2D4] hover:border-slate-400'
-            }`}
-            title="Toggle between Production copy and HTC Template Placeholders"
-          >
-            <Layers className="w-3.5 h-3.5" />
-            <span>{effectiveBlueprintMode ? 'PLACEHOLDERS: ACTIVE' : 'SHOW PLACEHOLDERS'}</span>
-          </button>
+          
         </div>
       </div>
 
@@ -299,28 +287,6 @@ export const FreeClassesSection: React.FC<FreeClassesSectionProps> = ({
           );
         })}
 
-        {/* --- PLACEHOLDER SLOT FOR FUTURE HTC CLASSES --- */}
-        <div className="bg-[#FAF8F5] rounded-2xl border-2 border-dashed border-[#D8D2D4] p-6 flex flex-col justify-between items-center text-center space-y-4 hover:border-[#0D9BA3]/60 transition">
-          <div className="space-y-2 max-w-xs my-auto">
-            <div className="w-12 h-12 rounded-full bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center mx-auto mb-3">
-              <GraduationCap className="w-6 h-6" />
-            </div>
-            <span className="font-mono text-[10px] font-bold text-[#0D9BA3] uppercase tracking-wider block">
-              UPCOMING HTC CURRICULUM
-            </span>
-            <h4 className="font-montserrat font-extrabold text-base text-[#3A2E29]">
-              [FUTURE CLASS PLACEHOLDER]
-            </h4>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              HTC will provide all final class names, syllabus structures, and video modules as new Florida real estate law updates are published.
-            </p>
-          </div>
-
-          <div className="w-full pt-4 border-t border-[#D8D2D4]/70">
-            <span className="font-mono text-[11px] text-slate-400 font-bold block">
-              COMING SOON TO FLORIDA AGENTS
-            </span>
-          </div>
         </div>
       </div>
 
