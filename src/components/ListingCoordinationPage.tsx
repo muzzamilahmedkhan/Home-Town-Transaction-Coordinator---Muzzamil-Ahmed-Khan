@@ -427,9 +427,15 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                   <h3 className="text-2xl font-bold text-[#3A2E29]">3-Business-Day Listing Launch</h3>
                   <p className="text-xs text-slate-500 mt-1">Recommended for standard marketing timelines and pre-scheduled photography rollouts.</p>
                 </div>
-                <div className="px-4 py-2 bg-white rounded-xl border border-[#D8D2D4] text-center">
-                  <span className="text-[11px] text-slate-500 block uppercase font-semibold">Turnaround</span>
-                  <span className="text-lg font-black text-[#0D9BA3]">72 Business Hours</span>
+                <div className="flex items-center gap-3">
+                  <div className="px-4 py-2 bg-white rounded-xl border border-[#D8D2D4] text-center">
+                    <span className="text-[11px] text-slate-500 block uppercase font-semibold">Rate</span>
+                    <span className="text-xl font-black text-[#3A2E29]">$125</span>
+                  </div>
+                  <div className="px-4 py-2 bg-white rounded-xl border border-[#D8D2D4] text-center">
+                    <span className="text-[11px] text-slate-500 block uppercase font-semibold">Turnaround</span>
+                    <span className="text-lg font-black text-[#0D9BA3]">3 Business Days</span>
+                  </div>
                 </div>
               </div>
 
@@ -481,9 +487,15 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                   <h3 className="text-2xl font-bold text-[#3A2E29]">1-Business-Day Rush Listing Launch</h3>
                   <p className="text-xs text-slate-500 mt-1">For sudden listing opportunities, emergency weekend launches, or immediate seller mandates.</p>
                 </div>
-                <div className="px-4 py-2 bg-white rounded-xl border border-[#FE7311]/40 text-center shadow-sm">
-                  <span className="text-[11px] text-slate-500 block uppercase font-semibold">Turnaround</span>
-                  <span className="text-lg font-black text-[#FE7311]">24 Business Hours</span>
+                <div className="flex items-center gap-3">
+                  <div className="px-4 py-2 bg-white rounded-xl border border-[#FE7311]/40 text-center shadow-sm">
+                    <span className="text-[11px] text-slate-500 block uppercase font-semibold">Rate</span>
+                    <span className="text-xl font-black text-[#FE7311]">$225</span>
+                  </div>
+                  <div className="px-4 py-2 bg-white rounded-xl border border-[#FE7311]/40 text-center shadow-sm">
+                    <span className="text-[11px] text-slate-500 block uppercase font-semibold">Turnaround</span>
+                    <span className="text-lg font-black text-[#FE7311]">1 Business Day</span>
+                  </div>
                 </div>
               </div>
 
@@ -694,7 +706,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                     </div>
                   </div>
                   <span className="text-xs font-extrabold text-[#0D9BA3] bg-white px-3 py-1 rounded-full border border-[#D8D2D4]">
-                    Add-On Feature
+                    $100 Add-On
                   </span>
                 </div>
 
@@ -878,7 +890,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                 </div>
                 <div className="text-3xl font-black font-serif">$475 <span className="text-xs text-slate-300 font-sans font-normal">/ per closed file</span></div>
                 <p className="text-xs text-slate-200">
-                  Combines full pre-listing Listing Launch with end-to-end Contract-to-Close coordination. Zero
+                  Combines full pre-listing Listing Launch with end-to-end Contract-to-Close coordination from executed contract through closing.
                 </p>
                 <div className="space-y-2 text-xs text-slate-300 pt-2">
                   <div className="flex items-center space-x-2">
