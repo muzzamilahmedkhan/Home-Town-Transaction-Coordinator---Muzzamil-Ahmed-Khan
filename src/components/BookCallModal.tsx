@@ -151,7 +151,7 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="(305) 555-0199"
+                  placeholder="(954) 377-8330"
                   className="w-full px-4 py-2.5 rounded-xl border border-[#D8D2D4] focus:outline-none focus:ring-2 focus:ring-[#0D9BA3] bg-white text-sm"
                 />
               </div>
