@@ -57,18 +57,11 @@ export const BlogPostPage: React.FC<Props> = ({
   onOpenTcWorkshop,
   onOpenArticle
 }) => {
-  // Editorial mode: defaults to pure neutral placeholders as requested for design review
-  const [templateMode, setTemplateMode] = useState<'placeholders' | 'sample'>('placeholders');
   const [showCmsDictionary, setShowCmsDictionary] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
-  // Retrieve matching article or fallback to canonical placeholder
-  const rawArticle: ArticleCmsData = CMS_ARTICLES[slug] || CANONICAL_PLACEHOLDER_ARTICLE;
-  
-  // Active article data based on toggle (defaults to clean neutral blueprint placeholders)
-  const article: ArticleCmsData = templateMode === 'placeholders' 
-    ? CANONICAL_PLACEHOLDER_ARTICLE 
-    : rawArticle;
+  // Retrieve matching article or fallback to canonical article
+  const article: ArticleCmsData = CMS_ARTICLES[slug] || CANONICAL_PLACEHOLDER_ARTICLE;
 
   const getCategorySlug = (category: string) => {
     const lower = category.toLowerCase();
@@ -403,41 +396,20 @@ export const BlogPostPage: React.FC<Props> = ({
             </li>
           </ol>
 
-          {/* Template Controls & CMS Schema Inspector */}
+          {/* Share Link Button */}
           <div className="flex items-center space-x-2">
-            {/* View Mode Toggle */}
-            <div className="inline-flex items-center p-0.5 bg-[#EEEAEB] rounded-lg border border-[#D8D2D4] text-[10px]">
-              <button
-                onClick={() => setTemplateMode('placeholders')}
-                className={`px-2.5 py-1 rounded font-bold transition cursor-pointer ${
-                  templateMode === 'placeholders'
-                    ? 'bg-[#3A2E29] text-white shadow-xs'
-                    : 'text-[#3A2E29]/70 hover:text-[#3A2E29]'
-                }`}
-                title="View with pure bracketed placeholders: [CATEGORY], [SEARCHABLE ARTICLE H1], etc."
-              >
-                [Template Placeholders]
-              </button>
-              <button
-                onClick={() => setTemplateMode('sample')}
-                className={`px-2.5 py-1 rounded font-bold transition cursor-pointer ${
-                  templateMode === 'sample'
-                    ? 'bg-[#0D9BA3] text-white shadow-xs'
-                    : 'text-[#3A2E29]/70 hover:text-[#3A2E29]'
-                }`}
-                title="View with formatted Florida real estate article copy"
-              >
-                Sample Post View
-              </button>
-            </div>
-
-            {/* CMS Fields Schema Drawer Button */}
             <button
-              onClick={() => setShowCmsDictionary(!showCmsDictionary)}
-              className="bg-[#EEEAEB] hover:bg-white text-[#3A2E29] border border-[#D8D2D4] px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold transition inline-flex items-center space-x-1 cursor-pointer"
+              onClick={() => {
+                if (navigator.clipboard) {
+                  navigator.clipboard.writeText(window.location.href);
+                  setCopiedLink(true);
+                  setTimeout(() => setCopiedLink(false), 2000);
+                }
+              }}
+              className="bg-[#EEEAEB] hover:bg-white text-[#3A2E29] border border-[#D8D2D4] px-2.5 py-1 rounded-lg text-[10px] font-bold transition inline-flex items-center space-x-1 cursor-pointer"
             >
-              <Code2 className="w-3 h-3 text-[#FE7311]" />
-              <span>{showCmsDictionary ? 'Close CMS Fields' : 'CMS Schema Fields'}</span>
+              <Share2 className="w-3 h-3 text-[#0D9BA3]" />
+              <span>{copiedLink ? 'Link Copied!' : 'Share Article'}</span>
             </button>
           </div>
 
