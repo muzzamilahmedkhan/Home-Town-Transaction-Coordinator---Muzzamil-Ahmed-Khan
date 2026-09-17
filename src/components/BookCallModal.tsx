@@ -49,7 +49,7 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
             </div>
             <div>
               <h3 className="text-lg font-montserrat font-extrabold text-white">Book a 15-Minute Fit Call</h3>
-              <p className="text-xs text-slate-300 font-medium">Direct Call with Michelle Martinez, Founder</p>
+              <p className="text-xs text-slate-300 font-medium">15-Minute Conversation with HTC</p>
             </div>
           </div>
           <button
@@ -70,7 +70,7 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
                 Call Scheduled!
               </h4>
               <p className="text-sm text-[#3A2E29]/80 max-w-md mx-auto font-medium">
-                Thank you, <span className="font-semibold text-[#3A2E29]">{formData.fullName}</span>. Michelle Martinez has reserved <span className="font-semibold text-[#3A2E29]">{formData.preferredDate} at {formData.preferredTime}</span> for your strategy session.
+                Thank you, <span className="font-semibold text-[#3A2E29]">{formData.fullName}</span>. The HTC team has reserved <span className="font-semibold text-[#3A2E29]">{formData.preferredDate} at {formData.preferredTime}</span> for your strategy session.
               </p>
             </div>
 
