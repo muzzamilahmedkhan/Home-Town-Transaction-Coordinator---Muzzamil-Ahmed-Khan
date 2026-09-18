@@ -209,7 +209,7 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     eyebrow: 'TRANSACTION COORDINATION',
     headline: 'Base + Pro Contract-to-Close Plans',
     description:
-      'Full contract-to-close management from executed agreement through post-closing broker compliance. Transparent flat pricing with zero cancellation fee during inspection.',
+      'Full contract-to-close management from executed agreement through post-closing broker compliance with transparent flat per-file pricing.',
     status: 'active',
     displayOrder: 2,
     setupNote:

@@ -97,29 +97,29 @@ export const AboutHtcModal: React.FC<Props> = ({ isOpen, onClose, onBookCall }) 
               <div className="p-3.5 bg-[#EEEAEB] rounded-xl border border-[#D8D2D4] flex items-start space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">Stage 1: Honor the Agreement</span>
-                  <p className="text-xs text-[#3A2E29]/80 mt-0.5">Thorough intake of contract terms, effective dates, earnest money deadlines, and contingency periods.</p>
+                  <span className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">Honor the Agreement</span>
+                  <p className="text-xs text-[#3A2E29]/80 mt-0.5">Review the executed agreement, parties, dates, and documents that drive the file.</p>
                 </div>
               </div>
               <div className="p-3.5 bg-[#EEEAEB] rounded-xl border border-[#D8D2D4] flex items-start space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">Stage 2: Organize the File</span>
-                  <p className="text-xs text-[#3A2E29]/80 mt-0.5">Assembling disclosure packets, HOA applications, lender docs, and broker compliance records.</p>
+                  <span className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">Organize the File</span>
+                  <p className="text-xs text-[#3A2E29]/80 mt-0.5">Build the working timeline, organize contacts and documents, and identify what is missing.</p>
                 </div>
               </div>
               <div className="p-3.5 bg-[#EEEAEB] rounded-xl border border-[#D8D2D4] flex items-start space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">Stage 3: Monitor the Milestones</span>
-                  <p className="text-xs text-[#3A2E29]/80 mt-0.5">Tracking inspection periods, loan commitments, title commitments, and appraisal releases.</p>
+                  <span className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">Monitor the Milestones</span>
+                  <p className="text-xs text-[#3A2E29]/80 mt-0.5">Track administrative milestones, follow up, document updates, and bring anything that needs the agent’s attention back to them.</p>
                 </div>
               </div>
               <div className="p-3.5 bg-[#EEEAEB] rounded-xl border border-[#D8D2D4] flex items-start space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">Stage 4: Ease the Close</span>
-                  <p className="text-xs text-[#3A2E29]/80 mt-0.5">Final walk-through verification, CD review, escrow reconciliation, funding authorization, and broker archive.</p>
+                  <span className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">Ease the Close</span>
+                  <p className="text-xs text-[#3A2E29]/80 mt-0.5">Support the final administrative steps, closing coordination, broker file completion, and Post-Close.</p>
                 </div>
               </div>
             </div>
