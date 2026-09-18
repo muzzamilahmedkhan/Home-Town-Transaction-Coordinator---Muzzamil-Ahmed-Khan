@@ -289,7 +289,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
 
               </div>
 
-              {/* Right Column: [PRIMARY CTA] Dispatch Box */}
+              {/* Right Column: [PRIMARY CTA] Access Box */}
               <div className="lg:col-span-4 bg-white rounded-2xl border-2 border-[#0D9BA3] p-6 shadow-md space-y-5">
                 
                 <div className="flex items-center justify-between pb-3 border-b border-[#D8D2D4]">
@@ -382,7 +382,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
                   </button>
 
                   <p className="text-[11px] font-mono text-center text-slate-400">
-                    No payment details required • Direct dispatch
+                    No payment details required • Instant delivery
                   </p>
                 </div>
 
@@ -869,7 +869,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
               <div className="bg-[#0D9BA3]/10 border border-[#0D9BA3]/30 rounded-xl p-5 text-center space-y-3">
                 <CheckCircle2 className="w-8 h-8 text-[#0D9BA3] mx-auto" />
                 <p className="text-xs font-bold uppercase tracking-wider text-[#0D9BA3]">
-                  DISPATCH CONFIRMED
+                  ACCESS CONFIRMED
                 </p>
                 <p className="text-xs text-slate-700 leading-relaxed font-medium">
                   We have prepared the download for <span className="font-bold">{downloadEmail}</span>. The file link is ready below.

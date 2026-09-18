@@ -237,7 +237,7 @@ function isWeekendOrHoliday(date) {
       { stepNumber: 1, title: 'Set Trigger: New Form Submission', detail: 'Choose Google Forms or Typeform trigger: "New Response Received".' },
       { stepNumber: 2, title: 'Action: Create Master Drive Folder', detail: 'Use Google Drive connector to create folder named "[Property Address] - [Buyer/Seller Name]".' },
       { stepNumber: 3, title: 'Action: Create Subfolder Structure', detail: 'Automatically generate 01_Contract, 02_Disclosures, 03_Inspections, 04_Closing subfolders.' },
-      { stepNumber: 4, title: 'Action: Dispatch Team Notification', detail: 'Send automatic intake summary to your email or TC communication channel.' }
+      { stepNumber: 4, title: 'Action: Send Team Notification', detail: 'Send automatic intake summary to your email or TC communication channel.' }
     ]
   },
   {

@@ -343,12 +343,12 @@ export const WhoWeSupportPage: React.FC<Props> = ({
             {/* Proof & Solution */}
             <div className="space-y-3">
               <h4 className="text-xs font-bold uppercase tracking-wider text-[#3A2E29]">
-                The HTC Pro Listing Protocol ($475):
+                The HTC Listing Coordination Protocol:
               </h4>
               <ul className="space-y-2.5 text-xs text-slate-700">
                 <li className="flex items-start space-x-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] mt-0.5 flex-shrink-0" />
-                  <span><strong>Turnkey Disclosure Dispatch:</strong> SPDS, Lead-Based Paint, HOA Addenda sent via DocuSign/Dotloop for prompt seller execution.</span>
+                  <span><strong>Turnkey Disclosure Preparation & Delivery:</strong> SPDS, Lead-Based Paint, HOA Addenda sent via DocuSign/Dotloop for prompt seller execution.</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] mt-0.5 flex-shrink-0" />
@@ -388,7 +388,7 @@ export const WhoWeSupportPage: React.FC<Props> = ({
                   HTC Pre-Market Launch:
                 </span>
                 <ul className="space-y-1.5 text-slate-600">
-                  <li>✓ Seller Disclosure Dispatch</li>
+                  <li>✓ Seller Disclosure Preparation & E-Sign</li>
                   <li>✓ HOA / Condo Estoppel Prep</li>
                   <li>✓ Public Records Tax Audit</li>
                   <li>✓ 50+ Field MLS Matrix Entry</li>

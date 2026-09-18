@@ -55,10 +55,10 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
           <div className="bg-[#0D9BA3]/10 border border-[#0D9BA3]/30 rounded-xl p-3.5 text-center space-y-1.5 animate-in fade-in duration-200">
             <CheckCircle2 className="w-5 h-5 text-[#0D9BA3] mx-auto" />
             <p className="font-montserrat font-bold text-xs text-[#3A2E29]">
-              You're in the dispatch loop, {firstName}!
+              You're all set, {firstName}!
             </p>
             <p className="text-[11px] text-slate-600">
-              Dispatches will be sent to <strong className="text-[#3A2E29]">{email}</strong>.
+              Updates will be sent to <strong className="text-[#3A2E29]">{email}</strong>.
             </p>
           </div>
         ) : (
@@ -83,7 +83,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               type="submit"
               className="w-full bg-[#0D9BA3] hover:bg-[#087177] text-white py-2.5 px-4 rounded-lg text-xs font-montserrat font-bold uppercase tracking-wider transition cursor-pointer shadow-xs flex items-center justify-center space-x-1.5"
             >
-              <span>DISPATCH NEW TOOLS TO ME</span>
+              <span>SEND NEW TOOLS TO ME</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
             <p className="text-[10px] font-mono text-center text-slate-400">
@@ -109,7 +109,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                 <CheckCircle2 className="w-6 h-6" />
               </div>
               <h3 className="font-montserrat font-extrabold text-xl text-[#3A2E29]">
-                You're in the dispatch loop, {firstName}!
+                You're all set, {firstName}!
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-md mx-auto leading-relaxed">
                 We'll deliver new Florida transaction checklists, legal briefs, and automation tools straight to <strong className="text-[#3A2E29]">{email}</strong> as soon as they're released.
@@ -213,7 +213,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               <CheckCircle2 className="w-6 h-6" />
             </div>
             <h3 className="font-montserrat font-extrabold text-lg sm:text-xl text-[#3A2E29]">
-              You're in the dispatch loop, {firstName}!
+              You're all set, {firstName}!
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-md mx-auto leading-relaxed">
               We'll deliver new Florida transaction checklists, legal briefs, and automation tools straight to <strong className="text-[#3A2E29]">{email}</strong> as soon as they're released.

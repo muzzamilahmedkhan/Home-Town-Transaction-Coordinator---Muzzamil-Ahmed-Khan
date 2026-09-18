@@ -1,6 +1,6 @@
 import React from 'react';
-import { Phone, Mail, ArrowRight } from 'lucide-react';
-import { PHONE_NUMBER, EMAIL_ADDRESS, FOOTER_LOGO_IMAGE } from '../data/content';
+import { Phone, Mail, Clock, ArrowRight } from 'lucide-react';
+import { PHONE_NUMBER, EMAIL_ADDRESS, OFFICE_HOURS, FOOTER_LOGO_IMAGE } from '../data/content';
 import { Language } from '../types';
 
 interface Props {
@@ -269,6 +269,10 @@ export const Footer: React.FC<Props> = ({
                 >
                   {EMAIL_ADDRESS}
                 </a>
+              </li>
+              <li className="flex items-start space-x-2 text-slate-300">
+                <Clock className="w-3.5 h-3.5 text-[#FE7311] flex-shrink-0 mt-0.5" />
+                <span className="leading-snug">{OFFICE_HOURS}</span>
               </li>
             </ul>
           </div>

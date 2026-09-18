@@ -128,9 +128,9 @@ export const AgentCalculatorPage: React.FC<Props> = ({
           priceCurrency: 'USD'
         },
         featureList: [
-          'What is my time worth as a real estate agent? (Hourly value and admin cost)',
-          'Should I hire a transaction coordinator or use HTC? (In-house vs outsourced TC cost comparison)',
-          'What if I closed 20% more real estate transactions? (20% closed sides and GCI growth model)'
+          'WHAT’S MY TIME WORTH? (Hourly value and admin cost)',
+          'HIRE A TC OR USE HTC? (In-house vs outsourced TC cost comparison)',
+          'WHAT COULD 20% MORE LOOK LIKE? (20% closed sides and GCI growth model)'
         ]
       },
       {
@@ -485,7 +485,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
             role="tab"
           >
             <Clock className="w-4 h-4 text-[#FE7311]" />
-            <span>What Is My Time Worth?</span>
+            <span>WHAT’S MY TIME WORTH?</span>
           </button>
 
           <button
@@ -499,7 +499,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
             role="tab"
           >
             <Building2 className="w-4 h-4 text-[#0D9BA3]" />
-            <span>Should I Hire a TC or Use HTC?</span>
+            <span>HIRE A TC OR USE HTC?</span>
           </button>
 
           <button
@@ -513,7 +513,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
             role="tab"
           >
             <TrendingUp className="w-4 h-4 text-[#FE7311]" />
-            <span>What If You Closed 20% More?</span>
+            <span>WHAT COULD 20% MORE LOOK LIKE?</span>
           </button>
 
         </div>
@@ -843,7 +843,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
           <div className="border-b border-[#D8D2D4] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
-                SHOULD I HIRE OR USE HTC?
+                HIRE A TC OR USE HTC?
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif mt-0.5">
                 Should I hire a transaction coordinator or use HTC?
@@ -1092,6 +1092,10 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                     </div>
 
                   </div>
+
+                  <p className="text-[11px] text-[#3A2E29]/70 font-medium italic">
+                    Per-file support comparisons do not include the one-time $399 Agent Setup Investment for new HTC clients.
+                  </p>
                 </div>
 
                 {/* Compact Disclaimer */}
@@ -1149,10 +1153,10 @@ export const AgentCalculatorPage: React.FC<Props> = ({
           <div className="border-b border-[#D8D2D4] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
-                WHAT IF I CLOSED 20% MORE?
+                WHAT COULD 20% MORE LOOK LIKE?
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif mt-0.5">
-                What if I closed 20% more real estate transactions?
+                What could 20% more look like for your business?
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
                 Use your current production to see what 20% more closed sides and GCI could look like for your business.
@@ -1244,7 +1248,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                   <div className="flex justify-between items-center text-xs font-extrabold text-[#3A2E29]">
                     <span>Growth Scenario:</span>
                     <span className="bg-[#0D9BA3] text-white px-2.5 py-0.5 rounded text-xs font-extrabold">
-                      +20% Capacity (Fixed)
+                      +20% Growth Projection
                     </span>
                   </div>
                   <p className="text-[11px] text-[#3A2E29]/70 leading-normal font-medium">
@@ -1383,13 +1387,16 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                   </div>
 
                   <p className="text-[11px] text-[#3A2E29]/70 font-medium italic">
+                    Per-file support comparisons do not include the one-time $399 Agent Setup Investment for new HTC clients.
+                  </p>
+                  <p className="text-[11px] text-[#3A2E29]/70 font-medium italic">
                     Note: Illustrative GCI difference is calculated before brokerage splits, taxes, lead costs, and other business expenses — not profit or take-home income.
                   </p>
                 </div>
 
                 {/* Disclaimer */}
                 <div className="text-[11px] text-slate-500 leading-relaxed italic">
-                  *Disclaimer: This is a planning scenario based on the numbers you entered. It is not a prediction or guarantee of future production or income.
+                  *Disclaimer: This is an illustrative planning scenario based on the figures you enter. It is not a forecast, benchmark, or guarantee of additional closings or income.
                 </div>
 
                 {/* Next Step CTA */}
@@ -1513,114 +1520,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
 
         </div>
 
-        {/* SECTION 7 — SEO + AEO CRAWLABLE RESOURCE GUIDE */}
-        <section aria-labelledby="seo-aeo-guide" className="mt-14 pt-10 border-t border-[#D8D2D4] space-y-8">
-          
-          <div className="max-w-3xl space-y-1.5">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
-              EVERGREEN BUSINESS GUIDE
-            </span>
-            <h2 id="seo-aeo-guide" className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
-              The Economics of Real Estate Transaction Coordination
-            </h2>
-            <p className="text-xs sm:text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
-              Objective guidance for Florida Realtors on evaluating administrative leverage, calculating true hourly value, and comparing in-house vs. outsourced operational support.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            {/* Question 1 */}
-            <article className="bg-white rounded-xl p-5 border border-[#D8D2D4] space-y-2">
-              <h3 className="text-sm font-extrabold text-[#3A2E29] font-montserrat flex items-start space-x-2">
-                <span className="text-[#0D9BA3] font-mono text-xs mt-0.5">•</span>
-                <span>Should I hire a transaction coordinator?</span>
-              </h3>
-              <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                You should consider hiring a transaction coordinator when routine administrative duties—such as deadline scheduling, drafting addenda, tracking earnest money, requesting HOA disclosures, and uploading compliance documentation—start interfering with client consultations, lead generation, and showings. If closing additional transactions feels stressful rather than profitable because of administrative drag, delegating file management is the most effective operational solution.
-              </p>
-            </article>
-
-            {/* Question 2 */}
-            <article className="bg-white rounded-xl p-5 border border-[#D8D2D4] space-y-2">
-              <h3 className="text-sm font-extrabold text-[#3A2E29] font-montserrat flex items-start space-x-2">
-                <span className="text-[#0D9BA3] font-mono text-xs mt-0.5">•</span>
-                <span>Should I hire an in-house TC or outsource transaction coordination?</span>
-              </h3>
-              <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                The decision centers on fixed versus variable overhead. An in-house hire creates substantial fixed annual overhead (salaried payroll, payroll taxes, worker's compensation, healthcare, software seats, and training), which must be paid regardless of seasonal market slowdowns. Coordination support with Hometown Transaction Coordinators converts operational help into a predictable per-file investment: scaling up or down with your active production without carrying full-time fixed payroll during slow months.
-              </p>
-            </article>
-
-            {/* Question 3 */}
-            <article className="bg-white rounded-xl p-5 border border-[#D8D2D4] space-y-2">
-              <h3 className="text-sm font-extrabold text-[#3A2E29] font-montserrat flex items-start space-x-2">
-                <span className="text-[#0D9BA3] font-mono text-xs mt-0.5">•</span>
-                <span>How much does a transaction coordinator cost?</span>
-              </h3>
-              <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                In Florida, professional independent and agency transaction coordinators typically charge between $375 and $550 per closed transaction. In contrast, an in-house administrative employee carries substantial overhead in fixed salary, employer taxes, benefits, equipment, and management overhead.
-              </p>
-            </article>
-
-            {/* Question 4 */}
-            <article className="bg-white rounded-xl p-5 border border-[#D8D2D4] space-y-2">
-              <h3 className="text-sm font-extrabold text-[#3A2E29] font-montserrat flex items-start space-x-2">
-                <span className="text-[#0D9BA3] font-mono text-xs mt-0.5">•</span>
-                <span>How many transactions do I need before hiring a TC?</span>
-              </h3>
-              <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                Most real estate professionals benefit from outsourced coordination once they close 8 to 12 transactions per year. Because outsourced support operates on a per-closing basis without monthly retainers or setup minimums, there is no volume requirement to get started. For agents producing 15 to 25+ closings annually, transaction support becomes virtually essential to maintain consistent client communication and prevent administrative bottlenecking.
-              </p>
-            </article>
-
-            {/* Question 5 */}
-            <article className="bg-white rounded-xl p-5 border border-[#D8D2D4] space-y-2">
-              <h3 className="text-sm font-extrabold text-[#3A2E29] font-montserrat flex items-start space-x-2">
-                <span className="text-[#0D9BA3] font-mono text-xs mt-0.5">•</span>
-                <span>What is my time worth as a Realtor?</span>
-              </h3>
-              <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                Your effective hourly value is calculated by dividing your annual Gross Commission Income (GCI) by your annual working hours (typically 1,800 to 2,200 hours per year). For example, an agent generating $200,000 in GCI working 40 hours per week for 50 weeks produces an effective business value of $100 per working hour. Spending substantial hours of your own time managing paperwork and administrative follow-up on a single transaction represents significant opportunity cost per closing.
-              </p>
-            </article>
-
-            {/* Question 6 */}
-            <article className="bg-white rounded-xl p-5 border border-[#D8D2D4] space-y-2">
-              <h3 className="text-sm font-extrabold text-[#3A2E29] font-montserrat flex items-start space-x-2">
-                <span className="text-[#0D9BA3] font-mono text-xs mt-0.5">•</span>
-                <span>Is an in-house transaction coordinator worth it?</span>
-              </h3>
-              <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                An in-house coordinator is typically only financially justifiable for high-volume teams or large brokerages closing 80 to 120+ sides per year, where full-time in-person presence, listing signage logistics, and local runner errands are required daily. Solo agents and small teams producing between 10 and 60 transactions annually face unnecessary fixed financial overhead by carrying an in-house salary during shifting market cycles.
-              </p>
-            </article>
-
-            {/* Question 7 */}
-            <article className="bg-white rounded-xl p-5 border border-[#D8D2D4] space-y-2">
-              <h3 className="text-sm font-extrabold text-[#3A2E29] font-montserrat flex items-start space-x-2">
-                <span className="text-[#0D9BA3] font-mono text-xs mt-0.5">•</span>
-                <span>What does outsourced transaction coordination cost?</span>
-              </h3>
-              <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                Our primary Contract-to-Close plans are Base at $375 per closed file and Pro at $475 per closed file. New clients complete a one-time $399 Agent Setup Investment at registration so we can build your brokerage requirements, forms, and preferences into your HTC workflow. If a Contract-to-Close file cancels during the inspection period, there is no cancellation fee.
-              </p>
-            </article>
-
-            {/* Question 8 */}
-            <article className="bg-white rounded-xl p-5 border border-[#D8D2D4] space-y-2">
-              <h3 className="text-sm font-extrabold text-[#3A2E29] font-montserrat flex items-start space-x-2">
-                <span className="text-[#0D9BA3] font-mono text-xs mt-0.5">•</span>
-                <span>What could increasing my real estate production look like?</span>
-              </h3>
-              <p className="text-xs text-[#3A2E29]/80 leading-relaxed font-medium">
-                Reclaiming administrative hours per closing frees up hundreds of productive hours annually for active agents. In real estate sales, redirecting time each month toward sphere-of-influence outreach, active showings, and prospecting unlocks significant growth potential—translating to additional closings and tens of thousands of dollars in incremental GCI.
-              </p>
-            </article>
-
-          </div>
-
-        </section>
 
       </div>
 

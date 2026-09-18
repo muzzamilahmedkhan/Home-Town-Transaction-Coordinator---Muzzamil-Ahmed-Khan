@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { ShieldCheck, Clock, Phone, Mail, FileText, Users, AlertCircle } from 'lucide-react';
+import { usePageSeo } from '../hooks/usePageSeo';
 
 interface Props {
   onGoHome: () => void;
@@ -17,7 +18,18 @@ export const SubmitDealPage: React.FC<Props> = ({
   onOpenFaq,
   onBookCall
 }) => {
+  usePageSeo({
+    title: 'Submit a New Deal | Hometown Transaction Coordinators',
+    description: 'Submit your file details for Listing Launch, Contract-to-Close, or Broker Compliance.',
+    canonicalUrl: 'https://hometowntc.com/submit-deal/',
+    breadcrumbs: [
+      { name: 'Home', url: 'https://hometowntc.com/' },
+      { name: 'Submit a New Deal', url: 'https://hometowntc.com/submit-deal/' }
+    ]
+  });
+
   useEffect(() => {
+    document.title = 'Submit a New Deal | Hometown Transaction Coordinators';
     if (!document.querySelector('script[src="https://server.fillout.com/embed/v1/"]')) {
       const script = document.createElement('script');
       script.src = "https://server.fillout.com/embed/v1/";
@@ -102,9 +114,6 @@ export const SubmitDealPage: React.FC<Props> = ({
             </div>
             <p className="text-xs text-slate-600 leading-relaxed">
               A confirmation email will be in your inbox after you submit your file. Please review it to make sure everything is correct and reply directly to that email if anything needs to be changed.
-            </p>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Files are opened in the order received. Requests received before <strong className="text-[#3A2E29]">3:00 PM EST</strong> are expected to be opened the same business day.
             </p>
           </div>
 

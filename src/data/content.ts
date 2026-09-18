@@ -11,7 +11,7 @@ export const PROPERTY_CARD_IMAGE = '/src/assets/images/florida_property_card_178
 
 export const PHONE_NUMBER = '(954) 377-8330';
 export const EMAIL_ADDRESS = 'hello@hometowntc.com';
-export const OFFICE_HOURS = 'Mon - Fri: 8:00 AM - 6:00 PM EST';
+export const OFFICE_HOURS = 'Monday–Friday · 8:00 AM–6:00 PM EST';
 
 export const PRICING_CONFIG = {
   basePrice: 375,
@@ -151,8 +151,8 @@ export const CENTRAL_SERVICES_PRICING = {
       desc: 'Specialized disclosure coordination with title and CPA tax withholding specialists.'
     },
     {
-      title: 'Post-Closing Client Review Dispatch',
-      desc: 'Custom review request email and client appreciation package dispatch.'
+      title: 'Post-Closing Client Review Delivery',
+      desc: 'Custom review request email and client appreciation package delivery.'
     }
   ],
 
@@ -201,7 +201,7 @@ export const HOME_STEPS: HomeStep[] = [
     deliverables: [
       'Proactive monitoring of inspection periods & repair addendums',
       'Ongoing liaison with Mortgage Lender, Title Company & Appraiser',
-      'Brokerage compliance audit checks throughout the contract period'
+      'Brokerage compliance checks throughout the contract period'
     ],
     milestone: 'Reduced mental load: Proactive milestone tracking keeps you informed.',
     iconName: 'ShieldCheck'

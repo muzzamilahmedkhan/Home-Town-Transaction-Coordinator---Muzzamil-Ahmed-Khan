@@ -31,20 +31,17 @@ interface Props {
 export type SimpleCategory = 
   | 'Guides + Checklists'
   | 'Templates + Client Tools'
-  | 'AI + Automation'
   | 'Classes + Workshops';
 
 const CATEGORIES: SimpleCategory[] = [
   'Guides + Checklists',
   'Templates + Client Tools',
-  'AI + Automation',
   'Classes + Workshops'
 ];
 
 export type TopicTag = 
   | 'Transactions'
   | 'Listings'
-  | 'Condo + HOA'
   | 'Broker Compliance'
   | 'Agent Operations'
   | 'Business Growth';
@@ -52,7 +49,6 @@ export type TopicTag =
 const TOPIC_TAGS: TopicTag[] = [
   'Transactions',
   'Listings',
-  'Condo + HOA',
   'Broker Compliance',
   'Agent Operations',
   'Business Growth'
@@ -78,7 +74,7 @@ const APPROVED_RESOURCES: ApprovedResource[] = [
     category: 'Templates + Client Tools',
     tags: ['Agent Operations', 'Business Growth'],
     format: 'Interactive Calculator',
-    description: 'Calculate how many hours you spend on paperwork each month, your effective hourly rate, and the commission revenue gained by delegating file coordination.',
+    description: 'Model the time and business value connected to your transaction workload using your own numbers.',
     actionText: 'Launch Calculator',
     actionType: 'calculator',
     destinationUrl: '/agent-business-calculator/'
@@ -89,10 +85,10 @@ const APPROVED_RESOURCES: ApprovedResource[] = [
     category: 'Guides + Checklists',
     tags: ['Transactions', 'Broker Compliance'],
     format: 'Weekly Operational Guide',
-    description: 'Practical analysis covering Florida FAR/BAR contract timelines, condo milestone inspection requirements (SB 4-D), and brokerage compliance standards.',
+    description: 'Practical operational analysis covering Florida contracts, transaction coordination, brokerage compliance, and closing workflows for practicing Realtors.',
     actionText: 'Read The Hometown Brief',
     actionType: 'blog',
-    destinationUrl: '/blog/'
+    destinationUrl: '/resources/'
   },
   {
     id: 'res-workshop',
@@ -100,7 +96,7 @@ const APPROVED_RESOURCES: ApprovedResource[] = [
     category: 'Classes + Workshops',
     tags: ['Agent Operations', 'Transactions'],
     format: 'Workshop & Curriculum',
-    description: 'Specialized operational workshop for Florida real estate agents and aspiring transaction coordinators seeking complete mastery of contract-to-close files.',
+    description: 'Specialized operational workshop for Florida real estate agents and aspiring transaction coordinators seeking practical training on Florida transaction workflows and Contract-to-Close support.',
     actionText: 'Explore Workshop Details',
     actionType: 'workshop',
     destinationUrl: '/tcworkshop/'
@@ -144,7 +140,6 @@ export const FreeGuidesPage: React.FC<Props> = ({
       'All Resources': APPROVED_RESOURCES.length,
       'Guides + Checklists': 0,
       'Templates + Client Tools': 0,
-      'AI + Automation': 0,
       'Classes + Workshops': 0
     };
     APPROVED_RESOURCES.forEach((r) => {
@@ -182,7 +177,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
       else if (onNavigate) onNavigate('/agent-business-calculator/');
     } else if (resource.actionType === 'blog') {
       if (onBackToBlog) onBackToBlog();
-      else if (onNavigate) onNavigate('/blog/');
+      else if (onNavigate) onNavigate('/resources/');
     } else if (resource.actionType === 'workshop') {
       if (onNavigate) onNavigate('/tcworkshop/');
     } else if (resource.actionType === 'pricing') {
@@ -203,11 +198,6 @@ export const FreeGuidesPage: React.FC<Props> = ({
         return {
           badge: 'bg-[#FE7311]/10 text-[#FE7311] border-[#FE7311]/30',
           icon: <Layers className="w-3.5 h-3.5 text-[#FE7311]" />
-        };
-      case 'AI + Automation':
-        return {
-          badge: 'bg-purple-50 text-purple-700 border-purple-200',
-          icon: <Sparkles className="w-3.5 h-3.5 text-purple-600" />
         };
       case 'Classes + Workshops':
         return {
@@ -262,7 +252,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
 
             {/* Supporting Copy */}
             <p className="text-base sm:text-lg lg:text-xl text-[#3A2E29]/85 leading-relaxed font-medium">
-              Practical guides, checklists, templates, calculators, AI resources, and training built to make the work easier for Florida real estate professionals.
+              Practical guides, operational overviews, calculators, and training built to make the work easier for Florida real estate professionals.
             </p>
 
             {/* Search Input */}
@@ -273,7 +263,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search guides, tools, templates, classes..."
+                  placeholder="Search tools, calculators, guides, workshops..."
                   className="w-full pl-11 pr-10 py-3 bg-[#EEEAEB]/50 border border-[#D8D2D4] rounded-xl text-sm text-[#3A2E29] placeholder:text-slate-500 focus:outline-none focus:border-[#0D9BA3] focus:bg-white transition"
                 />
                 {searchQuery && (
@@ -542,7 +532,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
                   Run the Numbers
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Calculate paperwork hours vs. commission income to see the exact financial leverage of a dedicated TC.
+                  Calculate paperwork hours vs. commission income to compare the modeled value of your time with HTC support using your own numbers.
                 </p>
               </div>
               <div className="pt-4 text-xs font-bold text-[#FE7311] flex items-center space-x-1 group-hover:translate-x-1 transition-transform">

@@ -5,31 +5,21 @@ import {
   ArrowRight,
   Clock,
   ShieldCheck,
-  UserCheck,
   Calendar,
   Calculator,
   FileText,
   BookOpen,
-  Newspaper,
   CheckCircle2,
-  Sparkles,
-  Layers,
-  HelpCircle,
-  Bookmark,
-  FolderOpen,
-  Paperclip,
-  Download,
-  Share2,
   SlidersHorizontal,
-  AlertCircle
+  AlertCircle,
+  Share2
 } from 'lucide-react';
 import {
   CATEGORY_ARCHIVE_CONFIGS,
   NEUTRAL_PLACEHOLDER_ARTICLES,
   HTC_INTERNAL_LINKS,
   searchBriefs,
-  SearchResultItem,
-  NeutralPlaceholderArticle
+  SearchResultItem
 } from '../data/blog';
 
 interface Props {
@@ -53,7 +43,6 @@ export const BlogResourcesPage: React.FC<Props> = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState<'all' | string>('all');
-  const [fileTabIdx, setFileTabIdx] = useState(0);
   const [copiedLink, setCopiedLink] = useState(false);
 
   // Fallback internal router if onNavigate prop isn't passed
@@ -67,33 +56,13 @@ export const BlogResourcesPage: React.FC<Props> = ({
     }
   };
 
-  // 1. Search results computation covering title, theBrief, category, tags, and article body
+  // Search results computation
   const searchResults: SearchResultItem[] = useMemo(() => {
     if (!searchQuery.trim()) return [];
     return searchBriefs(searchQuery);
   }, [searchQuery]);
 
-  // Lead Brief (Today's Brief)
-  const leadBrief = useMemo(() => {
-    return NEUTRAL_PLACEHOLDER_ARTICLES.find(a => a.isLeadBrief) || NEUTRAL_PLACEHOLDER_ARTICLES[0];
-  }, []);
-
-  // Worth 3 Minutes (3 concise columns)
-  const worth3MinutesArticles = useMemo(() => {
-    const list = NEUTRAL_PLACEHOLDER_ARTICLES.filter(a => a.isWorth3Min);
-    return list.slice(0, 3);
-  }, []);
-
-  // From the File (HTC Field Notes)
-  const fromTheFileArticles = useMemo(() => {
-    const list = NEUTRAL_PLACEHOLDER_ARTICLES.filter(a => a.isFromFile);
-    return list.length > 0 ? list : NEUTRAL_PLACEHOLDER_ARTICLES.slice(3, 6);
-  }, []);
-
-  // Active From the File item
-  const activeFileItem = fromTheFileArticles[fileTabIdx] || fromTheFileArticles[0];
-
-  // SEO Title & Meta Description as specified in client brief
+  // SEO Title & Meta Description
   useEffect(() => {
     const originalTitle = document.title;
     document.title = 'The Hometown Brief | Florida Real Estate Answers for Realtors';
@@ -134,12 +103,12 @@ export const BlogResourcesPage: React.FC<Props> = ({
     setMetaTag(
       'property',
       'og:description',
-      'Quick, practical answers for Florida Realtors on transaction coordination, contracts, compliance, condo and HOA issues, agent operations, and business growth.'
+      'Quick, practical answers on contracts, transaction operations, compliance, growth, and the work behind the closing.'
     );
     setMetaTag('property', 'og:type', 'website');
     setMetaTag('property', 'og:url', 'https://hometowntc.com/resources/');
 
-    // JSON-LD WebSite and Blog / CollectionPage schema
+    // JSON-LD WebSite and CollectionPage schema
     const schemaScript = document.createElement('script');
     schemaScript.type = 'application/ld+json';
     schemaScript.id = 'hometown-brief-index-schema';
@@ -151,7 +120,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
           '@id': 'https://hometowntc.com/resources/#website',
           'url': 'https://hometowntc.com/resources/',
           'name': 'The Hometown Brief',
-          'description': 'Quick, practical answers for Florida Realtors on transaction coordination, contracts, compliance, condo and HOA issues, agent operations, and business growth.',
+          'description': 'Quick, practical answers on contracts, transaction operations, compliance, growth, and the work behind the closing.',
           'publisher': {
             '@type': 'Organization',
             'name': 'Hometown Transaction Coordinators',
@@ -164,7 +133,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
           'url': 'https://hometowntc.com/resources/',
           'name': 'The Hometown Brief | Florida Real Estate Answers for Realtors',
           'headline': 'Florida real estate operations, without the fluff.',
-          'description': 'Quick, practical answers for Florida Realtors on transaction coordination, contracts, compliance, condo and HOA issues, agent operations, and business growth.',
+          'description': 'Quick, practical answers on contracts, transaction operations, compliance, growth, and the work behind the closing.',
           'isPartOf': {
             '@id': 'https://hometowntc.com/resources/#website'
           }
@@ -192,10 +161,10 @@ export const BlogResourcesPage: React.FC<Props> = ({
     <div className="min-h-screen bg-[#EEEAEB] text-[#3A2E29] font-sans antialiased selection:bg-[#0D9BA3] selection:text-white">
 
       {/* ========================================================================= */}
-      {/* 1. THE HOMETOWN BRIEF MASTHEAD + SEARCH                                  */}
+      {/* 1. TOP HEADER & THE HOMETOWN BRIEF HERO                                   */}
       {/* ========================================================================= */}
       <header className="bg-white border-b border-[#D8D2D4]">
-        {/* Dateline Bar */}
+        {/* Navigation Bar */}
         <div className="border-b border-[#D8D2D4] bg-[#EEEAEB]/70 text-[11px] uppercase tracking-widest text-[#3A2E29]/70 font-mono py-2.5 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3">
@@ -207,14 +176,12 @@ export const BlogResourcesPage: React.FC<Props> = ({
                 HOMETOWN TRANSACTION COORDINATORS
               </a>
               <span className="text-[#D8D2D4]">|</span>
-              <span className="text-[#0D9BA3] font-extrabold">STATEWIDE FLORIDA DISPATCH</span>
+              <span className="text-[#0D9BA3] font-extrabold">THE HOMETOWN BRIEF</span>
             </div>
 
             <div className="flex items-center gap-4 text-[10px] text-slate-500">
               <span className="font-semibold text-[#3A2E29]">FLORIDA TRANSACTION OPERATIONS</span>
-              <span className="hidden sm:inline">•</span>
-              <span className="hidden sm:inline">UPDATED WEEKLY</span>
-              <span className="hidden sm:inline">•</span>
+              <span>•</span>
               <button
                 onClick={handleShare}
                 className="hover:text-[#0D9BA3] font-bold transition-colors flex items-center gap-1 cursor-pointer text-[#3A2E29]"
@@ -227,24 +194,32 @@ export const BlogResourcesPage: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Masthead Hero */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-8">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
-              <span>Practical Intelligence for Florida Real Estate Professionals</span>
+        {/* Masthead Hero: Simple, focused identity */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-10">
+          <div className="text-center max-w-4xl mx-auto">
+            {/* Eyebrow */}
+            <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-[#0D9BA3]/20">
+              <span>THE HOMETOWN BRIEF</span>
             </div>
-            
-            <div className="text-4xl sm:text-6xl md:text-7xl font-montserrat font-extrabold tracking-tight text-[#3A2E29] uppercase border-y border-[#D8D2D4] py-3 my-3">
-              The Hometown Brief
-            </div>
-            {/* Single H1 */}
-            <h1 className="text-lg sm:text-2xl font-montserrat font-semibold text-[#3A2E29] mt-2 tracking-normal">
+
+            {/* H1 */}
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-montserrat font-extrabold tracking-tight text-[#3A2E29] leading-tight mb-5">
               Florida real estate operations, without the fluff.
             </h1>
+
+            {/* Support */}
+            <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium mb-3">
+              Quick, practical answers on contracts, transaction operations, compliance, growth, and the work behind the closing.
+            </p>
+
+            {/* Supporting line */}
+            <p className="text-sm sm:text-base text-[#FE7311] font-bold tracking-wide">
+              One question. One Brief. One useful answer.
+            </p>
           </div>
 
-          {/* Search Bar - Covers: title, The Brief answer, category, tags, and article body */}
-          <div className="max-w-3xl mx-auto mt-6">
+          {/* Search Bar - Search can stay */}
+          <div className="max-w-3xl mx-auto mt-8">
             <div className="bg-white border border-[#D8D2D4] p-3 rounded-2xl shadow-sm hover:border-[#0D9BA3] transition-all">
               <div className="relative flex items-center">
                 <Search className="w-5 h-5 text-[#0D9BA3] absolute left-3.5 pointer-events-none" />
@@ -252,13 +227,13 @@ export const BlogResourcesPage: React.FC<Props> = ({
                   type="search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search by article title, The Brief answer, category, tags, or body..."
+                  placeholder="Search The Hometown Brief..."
                   className="w-full bg-[#EEEAEB]/40 rounded-xl border border-[#D8D2D4] pl-11 pr-10 py-3 text-sm sm:text-base text-[#3A2E29] placeholder-slate-400 focus:outline-none focus:border-[#0D9BA3] focus:ring-2 focus:ring-[#0D9BA3]/20 font-sans"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-3.5 text-slate-400 hover:text-[#3A2E29] p-1"
+                    className="absolute right-3.5 text-slate-400 hover:text-[#3A2E29] p-1 cursor-pointer"
                     aria-label="Clear search"
                   >
                     <X className="w-4 h-4" />
@@ -266,17 +241,17 @@ export const BlogResourcesPage: React.FC<Props> = ({
                 )}
               </div>
 
-              {/* Quick Search Helper Pills */}
+              {/* Quick Topic Pills */}
               <div className="flex flex-wrap items-center justify-between gap-2 mt-2.5 pt-2.5 border-t border-[#D8D2D4] text-xs font-medium">
                 <div className="flex flex-wrap items-center gap-1.5 text-slate-600">
-                  <span className="font-bold text-[#3A2E29] text-[11px] uppercase tracking-wider">POPULAR:</span>
-                  {['FAR/BAR', 'Escrow', 'Condo SB 4-D', 'Inspection', 'Compliance'].map((term) => (
+                  <span className="font-bold text-[#3A2E29] text-[11px] uppercase tracking-wider">TOPICS:</span>
+                  {['Contracts', 'Operations', 'Compliance', 'Condo + HOA', 'Agent Growth', 'Florida Updates'].map((topic) => (
                     <button
-                      key={term}
-                      onClick={() => setSearchQuery(term)}
+                      key={topic}
+                      onClick={() => setSearchQuery(topic)}
                       className="px-2.5 py-1 bg-[#EEEAEB] hover:bg-[#0D9BA3] hover:text-white rounded-lg border border-[#D8D2D4] text-[#3A2E29] text-xs transition-colors cursor-pointer"
                     >
-                      {term}
+                      {topic}
                     </button>
                   ))}
                 </div>
@@ -292,7 +267,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
       </header>
 
       {/* ========================================================================= */}
-      {/* 2. TOPIC NAVIGATION (ALL 6 CRAWLABLE ARCHIVE URLS)                       */}
+      {/* 2. TOPIC NAVIGATION                                                       */}
       {/* ========================================================================= */}
       <nav
         aria-label="Topic Navigation"
@@ -305,7 +280,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
               TOPICS:
             </span>
 
-            {/* All Dispatches */}
+            {/* All Topics */}
             <a
               href="/resources/"
               onClick={(e) => {
@@ -314,15 +289,15 @@ export const BlogResourcesPage: React.FC<Props> = ({
                 setSearchQuery('');
               }}
               className={`px-3.5 py-1.5 text-xs font-bold tracking-wider uppercase rounded-full transition-all shrink-0 whitespace-nowrap ${
-                activeTab === 'all'
+                activeTab === 'all' && !searchQuery
                   ? 'bg-[#0D9BA3] text-white shadow-sm'
                   : 'bg-[#EEEAEB] text-[#3A2E29] border border-[#D8D2D4] hover:border-[#0D9BA3] hover:text-[#0D9BA3]'
               }`}
             >
-              ALL DISPATCHES
+              ALL TOPICS
             </a>
 
-            {/* The 6 Permanent Category Archive URLs */}
+            {/* Category URLs */}
             {Object.values(CATEGORY_ARCHIVE_CONFIGS).map((cat) => (
               <a
                 key={cat.slug}
@@ -337,7 +312,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
         </div>
       </nav>
 
-      {/* MAIN CONTAINER */}
+      {/* MAIN CONTENT AREA */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
 
         {/* SEARCH RESULTS VIEW (When search active) */}
@@ -351,9 +326,6 @@ export const BlogResourcesPage: React.FC<Props> = ({
                 <h2 className="text-2xl font-montserrat font-extrabold text-[#3A2E29]">
                   Results for &ldquo;{searchQuery}&rdquo;
                 </h2>
-                <p className="text-xs text-slate-500 mt-1">
-                  Covering article title, The Brief answer, category, tags, and article body.
-                </p>
               </div>
               <button
                 onClick={() => setSearchQuery('')}
@@ -364,10 +336,29 @@ export const BlogResourcesPage: React.FC<Props> = ({
             </div>
 
             {searchResults.length === 0 ? (
-              <div className="py-10 text-center">
-                <AlertCircle className="w-8 h-8 text-[#FE7311] mx-auto mb-2" />
-                <p className="text-lg font-bold text-[#3A2E29]">No briefs found matching &ldquo;{searchQuery}&rdquo;.</p>
-                <p className="text-xs text-slate-500 mt-1">Try another keyword like FAR/BAR, escrow, condo, or compliance.</p>
+              <div className="py-12 text-center max-w-lg mx-auto">
+                <AlertCircle className="w-10 h-10 text-[#FE7311] mx-auto mb-3" />
+                <h3 className="text-lg font-bold text-[#3A2E29] mb-1">
+                  No published briefs match &ldquo;{searchQuery}&rdquo;.
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed font-medium mb-5">
+                  Try searching for another topic or explore the categories above. New operational briefs appear here as published.
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="px-4 py-2 bg-[#0D9BA3] hover:bg-[#0b8289] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors cursor-pointer"
+                  >
+                    View All Topics
+                  </button>
+                  <a
+                    href="/agent-business-calculator/"
+                    onClick={(e) => handleLinkClick(e, '/agent-business-calculator/')}
+                    className="px-4 py-2 bg-[#FE7311] hover:bg-[#e05f03] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors"
+                  >
+                    Run the Numbers
+                  </a>
+                </div>
               </div>
             ) : (
               <div className="divide-y divide-[#D8D2D4]">
@@ -381,9 +372,6 @@ export const BlogResourcesPage: React.FC<Props> = ({
                         <Clock className="w-3.5 h-3.5 text-[#0D9BA3]" />
                         {result.readTime}
                       </span>
-                      <span className="text-[10px] uppercase font-bold text-[#FE7311] bg-[#FE7311]/10 px-2 py-0.5 rounded-full">
-                        MATCHED: {result.matchedField.toUpperCase()}
-                      </span>
                     </div>
 
                     <h3 className="text-lg sm:text-xl font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2">
@@ -396,7 +384,6 @@ export const BlogResourcesPage: React.FC<Props> = ({
                       </a>
                     </h3>
 
-                    {/* SHORT SUMMARY - strictly no giant excerpts! */}
                     <p className="text-sm text-slate-600 leading-relaxed mb-3">
                       {result.shortSummary}
                     </p>
@@ -417,330 +404,155 @@ export const BlogResourcesPage: React.FC<Props> = ({
         ) : null}
 
         {/* ========================================================================= */}
-        {/* 3. TODAY’S BRIEF                                                          */}
+        {/* 3. CLEAN EDITORIAL LAYOUT (ONLY REAL APPROVED CONTENT)                   */}
         {/* ========================================================================= */}
-        <section aria-labelledby="todays-brief-heading" className="mb-14">
-          <div className="border-b border-[#D8D2D4] pb-2.5 mb-4 flex items-center justify-between">
-            <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#FE7311] animate-pulse"></span>
-              TODAY&rsquo;S BRIEF • LEAD DISPATCH
-            </span>
-            <span className="text-xs text-slate-500 uppercase font-semibold">
-              FLORIDA STATEWIDE EDITION
-            </span>
-          </div>
-
-          <div className="bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="lg:col-span-8 flex flex-col justify-between">
-              <div>
-                {/* [CATEGORY] & [READ TIME] */}
-                <div className="flex flex-wrap items-center gap-3 mb-3 text-xs">
-                  <span className="bg-[#0D9BA3] text-white px-3 py-1 rounded-full font-bold uppercase tracking-wider">
-                    {leadBrief.category}
-                  </span>
-                  <span className="text-slate-500 flex items-center gap-1 font-semibold">
-                    <Clock className="w-3.5 h-3.5 text-[#0D9BA3]" />
-                    {leadBrief.readTime}
-                  </span>
-                  <span className="text-[#FE7311] font-bold text-xs">STATEWIDE SCOPE</span>
-                </div>
-
-                
-                <h2 id="todays-brief-heading" className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-[#3A2E29] leading-tight mb-4">
-                  <a
-                    href={`/resources/${leadBrief.slug}/`}
-                    onClick={(e) => handleLinkClick(e, `/resources/${leadBrief.slug}/`)}
-                    className="hover:text-[#0D9BA3] transition-colors"
-                  >
-                    {leadBrief.placeholderTitle}
-                  </a>
-                </h2>
-
-                
-                <div className="p-4 bg-[#EEEAEB]/50 rounded-xl border border-[#D8D2D4] mb-4">
-                  <p className="text-sm text-slate-700 leading-relaxed font-medium">
-                    {leadBrief.placeholderSummary}
-                  </p>
-                </div>
-
-                {/* The Brief Callout Box */}
-                <div className="p-4 bg-[#0D9BA3]/5 border-l-4 border-[#0D9BA3] rounded-r-xl mb-4">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#0D9BA3] block mb-1">
-                    THE BRIEF ANSWER:
-                  </span>
-                  <p className="italic text-sm text-[#3A2E29] leading-relaxed font-medium">
-                    {leadBrief.theBrief}
-                  </p>
-                </div>
-              </div>
-
-              {/* Action Button */}
-              <div className="pt-4 border-t border-[#D8D2D4] flex flex-wrap items-center justify-between gap-3">
-                <a
-                  href={`/resources/${leadBrief.slug}/`}
-                  onClick={(e) => handleLinkClick(e, `/resources/${leadBrief.slug}/`)}
-                  className="px-6 py-3 bg-[#FE7311] hover:bg-[#e05f03] text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer"
-                >
-                  <span>READ THE BRIEF</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-                <span className="text-xs text-slate-500 font-medium">
-                  EDITORIAL BLUEPRINT • 01
-                </span>
-              </div>
-            </div>
-
-            {/* Side Column: Quick Statutory Rules & Context */}
-            <div className="lg:col-span-4 bg-[#EEEAEB]/50 border border-[#D8D2D4] rounded-xl p-5 flex flex-col justify-between">
-              <div>
-                <span className="text-[11px] uppercase tracking-wider text-slate-500 font-bold block mb-2">
-                  OPERATIONAL REFERENCE
-                </span>
-                <h3 className="font-montserrat font-bold text-base text-[#3A2E29] mb-3">
-                  Florida Statutory Notice Standards
-                </h3>
-                <ul className="space-y-2.5 text-xs text-slate-700 mb-4 font-medium">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] shrink-0 mt-0.5" />
-                    <span>Standard F calendar day calculation rules</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] shrink-0 mt-0.5" />
-                    <span>5:00 PM rolling cutoff for weekend milestones</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] shrink-0 mt-0.5" />
-                    <span>11:59 PM written cancellation cutoffs</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-[#0D9BA3] shrink-0 mt-0.5" />
-                    <span>Escrow verification within 10 business days</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-3 border-t border-[#D8D2D4]">
-                <a
-                  href="/resources/contracts-forms/"
-                  onClick={(e) => handleLinkClick(e, '/resources/contracts-forms/')}
-                  className="text-xs font-bold text-[#0D9BA3] hover:text-[#FE7311] flex items-center justify-between transition-colors"
-                >
-                  <span>BROWSE CONTRACTS & FORMS DESK</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* 4. WORTH 3 MINUTES                                                        */}
-        {/* ========================================================================= */}
-        <section aria-labelledby="worth-3-minutes-heading" className="mb-14">
-          <div className="border-b border-[#D8D2D4] pb-2.5 mb-6 flex items-center justify-between">
+        <section aria-labelledby="editorial-topics-heading" className="mb-14">
+          <div className="border-b border-[#D8D2D4] pb-3 mb-6 flex flex-wrap items-end justify-between gap-3">
             <div>
-              <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold block mb-0.5">
-                SHORT-FORM OPERATIONAL BRIEFS
+              <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold block mb-1">
+                EDITORIAL COVERAGE
               </span>
-              <h2 id="worth-3-minutes-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
-                Worth 3 Minutes
+              <h2 id="editorial-topics-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
+                Florida Real Estate Operational Topics
               </h2>
             </div>
-            <span className="text-xs font-semibold text-[#3A2E29] bg-white px-3 py-1.5 rounded-full border border-[#D8D2D4]">
-              FAST READS FOR BUSY REALTORS
-            </span>
+            <p className="text-xs text-slate-500 font-medium max-w-md text-left sm:text-right">
+              Practical, field-tested answers written from active Florida transactions.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {worth3MinutesArticles.map((article, idx) => (
-              <article
-                key={article.id}
-                className="bg-white border border-[#D8D2D4] rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:border-[#0D9BA3] hover:shadow-md transition-all group"
+          {/* 6 Topic Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Object.values(CATEGORY_ARCHIVE_CONFIGS).map((cat) => (
+              <div
+                key={cat.slug}
+                className="bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-7 flex flex-col justify-between shadow-sm hover:border-[#0D9BA3] hover:shadow-md transition-all group"
               >
                 <div>
-                  {/* Category & Read Time */}
-                  <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[#D8D2D4] text-xs">
-                    <span className="font-bold text-[#0D9BA3] bg-[#0D9BA3]/10 px-2.5 py-0.5 rounded-full border border-[#0D9BA3]/20">
-                      {article.category}
+                  <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[#D8D2D4]">
+                    <span className="text-xs font-bold text-[#0D9BA3] bg-[#0D9BA3]/10 px-2.5 py-0.5 rounded-full border border-[#0D9BA3]/20">
+                      {cat.name}
                     </span>
-                    <span className="text-slate-500 flex items-center gap-1 font-medium">
-                      <Clock className="w-3.5 h-3.5 text-[#0D9BA3]" />
-                      {article.readTime}
+                    <span className="text-[10px] uppercase font-bold text-slate-400">
+                      HTC BRIEF
                     </span>
                   </div>
 
-                  <span className="text-[11px] text-[#FE7311] font-bold uppercase tracking-wider block mb-1">
-                    COLUMN 0{idx + 1}
-                  </span>
-
-                  
-                  <h3 className="text-base sm:text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors leading-snug mb-3">
+                  <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2 leading-snug">
                     <a
-                      href={`/resources/${article.slug}/`}
-                      onClick={(e) => handleLinkClick(e, `/resources/${article.slug}/`)}
-                      className="hover:underline"
+                      href={`/resources/${cat.slug}/`}
+                      onClick={(e) => handleLinkClick(e, `/resources/${cat.slug}/`)}
                     >
-                      {article.placeholderTitle}
+                      {cat.name}
                     </a>
                   </h3>
 
-                  
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4 p-3 bg-[#EEEAEB]/40 rounded-xl border border-[#D8D2D4]">
-                    {article.placeholderSummary}
+                  <p className="text-xs font-semibold text-[#FE7311] mb-2 leading-snug">
+                    {cat.tagline}
+                  </p>
+
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {cat.categoryIntroPlaceholder}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[#D8D2D4] flex items-center justify-between">
+                <div className="pt-4 mt-4 border-t border-[#D8D2D4] flex items-center justify-between">
                   <a
-                    href={`/resources/${article.slug}/`}
-                    onClick={(e) => handleLinkClick(e, `/resources/${article.slug}/`)}
-                    className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#0D9BA3] group-hover:text-[#FE7311] transition-colors"
+                    href={`/resources/${cat.slug}/`}
+                    onClick={(e) => handleLinkClick(e, `/resources/${cat.slug}/`)}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0D9BA3] group-hover:text-[#FE7311] transition-colors"
                   >
-                    <span>READ</span>
+                    <span>EXPLORE TOPIC</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
-                  <span className="text-[11px] text-slate-400 font-medium">NO FLUFF</span>
+                  <span className="text-[10px] text-slate-400 font-medium">FLORIDA DESK</span>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
-        </section>
 
-        {/* ========================================================================= */}
-        {/* 5. FROM THE FILE                                                          */}
-        {/* ========================================================================= */}
-        <section aria-labelledby="from-the-file-heading" className="mb-14">
-          <div className="border-b border-[#D8D2D4] pb-2.5 mb-6 flex items-center justify-between">
-            <div>
-              <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold block mb-0.5">
-                REAL FLORIDA CLOSING SCENARIOS
-              </span>
-              <h2 id="from-the-file-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
-                From the File
-              </h2>
-            </div>
-            <span className="text-xs text-slate-600 bg-white px-3 py-1.5 rounded-full border border-[#D8D2D4] font-medium">
-              MANILA FOLDER ARCHIVES
-            </span>
-          </div>
-
-          <div className="bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 shadow-sm">
-            {/* Folder Tabs Navigation */}
-            <div className="flex flex-wrap gap-2 border-b border-[#D8D2D4] pb-3 mb-6">
-              {fromTheFileArticles.map((item, idx) => (
-                <button
-                  key={item.id}
-                  onClick={() => setFileTabIdx(idx)}
-                  className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
-                    fileTabIdx === idx
-                      ? 'bg-[#3A2E29] text-white shadow-sm'
-                      : 'bg-[#EEEAEB] text-[#3A2E29] border border-[#D8D2D4] hover:bg-[#D8D2D4]'
-                  }`}
-                >
-                  <FolderOpen className={`w-3.5 h-3.5 ${fileTabIdx === idx ? 'text-[#0D9BA3]' : 'text-slate-500'}`} />
-                  <span>{item.fileNumber || `FILE #0${idx + 1}`}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Active Folder Dossier */}
-            <div className="bg-[#EEEAEB]/30 rounded-xl border border-[#D8D2D4] p-6 sm:p-8">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#D8D2D4] pb-3 mb-4">
-                <span className="text-xs font-bold text-[#FE7311] uppercase tracking-wider">
-                  {activeFileItem.fileNoteKicker || '[EDITORIAL KICKER / FIELD NOTE TITLE]'}
-                </span>
-                <span className="text-[11px] text-slate-500 bg-white px-2.5 py-1 rounded-full border border-[#D8D2D4] font-medium">
-                  HTC will provide actual observation copy
-                </span>
-              </div>
-
-              {/* [SEARCHABLE ARTICLE TITLE] */}
-              <h3 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29] mb-3">
-                <a
-                  href={`/resources/${activeFileItem.slug}/`}
-                  onClick={(e) => handleLinkClick(e, `/resources/${activeFileItem.slug}/`)}
-                  className="hover:text-[#0D9BA3] transition-colors"
-                >
-                  {activeFileItem.placeholderTitle}
-                </a>
-              </h3>
-
-              {/* [SHORT SUMMARY] */}
-              <div className="p-4 bg-white rounded-xl border border-[#D8D2D4] mb-4">
-                <p className="text-sm text-slate-700 leading-relaxed font-medium">
-                  {activeFileItem.placeholderSummary}
-                </p>
-              </div>
-
-              {/* Operational Direct Answer */}
-              <p className="text-sm italic text-[#3A2E29] leading-relaxed p-4 bg-[#0D9BA3]/5 border-l-4 border-[#0D9BA3] rounded-r-xl mb-6 font-medium">
-                {activeFileItem.theBrief}
-              </p>
-
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[#D8D2D4]">
-                <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
-                  <span className="font-bold text-[#0D9BA3]">{activeFileItem.category}</span>
-                  <span>•</span>
-                  <span>{activeFileItem.readTime}</span>
-                </div>
-
-                <a
-                  href={`/resources/${activeFileItem.slug}/`}
-                  onClick={(e) => handleLinkClick(e, `/resources/${activeFileItem.slug}/`)}
-                  className="px-5 py-2.5 bg-[#0D9BA3] hover:bg-[#0b8289] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
-                >
-                  <span>READ THE BRIEF</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              </div>
+          {/* Editorial Note */}
+          <div className="mt-8 bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 text-center max-w-3xl mx-auto shadow-sm">
+            <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] mb-2">
+              Verified Operational Briefs
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-5">
+              Hometown Transaction Coordinators is compiling practical, verified operational briefs for Florida real estate professionals. Each brief delivers one clear question, one brief, and one useful answer—without fluff or generalized theory.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="/agent-business-calculator/"
+                onClick={(e) => handleLinkClick(e, '/agent-business-calculator/')}
+                className="px-5 py-2.5 bg-[#FE7311] hover:bg-[#e05f03] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors shadow-xs"
+              >
+                LAUNCH RUN THE NUMBERS
+              </a>
+              <button
+                onClick={onBookCall}
+                className="px-5 py-2.5 bg-[#0D9BA3] hover:bg-[#0b8289] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors cursor-pointer shadow-xs"
+              >
+                BOOK A 15-MINUTE FIT CALL
+              </button>
             </div>
           </div>
         </section>
 
         {/* ========================================================================= */}
-        {/* 6. RUN THE NUMBERS                                                        */}
+        {/* 4. RUN THE NUMBERS BLOCK                                                  */}
         {/* ========================================================================= */}
         <section aria-labelledby="run-numbers-heading" className="mb-14">
           <div className="bg-[#3A2E29] text-white rounded-2xl p-8 sm:p-10 border border-[#0D9BA3]/30 shadow-xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-8 space-y-3">
                 <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/20 text-[#0D9BA3] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-[#0D9BA3]/30">
-                  <span>INTERACTIVE FINANCIAL & PRODUCTION TOOL</span>
+                  <span>INTERACTIVE AGENT BUSINESS TOOL</span>
                 </div>
                 <h2 id="run-numbers-heading" className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-white">
                   Run the Numbers for Your Real Estate Business
                 </h2>
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-medium">
-                  Discover what 15 administrative hours per file are costing your production. Calculate your true hourly earnings and model what happens when you reinvest freed time into listings.
+                  Calculate your true hourly earnings, evaluate administrative leverage, and model what happens when you reinvest freed time into listings and clients.
                 </p>
 
-                {/* 3 Core Calculator Models */}
+                {/* 3 Core Calculator Models with Requested Final Language */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                   <a
                     href="/agent-business-calculator/#time-worth"
                     onClick={(e) => handleLinkClick(e, '/agent-business-calculator/#time-worth')}
-                    className="p-3.5 bg-white/10 border border-white/15 hover:bg-white/20 rounded-xl transition-all text-xs"
+                    className="p-4 bg-white/10 border border-white/15 hover:bg-white/20 rounded-xl transition-all text-xs flex flex-col justify-between"
                   >
-                    <span className="text-[#FE7311] font-bold block mb-1">MODEL 01:</span>
-                    <span className="font-medium text-slate-200">What is your administrative time really worth?</span>
+                    <span className="text-[#FE7311] font-bold text-xs uppercase tracking-wider block mb-1">
+                      WHAT’S MY TIME WORTH?
+                    </span>
+                    <span className="font-medium text-slate-200">
+                      Calculate your hourly value and administrative time investment.
+                    </span>
                   </a>
 
                   <a
                     href="/agent-business-calculator/#hire-or-htc"
                     onClick={(e) => handleLinkClick(e, '/agent-business-calculator/#hire-or-htc')}
-                    className="p-3.5 bg-white/10 border border-white/15 hover:bg-white/20 rounded-xl transition-all text-xs"
+                    className="p-4 bg-white/10 border border-white/15 hover:bg-white/20 rounded-xl transition-all text-xs flex flex-col justify-between"
                   >
-                    <span className="text-[#FE7311] font-bold block mb-1">MODEL 02:</span>
-                    <span className="font-medium text-slate-200">In-house assistant vs. Partnering with HTC</span>
+                    <span className="text-[#FE7311] font-bold text-xs uppercase tracking-wider block mb-1">
+                      HIRE A TC OR USE HTC?
+                    </span>
+                    <span className="font-medium text-slate-200">
+                      Compare in-house assistant overhead with on-demand HTC file support.
+                    </span>
                   </a>
 
                   <a
                     href="/agent-business-calculator/#20-percent-more"
                     onClick={(e) => handleLinkClick(e, '/agent-business-calculator/#20-percent-more')}
-                    className="p-3.5 bg-white/10 border border-white/15 hover:bg-white/20 rounded-xl transition-all text-xs"
+                    className="p-4 bg-white/10 border border-white/15 hover:bg-white/20 rounded-xl transition-all text-xs flex flex-col justify-between"
                   >
-                    <span className="text-[#FE7311] font-bold block mb-1">MODEL 03:</span>
-                    <span className="font-medium text-slate-200">The 20% Capacity Rule: Scaling deal volume</span>
+                    <span className="text-[#FE7311] font-bold text-xs uppercase tracking-wider block mb-1">
+                      WHAT COULD 20% MORE LOOK LIKE?
+                    </span>
+                    <span className="font-medium text-slate-200">
+                      Model what a 20% increase in capacity and closed sides could mean for your business.
+                    </span>
                   </a>
                 </div>
               </div>
@@ -766,182 +578,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
         </section>
 
         {/* ========================================================================= */}
-        {/* 7. MORE FROM THE BRIEF (CATEGORY-BY-CATEGORY ARCHIVES)                    */}
-        {/* ========================================================================= */}
-        <section aria-labelledby="more-briefs-heading" className="mb-14">
-          <div className="border-b border-[#D8D2D4] pb-2.5 mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold block mb-1">
-                DEPARTMENTAL ARCHIVE DIRECTORY
-              </span>
-              <h2 id="more-briefs-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
-                More From The Brief
-              </h2>
-            </div>
-            <span className="text-xs text-slate-500 font-medium">
-              ORGANIZED BY PERMANENT CATEGORY ARCHIVES
-            </span>
-          </div>
-
-          <div className="space-y-10">
-            {Object.values(CATEGORY_ARCHIVE_CONFIGS).map((cat) => {
-              const catArticles = NEUTRAL_PLACEHOLDER_ARTICLES.filter(
-                (a) => a.categorySlug === cat.slug
-              );
-
-              return (
-                <div key={cat.slug} className="bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 shadow-sm">
-                  {/* Category Header with Link to dedicated Archive Page */}
-                  <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-[#D8D2D4]">
-                    <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#FE7311] block mb-0.5">
-                        {cat.deskCode}
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
-                        {cat.name}
-                      </h3>
-                      <p className="text-xs text-slate-500 mt-0.5 font-medium">
-                        {cat.tagline}
-                      </p>
-                    </div>
-
-                    <a
-                      href={`/resources/${cat.slug}/`}
-                      onClick={(e) => handleLinkClick(e, `/resources/${cat.slug}/`)}
-                      className="px-4 py-2 bg-[#EEEAEB] hover:bg-[#0D9BA3] hover:text-white border border-[#D8D2D4] text-xs font-bold uppercase tracking-wider text-[#3A2E29] rounded-xl transition-colors"
-                    >
-                      VIEW ALL {cat.name.toUpperCase()} BRIEFS →
-                    </a>
-                  </div>
-
-                  {/* Articles in this Category with clean cards */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    {catArticles.map((article, idx) => (
-                      <article
-                        key={article.id}
-                        className="bg-[#EEEAEB]/30 hover:bg-white border border-[#D8D2D4] hover:border-[#0D9BA3] rounded-xl p-5 flex flex-col justify-between transition-all hover:shadow-md group"
-                      >
-                        <div>
-                          {/* [CATEGORY] & [READ TIME] */}
-                          <div className="flex items-center justify-between text-xs text-slate-500 mb-2 pb-2 border-b border-[#D8D2D4]">
-                            <span className="font-bold text-[#0D9BA3]">{article.category}</span>
-                            <span>{article.readTime}</span>
-                          </div>
-
-                          <span className="text-[11px] font-bold text-[#FE7311] block mb-1">
-                            ENTRY 0{idx + 1}
-                          </span>
-
-                          
-                          <h4 className="font-montserrat font-bold text-sm sm:text-base text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2 leading-snug">
-                            <a
-                              href={`/resources/${article.slug}/`}
-                              onClick={(e) => handleLinkClick(e, `/resources/${article.slug}/`)}
-                              className="hover:underline"
-                            >
-                              {article.placeholderTitle}
-                            </a>
-                          </h4>
-
-                          
-                          <p className="text-xs text-slate-600 leading-relaxed mb-3 p-2.5 bg-white rounded-lg border border-[#D8D2D4]">
-                            {article.placeholderSummary}
-                          </p>
-                        </div>
-
-                        <div className="pt-2 border-t border-[#D8D2D4]">
-                          <a
-                            href={`/resources/${article.slug}/`}
-                            onClick={(e) => handleLinkClick(e, `/resources/${article.slug}/`)}
-                            className="text-xs font-bold uppercase tracking-wider text-[#0D9BA3] group-hover:text-[#FE7311] transition-colors inline-flex items-center gap-1"
-                          >
-                            <span>READ BRIEF</span>
-                            <ArrowRight className="w-3.5 h-3.5" />
-                          </a>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* 8. FREE GUIDES + DOWNLOADS                                               */}
-        {/* ========================================================================= */}
-        <section aria-labelledby="free-guides-heading" className="mb-14">
-          <div className="bg-[#EEEAEB] border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 shadow-sm">
-            <div className="border-b border-[#D8D2D4] pb-4 mb-6 flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold block mb-1">
-                  TAKE IT WITH YOU • FIELD DOWNLOADS
-                </span>
-                <h2 id="free-guides-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
-                  Free Guides + Operational Downloads
-                </h2>
-              </div>
-              <a
-                href="/free-guides-downloads/"
-                onClick={(e) => handleLinkClick(e, '/free-guides-downloads/')}
-                className="text-xs font-bold text-[#0D9BA3] hover:text-[#FE7311] uppercase tracking-wider flex items-center gap-1 transition-colors"
-              >
-                <span>VIEW FULL LIBRARY</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Guide 1 */}
-              <div className="bg-white border border-[#D8D2D4] rounded-xl p-6 flex flex-col justify-between shadow-sm hover:border-[#0D9BA3] transition-all">
-                <div>
-                  <span className="text-[11px] uppercase tracking-wider text-[#FE7311] font-bold block mb-1">
-                    FIELD MANUAL #01 • STATEWIDE
-                  </span>
-                  <h3 className="font-montserrat font-bold text-lg text-[#3A2E29] mb-2">
-                    Florida Contract-to-Close Milestone Roadmap
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                    A comprehensive, day-by-day deadline checklist calibrated to the FAR/BAR Standard F calendar computation rules. Perfect for new agents and busy teams.
-                  </p>
-                </div>
-                <a
-                  href="/free-guides-downloads/"
-                  onClick={(e) => handleLinkClick(e, '/free-guides-downloads/')}
-                  className="px-5 py-2.5 bg-[#0D9BA3] hover:bg-[#0b8289] text-white text-xs font-bold uppercase tracking-wider text-center rounded-xl transition-colors"
-                >
-                  DOWNLOAD FREE ROADMAP →
-                </a>
-              </div>
-
-              {/* Guide 2 */}
-              <div className="bg-white border border-[#D8D2D4] rounded-xl p-6 flex flex-col justify-between shadow-sm hover:border-[#0D9BA3] transition-all">
-                <div>
-                  <span className="text-[11px] uppercase tracking-wider text-[#FE7311] font-bold block mb-1">
-                    FIELD MANUAL #02 • CONDO SPECIAL
-                  </span>
-                  <h3 className="font-montserrat font-bold text-lg text-[#3A2E29] mb-2">
-                    Condo SB 4-D Milestone & SIRS Reserve Audit Checklist
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                    The 8 questions to ask any Florida condo association before writing an offer. Avoid Fannie Mae loan rejections and multi-thousand dollar special assessments.
-                  </p>
-                </div>
-                <a
-                  href="/free-guides-downloads/"
-                  onClick={(e) => handleLinkClick(e, '/free-guides-downloads/')}
-                  className="px-5 py-2.5 bg-[#0D9BA3] hover:bg-[#0b8289] text-white text-xs font-bold uppercase tracking-wider text-center rounded-xl transition-colors"
-                >
-                  DOWNLOAD CONDO AUDIT CHECKLIST →
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* INTERNAL LINKING DIRECTORY (ALL 11 REQUIRED CLIENT DESTINATIONS)          */}
+        {/* 5. ESSENTIAL OPERATIONAL LINKS (INTERNAL DIRECTORY)                       */}
         {/* ========================================================================= */}
         <section aria-labelledby="internal-links-dir-heading" className="mb-14 border border-[#D8D2D4] bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
           <div className="border-b border-[#D8D2D4] pb-3 mb-4">
@@ -969,19 +606,22 @@ export const BlogResourcesPage: React.FC<Props> = ({
         </section>
 
         {/* ========================================================================= */}
-        {/* 9. FINAL CTA                                                              */}
+        {/* 6. FINAL CTA (REQUESTED EXACT COPY)                                       */}
         {/* ========================================================================= */}
         <section className="bg-[#3A2E29] text-white rounded-2xl p-8 sm:p-12 text-center border border-[#0D9BA3]/30 shadow-xl mb-12">
           <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-black/30 px-4 py-1.5 rounded-full border border-[#0D9BA3]/40 mb-4">
             <ShieldCheck className="w-4 h-4 text-[#FE7311]" />
             <span>PROTECT THE AGENT · PROTECT THE BROKER · PROTECT THE CLIENT</span>
           </div>
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-extrabold text-white mb-4 leading-tight max-w-3xl mx-auto">
-            Want us to handle the work instead?
+            Want support with the work itself?
           </h2>
+
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed font-medium">
-            From contract intake to title execution, our Florida-based team manages deadlines, documents, and compliance so you can focus on clients.
+            Explore HTC services or book a 15-Minute Fit Call to see whether our team fits the way you do business.
           </p>
+
           <div className="flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={onBookCall}
@@ -995,7 +635,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
               onClick={(e) => handleLinkClick(e, '/pricing/')}
               className="bg-white/10 hover:bg-white/20 text-white border border-white/25 px-8 py-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider transition inline-flex items-center cursor-pointer"
             >
-              EXPLORE SERVICES & PRICING
+              EXPLORE SERVICES + PRICING
             </a>
           </div>
         </section>

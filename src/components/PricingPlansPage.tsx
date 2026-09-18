@@ -101,7 +101,67 @@ export const PricingPlansPage: React.FC<Props> = ({
         </div>
       </section>
 
-      {/* 2. LISTING LAUNCH (Editorial Two-Column Layout | Background: Cream) */}
+      {/* 2. AGENT SETUP INVESTMENT */}
+      <section
+        id="agent-setup"
+        className="py-12 lg:py-16 bg-white border-b border-[#D8D2D4] scroll-mt-20"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#FAF8F5] rounded-3xl p-6 sm:p-10 border border-[#D8D2D4] shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="space-y-4 max-w-2xl">
+              <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>{data.agentSetup.badge}</span>
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
+                  {data.agentSetup.name}
+                </h2>
+                <p className="text-xs font-bold uppercase tracking-wider text-[#FE7311]">
+                  {data.agentSetup.timing}
+                </p>
+              </div>
+              <p className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed">
+                <strong className="text-[#3A2E29]">Purpose:</strong> {data.agentSetup.purpose}
+              </p>
+              <ul className="grid sm:grid-cols-2 gap-2.5 pt-1 text-xs text-slate-600">
+                {data.agentSetup.details.map((item, idx) => (
+                  <li key={idx} className="flex items-start space-x-2">
+                    <div className="w-4 h-4 rounded-full bg-[#0D9BA3]/15 text-[#0D9BA3] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">
+                      <Check className="w-3 h-3" />
+                    </div>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex flex-col items-start lg:items-end justify-between border-t lg:border-t-0 lg:border-l border-[#D8D2D4] pt-6 lg:pt-0 lg:pl-8 flex-shrink-0 space-y-4">
+              <div className="lg:text-right">
+                <div className="text-3xl sm:text-4xl font-black font-serif text-[#3A2E29]">
+                  {data.agentSetup.price}
+                </div>
+                <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider">
+                  {data.agentSetup.priceNote}
+                </div>
+                <div className="text-[11px] text-[#0D9BA3] font-bold mt-1 max-w-[220px] lg:text-right">
+                  Due at registration for new clients before Setup Call
+                </div>
+              </div>
+
+              <button
+                onClick={onBookCall}
+                className="inline-flex items-center space-x-2 bg-[#FE7311] hover:bg-[#e06209] text-white px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition shadow-sm cursor-pointer"
+              >
+                <span>{data.agentSetup.ctaText}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. LISTING LAUNCH (Editorial Two-Column Layout | Background: Cream) */}
       <section
         id="listing-launch"
         className="py-16 lg:py-20 bg-[#EEEAEB] border-b border-[#D8D2D4] scroll-mt-20"
@@ -246,34 +306,24 @@ export const PricingPlansPage: React.FC<Props> = ({
             {data.contractToClose.plans.map((plan) => (
               <div
                 key={plan.id}
-                className={`rounded-3xl p-8 flex flex-col justify-between transition ${
-                  plan.isPopular
-                    ? 'bg-gradient-to-b from-[#3A2E29] to-[#2B211C] text-white border-2 border-[#FE7311] shadow-xl relative'
-                    : 'bg-[#EEEAEB] border border-[#D8D2D4] shadow-sm text-[#3A2E29]'
-                }`}
+                className="bg-white rounded-3xl p-8 border border-[#D8D2D4] shadow-sm text-[#3A2E29] flex flex-col justify-between transition hover:border-slate-400"
               >
-                {plan.badge && (
-                  <div className="absolute -top-3.5 right-6 bg-[#FE7311] text-white text-[11px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md">
-                    {plan.badge}
-                  </div>
-                )}
-
                 <div className="space-y-6">
                   <div>
-                    <h3 className={`text-2xl font-bold font-serif ${plan.isPopular ? 'text-white' : 'text-[#3A2E29]'}`}>
+                    <h3 className="text-2xl font-bold font-serif text-[#3A2E29]">
                       {plan.name}
                     </h3>
-                    <p className={`text-xs mt-1 leading-relaxed ${plan.isPopular ? 'text-slate-300' : 'text-slate-600'}`}>
+                    <p className="text-xs mt-1 leading-relaxed text-slate-600">
                       {plan.summary}
                     </p>
                   </div>
 
-                  <div className="pb-4 border-b border-current/10">
+                  <div className="pb-4 border-b border-[#D8D2D4]">
                     <div className="flex items-baseline space-x-2">
-                      <span className={`text-4xl sm:text-5xl font-extrabold font-serif ${plan.isPopular ? 'text-white' : 'text-[#3A2E29]'}`}>
+                      <span className="text-4xl sm:text-5xl font-extrabold font-serif text-[#3A2E29]">
                         {plan.price}
                       </span>
-                      <span className={`text-xs ${plan.isPopular ? 'text-slate-300' : 'text-slate-500'}`}>
+                      <span className="text-xs text-slate-500">
                         {plan.priceNote}
                       </span>
                     </div>
@@ -281,20 +331,16 @@ export const PricingPlansPage: React.FC<Props> = ({
 
                   {/* Feature Checklist */}
                   <div className="space-y-3">
-                    <div className={`text-xs font-bold uppercase tracking-wider ${plan.isPopular ? 'text-[#0D9BA3]' : 'text-slate-500'}`}>
+                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
                       Plan Highlights:
                     </div>
                     <ul className="space-y-2.5 text-xs leading-relaxed">
                       {plan.features.map((feat, idx) => (
                         <li key={idx} className="flex items-start space-x-2.5">
-                          <div className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold ${
-                            plan.isPopular
-                              ? 'bg-[#0D9BA3] text-white'
-                              : 'bg-[#0D9BA3]/20 text-[#0D9BA3]'
-                          }`}>
+                          <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold bg-[#0D9BA3]/20 text-[#0D9BA3]">
                             <Check className="w-3 h-3" />
                           </div>
-                          <span className={plan.isPopular ? 'text-slate-200' : 'text-slate-700'}>
+                          <span className="text-slate-700">
                             {feat}
                           </span>
                         </li>
@@ -306,11 +352,7 @@ export const PricingPlansPage: React.FC<Props> = ({
                 <div className="pt-8">
                   <button
                     onClick={onSubmitDeal}
-                    className={`w-full py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer shadow-md flex items-center justify-center space-x-2 ${
-                      plan.isPopular
-                        ? 'bg-[#FE7311] hover:bg-[#e06209] text-white'
-                        : 'bg-[#0D9BA3] hover:bg-[#0b868d] text-white'
-                    }`}
+                    className="w-full py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer shadow-xs flex items-center justify-center space-x-2 bg-[#0D9BA3] hover:bg-[#0b868d] text-white"
                   >
                     <span>{plan.ctaText}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -321,25 +363,51 @@ export const PricingPlansPage: React.FC<Props> = ({
             ))}
           </div>
 
-          {/* Additional Contract-to-Close Services (Simple, Non-Cluttered List) */}
-          <div className="pt-4 border-t border-[#D8D2D4] grid sm:grid-cols-2 gap-6 text-xs">
-            {data.contractToClose.additionalServices.map((svc, idx) => (
-              <div key={idx} className="flex justify-between items-start gap-4">
-                <div>
-                  <strong className="text-[#3A2E29] block">{svc.name}</strong>
-                  <span className="text-slate-500">{svc.description}</span>
-                </div>
-                <span className="font-bold text-[#0D9BA3] text-sm flex-shrink-0">
-                  {svc.price}
-                </span>
+          {/* Residential Timing & Cancellation Policy Clear Blocks */}
+          <div className="grid md:grid-cols-2 gap-5">
+            <div className="p-5 bg-[#FAF8F5] rounded-2xl border border-[#D8D2D4] space-y-1.5 shadow-xs">
+              <div className="flex items-center space-x-2 text-xs font-extrabold uppercase tracking-wider text-[#FE7311]">
+                <Clock className="w-4 h-4" />
+                <span>Residential Timing</span>
               </div>
-            ))}
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                {data.contractToClose.timingNote}
+              </p>
+            </div>
+
+            <div className="p-5 bg-[#FAF8F5] rounded-2xl border border-[#D8D2D4] space-y-1.5 shadow-xs">
+              <div className="flex items-center space-x-2 text-xs font-extrabold uppercase tracking-wider text-[#0D9BA3]">
+                <ShieldCheck className="w-4 h-4" />
+                <span>Cancellation Policy</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                {data.contractToClose.cancellationNote}
+              </p>
+            </div>
+          </div>
+
+          {/* Additional Contract-to-Close Services */}
+          <div className="pt-2 border-t border-[#D8D2D4] space-y-3">
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Additional Services & Add-Ons:
+            </div>
+            <div className="grid sm:grid-cols-2 gap-5 text-xs">
+              {data.contractToClose.additionalServices.map((svc, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 bg-[#FAF8F5] rounded-2xl border border-[#D8D2D4] shadow-xs space-y-1.5"
+                >
+                  <strong className="text-sm font-bold text-[#3A2E29] block">{svc.name}</strong>
+                  <p className="text-xs text-slate-600 leading-relaxed">{svc.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
       </section>
 
-      {/* 4. BROKER COMPLIANCE ONLY (Clean Two-Column Editorial Section | Background: Cream) */}
+      {/* 4. BROKER COMPLIANCE (Clean Two-Column Editorial Section | Background: Cream) */}
       <section
         id="broker-compliance"
         className="py-16 lg:py-20 bg-[#EEEAEB] border-b border-[#D8D2D4] scroll-mt-20"
@@ -359,26 +427,53 @@ export const PricingPlansPage: React.FC<Props> = ({
           </div>
 
           {/* Clean Two-Column Editorial Section */}
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             
-            {/* Left Column: Service Explanation + What We Handle */}
-            <div className="lg:col-span-7 space-y-5">
-              <h3 className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">
-                What We Handle for You:
-              </h3>
-              <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
-                {data.brokerCompliance.whatWeHandle.map((item, idx) => (
-                  <li key={idx} className="flex items-start space-x-3">
-                    <div className="w-5 h-5 rounded-full bg-[#0D9BA3]/15 text-[#0D9BA3] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">
-                      <Check className="w-3.5 h-3.5" />
-                    </div>
-                    <span className="leading-snug">{item}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Left Column: Scope, Agent Provides, and Boundary */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="space-y-3">
+                <h3 className="font-bold text-xs uppercase tracking-wider text-[#3A2E29]">
+                  What We Handle:
+                </h3>
+                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-700">
+                  {data.brokerCompliance.whatWeHandle.map((item, idx) => (
+                    <li key={idx} className="flex items-start space-x-3">
+                      <div className="w-5 h-5 rounded-full bg-[#0D9BA3]/15 text-[#0D9BA3] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">
+                        <Check className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="leading-snug">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Agent Provides */}
+              <div className="p-4 bg-white rounded-2xl border border-[#D8D2D4] space-y-2 shadow-xs">
+                <h4 className="font-bold text-xs uppercase tracking-wider text-[#FE7311]">
+                  Agent Provides:
+                </h4>
+                <ul className="grid sm:grid-cols-1 gap-2 text-xs text-slate-700">
+                  {data.brokerCompliance.agentProvides.map((item, idx) => (
+                    <li key={idx} className="flex items-center space-x-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FE7311] flex-shrink-0" />
+                      <span className="capitalize">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Scope Boundary Notice */}
+              <div className="p-4 bg-[#FAF8F5] rounded-2xl border border-[#D8D2D4] space-y-1.5">
+                <div className="text-[11px] font-extrabold uppercase tracking-wider text-slate-500">
+                  Focused Specifically on Brokerage File Approval:
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Broker Compliance is focused specifically on brokerage file approval. Pro client communication, buyer/seller milestone reminders, inspection/lender coordination, and full Contract-to-Close coordination are not included.
+                </p>
+              </div>
             </div>
 
-            {/* Right Column: Rental $100 | Contract $195 Clearly Visible (No Comparison Table) */}
+            {/* Right Column: Rental $100 | Contract $195 Due when submitted */}
             <div className="lg:col-span-5 space-y-4">
               <div className="space-y-3">
                 {data.brokerCompliance.rates.map((rate, idx) => (
@@ -390,7 +485,7 @@ export const PricingPlansPage: React.FC<Props> = ({
                       <h4 className="font-bold text-sm sm:text-base text-[#3A2E29]">
                         {rate.type}
                       </h4>
-                      <p className="text-xs text-slate-500 mt-0.5">
+                      <p className="text-xs text-slate-500 mt-0.5 capitalize">
                         {rate.paymentNote}
                       </p>
                     </div>
@@ -438,29 +533,34 @@ export const PricingPlansPage: React.FC<Props> = ({
             </p>
           </div>
 
-          {/* Three Simple Service Areas (No Nested Boxes) */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {data.teamsBrokerages.serviceAreas.map((area, idx) => (
-              <div
-                key={idx}
-                className="space-y-3 text-left"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-bold">
-                  {idx === 0 && <ShieldCheck className="w-5 h-5" />}
-                  {idx === 1 && <Layers className="w-5 h-5" />}
-                  {idx === 2 && <Sparkles className="w-5 h-5" />}
+          {/* Three Simple Service Areas (No Flat Public Price) */}
+          <div className="space-y-4">
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-500 text-center">
+              Custom support may include:
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {data.teamsBrokerages.serviceAreas.map((area, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 bg-[#FAF8F5] rounded-2xl border border-[#D8D2D4] space-y-3 text-left shadow-xs"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-bold">
+                    {idx === 0 && <ShieldCheck className="w-5 h-5" />}
+                    {idx === 1 && <Layers className="w-5 h-5" />}
+                    {idx === 2 && <Sparkles className="w-5 h-5" />}
+                  </div>
+                  <h3 className="font-bold text-base text-[#3A2E29] font-serif">
+                    {area.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {area.description}
+                  </p>
                 </div>
-                <h3 className="font-bold text-base text-[#3A2E29] font-serif">
-                  {area.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {area.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* CTAs: BOOK A FIT CALL & TRAIN YOUR TEAM → */}
+          {/* CTAs: BOOK A 15-MINUTE FIT CALL & EXPLORE THE FLORIDA TC WORKSHOP */}
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={onBookCall}
@@ -500,13 +600,10 @@ export const PricingPlansPage: React.FC<Props> = ({
         className="py-16 lg:py-20 bg-[#EEEAEB] border-b border-[#D8D2D4] scroll-mt-20"
       >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-br from-[#3A2E29] to-[#201814] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden space-y-5">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-[#FE7311]/15 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#0D9BA3]/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative z-10 space-y-3">
-              <div className="inline-flex items-center space-x-2 bg-[#FE7311]/20 text-[#FE7311] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                <Zap className="w-3.5 h-3.5" />
+          <div className="bg-[#3A2E29] text-white rounded-3xl p-8 sm:p-12 border border-[#D8D2D4] shadow-xl relative overflow-hidden space-y-5">
+            <div className="relative z-10 space-y-4">
+              <div className="inline-flex items-center space-x-2 bg-white/10 text-white px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-white/20">
+                <Zap className="w-3.5 h-3.5 text-[#FE7311]" />
                 <span>{data.scale.eyebrow}</span>
               </div>
 
@@ -514,7 +611,7 @@ export const PricingPlansPage: React.FC<Props> = ({
                 {data.scale.headline}
               </h2>
 
-              <p className="text-slate-200 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
+              <p className="text-slate-200 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
                 {data.scale.description}
               </p>
 

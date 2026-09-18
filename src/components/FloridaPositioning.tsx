@@ -53,15 +53,15 @@ export const FloridaPositioning: React.FC<Props> = ({ onBookCall, onOpenMiamiTc,
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center space-x-2 text-xs font-extrabold uppercase tracking-widest text-[#0D9BA3] bg-[#EEEAEB] px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
             <MapPin className="w-4 h-4 text-[#FE7311]" />
-            <span>FLORIDA-WIDE SUPPORT</span>
+            <span>FLORIDA SERVICE AREAS</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight">
-            Florida-wide support. South Florida roots.
+            South Florida roots. Statewide support.
           </h2>
 
           <p className="text-base sm:text-lg text-[#3A2E29]/80 leading-relaxed font-medium">
-            HTC serves Realtors throughout Florida, with deep roots and operating experience in Miami-Dade, Broward, and Palm Beach.
+            HTC was built in South Florida and supports Realtor partners throughout Florida.
           </p>
         </div>
 
@@ -79,44 +79,6 @@ export const FloridaPositioning: React.FC<Props> = ({ onBookCall, onOpenMiamiTc,
               <p className="text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
                 Where HTC was built and where our deepest market experience began across Miami-Dade, Broward, and Palm Beach.
               </p>
-              <div className="pt-2 flex flex-col space-y-1.5">
-                {onOpenMiamiTc && (
-                  <button
-                    onClick={onOpenMiamiTc}
-                    className="text-xs font-bold text-[#0D9BA3] hover:text-[#0b8288] inline-flex items-center space-x-1 underline cursor-pointer text-left"
-                  >
-                    <span>City of Miami Transaction Coordinator</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#FE7311]" />
-                  </button>
-                )}
-                {onOpenMiamiDadeTc && (
-                  <button
-                    onClick={onOpenMiamiDadeTc}
-                    className="text-xs font-bold text-[#FE7311] hover:text-[#d45e0c] inline-flex items-center space-x-1 underline cursor-pointer text-left"
-                  >
-                    <span>Miami-Dade County TC (34 Municipalities)</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#0D9BA3]" />
-                  </button>
-                )}
-                {onOpenBrowardTc && (
-                  <button
-                    onClick={onOpenBrowardTc}
-                    className="text-xs font-bold text-[#0D9BA3] hover:text-[#0b8288] inline-flex items-center space-x-1 underline cursor-pointer text-left"
-                  >
-                    <span>Broward County TC (Team & Solo Scale)</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#FE7311]" />
-                  </button>
-                )}
-                {onOpenSouthFloridaTc && (
-                  <button
-                    onClick={onOpenSouthFloridaTc}
-                    className="text-xs font-bold text-[#3A2E29] hover:text-[#0D9BA3] inline-flex items-center space-x-1 underline cursor-pointer text-left"
-                  >
-                    <span>South Florida Regional TC Hub (Tri-County)</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#0D9BA3]" />
-                  </button>
-                )}
-              </div>
             </div>
           </div>
 
@@ -139,10 +101,11 @@ export const FloridaPositioning: React.FC<Props> = ({ onBookCall, onOpenMiamiTc,
         {/* CTA Button */}
         <div className="text-center pt-2">
           <button
+            type="button"
             onClick={() => setModalOpen(true)}
-            className="text-[#0D9BA3] hover:text-[#0b8288] font-bold text-base sm:text-lg underline underline-offset-4 transition inline-flex items-center space-x-2 group cursor-pointer"
+            className="bg-[#0D9BA3] hover:bg-[#0b8288] text-white px-8 py-4 rounded-xl font-montserrat font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg transition inline-flex items-center space-x-2.5 group cursor-pointer"
           >
-            <span>Explore Florida Service Areas</span>
+            <span>EXPLORE FLORIDA SERVICE AREAS</span>
             <ArrowRight className="w-4 h-4 text-[#FE7311] group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

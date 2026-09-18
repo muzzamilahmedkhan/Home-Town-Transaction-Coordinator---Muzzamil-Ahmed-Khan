@@ -42,6 +42,8 @@ export interface ContractToClosePlan {
 
 export interface ContractToClosePricingData extends PricingServiceSection {
   setupNote: string;
+  timingNote?: string;
+  cancellationNote?: string;
   plans: ContractToClosePlan[];
   additionalServices: {
     name: string;
@@ -52,11 +54,23 @@ export interface ContractToClosePricingData extends PricingServiceSection {
 
 export interface BrokerCompliancePricingData extends PricingServiceSection {
   whatWeHandle: string[];
+  agentProvides?: string[];
   rates: {
     type: string;
     price: string;
     paymentNote: string;
   }[];
+  ctaText: string;
+}
+
+export interface AgentSetupPricingData {
+  badge: string;
+  name: string;
+  timing: string;
+  purpose: string;
+  details: string[];
+  price: string;
+  priceNote: string;
   ctaText: string;
 }
 
@@ -101,6 +115,7 @@ export interface ServicesPricingPageConfig {
       targetId: string;
     }[];
   };
+  agentSetup: AgentSetupPricingData;
   listingLaunch: ListingLaunchPricingData;
   contractToClose: ContractToClosePricingData;
   brokerCompliance: BrokerCompliancePricingData;
@@ -125,41 +140,56 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     ],
   },
 
+  agentSetup: {
+    badge: 'NEW CLIENT REGISTRATION',
+    name: 'Agent Setup Investment',
+    timing: 'ONE-TIME ONBOARDING',
+    purpose: 'Build your business into the HTC workflow so future files plug directly in without repeated onboarding.',
+    details: [
+      'Brokerage portal mapping & custom compliance checklists',
+      'Preferred communication protocols & VIP client touches',
+      'Email templates & introductory workflow integration',
+      'Dedicated lead coordinator assignment & file intake setup',
+    ],
+    price: '$399',
+    priceNote: 'One-time onboarding investment',
+    ctaText: 'START ONBOARDING',
+  },
+
   listingLaunch: {
     id: 'listing-launch',
     name: 'Listing Launch',
     shortName: 'Listing Launch',
     eyebrow: 'PRE-MARKET COORDINATION',
-    headline: 'Flawless Pre-Market Preparation and MLS Draft Entry',
+    headline: 'Pre-Market Preparation and MLS Draft Entry',
     description:
-      'Get your listings prepared, compliance-checked, and loaded accurately into the MLS without losing valuable marketing and client-facing hours.',
+      'We organize the moving pieces required to prepare and launch a listing.',
     status: 'active',
     displayOrder: 1,
     included: [
-      'Comprehensive public records and deed verification audit',
-      'Seller disclosure dispatch, tracking, and execution checks',
+      'Public records and deed verification',
+      'Seller disclosure preparation, tracking, and completion checks',
       'Full MLS draft entry with photo sequencing and virtual tour links',
-      'Attachment of all required disclosures, lead-based paint, and HOA forms',
-      'Broker compliance document packaging and internal portal upload',
+      'Attachment of required disclosures, lead-based paint, and HOA forms',
+      'Document packaging and brokerage portal upload',
     ],
     options: [
       {
-        title: 'Standard Launch',
+        title: 'Standard',
         price: '$125',
         turnaround: '3 Business Days',
         description: 'Standard turnaround for scheduled listing dates.',
       },
       {
-        title: 'Priority Launch',
+        title: 'Priority',
         price: '$225',
         turnaround: '1 Business Day',
-        badge: 'RUSH',
-        description: 'Expedited priority queue for time-sensitive go-live dates.',
+        description: 'Expedited queue for time-sensitive go-live dates.',
       },
     ],
     addons: [
       {
-        name: 'Condo / HOA Estoppel & Application Research',
+        name: 'Condo / HOA Research',
         price: '$100',
         note: 'Association rules, contact verification, and buyer packet setup',
       },
@@ -167,11 +197,6 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
         name: '5-Photo Virtual Staging',
         price: '$50',
         note: 'Professional virtual staging for up to 5 listing photos',
-      },
-      {
-        name: 'Additional MLS Board Entry',
-        price: '+$50',
-        note: 'Secondary MLS system input & sync',
       },
     ],
     ctaText: 'SUBMIT A LISTING LAUNCH',
@@ -189,6 +214,10 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     displayOrder: 2,
     setupNote:
       'One-time $399 Agent Setup Investment required at registration to customize your workflows, broker templates, and communication preferences.',
+    timingNote:
+      'Residential Contract-to-Close pricing is based on a typical 45-day processing window. Files extending beyond 60 days are assessed a $100 timing fee.',
+    cancellationNote:
+      'If a transaction cancels during the inspection period, there is no cancellation fee. After the inspection period, an administrative support fee applies for work already completed on the file.',
     plans: [
       {
         id: 'base',
@@ -212,8 +241,6 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
         name: 'Pro Plan',
         price: '$475',
         priceNote: 'per closed residential transaction',
-        isPopular: true,
-        badge: 'MOST POPULAR',
         summary:
           'Everything in Base, plus direct client communication and milestone support from HTC.',
         features: [
@@ -229,34 +256,41 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     ],
     additionalServices: [
       {
-        name: 'Commercial Contract-to-Close',
-        price: '$595+',
-        description: 'Complex commercial agreements, multi-tenant, and custom contingencies.',
+        name: 'Commercial Contract-to-Close — Starts at $595',
+        price: 'Starts at $595',
+        description:
+          'Commercial files extending beyond 90 days require a $200 deposit.',
       },
       {
-        name: 'Dual Agency / Double-Sided File',
+        name: 'Both Sides of the Transaction — +$200',
         price: '+$200',
-        description: 'Managing both buyer and seller compliance streams simultaneously.',
+        description:
+          'Coordinating both sides of the transaction through closing and brokerage compliance.',
       },
     ],
   },
 
   brokerCompliance: {
     id: 'broker-compliance',
-    name: 'Broker Compliance Only',
+    name: 'Broker Compliance',
     shortName: 'Broker Compliance',
-    eyebrow: 'COMPLIANCE & CDA APPROVAL',
-    headline: 'Get Your File Approved & Get Paid',
+    eyebrow: 'BROKERAGE FILE APPROVAL',
+    headline: 'Brokerage File Approval',
     description:
-      'Already managing the lease or sale yourself? Broker Compliance Only is for when you need help getting the file approved by your brokerage so your Commission Disbursement Authorization (CDA/DA) can be issued.',
+      'Already managing the lease or sale yourself? Broker Compliance is focused specifically on brokerage file approval so your Commission Disbursement Authorization (CDA/DA) can be issued and you can get paid.',
     status: 'active',
     displayOrder: 3,
     whatWeHandle: [
-      'Comprehensive audit of all executed contract documents and addenda',
-      'Identification of missing initial initials, dates, and broker-required disclosures',
-      'Circulation of required missing documents for quick client e-signature',
-      'Upload and organization in your brokerage portal (SkySlope, Dotloop, Brokermint, Command)',
-      'Direct liaison with your broker compliance team through final CDA issuance',
+      'Review against brokerage requirements',
+      'Identify missing documents/signatures',
+      'Circulate approved documents for signature when instructed',
+      'Organize/upload the file',
+      'Follow through the brokerage review process',
+    ],
+    agentProvides: [
+      'Executed purchase contract or lease agreement with all exhibits',
+      'Brokerage compliance portal access or upload instructions',
+      'Commission disbursement details and brokerage file ID',
     ],
     rates: [
       {
@@ -278,30 +312,30 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     name: 'Teams + Brokerages',
     shortName: 'Teams + Brokerages',
     eyebrow: 'ENTERPRISE & TEAM SUPPORT',
-    headline: 'Customized Systems, Compliance & Staff Training',
+    headline: 'Florida transaction workflows, administrative process, and file support.',
     description:
-      'Scale your team or brokerage production without adding fixed overhead. We design custom transaction infrastructure, standardized compliance protocols, and staff training.',
+      'Florida transaction workflows, administrative process, and file support.',
     status: 'active',
     displayOrder: 4,
     serviceAreas: [
       {
-        title: 'Transaction + Compliance Support',
+        title: 'Transaction + compliance support',
         description:
-          'Dedicated team coordination pipelines, custom escalation paths, and white-glove transaction handling for high-producing agent rosters.',
+          'Dedicated coordination pipelines, custom escalation paths, and file support tailored for team and brokerage production.',
       },
       {
-        title: 'Systems + Operations Setup',
+        title: 'Systems + operations setup',
         description:
-          'End-to-end setup of transaction management platforms, standardized task templates, intake pipelines, and brokerage compliance checklists.',
+          'End-to-end setup of transaction management platforms, standardized task templates, intake pipelines, and brokerage compliance workflows.',
       },
       {
-        title: 'Admin + Staff Training',
+        title: 'Admin / staff / VA training',
         description:
-          'Practical training for in-house administrative staff and aspiring TCs on Florida contracts, FAR/BAR risk management, and compliance workflows.',
+          'Practical training for in-house administrative staff, assistants, and virtual assistants on Florida transaction workflows, administrative process, and file support.',
       },
     ],
-    ctaPrimary: 'BOOK A FIT CALL',
-    ctaSecondary: 'TRAIN YOUR TEAM →',
+    ctaPrimary: 'BOOK A 15-MINUTE FIT CALL',
+    ctaSecondary: 'EXPLORE THE FLORIDA TC WORKSHOP',
   },
 
   scale: {
@@ -311,12 +345,12 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     eyebrow: 'SCALE · COMING SOON',
     headline: 'Need more help after 6 PM?',
     description:
-      'SCALE extends access to the HTC team beyond standard hours, from agreement through Post-Close.',
+      'SCALE extends access to the HTC team beyond standard hours, from agreement through Post-Close. SCALE has not launched and does not change HTC’s current approved business hours (Monday–Friday · 8:00 AM–6:00 PM EST).',
     status: 'coming-soon',
     displayOrder: 5,
     subtitle: 'Extended operational support for fast-moving Florida producers.',
     ctaText: 'JOIN THE SCALE WAITLIST',
-    waitlistNote: 'Be first to know when enrollment opens.',
+    waitlistNote: 'Be first to know when enrollment opens. HTC’s current approved business hours remain Monday–Friday · 8:00 AM–6:00 PM EST.',
   },
 
   faqs: [
@@ -360,10 +394,10 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     },
     {
       id: 'faq-broker-compliance',
-      question: 'What is Broker Compliance Only?',
+      question: 'What is Broker Compliance?',
       answerParagraphs: [
-        'Already managing the lease or sale yourself? Broker Compliance Only is for when you need help getting the file approved by your brokerage so your CDA/DA can be issued and you can get paid.',
-        'We review the file, identify what is missing, circulate required documents for signature, upload the compliance documents, and follow the file through brokerage approval.',
+        'Already managing the lease or sale yourself? Broker Compliance is focused specifically on brokerage file approval so your Commission Disbursement Authorization (CDA/DA) can be issued and you can get paid.',
+        'HTC reviews against brokerage requirements, identifies missing documents and signatures, circulates approved documents for signature when instructed, organizes and uploads the file, and follows through the brokerage review process.',
       ],
     },
     {
@@ -399,15 +433,15 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
       id: 'faq-teams-brokerages',
       question: 'Do you work with teams and brokerages?',
       answerParagraphs: [
-        'Yes. We provide customized transaction and compliance support, systems and workflow setup, and staff training for teams and brokerages.',
+        'Yes. We provide Florida transaction workflows, administrative process, and file support for teams and brokerages. Custom support includes transaction + compliance support, systems + operations setup, and admin / staff / VA training.',
       ],
       links: [
         {
-          text: 'BOOK A FIT CALL →',
+          text: 'BOOK A 15-MINUTE FIT CALL →',
           action: 'bookCall',
         },
         {
-          text: 'TRAIN YOUR TEAM →',
+          text: 'EXPLORE THE FLORIDA TC WORKSHOP →',
           action: 'tcWorkshop',
         },
       ],

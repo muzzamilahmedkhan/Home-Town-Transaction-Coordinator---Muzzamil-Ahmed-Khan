@@ -617,7 +617,7 @@ export const RESOURCE_LIBRARY_ITEMS: ResourceItem[] = [
     placeholderTitle: '[RESOURCE TITLE: SB 4-D Milestone Inspection & Condo Reserve Audit Field Guide]',
     shortDescription: 'What Florida agents and buyers must verify regarding Structural Integrity Reserve Studies (SIRS) before waiving inspection and financing contingencies.',
     placeholderDescription: '[SHORT DESCRIPTION: What Florida agents and buyers must verify regarding Structural Integrity Reserve Studies (SIRS) before waiving financing.]',
-    shortIntro: 'Florida Senate Bill 4-D fundamentally altered condominium purchasing and financing. This field guide equips agents with the exact underwriting triggers, 3-day rescission period rules, and Fannie Mae blacklist risks.',
+    shortIntro: 'Florida Senate Bill 4-D fundamentally altered condominium purchasing and financing. This field guide equips agents with the exact underwriting triggers, 3-day rescission period rules, and Fannie Mae condominium eligibility standards.',
     fullDescription: 'An executive 6-page briefing detailing statutory milestone inspections for buildings 3 stories or higher (25 vs 30 year triggers), mandatory SIRS funding deadlines, and the 718.503 disclosure packet checklist.',
     topics: ['Condo + HOA', 'Transactions', 'Broker Compliance'],
     topicTags: ['Condo + HOA', 'Transactions', 'Broker Compliance'],
@@ -641,7 +641,7 @@ export const RESOURCE_LIBRARY_ITEMS: ResourceItem[] = [
     previewImageUrl: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1000&auto=format&fit=crop&q=80',
     highlights: [
       'Statutory triggers for 25-year vs. 30-year milestone inspections',
-      'Underwriting red flags that cause Fannie Mae/Freddie Mac blacklist holds',
+      'Underwriting red flags that cause Fannie Mae/Freddie Mac financing review holds',
       '3-day condo resale document delivery calculation rules'
     ],
     whatThisHelpsWith: [

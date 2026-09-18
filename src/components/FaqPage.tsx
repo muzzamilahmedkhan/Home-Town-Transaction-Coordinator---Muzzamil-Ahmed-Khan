@@ -10,7 +10,9 @@ import {
   Sparkles,
   Layers,
   Clock,
-  FileCheck2
+  FileCheck2,
+  Printer,
+  CheckCircle2
 } from 'lucide-react';
 import { PHONE_NUMBER, EMAIL_ADDRESS } from '../data/content';
 import { usePageSeo } from '../hooks/usePageSeo';
@@ -60,13 +62,20 @@ export const FaqPage: React.FC<Props> = ({
   onOpenSouthFloridaTc
 }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [activeCategory, setActiveCategory] = useState<string>('services');
+  const [activeCategory, setActiveCategory] = useState<string>('all');
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({
-    'services-what-does-htc-do': true
+    'services-what-does-htc-do': true,
+    'pricing-how-much-does-htc-cost': true,
+    'trust-tech-what-does-tech-enabled-mean': true
   });
 
-  // ONLY the 6 specified categories
+  // The 6 specified core categories, plus an All Categories view
   const categories: CategoryDefinition[] = [
+    {
+      id: 'all',
+      name: 'ALL CATEGORIES',
+      subtitle: 'View all 6 categories'
+    },
     {
       id: 'services',
       name: 'SERVICES',
@@ -98,6 +107,11 @@ export const FaqPage: React.FC<Props> = ({
       subtitle: 'How do you use technology and protect our information?'
     }
   ];
+
+  const sixCoreCategories = useMemo(
+    () => categories.filter((c) => c.id !== 'all'),
+    [categories]
+  );
 
   // MOST ASKED quick links mapping to specific FAQs
   const mostAskedLinks = [
@@ -229,42 +243,45 @@ export const FaqPage: React.FC<Props> = ({
       categoryId: 'pricing',
       question: 'How much does HTC cost?',
       answerParagraphs: [
-        'Our primary Contract-to-Close plans are:',
-        'Base — $375 per closed file',
-        'Pro — $475 per closed file',
-        'We also offer Listing Launch, Broker Compliance, and additional services.'
+        'Our transparent pricing structure includes:',
+        '• Base Plan: $375 per closed residential transaction (you remain primary client contact)',
+        '• Pro Plan: $475 per closed residential transaction (includes direct client milestone communication)',
+        '• Extended Timelines: $100 after 60 days on residential transactions',
+        '• Commercial Contract-to-Close: Starts at $595 (files extending beyond 90 days require a $200 deposit)',
+        '• Both Sides of the Transaction: +$200 dual-side coordination fee',
+        '• Agent Setup Investment: $399 one-time onboarding investment',
+        'We also offer Listing Launch and Broker Compliance services.'
       ],
       actionLink: {
         label: 'SEE ALL SERVICES + PRICING →',
         action: onOpenPricing
       },
-      tags: ['pricing', 'cost', 'fee', 'base', 'pro', 'rates', 'closed transaction']
+      tags: ['pricing', 'cost', 'fee', 'base', 'pro', 'rates', 'closed transaction', '375', '475', '595', '100', '200']
     },
     {
       id: 'pricing-base-vs-pro',
       categoryId: 'pricing',
-      question: 'What’s the difference between Base and Pro?',
+      question: 'What’s the difference between Base ($375) and Pro ($475)?',
       answerParagraphs: [
-        'Both plans give you HTC’s Contract-to-Close process and the support of your Lead TC and Dedicated Hometown Team.',
-        'With Base, you remain the primary point of contact for your buyer or seller.',
-        'With Pro, HTC provides more direct client communication and support as part of the file.'
+        'Both plans give you HTC’s complete Contract-to-Close process and the dedicated support of your Lead TC and Hometown Team.',
+        'With Base ($375), you remain the primary point of contact for your buyer or seller while HTC coordinates behind the scenes with title, lender, co-op agent, and brokerage compliance.',
+        'With Pro ($475), HTC provides direct, proactive client communication—including welcome introductions, weekly milestone progress updates, closing prep reminders, and testimonial prompts—representing your brand seamlessly.'
       ],
       actionLink: {
         label: 'COMPARE BASE + PRO →',
         action: onOpenPricing
       },
-      tags: ['base vs pro', 'base', 'pro', 'difference', 'compare', 'plans']
+      tags: ['base vs pro', 'base', 'pro', 'difference', 'compare', 'plans', '375', '475']
     },
     {
       id: 'pricing-setup-fee',
       categoryId: 'pricing',
       question: 'Is there a setup fee?',
       answerParagraphs: [
-        'Yes.',
-        'New HTC clients complete a one-time $399 Agent Setup Investment at registration.',
-        'That setup allows us to build your brokerage requirements, forms, communication preferences, service preferences, and client touches into the way HTC supports your files.'
+        'Yes. New HTC clients complete a one-time $399 Agent Setup Investment at registration before the Setup Call.',
+        "The purpose is to build the agent's brokerage requirements, templates, communication preferences, service preferences, and client touches into the HTC workflow."
       ],
-      tags: ['setup fee', 'agent setup', 'registration', 'investment']
+      tags: ['setup fee', 'agent setup', 'registration', 'investment', '399']
     },
     {
       id: 'pricing-cancellation-policy',
@@ -281,28 +298,39 @@ export const FaqPage: React.FC<Props> = ({
       categoryId: 'pricing',
       question: 'How long does the standard Contract-to-Close fee cover?',
       answerParagraphs: [
-        'Our residential Contract-to-Close pricing is based on a typical 45-day processing window.'
+        'Our residential Contract-to-Close pricing (Base $375 / Pro $475) is based on a typical 45-day processing window.'
       ],
       tags: ['processing window', 'timeline', '45 days', 'contract duration']
     },
     {
       id: 'pricing-longer-than-expected',
       categoryId: 'pricing',
-      question: 'What happens if my residential transaction takes longer than expected?',
+      question: 'What happens if my residential transaction takes longer than expected ($100 after 60 days)?',
       answerParagraphs: [
-        'When a residential Contract-to-Close file extends beyond 60 days, an additional $100 timing fee is assessed.'
+        'When a residential Contract-to-Close file extends beyond 60 days, an additional $100 timing fee is assessed.',
+        'This covers the continuous administrative tracking, loan commitment extensions, title update verifications, and ongoing file coordination required for elongated closings.'
       ],
-      tags: ['extensions', '60 days', 'timing fee', 'extended transaction']
+      tags: ['extensions', '60 days', 'timing fee', 'extended transaction', '100', '100 after 60 days']
     },
     {
       id: 'pricing-commercial-transactions',
       categoryId: 'pricing',
-      question: 'How are commercial transactions priced?',
+      question: 'How are commercial transactions priced (Starts at $595)?',
       answerParagraphs: [
-        'Commercial transaction support starts at $595 and is quoted case by case based on the complexity and anticipated length of the transaction.',
+        'Commercial transaction support starts at $595 and is quoted case by case based on file complexity, tenant estoppel requirements, municipal lien searches, and the anticipated length of the transaction.',
         'Commercial files extending beyond 90 days require a $200 deposit.'
       ],
-      tags: ['commercial', 'pricing', 'commercial fee', 'deposit', 'case by case']
+      tags: ['commercial', 'pricing', 'commercial fee', 'deposit', 'case by case', '595', '200']
+    },
+    {
+      id: 'pricing-both-sides-transaction',
+      categoryId: 'pricing',
+      question: 'What is the fee if HTC coordinates both sides of the transaction ($200)?',
+      answerParagraphs: [
+        'When you represent both buyer and seller on the same transaction, or request HTC to coordinate both sides through closing, there is an additional +$200 dual-side coordination fee.',
+        'This covers managing dual party communications, separate compliance uploads for each side, and neutral milestone facilitation for both buyer and seller.'
+      ],
+      tags: ['both sides', 'dual agent', 'dual representation', '200', 'additional fee']
     },
 
     // =========================================================================
@@ -421,8 +449,8 @@ export const FaqPage: React.FC<Props> = ({
       categoryId: 'working-together',
       question: 'Are you available on nights or weekends?',
       answerParagraphs: [
-        'Standard Base and Pro support is provided Monday through Friday during HTC business hours (8:00 AM–6:00 PM EST). Routine night and weekend support is not included.',
-        'Expanded-hours support is being developed through SCALE.'
+        'Standard Base and Pro support is provided Monday through Friday during HTC business hours (Monday–Friday · 8:00 AM–6:00 PM EST). Routine night and weekend support is not included.',
+        'Expanded-hours support is being developed through SCALE. SCALE has not launched and does not change HTC’s current approved business hours (Monday–Friday · 8:00 AM–6:00 PM EST).'
       ],
       tags: ['nights', 'weekends', 'hours', 'business hours', 'scale']
     },
@@ -541,7 +569,7 @@ export const FaqPage: React.FC<Props> = ({
       question: 'What happens to the information and data I provide to HTC?',
       answerParagraphs: [
         'We use the information you provide to perform the services you have asked HTC to provide and within the systems required to support the file.',
-        'We do not sell or market your client database.',
+        'We do not sell, rent, or market your client data or contacts.',
         'Sensitive and confidential information is handled differently from routine transaction information and is not casually distributed through third-party requests.'
       ],
       tags: ['information', 'data privacy', 'confidentiality', 'security', 'client data']
@@ -551,30 +579,30 @@ export const FaqPage: React.FC<Props> = ({
       categoryId: 'trust-technology',
       question: 'Does HTC carry insurance?',
       answerParagraphs: [
-        'Yes.',
-        'For information about HTC\'s current coverage, please contact us directly.'
+        'Yes. Hometown Transaction Coordinators maintains comprehensive commercial liability and Errors and Omissions (E&O) insurance coverage tailored for professional transaction coordination services.',
+        'For specific coverage certificates or verification, please contact us directly.'
       ],
       tags: ['insurance', 'errors and omissions', 'e&o', 'liability', 'cybersecurity']
     },
     {
       id: 'trust-tech-licensed-brokerage',
       categoryId: 'trust-technology',
-      question: 'Is HTC a licensed real estate brokerage?',
+      question: 'What is HTC’s unlicensed administrative role under Florida law?',
       answerParagraphs: [
-        'No.',
-        'HTC provides administrative transaction coordination support within Florida guidelines for unlicensed real estate support.',
-        'Licensed representation, negotiations, legal advice, and other licensed activities remain with the Realtor and broker.'
+        'HTC provides administrative transaction coordination support strictly within Florida guidelines for unlicensed real estate support (Chapter 475, Florida Statutes, and Florida DBPR / FREC rules).',
+        'We assist with document collection, timeline tracking, milestone communication, and brokerage compliance organization.',
+        'Licensed representation, negotiations, legal advice, contract interpretations, and all other licensed activities remain exclusively with the licensed Realtor and their broker.'
       ],
-      tags: ['brokerage', 'unlicensed support', 'guidelines', 'florida', 'licensed representation']
+      tags: ['brokerage', 'unlicensed support', 'guidelines', 'florida', 'licensed representation', 'dbpr', 'frec']
     },
     {
       id: 'trust-tech-wire-instructions',
       categoryId: 'trust-technology',
       question: 'Does HTC send or distribute wire instructions?',
       answerParagraphs: [
-        'No.',
-        'HTC does not distribute wire instructions.',
-        'Wire information should be obtained directly from the appropriate title, escrow, or closing provider using their verified process.'
+        'No. Under no circumstances does HTC distribute wire transfer instructions.',
+        'Due to prevalent wire fraud risks, wire information must always be obtained directly from the appropriate title company, escrow agent, or closing attorney using their verified, secure process.',
+        'HTC will never email wire instructions or bank details to your clients.'
       ],
       tags: ['wire instructions', 'wire fraud', 'title', 'escrow', 'security']
     },
@@ -583,11 +611,22 @@ export const FaqPage: React.FC<Props> = ({
       categoryId: 'trust-technology',
       question: 'What happens if HTC receives a third-party form requesting sensitive or confidential information from my client?',
       answerParagraphs: [
-        'HTC does not distribute third-party forms requesting sensitive or confidential client information.',
-        'If one is received by email, we delete it rather than forwarding it to your client.',
-        'The requesting party should contact the client directly through its own secure process.'
+        'HTC does not distribute third-party forms requesting sensitive or confidential client information (such as Social Security numbers, banking information, or account credentials).',
+        'If one is received by email, we delete it rather than forwarding it to your client, or advise the agent accordingly.',
+        'The requesting party should contact the client directly through its own secure, encrypted process.'
       ],
       tags: ['third-party forms', 'sensitive information', 'confidential', 'wire security', 'phishing']
+    },
+    {
+      id: 'trust-tech-client-database',
+      categoryId: 'trust-technology',
+      question: 'Does HTC market to the agent’s client database?',
+      answerParagraphs: [
+        'No. Never.',
+        'Your client relationships and database belong strictly and exclusively to you.',
+        'HTC does not sell, rent, share, or market to your client database or contacts under any circumstances.'
+      ],
+      tags: ['client database', 'privacy', 'non-solicitation', 'relationships', 'marketing']
     }
   ];
 
@@ -603,13 +642,13 @@ export const FaqPage: React.FC<Props> = ({
   ];
 
   // Filter items:
-  // "Only show the selected category’s questions."
-  // If user is actively searching via the text box, show matching items within the active category,
-  // or provide a direct search experience across categories if user searched.
+  // Show selected category's questions, or all 6 categories if "all" is active
   const filteredItems = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     if (!query) {
-      // Strictly show ONLY the selected category's questions
+      if (activeCategory === 'all') {
+        return faqItems;
+      }
       return faqItems.filter((item) => item.categoryId === activeCategory);
     }
     // When searching, find matches across all categories
@@ -619,7 +658,7 @@ export const FaqPage: React.FC<Props> = ({
       const tMatch = item.tags.some((t) => t.toLowerCase().includes(query));
       return qMatch || aMatch || tMatch;
     });
-  }, [searchQuery, activeCategory]);
+  }, [searchQuery, activeCategory, faqItems]);
 
   // Jump to specific FAQ from MOST ASKED quick links
   const handleJumpToFaq = (categoryId: string, faqId: string) => {
@@ -648,7 +687,7 @@ export const FaqPage: React.FC<Props> = ({
 
   const expandAll = () => {
     const all: Record<string, boolean> = {};
-    filteredItems.forEach((item) => {
+    faqItems.forEach((item) => {
       all[item.id] = true;
     });
     setOpenItems(all);
@@ -656,6 +695,13 @@ export const FaqPage: React.FC<Props> = ({
 
   const collapseAll = () => {
     setOpenItems({});
+  };
+
+  const handlePrint = () => {
+    expandAll();
+    setTimeout(() => {
+      window.print();
+    }, 100);
   };
 
   // Structured Data (JSON-LD) for FAQ Rich Snippets (AEO / SEO)
@@ -692,7 +738,7 @@ export const FaqPage: React.FC<Props> = ({
       {/* ========================================================================= */}
       {/* 1. HERO — COMPACT, SEARCH-FIRST, NO KNOWLEDGE BASE, NO SUBMIT DEAL CTA   */}
       {/* ========================================================================= */}
-      <section className="bg-white border-b border-[#D8D2D4] pt-28 pb-10 sm:pt-32 sm:pb-12 px-4 sm:px-6 lg:px-8">
+      <section className="bg-white border-b border-[#D8D2D4] pt-28 pb-10 sm:pt-32 sm:pb-12 px-4 sm:px-6 lg:px-8 print:hidden">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           
           {/* Breadcrumb */}
@@ -801,13 +847,13 @@ export const FaqPage: React.FC<Props> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. FAQ CATEGORIES — USE ONLY THESE SIX, SHOW SELECTED CATEGORY QUESTIONS */}
+      {/* 2. FAQ CATEGORIES — ALL 6 CORE CATEGORIES + ALL CATEGORIES VIEW          */}
       {/* ========================================================================= */}
-      <section className="sticky top-16 sm:top-20 z-20 bg-white/95 backdrop-blur-md border-b border-[#D8D2D4] py-3.5 shadow-2xs">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="sticky top-16 sm:top-20 z-20 bg-white/95 backdrop-blur-md border-b border-[#D8D2D4] py-3.5 shadow-2xs print:hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Grid of the 6 Categories */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+          {/* Grid of the 6 Categories plus All Categories */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
             {categories.map((cat) => {
               const isSelected = activeCategory === cat.id && !searchQuery;
               return (
@@ -842,23 +888,92 @@ export const FaqPage: React.FC<Props> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. QUESTIONS & ANSWERS — ONLY SHOW SELECTED CATEGORY'S QUESTIONS          */}
+      {/* 3. PRINT-ONLY DOCUMENT VIEW: ALL 6 CATEGORIES WITH EXPANDED ANSWERS       */}
       {/* ========================================================================= */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div className="hidden print:block max-w-4xl mx-auto px-6 py-8 bg-white text-black">
+        <div className="border-b-2 border-[#3A2E29] pb-4 mb-6">
+          <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D9BA3]">
+            HOMETOWN TRANSACTION COORDINATORS
+          </div>
+          <h1 className="text-2xl font-bold text-[#3A2E29] mt-1">
+            Frequently Asked Questions — Complete Reference
+          </h1>
+          <p className="text-xs text-slate-600 mt-1">
+            Approved answers under all six categories: 1. Services • 2. Pricing • 3. Getting Started • 4. Working Together • 5. Your Clients • 6. Trust + Technology
+          </p>
+        </div>
+
+        <div className="space-y-8">
+          {sixCoreCategories.map((cat, catIdx) => {
+            const catItems = faqItems.filter((item) => item.categoryId === cat.id);
+            return (
+              <section key={cat.id} className="space-y-4">
+                <div className="border-b border-[#3A2E29]/30 pb-2">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
+                    Category {catIdx + 1} of 6
+                  </span>
+                  <h2 className="text-lg font-bold text-[#3A2E29]">
+                    {cat.name} — <span className="font-normal text-slate-700">{cat.subtitle}</span>
+                  </h2>
+                </div>
+
+                <div className="space-y-4">
+                  {catItems.map((item) => (
+                    <article key={item.id} className="border border-slate-300 rounded-lg p-4" style={{ breakInside: 'avoid' }}>
+                      <h3 className="text-sm font-bold text-[#3A2E29] mb-2">
+                        {item.question}
+                      </h3>
+                      <div className="space-y-1.5 text-xs text-slate-700 leading-relaxed">
+                        {item.answerParagraphs.map((p, pIdx) => (
+                          <p key={pIdx}>{p}</p>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 4. QUESTIONS & ANSWERS — SCREEN INTERACTIVE VIEW                          */}
+      {/* ========================================================================= */}
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 print:hidden">
         
-        {/* Active Category Header when not searching */}
-        {!searchQuery && activeCategoryObj && (
-          <div className="mb-6 flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#D8D2D4] pb-4 gap-2">
+        {/* Category Header when not searching */}
+        {!searchQuery && (
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#D8D2D4] pb-4 gap-3">
             <div>
-              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
-                CATEGORY: {activeCategoryObj.name}
-              </span>
-              <h2 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
-                {activeCategoryObj.subtitle}
+              <div className="flex items-center space-x-2">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
+                  {activeCategory === 'all' ? 'ALL 6 CATEGORIES' : `CATEGORY: ${activeCategoryObj?.name}`}
+                </span>
+                {activeCategory !== 'all' && (
+                  <button
+                    onClick={() => setActiveCategory('all')}
+                    className="text-[10px] font-mono font-bold uppercase text-[#FE7311] hover:underline cursor-pointer"
+                  >
+                    (Switch to All Categories)
+                  </button>
+                )}
+              </div>
+              <h2 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29] mt-0.5">
+                {activeCategory === 'all' ? 'Browse all approved questions & answers' : activeCategoryObj?.subtitle}
               </h2>
             </div>
 
             <div className="flex items-center space-x-3 text-xs font-mono font-bold text-slate-500 flex-shrink-0">
+              <button
+                onClick={handlePrint}
+                className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-white border border-[#D8D2D4] rounded-lg text-[#3A2E29] hover:border-[#0D9BA3] hover:text-[#0D9BA3] transition cursor-pointer shadow-2xs"
+                title="Print or Save All 6 Categories to PDF"
+              >
+                <Printer className="w-3.5 h-3.5 text-[#0D9BA3]" />
+                <span>Print / Save PDF (All 6)</span>
+              </button>
+              <span>•</span>
               <button
                 onClick={expandAll}
                 className="hover:text-[#0D9BA3] transition cursor-pointer"
@@ -902,7 +1017,7 @@ export const FaqPage: React.FC<Props> = ({
                 No answers found for “{searchQuery}”
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
-                Try searching for “pricing”, “weekends”, “Base vs. Pro”, or click any category above.
+                Try searching for “pricing”, “Base vs. Pro”, “AI”, or click any category above.
               </p>
             </div>
             <div className="pt-2 flex justify-center gap-3">
@@ -920,8 +1035,88 @@ export const FaqPage: React.FC<Props> = ({
               </button>
             </div>
           </div>
+        ) : activeCategory === 'all' && !searchQuery ? (
+          /* ALL CATEGORIES VIEW — Sections with clear Category Dividers */
+          <div className="space-y-10">
+            {sixCoreCategories.map((cat, catIdx) => {
+              const catItems = faqItems.filter((i) => i.categoryId === cat.id);
+              return (
+                <section key={cat.id} className="space-y-4">
+                  <div className="flex items-baseline justify-between border-b border-[#D8D2D4] pb-2">
+                    <div>
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
+                        CATEGORY {catIdx + 1} OF 6
+                      </span>
+                      <h3 className="text-lg sm:text-xl font-montserrat font-extrabold text-[#3A2E29]">
+                        {cat.name} — <span className="text-sm sm:text-base font-medium text-slate-600">{cat.subtitle}</span>
+                      </h3>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setActiveCategory(cat.id);
+                        window.scrollTo({ top: 400, behavior: 'smooth' });
+                      }}
+                      className="text-xs font-mono font-bold text-[#0D9BA3] hover:underline cursor-pointer hidden sm:inline-block"
+                    >
+                      Filter {cat.name} →
+                    </button>
+                  </div>
+
+                  <div className="space-y-3">
+                    {catItems.map((item) => {
+                      const isOpen = !!openItems[item.id];
+                      return (
+                        <article
+                          key={item.id}
+                          id={item.id}
+                          className={`bg-white rounded-2xl border transition shadow-xs overflow-hidden scroll-mt-32 ${
+                            isOpen ? 'border-[#0D9BA3] ring-1 ring-[#0D9BA3]/20' : 'border-[#D8D2D4] hover:border-slate-400'
+                          }`}
+                        >
+                          <button
+                            onClick={() => toggleItem(item.id)}
+                            aria-expanded={isOpen}
+                            className="w-full p-4 sm:p-5 text-left flex items-start justify-between gap-4 cursor-pointer group"
+                          >
+                            <h4 className="text-sm sm:text-base font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
+                              {item.question}
+                            </h4>
+
+                            <div className="w-8 h-8 rounded-full bg-[#EEEAEB] flex items-center justify-center flex-shrink-0 text-[#3A2E29] group-hover:bg-[#0D9BA3] group-hover:text-white transition">
+                              {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                            </div>
+                          </button>
+
+                          {isOpen && (
+                            <div className="px-4 pb-5 sm:px-6 sm:pb-6 pt-0 border-t border-[#D8D2D4]/50 bg-[#FAF8F5]/40 space-y-3">
+                              <div className="pt-3 space-y-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                                {item.answerParagraphs.map((para, pIdx) => (
+                                  <p key={pIdx}>{para}</p>
+                                ))}
+                              </div>
+
+                              {item.actionLink && (
+                                <div className="pt-2">
+                                  <button
+                                    onClick={item.actionLink.action}
+                                    className="inline-flex items-center space-x-1.5 text-xs font-montserrat font-extrabold uppercase tracking-wider text-[#0D9BA3] hover:text-[#FE7311] transition cursor-pointer"
+                                  >
+                                    <span>{item.actionLink.label}</span>
+                                  </button>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
         ) : (
-          /* Accordion List for the Selected Category */
+          /* INDIVIDUAL CATEGORY OR SEARCH RESULTS VIEW */
           <div className="space-y-3">
             {filteredItems.map((item) => {
               const isOpen = !!openItems[item.id] || (searchQuery.trim().length > 0);
@@ -956,14 +1151,12 @@ export const FaqPage: React.FC<Props> = ({
 
                   {isOpen && (
                     <div className="px-4 pb-5 sm:px-6 sm:pb-6 pt-0 border-t border-[#D8D2D4]/50 bg-[#FAF8F5]/40 space-y-3">
-                      {/* Formatted Customer-Facing Answer Paragraphs */}
                       <div className="pt-3 space-y-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                         {item.answerParagraphs.map((para, pIdx) => (
                           <p key={pIdx}>{para}</p>
                         ))}
                       </div>
 
-                      {/* Explicit Action Links (e.g., SEE SERVICES + PRICING →) */}
                       {item.actionLink && (
                         <div className="pt-2">
                           <button
@@ -987,7 +1180,7 @@ export const FaqPage: React.FC<Props> = ({
       {/* ========================================================================= */}
       {/* 4. FAST TOPIC JUMPS — HELPFUL EXPLORATION WITHOUT OVERWHELM               */}
       {/* ========================================================================= */}
-      <section className="bg-white border-y border-[#D8D2D4] py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
+      <section className="bg-white border-y border-[#D8D2D4] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 print:hidden">
         <div className="max-w-4xl mx-auto space-y-6">
           <div className="text-center space-y-1">
             <h3 className="text-lg font-montserrat font-bold text-[#3A2E29]">
@@ -1050,7 +1243,7 @@ export const FaqPage: React.FC<Props> = ({
       {/* ========================================================================= */}
       {/* 5. STILL HAVE A QUESTION? (STRICTLY NO SUBMIT AN EXECUTED DEAL CTA)      */}
       {/* ========================================================================= */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto print:hidden">
         <div className="bg-[#3A2E29] text-white rounded-3xl p-6 sm:p-10 border border-white/10 shadow-xl relative overflow-hidden text-center space-y-5">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#0D9BA3]/15 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FE7311]/15 rounded-full blur-2xl pointer-events-none" />

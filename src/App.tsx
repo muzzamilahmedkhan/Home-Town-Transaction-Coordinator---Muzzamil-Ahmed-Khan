@@ -98,7 +98,7 @@ export default function App() {
   const isBrowardTcPage = currentPath.includes('broward-transaction-coordinator') || currentPath.includes('broward');
   const isSouthFloridaTcPage = currentPath.includes('south-florida-transaction-coordinator') || currentPath.includes('south-florida');
   const isFaqPage = currentPath.includes('faq') || currentPath.includes('frequently-asked-questions');
-  const isBookCallPage = currentPath.includes('book') || currentPath.includes('discovery-call') || currentPath.includes('schedule');
+  const isBookCallPage = currentPath.includes('book') || currentPath.includes('fit-call') || currentPath.includes('discovery-call') || currentPath.includes('schedule');
   const isSubmitDealPage = currentPath.includes('submit-deal') || currentPath.includes('submit-a-deal') || currentPath.includes('contract-intake');
   const isReviewsPage = currentPath.includes('reviews') || currentPath.includes('testimonials');
   const isTcWorkshopPage = currentPath.includes('tcworkshop') || currentPath.includes('workshop') || currentPath.includes('training');
@@ -169,7 +169,7 @@ export default function App() {
 
       {/* Header Navigation */}
       <Navbar
-        onBookCall={() => navigateTo('/book-discovery-call/')}
+        onBookCall={() => navigateTo('/book/')}
         onSubmitDeal={() => navigateTo('/submit-deal/')}
         onOpenRoi={() => navigateTo('/agent-business-calculator/')}
         onOpenHowItWorks={() => navigateTo('/how-htc-works/')}
@@ -413,7 +413,7 @@ export default function App() {
           />
         ) : isFaqPage ? (
           <FaqPage
-            onBookCall={() => navigateTo('/book-discovery-call/')}
+            onBookCall={() => navigateTo('/book/')}
             onSubmitDeal={() => navigateTo('/submit-deal/')}
             onGoHome={() => navigateTo('/')}
             onOpenPricing={() => navigateTo('/pricing/')}
@@ -553,10 +553,11 @@ export default function App() {
             {/* 7. REAL AGENT PROOF */}
             <RealAgentProof />
 
-            {/* 11. MEET THE TEAM (Agency & Founder Authority) */}
+            {/* 11. MEET THE TEAM (Agency & Customer Model) */}
             <MichelleFounder
               onBookCall={() => setBookCallOpen(true)}
               onOpenAbout={() => setAboutOpen(true)}
+              onOpenMeetTheTribe={() => navigateTo('/team/')}
             />
 
             {/* 12. FLORIDA-WIDE POSITIONING */}
@@ -592,7 +593,7 @@ export default function App() {
         onOpenContractToClose={() => navigateTo('/contract-to-close-services/')}
         onOpenRealtorTc={() => navigateTo('/transaction-coordinator-for-realtors/')}
         onOpenFaq={() => navigateTo('/faq/')}
-        onOpenBookCallPage={() => navigateTo('/book-discovery-call/')}
+        onOpenBookCallPage={() => navigateTo('/book/')}
         onOpenTransactionCoordination={() => navigateTo('/transaction-coordination/')}
         onOpenListingCoordination={() => navigateTo('/listing-coordination/')}
         onOpenPricingPlans={() => navigateTo('/pricing/')}

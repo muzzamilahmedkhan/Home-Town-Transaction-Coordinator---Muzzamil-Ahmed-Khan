@@ -8,14 +8,11 @@ import {
   Tag, 
   ChevronRight, 
   Share2, 
-  Sparkles, 
-  FolderOpen, 
   FileText, 
   ExternalLink,
   SlidersHorizontal,
   X,
   CheckCircle2,
-  Calendar,
   AlertCircle,
   ShieldCheck
 } from 'lucide-react';
@@ -63,7 +60,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
     }
   }, [searchQuery, config.name]);
 
-  // SEO & AEO dynamic metadata
+  // SEO & dynamic metadata
   useEffect(() => {
     const originalTitle = document.title;
     document.title = config.metaTitle;
@@ -103,28 +100,29 @@ export const CategoryArchivePage: React.FC<Props> = ({
     setMetaTag('property', 'og:type', 'website');
     setMetaTag('property', 'og:url', config.canonicalUrl);
 
-    // JSON-LD CollectionPage & Breadcrumbs schema
+    // Schema.org CollectionPage
     const schemaScript = document.createElement('script');
     schemaScript.type = 'application/ld+json';
-    schemaScript.id = 'category-jsonld-schema';
+    schemaScript.id = `category-archive-schema-${config.slug}`;
     schemaScript.innerHTML = JSON.stringify({
       '@context': 'https://schema.org',
       '@graph': [
         {
           '@type': 'CollectionPage',
-          '@id': config.canonicalUrl,
+          '@id': `${config.canonicalUrl}#webpage`,
           'url': config.canonicalUrl,
           'name': config.metaTitle,
           'description': config.metaDescription,
-          'headline': `${config.name} Archive | The Hometown Brief`,
           'isPartOf': {
             '@type': 'WebSite',
-            'name': 'The Hometown Brief • Hometown Transaction Coordinators',
-            'url': 'https://hometowntc.com/resources/'
+            '@id': 'https://hometowntc.com/resources/#website',
+            'url': 'https://hometowntc.com/resources/',
+            'name': 'The Hometown Brief'
           }
         },
         {
           '@type': 'BreadcrumbList',
+          '@id': `${config.canonicalUrl}#breadcrumb`,
           'itemListElement': [
             {
               '@type': 'ListItem',
@@ -152,7 +150,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
 
     return () => {
       document.title = originalTitle;
-      const el = document.getElementById('category-jsonld-schema');
+      const el = document.getElementById(`category-archive-schema-${config.slug}`);
       if (el) el.remove();
     };
   }, [config]);
@@ -173,35 +171,40 @@ export const CategoryArchivePage: React.FC<Props> = ({
   return (
     <div className="min-h-screen bg-[#EEEAEB] text-[#3A2E29] font-sans antialiased selection:bg-[#0D9BA3] selection:text-white">
       
-      {/* 1. TOP DATELINE & BREADCRUMB BAR */}
+      {/* 1. TOP BREADCRUMB & LOGO BAR */}
       <div className="border-b border-[#D8D2D4] bg-[#EEEAEB]/70 text-[11px] uppercase tracking-widest text-[#3A2E29]/70 font-mono py-2.5 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
+          {/* Breadcrumb links */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2">
+            <a 
+              href="/" 
+              onClick={(e) => handleLinkClick(e, '/')} 
+              className="hover:text-[#0D9BA3] font-bold transition-colors text-[#3A2E29]"
+            >
+              HOME
+            </a>
+            <span className="text-[#D8D2D4]">/</span>
             <a 
               href="/resources/" 
-              onClick={(e) => handleLinkClick(e, '/resources/')}
-              className="hover:text-[#0D9BA3] flex items-center gap-1 font-bold text-[#3A2E29] transition-colors"
+              onClick={(e) => handleLinkClick(e, '/resources/')} 
+              className="hover:text-[#0D9BA3] font-bold transition-colors text-[#3A2E29]"
             >
-              <ArrowLeft className="w-3.5 h-3.5 text-[#0D9BA3]" />
               THE HOMETOWN BRIEF
             </a>
             <span className="text-[#D8D2D4]">/</span>
-            <span className="text-[#0D9BA3] font-extrabold">{config.deskCode}</span>
-            <span className="text-[#D8D2D4]">/</span>
-            <span className="text-[#3A2E29] font-medium">{config.name}</span>
-          </div>
+            <span className="text-[#0D9BA3] font-extrabold">{config.name.toUpperCase()}</span>
+          </nav>
 
-          <div className="flex items-center gap-4 text-[10px] text-slate-500">
-            <span className="font-semibold text-[#3A2E29]">FLORIDA ARCHIVE EDITION</span>
-            <span className="hidden sm:inline">•</span>
-            <span className="hidden sm:inline font-mono">EST. HOMETOWN TRANSACTION COORDINATORS</span>
+          <div className="flex items-center gap-4 text-[10px]">
+            <span className="font-semibold text-[#3A2E29]">FLORIDA TRANSACTION OPERATIONS</span>
+            <span>•</span>
             <button
               onClick={handleShare}
               className="flex items-center gap-1 font-bold hover:text-[#0D9BA3] transition-colors cursor-pointer text-[#3A2E29]"
-              title="Share category URL"
+              title="Share topic URL"
             >
               <Share2 className="w-3 h-3 text-[#0D9BA3]" />
-              {copiedLink ? 'COPIED LINK' : 'SHARE ARCHIVE'}
+              {copiedLink ? 'COPIED LINK' : 'SHARE TOPIC'}
             </button>
           </div>
         </div>
@@ -210,24 +213,13 @@ export const CategoryArchivePage: React.FC<Props> = ({
       {/* 2. MASTHEAD & SEARCH */}
       <header className="border-b border-[#D8D2D4] pt-10 pb-8 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* Desk Kicker */}
-          <div className="flex items-center justify-between border-b border-[#D8D2D4] pb-3 mb-6">
-            <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#FE7311] animate-pulse"></span>
-              DEPARTMENTAL ARCHIVE DISPATCH • {config.deskCode}
-            </span>
-            <span className="text-xs text-slate-500 font-semibold bg-[#EEEAEB] px-2.5 py-1 rounded-full border border-[#D8D2D4]">
-              {categoryArticles.length} FILED BRIEFS IN ARCHIVE
-            </span>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
             {/* H1 Headline */}
             <div className="lg:col-span-8">
               <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-                <span>The Hometown Brief Archive</span>
+                <span>The Hometown Brief</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold tracking-tight text-[#3A2E29] leading-none mb-3">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold tracking-tight text-[#3A2E29] leading-tight mb-3">
                 {config.name}
               </h1>
               <p className="text-base sm:text-lg text-slate-600 max-w-2xl font-medium">
@@ -235,11 +227,11 @@ export const CategoryArchivePage: React.FC<Props> = ({
               </p>
             </div>
 
-            {/* In-Category Search Bar */}
+            {/* In-Topic Search Bar */}
             <div className="lg:col-span-4">
               <div className="bg-white border border-[#D8D2D4] p-3 rounded-2xl shadow-sm hover:border-[#0D9BA3] transition-all">
                 <label htmlFor="cat-search" className="block text-[11px] uppercase tracking-wider text-[#3A2E29] mb-1.5 font-bold">
-                  SEARCH {config.name.toUpperCase()} BRIEFS
+                  SEARCH {config.name.toUpperCase()}
                 </label>
                 <div className="relative flex items-center">
                   <Search className="w-4 h-4 text-[#0D9BA3] absolute left-3 pointer-events-none" />
@@ -248,7 +240,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                     type="search"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search keywords, contracts, clauses..."
+                    placeholder="Search keywords..."
                     className="w-full bg-[#EEEAEB]/40 rounded-xl border border-[#D8D2D4] pl-9 pr-9 py-2 text-sm text-[#3A2E29] placeholder-slate-400 focus:outline-none focus:border-[#0D9BA3] focus:ring-2 focus:ring-[#0D9BA3]/20 font-sans"
                   />
                   {searchQuery && (
@@ -261,36 +253,28 @@ export const CategoryArchivePage: React.FC<Props> = ({
                     </button>
                   )}
                 </div>
-                <div className="text-[10px] text-slate-500 mt-2 flex justify-between font-medium">
-                  <span>Searches titles, The Brief, & bodies</span>
-                  {searchQuery && (
-                    <span className="font-bold text-[#FE7311]">
-                      {searchResults.length} {searchResults.length === 1 ? 'match' : 'matches'}
-                    </span>
-                  )}
-                </div>
               </div>
             </div>
           </div>
         </div>
       </header>
 
-      {/* 3. TOPIC NAVIGATION (ALL 6 CRAWLABLE ARCHIVES) */}
+      {/* 3. TOPIC NAVIGATION */}
       <nav aria-label="Topic Navigation" className="border-b border-[#D8D2D4] bg-white/95 backdrop-blur-md sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center overflow-x-auto py-3 gap-2 scrollbar-none">
             <span className="text-xs font-bold uppercase tracking-wider text-[#3A2E29] shrink-0 mr-1 flex items-center gap-1.5">
               <SlidersHorizontal className="w-3.5 h-3.5 text-[#0D9BA3]" />
-              DEPARTMENTS:
+              TOPICS:
             </span>
 
-            {/* All Dispatches */}
+            {/* All Topics */}
             <a
               href="/resources/"
               onClick={(e) => handleLinkClick(e, '/resources/')}
               className="px-3.5 py-1.5 text-xs font-bold tracking-wider uppercase rounded-full border border-[#D8D2D4] bg-[#EEEAEB] text-[#3A2E29] hover:border-[#0D9BA3] hover:text-[#0D9BA3] hover:bg-white transition-colors shrink-0 whitespace-nowrap"
             >
-              ALL DISPATCHES
+              ALL TOPICS
             </a>
 
             {/* 6 Category Archives */}
@@ -339,10 +323,10 @@ export const CategoryArchivePage: React.FC<Props> = ({
             </div>
 
             {searchResults.length === 0 ? (
-              <div className="py-8 text-center">
+              <div className="py-8 text-center max-w-md mx-auto">
                 <AlertCircle className="w-8 h-8 text-[#FE7311] mx-auto mb-2" />
-                <p className="text-lg font-bold text-[#3A2E29]">No briefs found matching &ldquo;{searchQuery}&rdquo;.</p>
-                <p className="text-xs text-slate-500 mt-1">Try searching broader keywords or view all briefs below.</p>
+                <p className="text-base font-bold text-[#3A2E29]">No briefs found matching &ldquo;{searchQuery}&rdquo;.</p>
+                <p className="text-xs text-slate-500 mt-1">Approved briefs for this topic will be published here directly from our Florida transaction desk.</p>
               </div>
             ) : (
               <div className="divide-y divide-[#D8D2D4]">
@@ -368,7 +352,6 @@ export const CategoryArchivePage: React.FC<Props> = ({
                       </a>
                     </h3>
 
-                    {/* SHORT SUMMARY - strictly no giant excerpts! */}
                     <p className="text-sm text-slate-600 leading-relaxed mb-3">
                       {result.shortSummary}
                     </p>
@@ -388,16 +371,15 @@ export const CategoryArchivePage: React.FC<Props> = ({
           </section>
         ) : null}
 
-        {/* 4. CATEGORY OVERVIEW SECTION */}
+        {/* 4. TOPIC OVERVIEW SECTION */}
         <section aria-labelledby="category-intro-heading" className="mb-12">
           <div className="bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 shadow-sm">
             <div className="flex items-center justify-between border-b border-[#D8D2D4] pb-3 mb-4">
-              <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold flex items-center gap-2">
-                <FolderOpen className="w-4 h-4 text-[#0D9BA3]" />
-                CATEGORY OVERVIEW
+              <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold">
+                TOPIC OVERVIEW
               </span>
               <span className="text-[11px] text-slate-500 uppercase tracking-wider bg-[#EEEAEB] px-2.5 py-1 rounded-full border border-[#D8D2D4] font-medium">
-                OPERATIONAL BRIEFING
+                FLORIDA OPERATIONS
               </span>
             </div>
 
@@ -406,112 +388,106 @@ export const CategoryArchivePage: React.FC<Props> = ({
                 {config.categoryIntroPlaceholder}
               </p>
             </div>
-
-            <div className="mt-4 pt-3 border-t border-[#D8D2D4] flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-slate-500">
-              <span>DESK: {config.name.toUpperCase()}</span>
-              <span>CANONICAL URL: {config.canonicalUrl}</span>
-            </div>
           </div>
         </section>
 
-        {/* 5. [ARTICLE LIST] SECTION */}
+        {/* 5. ARTICLES SECTION (REAL/APPROVED CONTENT ONLY) */}
         <section aria-labelledby="article-list-heading" className="mb-14">
           <div className="border-b border-[#D8D2D4] pb-3 mb-6 flex flex-wrap items-end justify-between gap-4">
             <div>
               <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold block mb-1">
-                INDEX OF FILED DISPATCHES
+                OPERATIONAL BRIEFS
               </span>
               <h2 id="article-list-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
-                {config.name.toUpperCase()} ARTICLES & DISPATCHES
+                {config.name} Briefs
               </h2>
             </div>
-            <span className="text-xs text-slate-600 bg-white px-3 py-1.5 rounded-full border border-[#D8D2D4] font-medium">
-              SHOWING {categoryArticles.length} BRIEFS
-            </span>
           </div>
 
-          {/* Article Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categoryArticles.map((article, idx) => (
-              <article
-                key={article.id}
-                className="bg-white border border-[#D8D2D4] rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:border-[#0D9BA3] hover:shadow-md transition-all group"
-              >
-                <div>
-                  {/* Top Taxonomy Bar: [CATEGORY] & [READ TIME] */}
-                  <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[#D8D2D4] text-xs">
-                    <span className="font-bold text-[#0D9BA3] bg-[#0D9BA3]/10 px-2.5 py-0.5 rounded-full border border-[#0D9BA3]/20">
-                      {article.category}
-                    </span>
-                    <span className="text-slate-500 flex items-center gap-1 font-medium">
-                      <Clock className="w-3.5 h-3.5 text-[#0D9BA3]" />
-                      {article.readTime}
-                    </span>
+          {categoryArticles.length === 0 ? (
+            <div className="bg-white border border-[#D8D2D4] rounded-2xl p-8 sm:p-12 text-center max-w-2xl mx-auto shadow-sm">
+              <BookOpen className="w-10 h-10 text-[#0D9BA3] mx-auto mb-3" />
+              <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] mb-2">
+                Operational Briefs in Preparation
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-6">
+                Operational briefs from active Florida transaction files. Each brief provides one focused question and one useful answer without fluff.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href="/resources/"
+                  onClick={(e) => handleLinkClick(e, '/resources/')}
+                  className="px-4 py-2.5 bg-[#EEEAEB] hover:bg-[#D8D2D4] text-[#3A2E29] text-xs font-bold uppercase tracking-wider rounded-xl transition-colors"
+                >
+                  ← ALL TOPICS
+                </a>
+                <a
+                  href="/agent-business-calculator/"
+                  onClick={(e) => handleLinkClick(e, '/agent-business-calculator/')}
+                  className="px-4 py-2.5 bg-[#FE7311] hover:bg-[#e05f03] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors"
+                >
+                  RUN THE NUMBERS
+                </a>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {categoryArticles.map((article) => (
+                <article
+                  key={article.id}
+                  className="bg-white border border-[#D8D2D4] rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:border-[#0D9BA3] hover:shadow-md transition-all group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[#D8D2D4] text-xs">
+                      <span className="font-bold text-[#0D9BA3] bg-[#0D9BA3]/10 px-2.5 py-0.5 rounded-full border border-[#0D9BA3]/20">
+                        {article.category}
+                      </span>
+                      <span className="text-slate-500 flex items-center gap-1 font-medium">
+                        <Clock className="w-3.5 h-3.5 text-[#0D9BA3]" />
+                        {article.readTime}
+                      </span>
+                    </div>
+
+                    <h3 className="text-base sm:text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors leading-snug mb-3">
+                      <a
+                        href={`/resources/${article.slug}/`}
+                        onClick={(e) => handleLinkClick(e, `/resources/${article.slug}/`)}
+                        className="hover:underline"
+                      >
+                        {article.placeholderTitle}
+                      </a>
+                    </h3>
+
+                    <p className="text-xs text-slate-600 leading-relaxed mb-4 p-3 bg-[#EEEAEB]/40 rounded-xl border border-[#D8D2D4]">
+                      {article.placeholderSummary}
+                    </p>
                   </div>
 
-                  {/* Article Entry Tag */}
-                  <span className="text-[11px] text-[#FE7311] font-bold uppercase tracking-wider block mb-1">
-                    ENTRY 0{idx + 1} • {article.deskCode}
-                  </span>
-
-                  
-                  <h3 className="text-base sm:text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors leading-snug mb-3">
+                  <div className="pt-3 border-t border-[#D8D2D4] flex items-center justify-between">
                     <a
                       href={`/resources/${article.slug}/`}
                       onClick={(e) => handleLinkClick(e, `/resources/${article.slug}/`)}
-                      className="hover:underline"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0D9BA3] group-hover:text-[#FE7311] transition-colors"
                     >
-                      {article.placeholderTitle}
+                      <span>READ BRIEF</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </a>
-                  </h3>
-
-                  
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4 p-3 bg-[#EEEAEB]/40 rounded-xl border border-[#D8D2D4]">
-                    {article.placeholderSummary}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {article.tags.slice(0, 3).map((tag, tagIdx) => (
-                      <span
-                        key={tagIdx}
-                        className="text-[10px] bg-[#EEEAEB] text-slate-600 px-2 py-0.5 rounded-md border border-[#D8D2D4] font-medium"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
                   </div>
-                </div>
-
-                {/* Read Action */}
-                <div className="pt-3 border-t border-[#D8D2D4] flex items-center justify-between">
-                  <a
-                    href={`/resources/${article.slug}/`}
-                    onClick={(e) => handleLinkClick(e, `/resources/${article.slug}/`)}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0D9BA3] group-hover:text-[#FE7311] transition-colors"
-                  >
-                    <span>READ ARTICLE BLUEPRINT</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                  <span className="text-[10px] text-slate-400 font-medium">HTC FIELD NOTE</span>
-                </div>
-              </article>
-            ))}
-          </div>
+                </article>
+              ))}
+            </div>
+          )}
         </section>
 
-        {/* 6. INTERNAL LINKING DIRECTORY (ALL 11 CLIENT-MANDATED DESTINATIONS) */}
+        {/* 6. INTERNAL LINKING DIRECTORY */}
         <section aria-labelledby="internal-links-heading" className="mb-14 bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 shadow-sm">
           <div className="border-b border-[#D8D2D4] pb-3 mb-6">
             <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold block mb-1">
-              INTERNAL RESOURCES & OPERATIONAL NAVIGATION
+              INTERNAL RESOURCES
             </span>
             <h2 id="internal-links-heading" className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
               Direct Links to Florida Real Estate Operations
             </h2>
-            <p className="text-xs text-slate-500 mt-1 font-medium">
-              Standard crawlable HTML links connecting this archive to all HTC tools, services, calculators, and guides.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -532,7 +508,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                   </p>
                 </div>
                 <span className="text-[10px] font-mono text-slate-400 mt-2 block">
-                  URL: {link.url}
+                  {link.url}
                 </span>
               </a>
             ))}
@@ -550,7 +526,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                 Run the Numbers for Your Real Estate Business
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed max-w-2xl font-medium">
-                See exactly what 15 administrative hours per file are costing your production. Model what happens when you reinvest freed hours into client acquisition.
+                Calculate your true hourly earnings, evaluate administrative leverage, and model what happens when you reinvest freed operational hours into client advisory and listings.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
@@ -559,14 +535,14 @@ export const CategoryArchivePage: React.FC<Props> = ({
                 onClick={(e) => handleLinkClick(e, '/agent-business-calculator/')}
                 className="w-full text-center px-5 py-3.5 bg-[#FE7311] hover:bg-[#e05f03] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg cursor-pointer"
               >
-                LAUNCH CALCULATOR →
+                LAUNCH RUN THE NUMBERS →
               </a>
               <a
-                href="/free-guides-downloads/"
-                onClick={(e) => handleLinkClick(e, '/free-guides-downloads/')}
+                href="/how-htc-works/"
+                onClick={(e) => handleLinkClick(e, '/how-htc-works/')}
                 className="w-full text-center px-4 py-3 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl border border-white/20 transition-colors cursor-pointer"
               >
-                FREE GUIDES + DOWNLOADS
+                SEE HOW HTC WORKS →
               </a>
             </div>
           </div>
@@ -576,13 +552,13 @@ export const CategoryArchivePage: React.FC<Props> = ({
         <section className="bg-[#3A2E29] text-white rounded-2xl p-8 sm:p-12 text-center border border-[#0D9BA3]/30 shadow-xl mb-12">
           <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-black/30 px-4 py-1.5 rounded-full border border-[#0D9BA3]/40 mb-4">
             <ShieldCheck className="w-4 h-4 text-[#FE7311]" />
-            <span>EXPERIENCE FLORIDA-BASED TRANSACTION COORDINATION</span>
+            <span>PROTECT THE AGENT · PROTECT THE BROKER · PROTECT THE CLIENT</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-white mb-3 leading-tight max-w-3xl mx-auto">
-            Want us to handle the work instead?
+            Want support with the work itself?
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto mb-8 leading-relaxed font-medium">
-            From contract intake to title execution, our Florida-based team manages deadlines, documents, and disclosures so you can focus on clients.
+            Explore HTC services or book a 15-Minute Fit Call to see whether our team fits the way you do business.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <button
@@ -597,7 +573,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
               onClick={(e) => handleLinkClick(e, '/pricing/')}
               className="bg-white/10 hover:bg-white/20 text-white border border-white/25 px-8 py-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider transition inline-flex items-center cursor-pointer"
             >
-              EXPLORE SERVICES & PRICING
+              EXPLORE SERVICES + PRICING
             </a>
           </div>
         </section>

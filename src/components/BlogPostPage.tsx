@@ -299,7 +299,7 @@ export const BlogPostPage: React.FC<Props> = ({
       const existing = document.getElementById('hometown-article-schema');
       if (existing) existing.remove();
     };
-  }, [slug, templateMode, article]);
+  }, [slug, article]);
 
   const handleShare = () => {
     if (typeof window !== 'undefined') {
@@ -493,7 +493,7 @@ export const BlogPostPage: React.FC<Props> = ({
                   <li>• <strong className="text-white">Heading Hierarchy:</strong> 1x H1 • Multiple H2/H3s</li>
                   <li>• <strong className="text-white">Byline & Dates:</strong> Pub: {article.publishedDate} {article.modifiedDate ? `• Mod: ${article.modifiedDate}` : ''}</li>
                   <li>• <strong className="text-white">XML Sitemap:</strong> Included in /sitemap.xml (Priority 0.8)</li>
-                  <li>• <strong className="text-white">Crawlable Anchors:</strong> Breadcrumbs, CTAs, Related Dispatches</li>
+                  <li>• <strong className="text-white">Crawlable Anchors:</strong> Breadcrumbs, CTAs, Related Briefs</li>
                   <li>• <strong className="text-white">Social Graph:</strong> Open Graph & Twitter Cards dynamic</li>
                 </ul>
               </div>
@@ -530,7 +530,7 @@ export const BlogPostPage: React.FC<Props> = ({
               <button
                 onClick={handleShare}
                 className="hover:text-[#0D9BA3] transition cursor-pointer inline-flex items-center space-x-1 font-bold text-[#3A2E29]"
-                title="Copy link to dispatch"
+                title="Copy link to brief"
               >
                 <Share2 className="w-3.5 h-3.5 text-[#0D9BA3]" />
                 <span>{copiedLink ? 'COPIED!' : 'SHARE'}</span>
@@ -934,7 +934,7 @@ export const BlogPostPage: React.FC<Props> = ({
         <div className="p-6 sm:p-8 bg-white rounded-2xl border border-[#D8D2D4] shadow-xs space-y-4">
           <div className="max-w-2xl mx-auto space-y-3 text-center">
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3] block">
-              WEEKLY TRANSACTION DISPATCH
+              WEEKLY TRANSACTION BRIEF
             </span>
             <h2 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
               Stay Ahead of Florida Contract & Coordination Realities
@@ -945,7 +945,7 @@ export const BlogPostPage: React.FC<Props> = ({
             <div className="pt-2">
               <NewsletterSignup 
                 variant="card" 
-                source={`Brief Dispatch: ${article.articleH1}`} 
+                source={`Brief: ${article.articleH1}`} 
               />
             </div>
           </div>
@@ -958,7 +958,7 @@ export const BlogPostPage: React.FC<Props> = ({
           <section aria-labelledby="related-articles-heading" className="space-y-4 pt-6 border-t border-[#D8D2D4]">
             <div className="flex items-center justify-between">
               <h2 id="related-articles-heading" className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
-                Related Dispatches from The Brief
+                Related Briefs from Hometown TC
               </h2>
               <a
                 href="/resources/"

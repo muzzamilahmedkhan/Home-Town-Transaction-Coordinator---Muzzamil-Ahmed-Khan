@@ -12,7 +12,7 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
     {
       letter: 'H',
       name: 'Honor the Agreement',
-      summary: 'Review executed contract terms, establish the master timeline, and verify earnest money deposit deadlines.',
+      summary: 'Review the executed agreement, parties, dates, and documents that drive the file.',
       icon: CheckCircle2,
       accentColor: 'text-[#0D9BA3]',
       badgeBg: 'bg-[#0D9BA3]',
@@ -21,7 +21,7 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
     {
       letter: 'O',
       name: 'Organize the File',
-      summary: 'Open title and lender communication channels, gather disclosures and addenda, and assemble the compliant broker file.',
+      summary: 'Build the working timeline, organize contacts and documents, and identify what is missing.',
       icon: FileSpreadsheet,
       accentColor: 'text-[#FE7311]',
       badgeBg: 'bg-[#FE7311]',
@@ -30,7 +30,7 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
     {
       letter: 'M',
       name: 'Monitor the Milestones',
-      summary: 'Track inspection windows, appraisal contingencies, loan approvals, HOA estoppels, and municipal lien search deadlines.',
+      summary: 'Track administrative milestones, follow up, document updates, and bring anything that needs the agent’s attention back to them.',
       icon: Clock,
       accentColor: 'text-[#0D9BA3]',
       badgeBg: 'bg-[#0D9BA3]',
@@ -39,7 +39,7 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
     {
       letter: 'E',
       name: 'Ease the Close',
-      summary: 'Review Closing Disclosures and settlement statements, coordinate CDA commission approval, and support smooth final funding.',
+      summary: 'Support the final administrative steps, closing coordination, broker file completion, and Post-Close.',
       icon: KeyRound,
       accentColor: 'text-[#3A2E29]',
       badgeBg: 'bg-[#3A2E29]',
@@ -109,7 +109,6 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
           {/* 4 Stage Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
             {stages.map((stage, idx) => {
-              const Icon = stage.icon;
               return (
                 <div 
                   key={idx}
@@ -132,11 +131,6 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
                     <p className="text-xs sm:text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
                       {stage.summary}
                     </p>
-                  </div>
-
-                  <div className="pt-2 border-t border-[#D8D2D4]/60 flex items-center text-xs font-semibold text-slate-500">
-                    <Icon className={`w-4 h-4 mr-1.5 ${stage.accentColor}`} />
-                    <span>Florida Contract Workflow</span>
                   </div>
                 </div>
               );

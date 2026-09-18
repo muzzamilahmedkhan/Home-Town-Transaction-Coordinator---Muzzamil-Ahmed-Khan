@@ -5,11 +5,13 @@ import { PHONE_NUMBER } from '../data/content';
 interface Props {
   onBookCall: () => void;
   onExploreServices: () => void;
+  viewMode?: 'live' | 'blueprint';
 }
 
 export const Section10FinalCta: React.FC<Props> = ({
   onBookCall,
-  onExploreServices
+  onExploreServices,
+  viewMode
 }) => {
   return (
     <section 

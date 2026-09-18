@@ -98,18 +98,6 @@ export const FreeClassesSection: React.FC<FreeClassesSectionProps> = ({
             Practical on-demand masterclasses and mini-courses designed to protect your contracts, eliminate transaction breaches, and optimize agent operating systems.
           </p>
         </div>
-
-        {/* HTC Notice & Mode Toggle */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 self-start md:self-end">
-          {/* HTC Provision Notice Badge */}
-          <div className="bg-[#FAF8F5] border border-[#D8D2D4] rounded-lg px-3 py-1.5 flex items-center space-x-2 text-[11px] text-slate-600 font-medium">
-            <Info className="w-3.5 h-3.5 text-[#0D9BA3] shrink-0" />
-            <span>HTC will provide all final class names & descriptions</span>
-          </div>
-
-          {/* Placeholder Blueprint Toggle */}
-          
-        </div>
       </div>
 
       {/* ========================================================================= */}
@@ -288,7 +276,6 @@ export const FreeClassesSection: React.FC<FreeClassesSectionProps> = ({
         })}
 
         </div>
-      </div>
 
       {/* ========================================================================= */}
       {/* 4. INTERACTIVE CLASS LEARNING PORTAL & VIDEO PLAYER MODAL                  */}

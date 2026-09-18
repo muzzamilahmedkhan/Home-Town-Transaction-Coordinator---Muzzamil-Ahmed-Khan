@@ -584,7 +584,6 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                   <span className="text-xs font-extrabold uppercase tracking-wider text-[#FE7311] bg-black/40 px-3 py-1 rounded-full border border-[#FE7311]/40">
                     White-Glove Tier
                   </span>
-                  <span className="text-xs font-bold text-[#0D9BA3]">Most Popular for Top Producers</span>
                 </div>
 
                 <div>

@@ -172,7 +172,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                   </div>
                   <div className="flex items-start space-x-2.5">
                     <Check className="w-4 h-4 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
-                    <span><strong>Florida SPDS Prep:</strong> Seller disclosures prepared & dispatched for e-sign.</span>
+                    <span><strong>Florida SPDS Prep:</strong> Seller disclosures prepared & sent for e-sign.</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
                     <Check className="w-4 h-4 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
@@ -278,7 +278,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
             </div>
             <div>
               <h3 className="text-base font-bold text-[#3A2E29]">3. Seller Disclosure Assembly</h3>
-              <p className="text-xs text-slate-500 mt-1">Preparing and dispatching statutory Florida disclosures.</p>
+              <p className="text-xs text-slate-500 mt-1">Preparing and sending statutory Florida disclosures.</p>
             </div>
             <ul className="space-y-2 text-xs text-slate-600">
               <li className="flex items-start space-x-2">
@@ -291,7 +291,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
               </li>
               <li className="flex items-start space-x-2">
                 <Check className="w-3.5 h-3.5 text-[#FE7311] mt-0.5 flex-shrink-0" />
-                <span>Dispatch via DocuSign / Dotloop / Form Simplicity for seller completion.</span>
+                <span>Sent via DocuSign / Dotloop / Form Simplicity for seller completion.</span>
               </li>
             </ul>
           </div>
@@ -447,7 +447,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                   </div>
                   <h4 className="font-bold text-sm text-[#3A2E29]">Intake & Verification</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Verify all 5 intake items. Pull county tax/folio records. Audit listing agreement. Prepare and dispatch seller disclosures for e-sign.
+                    Verify all 5 intake items. Pull county tax/folio records. Audit listing agreement. Prepare and send seller disclosures for e-sign.
                   </p>
                 </div>
 
@@ -507,7 +507,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
                   </div>
                   <h4 className="font-bold text-sm text-[#3A2E29]">Accelerated Intake & Public Records</h4>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Priority file triage. Immediate county tax records pull, expedited disclosure dispatch, and simultaneous MLS data input initiation.
+                    Priority file triage. Immediate county tax records pull, expedited disclosure delivery, and simultaneous MLS data input initiation.
                   </p>
                 </div>
 
@@ -779,7 +779,7 @@ export const ListingCoordinationPage: React.FC<Props> = ({
             </div>
             <h3 className="font-bold text-xs text-[#3A2E29] uppercase tracking-wide">Seller Disclosures</h3>
             <p className="text-[11px] text-slate-500 leading-relaxed">
-              Florida SPDS details or seller contact info for e-sign dispatch, plus Lead-Based Paint disclosure if built pre-1978.
+              Florida SPDS details or seller contact info for e-sign delivery, plus Lead-Based Paint disclosure if built pre-1978.
             </p>
           </div>
 

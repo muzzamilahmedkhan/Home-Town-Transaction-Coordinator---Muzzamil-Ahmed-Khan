@@ -310,7 +310,7 @@ You stay in control of client relationships and negotiations, while we handle ev
 
               {/* Supporting Copy */}
               <p className="text-base sm:text-lg text-slate-700 font-normal leading-relaxed">
-                Hometown Transaction Coordinators (HTC) supports Florida Realtors with Listing Launch, Contract-to-Close, and Broker Compliance. Start with a Fit Call, set up your business once, then send us support whenever you need it.
+                Hometown Transaction Coordinators (HTC) supports Florida Realtors with Listing Launch, Contract-to-Close, and Broker Compliance. Start with a Fit Call, set up your business once, then submit files whenever you need support.
               </p>
 
               {/* CTAs */}
@@ -515,7 +515,7 @@ You stay in control of client relationships and negotiations, while we handle ev
                       02 — Register + Setup
                     </h3>
                     <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
-                      Once you register, we’ll schedule your Setup Call and build your brokerage requirements, templates, communication preferences, and unique client touches into the HTC workflow.
+                      Once you register, new HTC clients complete the one-time $399 Agent Setup Investment before the Setup Call. We build your brokerage requirements, templates, communication preferences, and unique client touches into the HTC workflow.
                     </p>
                   </div>
                 </div>
@@ -840,11 +840,11 @@ You stay in control of client relationships and negotiations, while we handle ev
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-serif tracking-tight leading-tight">
-            Ready to experience a predictable, calm closing flow?
+            Ready to see if HTC fits the way you work?
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
-            Start with a 15-Minute Fit Call to discuss your current volume, walk through our intake system, and set up your business workflow.
+            Start with a focused 15-minute conversation. We’ll learn what you need and determine whether HTC is the right fit for your business.
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">

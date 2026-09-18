@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { X, Calendar, Clock, CheckCircle2, PhoneCall, ShieldCheck } from 'lucide-react';
-import { BookingCallData } from '../types';
+import { X, Calendar, Clock, CheckCircle2, PhoneCall, Phone, Mail } from 'lucide-react';
+import { PHONE_NUMBER, EMAIL_ADDRESS } from '../data/content';
 
 interface Props {
   isOpen: boolean;
@@ -9,15 +9,14 @@ interface Props {
 
 export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const [submitted, setSubmitted] = useState<boolean>(false);
-  const [formData, setFormData] = useState<BookingCallData>({
+  const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
     brokerage: '',
-    monthlyDeals: '2-4 deals/month',
     preferredDate: new Date(Date.now() + 86400000).toISOString().split('T')[0],
     preferredTime: '10:00 AM EST',
-    mainChallenge: 'Chasing administrative paperwork & signatures'
+    notes: ''
   });
 
   if (!isOpen) return null;
@@ -43,18 +42,20 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
         
         {/* Header */}
         <div className="bg-[#3A2E29] text-white p-6 border-b border-[#0D9BA3]/30 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-full bg-[#FE7311] flex items-center justify-center text-white font-bold font-montserrat shadow">
-              MM
+          <div>
+            <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
+              BOOK A FIT CALL
             </div>
-            <div>
-              <h3 className="text-lg font-montserrat font-extrabold text-white">Book a 15-Minute Fit Call</h3>
-              <p className="text-xs text-slate-300 font-medium">15-Minute Conversation with HTC</p>
-            </div>
+            <h3 className="text-xl font-montserrat font-extrabold text-white mt-0.5">
+              Let’s See If We’re a Fit.
+            </h3>
+            <p className="text-xs text-slate-300 font-normal mt-1">
+              A focused 15-minute conversation to learn what you need and determine whether HTC is the right fit for your business.
+            </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-white rounded-full hover:bg-white/10 transition cursor-pointer"
+            className="p-2 text-slate-400 hover:text-white rounded-full hover:bg-white/10 transition cursor-pointer self-start"
           >
             <X className="w-5 h-5" />
           </button>
@@ -67,23 +68,27 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
             </div>
             <div className="space-y-2">
               <h4 className="text-2xl font-montserrat font-extrabold text-[#3A2E29]">
-                Call Scheduled!
+                Fit Call Scheduled!
               </h4>
               <p className="text-sm text-[#3A2E29]/80 max-w-md mx-auto font-medium">
-                Thank you, <span className="font-semibold text-[#3A2E29]">{formData.fullName}</span>. The HTC team has reserved <span className="font-semibold text-[#3A2E29]">{formData.preferredDate} at {formData.preferredTime}</span> for your strategy session.
+                Thank you, <span className="font-semibold text-[#3A2E29]">{formData.fullName}</span>. We have scheduled your 15-minute conversation for <span className="font-semibold text-[#3A2E29]">{formData.preferredDate} at {formData.preferredTime}</span>.
               </p>
             </div>
 
-            <div className="bg-white p-4 rounded-xl text-left border border-[#D8D2D4] text-xs text-[#3A2E29] space-y-1 font-medium">
-              <div className="font-bold flex items-center space-x-1.5 text-[#0D9BA3]">
-                <ShieldCheck className="w-4 h-4 text-[#FE7311]" />
-                <span>What to Expect on the Call:</span>
+            <div className="bg-white p-4 rounded-xl text-left border border-[#D8D2D4] text-xs text-[#3A2E29] space-y-2 font-medium">
+              <div className="font-bold text-[#3A2E29]">Hometown Transaction Coordinators</div>
+              <div className="flex items-center space-x-2 text-slate-600">
+                <Phone className="w-3.5 h-3.5 text-[#0D9BA3]" />
+                <span>Direct: {PHONE_NUMBER}</span>
               </div>
-              <p className="text-[11px] text-[#3A2E29]/80 pt-1 leading-relaxed">
-                1. Review of your current transaction volume and bottleneck assessment.<br />
-                2. Live walk-through of the HTC H.O.M.E. Close Method™ integration.<br />
-                3. Custom setup strategy tailored to your brokerage software (Dotloop, Skyslope, Glide, etc.).
-              </p>
+              <div className="flex items-center space-x-2 text-slate-600">
+                <Mail className="w-3.5 h-3.5 text-[#0D9BA3]" />
+                <span>Email: {EMAIL_ADDRESS}</span>
+              </div>
+              <div className="flex items-center space-x-2 text-slate-600">
+                <Clock className="w-3.5 h-3.5 text-[#FE7311]" />
+                <span>Office Hours: Mon–Fri · 8:00 AM–6:00 PM EST</span>
+              </div>
             </div>
 
             <button
@@ -112,15 +117,14 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
               </div>
               <div>
                 <label className="block text-xs font-bold text-[#3A2E29] uppercase tracking-wider mb-1">
-                  Brokerage *
+                  Brokerage / Team
                 </label>
                 <input
                   type="text"
                   name="brokerage"
-                  required
                   value={formData.brokerage}
                   onChange={handleChange}
-                  placeholder="e.g. ONE Sotheby's"
+                  placeholder="e.g. Compass, eXp"
                   className="w-full px-4 py-2.5 rounded-xl border border-[#D8D2D4] focus:outline-none focus:ring-2 focus:ring-[#0D9BA3] bg-white text-sm"
                 />
               </div>
@@ -161,7 +165,7 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
               <div>
                 <label className="block text-xs font-bold text-[#3A2E29] uppercase tracking-wider mb-1 flex items-center space-x-1">
                   <Calendar className="w-3.5 h-3.5 text-[#FE7311]" />
-                  <span>Preferred Date</span>
+                  <span>Select Date</span>
                 </label>
                 <input
                   type="date"
@@ -175,7 +179,7 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
               <div>
                 <label className="block text-xs font-bold text-[#3A2E29] uppercase tracking-wider mb-1 flex items-center space-x-1">
                   <Clock className="w-3.5 h-3.5 text-[#FE7311]" />
-                  <span>Time Slot</span>
+                  <span>Time Slot (15 Min)</span>
                 </label>
                 <select
                   name="preferredTime"
@@ -183,31 +187,35 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
                   onChange={handleChange}
                   className="w-full px-4 py-2.5 rounded-xl border border-[#D8D2D4] focus:outline-none focus:ring-2 focus:ring-[#0D9BA3] bg-white text-sm"
                 >
-                  <option value="9:00 AM EST">9:00 AM EST</option>
-                  <option value="10:00 AM EST">10:00 AM EST</option>
+                  <option value="8:30 AM EST">8:30 AM EST</option>
+                  <option value="9:30 AM EST">9:30 AM EST</option>
+                  <option value="10:30 AM EST">10:30 AM EST</option>
                   <option value="11:30 AM EST">11:30 AM EST</option>
-                  <option value="1:30 PM EST">1:30 PM EST</option>
-                  <option value="3:00 PM EST">3:00 PM EST</option>
+                  <option value="1:00 PM EST">1:00 PM EST</option>
+                  <option value="2:30 PM EST">2:30 PM EST</option>
+                  <option value="3:30 PM EST">3:30 PM EST</option>
                   <option value="4:30 PM EST">4:30 PM EST</option>
+                  <option value="5:15 PM EST">5:15 PM EST</option>
                 </select>
               </div>
             </div>
 
             <div>
               <label className="block text-xs font-bold text-[#3A2E29] uppercase tracking-wider mb-1">
-                Average Monthly Deal Volume
+                What can we help you with? (Optional)
               </label>
-              <select
-                name="monthlyDeals"
-                value={formData.monthlyDeals}
+              <textarea
+                name="notes"
+                rows={2}
+                value={formData.notes}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 rounded-xl border border-[#D8D2D4] focus:outline-none focus:ring-2 focus:ring-[#0D9BA3] bg-white text-sm"
-              >
-                <option value="1 deal/month">1 deal / month (Solo Agent)</option>
-                <option value="2-4 deals/month">2 - 4 deals / month (Growing Agent)</option>
-                <option value="5-9 deals/month">5 - 9 deals / month (High Producer)</option>
-                <option value="10+ deals/month">10+ deals / month (Team / Brokerage)</option>
-              </select>
+                placeholder="Tell us briefly about what you're looking for or any questions..."
+                className="w-full px-4 py-2.5 rounded-xl border border-[#D8D2D4] focus:outline-none focus:ring-2 focus:ring-[#0D9BA3] bg-white text-sm resize-none"
+              />
+            </div>
+
+            <div className="text-xs text-slate-500 font-mono text-center">
+              Office Hours: Mon–Fri · 8:00 AM–6:00 PM EST
             </div>
 
             <div className="pt-2">
@@ -216,7 +224,7 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
                 className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white font-bold py-3.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition flex items-center justify-center space-x-2 cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" />
-                <span>Confirm 15-Minute Fit Call</span>
+                <span>Book 15-Minute Fit Call</span>
               </button>
             </div>
           </form>

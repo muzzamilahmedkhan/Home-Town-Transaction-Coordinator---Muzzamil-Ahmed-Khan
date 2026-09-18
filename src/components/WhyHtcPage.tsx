@@ -604,7 +604,7 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
                     Built directly into the HTC workflow.
                   </div>
                   <p className="text-xs text-slate-300 font-normal">
-                    Every file executed with your unique standards, without repeated instructions.
+                    Your preferences and requirements become part of the HTC workflow so future files can be supported more consistently.
                   </p>
                 </div>
 
@@ -634,10 +634,6 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-serif tracking-tight leading-[1.1]">
               Protect the Agent. Protect the Broker. Protect the Client.
             </h2>
-            
-            <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed pt-1">
-              This is our exact brand promise.
-            </p>
           </div>
 
           {/* Three Equal Columns */}

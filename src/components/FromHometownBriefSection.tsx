@@ -175,7 +175,7 @@ export const FromHometownBriefSection: React.FC<FromHometownBriefSectionProps> =
           </div>
           <div>
             <strong className="font-bold text-[#3A2E29] font-montserrat">Bidirectional Content Network: </strong>
-            <span className="text-slate-600">Every brief links back to its companion download or calculator, and every library resource connects to its governing Florida legal dispatch.</span>
+            <span className="text-slate-600">Every brief links back to its companion download or calculator, and every library resource connects to its governing Florida legal brief.</span>
           </div>
         </div>
         <div className="hidden sm:flex items-center space-x-1.5 text-[11px] font-mono text-slate-500 shrink-0">
@@ -374,7 +374,7 @@ export const FromHometownBriefSection: React.FC<FromHometownBriefSectionProps> =
                   onClick={() => handleOpenFullArticle(activeBrief)}
                   className="bg-[#3A2E29] hover:bg-[#2B231F] text-white px-4 py-2 rounded-xl text-xs font-mono font-bold tracking-wider transition cursor-pointer shadow-2xs flex items-center space-x-1.5"
                 >
-                  <span>OPEN FULL DISPATCH</span>
+                  <span>READ FULL BRIEF</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </button>
                 <button
