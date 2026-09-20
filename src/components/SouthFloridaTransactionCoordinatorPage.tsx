@@ -243,9 +243,9 @@ export const SouthFloridaTransactionCoordinatorPage: React.FC<Props> = ({
           {/* Service Model Highlight */}
           <div className="bg-[#3A2E29] text-white p-8 rounded-3xl border border-white/10 shadow-lg grid md:grid-cols-3 gap-6">
             <div className="space-y-2">
-              <span className="text-xs font-bold text-[#FE7311] uppercase tracking-wider">01. Purely Performance-Based</span>
+              <span className="text-xs font-bold text-[#FE7311] uppercase tracking-wider">01. Per-File Investment</span>
               <h4 className="text-base font-bold text-white">Billed at Closing Table</h4>
-              <p className="text-xs text-slate-300">No retainers, onboarding setup fees, or monthly subscription commitments. If a file cancels, our fee is waived.</p>
+              <p className="text-xs text-slate-300">Simple per-file pricing billed on your disbursement authorization. No cancellation fee during inspection.</p>
             </div>
             <div className="space-y-2">
               <span className="text-xs font-bold text-[#0D9BA3] uppercase tracking-wider">02. Broker-Ready File Audit</span>

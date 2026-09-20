@@ -371,7 +371,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               <ul className="space-y-3 text-xs sm:text-sm text-[#3A2E29] font-medium">
                 <li className="flex items-start space-x-2.5">
                   <Check className="w-4 h-4 text-[#0D9BA3] flex-shrink-0 mt-0.5" />
-                  <span><strong>Florida FAR/BAR Contract Auditing:</strong> Verifying all executed signatures, initials, dates, and mandatory statutory riders.</span>
+                  <span><strong>Florida FAR/BAR Contract Auditing:</strong> Verifying all executed signatures, initials, dates, and required riders.</span>
                 </li>
                 <li className="flex items-start space-x-2.5">
                   <Check className="w-4 h-4 text-[#0D9BA3] flex-shrink-0 mt-0.5" />

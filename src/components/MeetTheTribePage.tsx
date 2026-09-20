@@ -680,7 +680,7 @@ export const MeetTheTribePage: React.FC<Props> = ({
                   The team working behind the file.
                 </h3>
                 <p className="text-sm text-slate-700 font-normal leading-relaxed">
-                  People, systems, and technology working together to support the work through a shared process and built-in cross-coverage.
+                  People, systems, and technology working together through shared processes and cross-coverage to support the work behind your files.
                 </p>
               </div>
 

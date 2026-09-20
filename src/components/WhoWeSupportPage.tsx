@@ -97,10 +97,10 @@ export const WhoWeSupportPage: React.FC<Props> = ({
               </button>
               <button
                 onClick={onBookCall}
-                className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-4 rounded-xl font-bold text-sm tracking-wide transition cursor-pointer backdrop-blur-sm"
+                className="inline-flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer backdrop-blur-sm"
               >
                 <PhoneCall className="w-4 h-4 text-[#0D9BA3]" />
-                <span>Schedule a Fit Call</span>
+                <span>BOOK A 15-MINUTE FIT CALL</span>
               </button>
             </div>
           </div>
@@ -120,7 +120,6 @@ export const WhoWeSupportPage: React.FC<Props> = ({
             <a href="#listing-heavy" className="hover:text-[#0D9BA3] transition">3. Listing Agent</a>
             <a href="#bilingual-agent" className="hover:text-[#0D9BA3] transition">4. Bilingual Specialist</a>
             <a href="#broker-partner" className="hover:text-[#0D9BA3] transition">5. Broker / Partner</a>
-            <a href="#not-a-fit" className="text-[#FE7311] hover:underline">Who Is Not a Fit?</a>
           </div>
         </div>
       </section>
@@ -618,71 +617,7 @@ export const WhoWeSupportPage: React.FC<Props> = ({
         </div>
       </section>
 
-      {/* 7. SECTION 6: WHO IS NOT A FIT */}
-      <section id="not-a-fit" className="py-20 bg-white border-b border-[#D8D2D4]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="text-center space-y-3">
-            <div className="inline-flex items-center space-x-2 bg-[#3A2E29]/10 text-[#3A2E29] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-              <XCircle className="w-3.5 h-3.5 text-[#FE7311]" />
-              <span>Radical Transparency</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif">
-              Who Is NOT a Fit for Hometown TC?
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-              We protect our high standard of care by partnering exclusively with professional agents who value integrity, compliance, and proactive communication.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            
-            <div className="p-6 bg-[#EEEAEB] border border-[#D8D2D4] rounded-2xl space-y-3 shadow-sm">
-              <div className="flex items-center space-x-2 text-[#3A2E29] font-bold text-sm">
-                <XCircle className="w-4 h-4 text-[#FE7311] flex-shrink-0" />
-                <span>Bargain Shoppers Seeking Cheap "Data Entry"</span>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                If you are looking for a cut-rate overseas virtual assistant who blindly moves files without reading clauses or auditing FAR/BAR riders, HTC is not the right match. We are senior risk managers, not passive data entry workers.
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#EEEAEB] border border-[#D8D2D4] rounded-2xl space-y-3 shadow-sm">
-              <div className="flex items-center space-x-2 text-[#3A2E29] font-bold text-sm">
-                <XCircle className="w-4 h-4 text-[#FE7311] flex-shrink-0" />
-                <span>Agents Expecting Legal or Repair Negotiations</span>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                We strictly honor Florida licensing boundaries. HTC tracks inspection contingency deadlines and prepares addenda at your direction, but the agent retains all direct client negotiations and fiduciary advisory.
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#EEEAEB] border border-[#D8D2D4] rounded-2xl space-y-3 shadow-sm">
-              <div className="flex items-center space-x-2 text-[#3A2E29] font-bold text-sm">
-                <XCircle className="w-4 h-4 text-[#FE7311] flex-shrink-0" />
-                <span>Operating Without Executed Written Agreements</span>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                We coordinate legitimate, fully executed Florida real estate transactions. We do not manage speculative verbal offers or unexecuted draft contracts without defined broker compliance.
-              </p>
-            </div>
-
-            <div className="p-6 bg-[#EEEAEB] border border-[#D8D2D4] rounded-2xl space-y-3 shadow-sm">
-              <div className="flex items-center space-x-2 text-[#3A2E29] font-bold text-sm">
-                <XCircle className="w-4 h-4 text-[#FE7311] flex-shrink-0" />
-                <span>Unresponsive Communicators</span>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                High-stakes Florida deadlines require mutual responsiveness. When critical milestones arise (such as appraisal conditions or repair limits), we require timely confirmation from our partner agents.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 8. SECTION 7: PRIMARY CTA */}
+      {/* SECTION 6: PRIMARY CTA */}
       <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#3A2E29] text-white rounded-3xl p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl relative overflow-hidden text-center space-y-8">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#0D9BA3]/10 rounded-full blur-3xl pointer-events-none" />
@@ -713,7 +648,7 @@ export const WhoWeSupportPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer border border-white/20"
               >
-                Schedule a 15-Min fit call
+                BOOK A 15-MINUTE FIT CALL
               </button>
               <button
                 onClick={onSubmitDeal}

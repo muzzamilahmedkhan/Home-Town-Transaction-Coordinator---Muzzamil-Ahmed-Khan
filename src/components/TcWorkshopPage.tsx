@@ -42,7 +42,7 @@ export const TcWorkshopPage: React.FC<Props> = ({ onGoHome, onBookCall }) => {
     },
     {
       q: 'What exactly is Coaches Corner and how does it work?',
-      a: "Coaches Corner is 14 calendar days of direct access to Michelle, starting from your purchase date. Email your questions as you work through the material and Michelle will respond with a personalized video walkthrough — not a canned reply. Response time is within 2 hours during business hours (Mon–Fri, 9 AM–5 PM EST), with a 4-hour window on busy days. It's real support from the person who built the course."
+      a: "Coaches Corner is 14 calendar days of direct access to Michelle, starting from your purchase date. Email your questions as you work through the material and Michelle will respond with a personalized video walkthrough — not a canned reply. Response time is within 2 hours during business hours (Monday–Friday · 8:00 AM–6:00 PM EST), with a 4-hour window on busy days. It's real support from the person who built the course."
     },
     {
       q: 'Can I really go at my own pace?',

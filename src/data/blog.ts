@@ -36,10 +36,10 @@ export const CATEGORY_ARCHIVE_CONFIGS: Record<string, CategoryArchiveConfig> = {
     slug: 'contracts-forms',
     name: 'Contracts + Forms',
     metaTitle: 'Contracts + Forms Archive | The Hometown Brief • Florida Real Estate Operations',
-    metaDescription: 'Practical Florida real estate guidance on FAR/BAR contracts, riders, addenda, and timeline calculations.',
-    categoryIntroPlaceholder: 'Practical operational briefs and timeline coordination guides for Florida FAR/BAR contracts, statutory riders, addenda, and escrow deposit procedures.',
+    metaDescription: 'Practical answers about Florida contracts, forms, transaction timelines, and the administrative work connected to them.',
+    categoryIntroPlaceholder: 'Practical answers about Florida contracts, forms, transaction timelines, and the administrative work connected to them.',
     canonicalUrl: 'https://hometowntc.com/resources/contracts-forms/',
-    tagline: 'FAR/BAR contract terms, addenda, repair agreements, and contingency deadlines.'
+    tagline: 'Practical answers about Florida contracts, forms, transaction timelines, and the administrative work connected to them.'
   },
   'transaction-operations': {
     slug: 'transaction-operations',
@@ -54,10 +54,10 @@ export const CATEGORY_ARCHIVE_CONFIGS: Record<string, CategoryArchiveConfig> = {
     slug: 'broker-compliance',
     name: 'Broker Compliance',
     metaTitle: 'Broker Compliance Archive | The Hometown Brief • Florida Real Estate Operations',
-    metaDescription: 'DBPR/FREC audit preparation, Florida Rule 61J2 file retention, and brokerage advertising compliance.',
-    categoryIntroPlaceholder: 'Compliance essentials for Florida brokerages and team leaders: document retention, disclosure management, and DBPR audit file preparation.',
+    metaDescription: 'Practical answers about brokerage file requirements, document organization, and administrative compliance workflows.',
+    categoryIntroPlaceholder: 'Practical answers about brokerage file requirements, document organization, and administrative compliance workflows.',
     canonicalUrl: 'https://hometowntc.com/resources/broker-compliance/',
-    tagline: 'DBPR/FREC audit readiness, file retention schedules, and brokerage compliance.'
+    tagline: 'Practical answers about brokerage file requirements, document organization, and administrative compliance workflows.'
   },
   'condo-hoa': {
     slug: 'condo-hoa',
@@ -159,7 +159,7 @@ export const HTC_INTERNAL_LINKS: InternalLinkItem[] = [
     id: 'faq',
     label: 'FAQ',
     url: '/faq/',
-    description: 'Answers to common questions about onboarding, file intake, and communications.'
+    description: 'Answers to common questions about Setup, file intake, and communications.'
   },
   {
     id: 'fit-call',

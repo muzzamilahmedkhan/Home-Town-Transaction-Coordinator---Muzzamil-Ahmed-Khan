@@ -73,37 +73,37 @@ export const FaqPage: React.FC<Props> = ({
   const categories: CategoryDefinition[] = [
     {
       id: 'all',
-      name: 'ALL CATEGORIES',
-      subtitle: 'View all 6 categories'
+      name: 'All Categories',
+      subtitle: 'View all questions'
     },
     {
       id: 'services',
-      name: 'SERVICES',
+      name: 'Services',
       subtitle: 'What do you do?'
     },
     {
       id: 'pricing',
-      name: 'PRICING',
+      name: 'Pricing',
       subtitle: 'What does it cost?'
     },
     {
       id: 'getting-started',
-      name: 'GETTING STARTED',
+      name: 'Getting Started',
       subtitle: 'How do we set this up?'
     },
     {
       id: 'working-together',
-      name: 'WORKING TOGETHER',
+      name: 'Working Together',
       subtitle: 'Who does what and what should I expect?'
     },
     {
       id: 'your-clients',
-      name: 'YOUR CLIENTS',
+      name: 'Your Clients',
       subtitle: 'What will my client experience?'
     },
     {
       id: 'trust-technology',
-      name: 'TRUST + TECHNOLOGY',
+      name: 'Trust + Technology',
       subtitle: 'How do you use technology and protect our information?'
     }
   ];
@@ -248,8 +248,8 @@ export const FaqPage: React.FC<Props> = ({
         '• Pro Plan: $475 per closed residential transaction (includes direct client milestone communication)',
         '• Extended Timelines: $100 after 60 days on residential transactions',
         '• Commercial Contract-to-Close: Starts at $595 (files extending beyond 90 days require a $200 deposit)',
-        '• Both Sides of the Transaction: +$200 dual-side coordination fee',
-        '• Agent Setup Investment: $399 one-time onboarding investment',
+        '• Both Sides of the Transaction: +$200',
+        '• Agent Setup Investment: $399 one-time setup investment',
         'We also offer Listing Launch and Broker Compliance services.'
       ],
       actionLink: {
@@ -327,10 +327,9 @@ export const FaqPage: React.FC<Props> = ({
       categoryId: 'pricing',
       question: 'What is the fee if HTC coordinates both sides of the transaction ($200)?',
       answerParagraphs: [
-        'When you represent both buyer and seller on the same transaction, or request HTC to coordinate both sides through closing, there is an additional +$200 dual-side coordination fee.',
-        'This covers managing dual party communications, separate compliance uploads for each side, and neutral milestone facilitation for both buyer and seller.'
+        'When HTC is asked to coordinate the administrative work for both sides of the same transaction, an additional $200 fee applies.'
       ],
-      tags: ['both sides', 'dual agent', 'dual representation', '200', 'additional fee']
+      tags: ['both sides', 'transaction', '200', 'additional fee']
     },
 
     // =========================================================================
@@ -346,10 +345,10 @@ export const FaqPage: React.FC<Props> = ({
         'Once setup is complete, you can begin submitting files through the Quick File Drop.'
       ],
       actionLink: {
-        label: 'SCHEDULE A 15-MINUTE FIT CALL →',
+        label: 'BOOK A 15-MINUTE FIT CALL →',
         action: onBookCall
       },
-      tags: ['getting started', 'fit call', 'onboarding', 'quick file drop']
+      tags: ['getting started', 'fit call', 'setup', 'quick file drop']
     },
     {
       id: 'getting-started-setup-call',
@@ -359,7 +358,7 @@ export const FaqPage: React.FC<Props> = ({
         'This is where we learn how your business works.',
         'We review your brokerage requirements, forms, communication preferences, service preferences, client experience, and any unique touches you want HTC to understand before we begin supporting your files.'
       ],
-      tags: ['setup call', 'onboarding call', 'preferences', 'client experience']
+      tags: ['setup call', 'preferences', 'client experience']
     },
     {
       id: 'getting-started-customize-business',
@@ -579,21 +578,19 @@ export const FaqPage: React.FC<Props> = ({
       categoryId: 'trust-technology',
       question: 'Does HTC carry insurance?',
       answerParagraphs: [
-        'Yes. Hometown Transaction Coordinators maintains comprehensive commercial liability and Errors and Omissions (E&O) insurance coverage tailored for professional transaction coordination services.',
+        'HTC carries Errors & Omissions coverage and Liability coverage, including limited Cyber Security coverage.',
         'For specific coverage certificates or verification, please contact us directly.'
       ],
-      tags: ['insurance', 'errors and omissions', 'e&o', 'liability', 'cybersecurity']
+      tags: ['insurance', 'errors and omissions', 'e&o', 'liability', 'cyber security']
     },
     {
       id: 'trust-tech-licensed-brokerage',
       categoryId: 'trust-technology',
       question: 'What is HTC’s unlicensed administrative role under Florida law?',
       answerParagraphs: [
-        'HTC provides administrative transaction coordination support strictly within Florida guidelines for unlicensed real estate support (Chapter 475, Florida Statutes, and Florida DBPR / FREC rules).',
-        'We assist with document collection, timeline tracking, milestone communication, and brokerage compliance organization.',
-        'Licensed representation, negotiations, legal advice, contract interpretations, and all other licensed activities remain exclusively with the licensed Realtor and their broker.'
+        'HTC provides administrative transaction coordination support within Florida guidelines for unlicensed real estate support. Licensed representation, negotiations, legal advice, contract interpretations, and other licensed activities remain with the Realtor and broker.'
       ],
-      tags: ['brokerage', 'unlicensed support', 'guidelines', 'florida', 'licensed representation', 'dbpr', 'frec']
+      tags: ['brokerage', 'unlicensed support', 'guidelines', 'florida', 'licensed representation']
     },
     {
       id: 'trust-tech-wire-instructions',
@@ -611,11 +608,9 @@ export const FaqPage: React.FC<Props> = ({
       categoryId: 'trust-technology',
       question: 'What happens if HTC receives a third-party form requesting sensitive or confidential information from my client?',
       answerParagraphs: [
-        'HTC does not distribute third-party forms requesting sensitive or confidential client information (such as Social Security numbers, banking information, or account credentials).',
-        'If one is received by email, we delete it rather than forwarding it to your client, or advise the agent accordingly.',
-        'The requesting party should contact the client directly through its own secure, encrypted process.'
+        'HTC does not distribute third-party forms requesting sensitive or confidential client information. If one is received by email, it is deleted immediately rather than forwarded to the client. The requesting party should contact the client directly through its own secure process.'
       ],
-      tags: ['third-party forms', 'sensitive information', 'confidential', 'wire security', 'phishing']
+      tags: ['third-party forms', 'sensitive information', 'confidential', 'wire security']
     },
     {
       id: 'trust-tech-client-database',
@@ -893,13 +888,13 @@ export const FaqPage: React.FC<Props> = ({
       <div className="hidden print:block max-w-4xl mx-auto px-6 py-8 bg-white text-black">
         <div className="border-b-2 border-[#3A2E29] pb-4 mb-6">
           <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D9BA3]">
-            HOMETOWN TRANSACTION COORDINATORS
+            FREQUENTLY ASKED QUESTIONS
           </div>
-          <h1 className="text-2xl font-bold text-[#3A2E29] mt-1">
-            Frequently Asked Questions — Complete Reference
+          <h1 className="text-2xl font-bold text-[#3A2E29] mt-1 font-montserrat">
+            Got a question? Start here.
           </h1>
           <p className="text-xs text-slate-600 mt-1">
-            Approved answers under all six categories: 1. Services • 2. Pricing • 3. Getting Started • 4. Working Together • 5. Your Clients • 6. Trust + Technology
+            Quick answers about working with HTC, our services, pricing, client communication, technology, and what to expect.
           </p>
         </div>
 
@@ -909,11 +904,8 @@ export const FaqPage: React.FC<Props> = ({
             return (
               <section key={cat.id} className="space-y-4">
                 <div className="border-b border-[#3A2E29]/30 pb-2">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
-                    Category {catIdx + 1} of 6
-                  </span>
                   <h2 className="text-lg font-bold text-[#3A2E29]">
-                    {cat.name} — <span className="font-normal text-slate-700">{cat.subtitle}</span>
+                    {cat.name}
                   </h2>
                 </div>
 
@@ -948,7 +940,7 @@ export const FaqPage: React.FC<Props> = ({
             <div>
               <div className="flex items-center space-x-2">
                 <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
-                  {activeCategory === 'all' ? 'ALL 6 CATEGORIES' : `CATEGORY: ${activeCategoryObj?.name}`}
+                  {activeCategory === 'all' ? 'All Categories' : activeCategoryObj?.name}
                 </span>
                 {activeCategory !== 'all' && (
                   <button
@@ -1044,11 +1036,8 @@ export const FaqPage: React.FC<Props> = ({
                 <section key={cat.id} className="space-y-4">
                   <div className="flex items-baseline justify-between border-b border-[#D8D2D4] pb-2">
                     <div>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
-                        CATEGORY {catIdx + 1} OF 6
-                      </span>
                       <h3 className="text-lg sm:text-xl font-montserrat font-extrabold text-[#3A2E29]">
-                        {cat.name} — <span className="text-sm sm:text-base font-medium text-slate-600">{cat.subtitle}</span>
+                        {cat.name}
                       </h3>
                     </div>
                     <button

@@ -264,12 +264,11 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
               In Florida, an accepted contract triggers over <strong>30 distinct operational steps</strong> involving buyers, sellers, cooperating agents, escrow officers, title examiners, mortgage underwriters, appraisers, municipal permit offices, condominium boards, and brokerage compliance auditors.
             </p>
             <p>
-              A professional <strong>contract-to-close coordinator</strong> manages this intricate workflow so real estate agents can eliminate 12–18 hours of back-office paperwork per deal, avoid missed statutory contingency deadlines, and remain 100% focused on dollar-productive client negotiations.
+              A professional <strong>contract-to-close coordinator</strong> manages this intricate workflow so real estate agents can eliminate administrative paperwork per deal, avoid missed statutory contingency deadlines, and remain focused on client service and negotiations.
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-bold text-[#3A2E29]">
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Complete FAR/BAR Rider Audit</span>
-              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ </span>
-              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Zero Retainers • $0 Fee if File Cancels</span>
+              <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Transparent Per-File Investment • No Inspection Cancellation Fee</span>
               <span className="bg-white px-3 py-1.5 rounded-lg border border-[#D8D2D4]">✓ Broker Compliance Portal Integration</span>
             </div>
           </div>
@@ -713,7 +712,7 @@ export const ContractToCloseServicesPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-7 py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer border border-white/20"
               >
-                Book a Fit Call
+                BOOK A 15-MINUTE FIT CALL
               </button>
             </div>
 

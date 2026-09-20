@@ -162,7 +162,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
 
             <div className="text-left sm:text-right">
               <div className="text-xs font-mono text-slate-500">Office Hours</div>
-              <div className="text-xs font-bold text-[#3A2E29]">Mon–Fri · 8:00 AM–6:00 PM EST</div>
+              <div className="text-xs font-bold text-[#3A2E29]">Monday–Friday · 8:00 AM–6:00 PM EST</div>
             </div>
           </div>
 
@@ -367,7 +367,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
                 </div>
                 <div className="flex items-center space-x-2 text-slate-700">
                   <Clock className="w-3.5 h-3.5 text-[#FE7311]" />
-                  <span>Office Hours: Mon–Fri · 8:00 AM–6:00 PM EST</span>
+                  <span>Office Hours: Monday–Friday · 8:00 AM–6:00 PM EST</span>
                 </div>
               </div>
 

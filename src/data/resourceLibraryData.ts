@@ -73,7 +73,7 @@ export const PROBLEM_TOPICS_METADATA: ProblemTopicInfo[] = [
   {
     tag: 'Listings',
     label: 'Listings',
-    problemSummary: 'Pre-listing onboarding, mandatory seller disclosures, MLS readiness, and intake protocol.',
+    problemSummary: 'Pre-listing setup, mandatory seller disclosures, MLS readiness, and intake protocol.',
     iconName: 'Building'
   },
   {
@@ -109,7 +109,7 @@ export const PROBLEM_TOPICS_METADATA: ProblemTopicInfo[] = [
   {
     tag: 'Team Training',
     label: 'Team Training',
-    problemSummary: 'On-demand video workshops, contract breach prevention classes, and agent onboarding.',
+    problemSummary: 'On-demand video workshops, contract breach prevention classes, and team systems.',
     iconName: 'GraduationCap'
   }
 ];
@@ -560,8 +560,8 @@ export const RESOURCE_LIBRARY_ITEMS: ResourceItem[] = [
     stampLabel: 'PRE-MLS PROTOCOL',
     tabCategory: 'DRAWER 07 // LISTINGS & INTAKE',
     resourceType: 'Checklist',
-    title: 'Florida Listing-to-Under-Contract Onboarding & Document Checklist',
-    placeholderTitle: '[RESOURCE TITLE: Florida Listing-to-Under-Contract Onboarding & Document Checklist]',
+    title: 'Florida Listing-to-Under-Contract Setup & Document Checklist',
+    placeholderTitle: '[RESOURCE TITLE: Florida Listing-to-Under-Contract Setup & Document Checklist]',
     shortDescription: 'Pre-listing milestone checklist covering mandatory seller property disclosures, lead-based paint rules, HOA addenda, payoff authorizations, and MLS status protocol.',
     placeholderDescription: '[SHORT DESCRIPTION: Pre-listing checklist covering Florida mandatory seller disclosures, lead-based paint, and HOA addenda.]',
     shortIntro: 'A compliant listing intake prevents transaction collapse weeks before an offer even arrives. This intake roadmap ensures all statutory disclosures and title payoff authorizations are secured prior to MLS syndication.',
@@ -1026,7 +1026,7 @@ export const RESOURCE_LIBRARY_ITEMS: ResourceItem[] = [
     resourceType: 'Template',
     title: 'Buyer & Seller Florida Closing Timeline Roadmaps (Canva)',
     placeholderTitle: '[RESOURCE TITLE: Buyer & Seller Florida Closing Timeline Roadmaps (Canva)]',
-    shortDescription: 'Professional, customizable 1-page visual roadmaps to include in client onboarding packets. Explains escrow, inspection, appraisal, and closing steps simply.',
+    shortDescription: 'Professional, customizable 1-page visual roadmaps to include in client welcome packets. Explains escrow, inspection, appraisal, and closing steps simply.',
     placeholderDescription: '[SHORT DESCRIPTION: Customizable visual roadmaps explaining escrow, inspection, appraisal, and closing steps.]',
     shortIntro: 'Impress buyers and sellers at initial consultation. These 1-page infographic roadmaps translate complex contract steps into approachable, reassuring milestones.',
     topics: ['Listings', 'Transactions', 'Business Growth', 'Agent Operations'],

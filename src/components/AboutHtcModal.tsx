@@ -175,7 +175,7 @@ export const AboutHtcModal: React.FC<Props> = ({ isOpen, onClose, onBookCall }) 
             }}
             className="w-full sm:w-auto bg-[#FE7311] hover:bg-[#e05f03] text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer shadow"
           >
-            <span>Book a 15-Minute Fit Call</span>
+            <span>BOOK A 15-MINUTE FIT CALL</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

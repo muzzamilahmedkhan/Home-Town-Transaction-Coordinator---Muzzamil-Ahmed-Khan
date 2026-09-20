@@ -416,9 +416,6 @@ export const BlogResourcesPage: React.FC<Props> = ({
                 Florida Real Estate Operational Topics
               </h2>
             </div>
-            <p className="text-xs text-slate-500 font-medium max-w-md text-left sm:text-right">
-              Practical, field-tested answers written from active Florida transactions.
-            </p>
           </div>
 
           {/* 6 Topic Cards Grid */}

@@ -23,7 +23,7 @@ export const PRICING_CONFIG = {
 
 export const CENTRAL_SERVICES_PRICING = {
   effectiveDate: 'November Transition Model',
-  notice: 'Single source of truth for all HTC support packages, rates, onboarding, and terms.',
+  notice: 'Single source of truth for all HTC support packages, rates, Setup, and terms.',
   agencyPositioning: 'HTC is a Boutique Real Estate Support Agency — not only a transaction coordination company. We support Florida Realtors across two primary service lanes: Listing Services (pre-contract prep & Listing Launch) and Contract Services (executed contract through closing).',
   serviceLanesNote: 'Listing Launch is a separate service / add-on. It is not automatically included with Contract Services.',
 
@@ -123,14 +123,14 @@ export const CENTRAL_SERVICES_PRICING = {
     }
   ],
 
-  // 4. Registration / Onboarding
-  onboarding: {
-    title: 'Registration & Onboarding',
-    summary: 'HTC clients are onboarded before submitting files. A prospect cannot simply submit an executed contract without prior onboarding.',
+  // 4. Registration / Setup
+  setup: {
+    title: 'Registration & Setup',
+    summary: 'HTC clients complete their one-time Agent Setup before submitting files. A prospect cannot simply submit an executed contract without prior Setup.',
     steps: [
       'Step 1: 15-Minute Fit Call to discuss your volume, market, and brokerage compliance requirements.',
       'Step 2: Profile Setup defining your preferred title partners, lenders, e-sign tools, and communication style.',
-      'Step 3: Account Activation granting immediate access to the HTC Client Submit File portal.'
+      'Step 3: Account Activation granting access to the HTC Client Submit File portal.'
     ]
   },
 
@@ -159,7 +159,7 @@ export const CENTRAL_SERVICES_PRICING = {
   // 7. Future Customer vs. Client Structure
   futureStructure: {
     title: 'Upcoming Model Transition (November 2026)',
-    details: 'To maintain our high standard of accuracy and personalized care, HTC is transitioning in November 2026 to a dual Customer vs. Client structure. Established HTC Clients will lock in priority file intake and dedicated TC assignment, while new Customers will enter through structured monthly onboarding windows.'
+    details: 'To maintain our high standard of accuracy and personalized care, HTC is transitioning in November 2026 to a dual Customer vs. Client structure. Established HTC Clients will lock in priority file intake and dedicated TC assignment, while new Customers will enter through structured monthly setup windows.'
   }
 };
 

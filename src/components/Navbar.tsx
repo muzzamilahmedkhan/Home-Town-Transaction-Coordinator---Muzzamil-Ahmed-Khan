@@ -274,7 +274,7 @@ export const Navbar: React.FC<Props> = ({
               onClick={() => handleLink(onBookCall)}
               className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition flex items-center space-x-2 cursor-pointer"
             >
-              <span>BOOK A FIT CALL</span>
+              <span>BOOK A 15-MINUTE FIT CALL</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -386,7 +386,7 @@ export const Navbar: React.FC<Props> = ({
                 onClick={() => handleLink(onBookCall)}
                 className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center shadow-md cursor-pointer"
               >
-                BOOK A FIT CALL
+                BOOK A 15-MINUTE FIT CALL
               </button>
             </div>
           </div>

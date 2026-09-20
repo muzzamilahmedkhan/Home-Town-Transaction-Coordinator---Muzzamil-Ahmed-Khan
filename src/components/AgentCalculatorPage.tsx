@@ -811,7 +811,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                         className="flex-1 bg-[#FE7311] hover:bg-[#e05f03] text-white px-4 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer min-h-[44px] focus:ring-2 focus:ring-white focus:outline-none shadow-sm"
                       >
                         <PhoneCall className="w-4 h-4" />
-                        <span>Book a 15-Minute Fit Call</span>
+                        <span>BOOK A 15-MINUTE FIT CALL</span>
                       </button>
 
                       <button
@@ -1121,7 +1121,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                         className="flex-1 bg-[#FE7311] hover:bg-[#e05f03] text-white px-4 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer min-h-[44px] focus:ring-2 focus:ring-white focus:outline-none shadow-sm"
                       >
                         <PhoneCall className="w-4 h-4" />
-                        <span>Book a 15-Minute Fit Call</span>
+                        <span>BOOK A 15-MINUTE FIT CALL</span>
                       </button>
 
                       <button
@@ -1417,7 +1417,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                         className="flex-1 bg-[#FE7311] hover:bg-[#e05f03] text-white px-4 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer min-h-[44px] focus:ring-2 focus:ring-white focus:outline-none shadow-sm"
                       >
                         <PhoneCall className="w-4 h-4" />
-                        <span>Book a 15-Minute Fit Call</span>
+                        <span>BOOK A 15-MINUTE FIT CALL</span>
                       </button>
 
                       <button

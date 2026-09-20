@@ -611,7 +611,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
                 </h3>
                 <ol className="list-decimal list-inside space-y-2 text-slate-700 font-medium">
                   <li>
-                    <strong className="text-[#3A2E29]">Onboarding & Intake:</strong> Open this file at the moment of mutual contract acceptance or pre-listing authorization.
+                    <strong className="text-[#3A2E29]">File Setup & Intake:</strong> Open this file at the moment of mutual contract acceptance or pre-listing authorization.
                   </li>
                   <li>
                     <strong className="text-[#3A2E29]">Milestone Calculation:</strong> Cross-reference effective dates with standard Florida calendar calculation rules (excluding legal holidays and weekends when applicable under Paragraph 5/Standard F).

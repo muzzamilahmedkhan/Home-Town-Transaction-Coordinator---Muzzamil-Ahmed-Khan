@@ -224,7 +224,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
                   onClick={onBookCall}
                   className="text-xs font-bold text-[#FE7311] hover:text-[#d45e0c] inline-flex items-center space-x-1.5 group cursor-pointer"
                 >
-                  <span>Discuss Team Onboarding</span>
+                  <span>BOOK A 15-MINUTE FIT CALL</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition" />
                 </button>
               </div>

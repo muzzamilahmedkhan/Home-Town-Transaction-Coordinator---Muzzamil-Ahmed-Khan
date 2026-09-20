@@ -42,7 +42,7 @@ export const ReviewsPage: React.FC<Props> = ({
               onClick={onBookCall}
               className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-6 py-3 rounded-xl font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition flex items-center space-x-2 mx-auto cursor-pointer"
             >
-              <span>Book a Fit Call</span>
+              <span>BOOK A 15-MINUTE FIT CALL</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

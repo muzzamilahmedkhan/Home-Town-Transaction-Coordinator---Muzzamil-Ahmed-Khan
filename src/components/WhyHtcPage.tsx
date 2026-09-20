@@ -130,7 +130,7 @@ We invite you to book a 15-Minute Fit Call to see how HTC can support your busin
     },
     {
       q: 'Does HTC customize its transaction coordination process?',
-      a: 'Yes. Where our standard defaults work for you, we use them. Where you have specific brokerage requirements, custom templates, communication preferences or personalized client touches, we build those into your Setup during onboarding so future files flow seamlessly.',
+      a: 'Yes. Where our standard defaults work for you, we use them. Where you have specific brokerage requirements, custom templates, communication preferences or personalized client touches, we build those into your Setup so future files flow seamlessly.',
       linkAction: onOpenHowItWorks,
       linkLabel: 'SEE HOW SETUP WORKS'
     },

@@ -49,7 +49,7 @@ export const Hero: React.FC<Props> = ({ onBookCall, onExploreServices, onSeeHowI
                 We provide organized listing and contract support behind your real estate business so you can stay client-facing.
               </p>
               <p className="text-sm sm:text-base text-[#3A2E29]">
-                Listing Launch. Contract-to-Close. Post-Close. From Yes to Sold, HTC keeps the operational work behind the transaction moving for Florida Realtors.
+                Start with a Fit Call, set up your business once, then submit files whenever you need support.
               </p>
               <p className="text-xs sm:text-sm font-extrabold text-[#0D9BA3] uppercase tracking-wider">
                 PROTECT THE AGENT. PROTECT THE BROKER. PROTECT THE CLIENT.
@@ -62,7 +62,7 @@ export const Hero: React.FC<Props> = ({ onBookCall, onExploreServices, onSeeHowI
                 onClick={onBookCall}
                 className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition flex items-center justify-center space-x-2 group cursor-pointer"
               >
-                <span>BOOK A FIT CALL</span>
+                <span>BOOK A 15-MINUTE FIT CALL</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 

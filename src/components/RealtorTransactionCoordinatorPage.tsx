@@ -135,7 +135,7 @@ export const RealtorTransactionCoordinatorPage: React.FC<Props> = ({
       badge: 'Agent-Centered Touchpoints',
       color: 'border-[#3A2E29]',
       points: [
-        'HTC operates behind the scenes as your back-office execution partner.',
+        'HTC operates behind the scenes as your transaction execution partner.',
         'We manage direct milestone communication with Title, Lender, and the Cooperating Agent.',
         'You receive timely milestone alerts and prompts to update your buyers or sellers directly.',
         'Ideal for Realtors who prefer to maintain 100% of direct phone and text conversations with their clients.'
@@ -158,7 +158,7 @@ export const RealtorTransactionCoordinatorPage: React.FC<Props> = ({
   const faqs = [
     {
       q: 'Does using a Transaction Coordinator affect my relationship with my clients?',
-      a: 'It strengthens it. On our Pro Plan, we introduce ourselves as a dedicated extension of your professional team. Your clients see a coordinated, responsive back office tracking their deposit, escrow, title, and loan milestones, making you look like an elite operation with a dedicated staff.'
+      a: 'It strengthens it. On our Pro Plan, we introduce ourselves as a dedicated extension of your professional team. Your clients see a coordinated, responsive support team tracking their deposit, escrow, title, and loan milestones, making you look like an elite operation with dedicated administrative backing.'
     },
     {
       q: 'Can HTC negotiate repair requests or price amendments on my behalf?',
@@ -276,7 +276,7 @@ export const RealtorTransactionCoordinatorPage: React.FC<Props> = ({
           <div className="max-w-3xl space-y-3">
             <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
               <Sliders className="w-3.5 h-3.5" />
-              <span>Back-Office Precision Engine</span>
+              <span>Transaction Execution Engine</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif leading-tight">
               What HTC Coordinates Behind the Scenes
@@ -559,7 +559,7 @@ export const RealtorTransactionCoordinatorPage: React.FC<Props> = ({
             </h2>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              Book a 15-Minute Fit Call with Michelle Martinez to review your transaction pipeline, broker portal setup, and how our 
+              Book a 15-Minute Fit Call to learn what you need and determine whether HTC is the right fit for your business.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -567,13 +567,13 @@ export const RealtorTransactionCoordinatorPage: React.FC<Props> = ({
                 onClick={onBookCall}
                 className="w-full sm:w-auto px-8 py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-xl hover:shadow-[#FE7311]/25 cursor-pointer"
               >
-                Book a Fit Call
+                BOOK A 15-MINUTE FIT CALL
               </button>
               <button
                 onClick={onSubmitDeal}
                 className="w-full sm:w-auto px-7 py-4 bg-[#0D9BA3] hover:bg-[#0b868d] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer shadow-md"
               >
-                Submit an Executed Deal ($375)
+                Submit a New Deal
               </button>
               <button
                 onClick={onOpenPricing}

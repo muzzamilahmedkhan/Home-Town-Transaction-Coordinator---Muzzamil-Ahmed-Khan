@@ -36,7 +36,7 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
             Services & Pricing Model
           </h2>
           <p className="text-xs sm:text-sm text-slate-300 font-medium mt-1">
-            Centrally managed transaction support packages, file rates, onboarding guidelines, and terms.
+            Centrally managed transaction support packages, file rates, Setup guidelines, and terms.
           </p>
         </div>
 
@@ -167,17 +167,17 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
             </div>
           </div>
 
-          {/* Section 4: Registration & Onboarding */}
+          {/* Section 4: Registration & Setup */}
           <div className="bg-white p-6 rounded-2xl border border-[#D8D2D4] space-y-3">
             <div className="flex items-center space-x-2 text-sm font-extrabold uppercase tracking-wider text-[#3A2E29]">
               <UserPlus className="w-4 h-4 text-[#FE7311]" />
-              <span>{data.onboarding.title}</span>
+              <span>{data.setup.title}</span>
             </div>
             <p className="text-xs text-[#3A2E29]/90 font-medium leading-relaxed">
-              {data.onboarding.summary}
+              {data.setup.summary}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              {data.onboarding.steps.map((st, i) => (
+              {data.setup.steps.map((st, i) => (
                 <div key={i} className="bg-[#EEEAEB] p-3 rounded-xl border border-[#D8D2D4] text-xs font-semibold text-[#3A2E29]">
                   {st}
                 </div>
@@ -231,7 +231,7 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
                 Structured Coordination for Teams & Managing Brokers
               </h3>
               <p className="text-xs sm:text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
-                Customized support for high-volume Florida real estate teams and boutique brokerages that need dedicated operational structure: standardized broker audit preparation, shared pipeline visibility, seamless agent onboarding, and scalable file capacity across all 67 Florida counties.
+                Customized support for high-volume Florida real estate teams and boutique brokerages that need dedicated operational structure: standardized broker audit preparation, shared pipeline visibility, seamless agent setup, and scalable file capacity across all 67 Florida counties.
               </p>
             </div>
             <div className="pt-1">
@@ -242,7 +242,7 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
                 }}
                 className="bg-[#3A2E29] hover:bg-[#2A201C] text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition cursor-pointer inline-flex items-center space-x-2"
               >
-                <span>Discuss Team / Brokerage Fit</span>
+                <span>BOOK A 15-MINUTE FIT CALL</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#FE7311]" />
               </button>
             </div>
@@ -264,7 +264,7 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
         {/* Footer */}
         <div className="bg-white p-5 border-t border-[#D8D2D4] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs font-semibold text-[#3A2E29]">
-            Have questions about onboarding or selecting the right tier?
+            Have questions about Setup or selecting the right plan?
           </div>
           <div className="flex items-center space-x-3 w-full sm:w-auto">
             {onSubmitDeal && (
@@ -285,7 +285,7 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
               }}
               className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow transition flex items-center justify-center space-x-2 cursor-pointer"
             >
-              <span>Book Fit Call</span>
+              <span>BOOK A 15-MINUTE FIT CALL</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
