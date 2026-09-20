@@ -132,7 +132,7 @@ export const MichelleFounder: React.FC<Props> = ({ onOpenAbout, onOpenMeetTheTri
 
               {/* Caption Line */}
               <div className="text-center pt-2 text-xs text-slate-300 font-medium">
-                <span className="text-white font-semibold">Approved Customer Model: </span>
+                <span className="text-white font-semibold">Support Model: </span>
                 YOU <span className="text-[#0D9BA3] font-bold">↔</span> LEAD TC <span className="text-[#0D9BA3] font-bold">↔</span> HTC TEAM + SYSTEMS
               </div>
             </div>

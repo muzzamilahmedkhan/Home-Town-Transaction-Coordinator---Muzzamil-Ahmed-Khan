@@ -369,7 +369,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
         {/* Results Header */}
         <div className="flex items-center justify-between pb-6 text-xs text-slate-600 border-b border-[#D8D2D4] mb-8">
           <div className="font-medium">
-            Showing <strong className="text-[#3A2E29]">{filteredResources.length}</strong> {filteredResources.length === 1 ? 'approved resource' : 'approved resources'}
+            Showing <strong className="text-[#3A2E29]">{filteredResources.length}</strong> {filteredResources.length === 1 ? 'resource' : 'resources'}
             {selectedCategory !== 'All Resources' && <span> in <strong className="text-[#0D9BA3]">{selectedCategory}</strong></span>}
             {selectedTag !== 'All Topics' && <span> tagged <strong className="text-[#3A2E29]">"{selectedTag}"</strong></span>}
           </div>

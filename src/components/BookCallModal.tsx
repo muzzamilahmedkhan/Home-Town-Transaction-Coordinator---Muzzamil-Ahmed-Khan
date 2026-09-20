@@ -87,7 +87,7 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
               </div>
               <div className="flex items-center space-x-2 text-slate-600">
                 <Clock className="w-3.5 h-3.5 text-[#FE7311]" />
-                <span>Office Hours: Monday–Friday · 8:00 AM–6:00 PM EST</span>
+                <span>Office Hours: Monday-Friday · 8:00 AM-6:00 PM EST</span>
               </div>
             </div>
 

@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import App from '../App';
-import { DEMO_BLOG_POSTS } from '../data/blog';
+import { DEMO_BLOG_POSTS, CATEGORY_ARCHIVE_CONFIGS } from '../data/blog';
 import { RESOURCE_LIBRARY_ITEMS, getResourceBySlug } from '../data/resourceLibraryData';
 
 export async function getStaticPaths() {
@@ -27,6 +27,7 @@ export async function getStaticPaths() {
     'broward-transaction-coordinator',
     'south-florida-transaction-coordinator',
     'faq',
+    'book',
     'book-discovery-call',
     'book-call',
     'submit-deal',
@@ -42,6 +43,7 @@ export async function getStaticPaths() {
 
   const blogRoutes = DEMO_BLOG_POSTS.map(post => `resources/${post.slug}`);
   const blogRoutesAlt = DEMO_BLOG_POSTS.map(post => `blog/${post.slug}`);
+  const categoryRoutes = Object.keys(CATEGORY_ARCHIVE_CONFIGS).map(slug => `resources/${slug}`);
 
   // Dynamic Resource Library routes for each individual resource
   const resourceRoutes = RESOURCE_LIBRARY_ITEMS.map(
@@ -51,7 +53,7 @@ export async function getStaticPaths() {
     item => `free-guides-downloads/${item.slug}`
   );
 
-  const allSlugs = [...routes, ...blogRoutes, ...blogRoutesAlt, ...resourceRoutes, ...resourceRoutesAlt];
+  const allSlugs = [...routes, ...blogRoutes, ...blogRoutesAlt, ...categoryRoutes, ...resourceRoutes, ...resourceRoutesAlt];
 
   return allSlugs.map(slug => {
     let title = "Hometown TC | Boutique Real Estate Support Agency for Florida Realtors";

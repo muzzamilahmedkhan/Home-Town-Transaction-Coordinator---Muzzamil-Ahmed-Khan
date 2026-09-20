@@ -645,8 +645,8 @@ export const ResourceLandingPage: React.FC<Props> = ({
                 </div>
 
                 <div className="p-3 bg-[#FAF8F5] rounded-xl border border-[#D8D2D4]/70 space-y-1">
-                  <div className="font-bold text-[#3A2E29]">FREC Audit Readiness</div>
-                  <div className="text-slate-600">Maintains complete documentation trails for state licensing audits.</div>
+                  <div className="font-bold text-[#3A2E29]">Compliance File Organization</div>
+                  <div className="text-slate-600">Maintains complete documentation trails for broker file review.</div>
                 </div>
               </div>
 

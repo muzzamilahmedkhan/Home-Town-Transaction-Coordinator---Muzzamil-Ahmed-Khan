@@ -474,7 +474,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
               Verified Operational Briefs
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-5">
-              Hometown Transaction Coordinators is compiling practical, verified operational briefs for Florida real estate professionals. Each brief delivers one clear question, one brief, and one useful answer—without fluff or generalized theory.
+              Hometown Transaction Coordinators publishes practical, verified operational briefs for Florida real estate professionals. Each brief delivers one clear question, one brief, and one useful answer—without fluff or generalized theory.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a

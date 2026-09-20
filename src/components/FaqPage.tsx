@@ -952,7 +952,7 @@ export const FaqPage: React.FC<Props> = ({
                 )}
               </div>
               <h2 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29] mt-0.5">
-                {activeCategory === 'all' ? 'Browse all approved questions & answers' : activeCategoryObj?.subtitle}
+                {activeCategory === 'all' ? 'Browse all questions & answers' : activeCategoryObj?.subtitle}
               </h2>
             </div>
 
