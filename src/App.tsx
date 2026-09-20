@@ -41,6 +41,9 @@ import { BlogPostPage } from './components/BlogPostPage';
 import { TcWorkshopPage } from './components/TcWorkshopPage';
 import { FreeGuidesPage } from './components/FreeGuidesPage';
 import { ResourceLandingPage } from './components/ResourceLandingPage';
+import { NotFoundPage } from './components/NotFoundPage';
+import { getResourceBySlug } from './data/resourceLibraryData';
+import { DEMO_BLOG_POSTS } from './data/blog';
 import { Language } from './types';
 
 export default function App() {
@@ -82,51 +85,58 @@ export default function App() {
     }
   };
 
-  const isCalculatorPage = currentPath.includes('agent-business-calculator');
-  const isHowItWorksPage = currentPath.includes('how-htc-works') || currentPath.includes('how-it-works');
-  const isWhyHtcPage = currentPath.includes('why-htc');
-  const isTransactionCoordinationPage = currentPath.includes('transaction-coordination') && !currentPath.includes('miami') && !currentPath.includes('broward') && !currentPath.includes('south-florida') && !currentPath.includes('contract-to-close') && !currentPath.includes('realtor');
-  const isContractToClosePage = currentPath.includes('contract-to-close') || currentPath.includes('contract-to-close-services');
-  const isRealtorTcPage = currentPath.includes('transaction-coordinator-for-realtors') || currentPath.includes('realtor-transaction-coordinator') || currentPath.includes('realtors');
-  const isListingCoordinationPage = currentPath.includes('listing-coordination');
-  const isPricingPage = currentPath.includes('pricing') || currentPath.includes('plans');
-  const isMeetTheTribePage = currentPath.includes('tribe') || currentPath.includes('/team') || currentPath.includes('meet-the-tribe');
-  const isAboutPage = !isMeetTheTribePage && (currentPath.includes('about') || currentPath.includes('michelle'));
-  const isWhoWeSupportPage = (currentPath.includes('who-we-support') || currentPath.includes('audience')) && !isRealtorTcPage;
-  const isMiamiDadeTcPage = currentPath.includes('miami-dade-transaction-coordinator') || currentPath.includes('miami-dade');
-  const isMiamiTcPage = !isMiamiDadeTcPage && (currentPath.includes('miami-transaction-coordinator') || currentPath.includes('miami'));
-  const isBrowardTcPage = currentPath.includes('broward-transaction-coordinator') || currentPath.includes('broward');
-  const isSouthFloridaTcPage = currentPath.includes('south-florida-transaction-coordinator') || currentPath.includes('south-florida');
-  const isFaqPage = currentPath.includes('faq') || currentPath.includes('frequently-asked-questions');
-  const isBookCallPage = currentPath.includes('book') || currentPath.includes('fit-call') || currentPath.includes('discovery-call') || currentPath.includes('schedule');
-  const isSubmitDealPage = currentPath.includes('submit-deal') || currentPath.includes('submit-a-deal') || currentPath.includes('contract-intake');
-  const isReviewsPage = currentPath.includes('reviews') || currentPath.includes('testimonials');
-  const isTcWorkshopPage = currentPath.includes('tcworkshop') || currentPath.includes('workshop') || currentPath.includes('training');
-  const isGuidesPage = currentPath.includes('guides') || currentPath.includes('downloads');
+  const rawPath = currentPath.split('?')[0].split('#')[0];
+  const normalizedPath = rawPath.replace(/\/+$/, '') || '/';
+  const pathParts = normalizedPath.split('/').filter(Boolean);
 
-  const pathParts = currentPath.split('/').filter(Boolean);
+  // Exact / normalized route matchers
+  const isHomePage = normalizedPath === '/';
 
-  // Dedicated Resource Landing Page (Option B) vs Main Free Guides Library:
-  // Supported URL structures:
-  // /resources/free-guides-downloads/[resource-slug]/
-  // /free-guides-downloads/[resource-slug]/
-  // /resources/guides/[resource-slug]/
+  const isCalculatorPage = normalizedPath === '/agent-business-calculator';
+  const isHowItWorksPage = normalizedPath === '/how-htc-works' || normalizedPath === '/how-it-works';
+  const isWhyHtcPage = normalizedPath === '/why-htc';
+  const isTransactionCoordinationPage = normalizedPath === '/transaction-coordination';
+  const isContractToClosePage = normalizedPath === '/contract-to-close' || normalizedPath === '/contract-to-close-services';
+  const isRealtorTcPage = normalizedPath === '/transaction-coordinator-for-realtors' || normalizedPath === '/realtor-transaction-coordinator';
+  const isListingCoordinationPage = normalizedPath === '/listing-coordination';
+  const isPricingPage = normalizedPath === '/pricing' || normalizedPath === '/services-and-pricing' || normalizedPath === '/services';
+  const isMeetTheTribePage = normalizedPath === '/team' || normalizedPath === '/meet-the-tribe';
+  const isAboutPage = normalizedPath === '/about' || normalizedPath === '/michelle';
+  const isWhoWeSupportPage = normalizedPath === '/who-we-support';
+  const isMiamiDadeTcPage = normalizedPath === '/miami-dade-transaction-coordinator';
+  const isMiamiTcPage = normalizedPath === '/miami-transaction-coordinator';
+  const isBrowardTcPage = normalizedPath === '/broward-transaction-coordinator';
+  const isSouthFloridaTcPage = normalizedPath === '/south-florida-transaction-coordinator';
+  const isFaqPage = normalizedPath === '/faq';
+  const isBookCallPage = normalizedPath === '/book' || normalizedPath === '/book-call' || normalizedPath === '/book-discovery-call';
+  const isSubmitDealPage = normalizedPath === '/submit-deal';
+  const isReviewsPage = normalizedPath === '/reviews';
+  const isTcWorkshopPage = normalizedPath === '/tcworkshop';
+
+  // Guides & Resource Library
+  const isGuidesHubPage = 
+    normalizedPath === '/free-guides-downloads' || 
+    normalizedPath === '/resources/free-guides-downloads' ||
+    normalizedPath === '/guides' ||
+    normalizedPath === '/resources/guides';
+
+  // Dedicated Resource Landing Page:
+  // /resources/free-guides-downloads/[resource-slug]
+  // /free-guides-downloads/[resource-slug]
+  // /resources/guides/[resource-slug]
   const isResourceDetailPage = (() => {
-    if (!isGuidesPage) return false;
-    if (pathParts[0] === 'resources' && (pathParts[1] === 'free-guides-downloads' || pathParts[1] === 'guides' || pathParts[1] === 'downloads') && pathParts.length >= 3) {
-      return true;
+    if (pathParts[0] === 'resources' && (pathParts[1] === 'free-guides-downloads' || pathParts[1] === 'guides' || pathParts[1] === 'downloads') && pathParts.length === 3) {
+      return Boolean(getResourceBySlug(pathParts[2]));
     }
-    if ((pathParts[0] === 'free-guides-downloads' || pathParts[0] === 'guides' || pathParts[0] === 'downloads') && pathParts.length >= 2) {
-      return true;
+    if ((pathParts[0] === 'free-guides-downloads' || pathParts[0] === 'guides' || pathParts[0] === 'downloads') && pathParts.length === 2) {
+      return Boolean(getResourceBySlug(pathParts[1]));
     }
     return false;
   })();
 
   const currentResourceSlug = isResourceDetailPage ? pathParts[pathParts.length - 1] : '';
 
-  // Blog route must NOT capture guides or downloads
-  const isBlogRoute = (pathParts[0] === 'blog' || pathParts[0] === 'resources') && !isGuidesPage;
-  const subSlug = pathParts[1] || '';
+  // Blog / Resources routing
   const knownCategorySlugs = [
     'contracts-forms',
     'transaction-operations',
@@ -138,14 +148,59 @@ export default function App() {
     'florida-real-estate-updates',
     'florida-contracts-forms'
   ];
-  const isCategoryArchivePage = isBlogRoute && pathParts.length > 1 && knownCategorySlugs.includes(subSlug);
-  const isBlogPostPage = isBlogRoute && pathParts.length > 1 && !knownCategorySlugs.includes(subSlug);
-  const isBlogIndexPage = isBlogRoute && pathParts.length === 1;
-  const currentPostSlug = isBlogPostPage ? subSlug : '';
-  const currentCategorySlug = isCategoryArchivePage ? subSlug : '';
+
+  const isBlogIndexPage = normalizedPath === '/resources' || normalizedPath === '/blog';
+  
+  const isCategoryArchivePage = (() => {
+    if ((pathParts[0] === 'resources' || pathParts[0] === 'blog') && pathParts.length === 2) {
+      return knownCategorySlugs.includes(pathParts[1]);
+    }
+    return false;
+  })();
+
+  const isBlogPostPage = (() => {
+    if ((pathParts[0] === 'resources' || pathParts[0] === 'blog') && pathParts.length === 2 && !knownCategorySlugs.includes(pathParts[1])) {
+      return DEMO_BLOG_POSTS.some(p => p.slug === pathParts[1]);
+    }
+    return false;
+  })();
+
+  const currentCategorySlug = isCategoryArchivePage ? pathParts[1] : '';
+  const currentPostSlug = isBlogPostPage ? pathParts[1] : '';
+
+  // Check if current route is a known valid route
+  const isKnownRoute = 
+    isHomePage ||
+    isCalculatorPage ||
+    isHowItWorksPage ||
+    isWhyHtcPage ||
+    isTransactionCoordinationPage ||
+    isContractToClosePage ||
+    isRealtorTcPage ||
+    isListingCoordinationPage ||
+    isPricingPage ||
+    isMeetTheTribePage ||
+    isAboutPage ||
+    isWhoWeSupportPage ||
+    isMiamiDadeTcPage ||
+    isMiamiTcPage ||
+    isBrowardTcPage ||
+    isSouthFloridaTcPage ||
+    isFaqPage ||
+    isBookCallPage ||
+    isSubmitDealPage ||
+    isReviewsPage ||
+    isTcWorkshopPage ||
+    isGuidesHubPage ||
+    isResourceDetailPage ||
+    isBlogIndexPage ||
+    isCategoryArchivePage ||
+    isBlogPostPage;
+
+  const is404Page = !isKnownRoute;
 
   const scrollToHomeMethod = () => {
-    if (isCalculatorPage || isHowItWorksPage || isWhyHtcPage || isTransactionCoordinationPage || isContractToClosePage || isRealtorTcPage || isListingCoordinationPage || isPricingPage || isAboutPage || isMeetTheTribePage || isWhoWeSupportPage || isMiamiTcPage || isMiamiDadeTcPage || isBrowardTcPage || isSouthFloridaTcPage || isFaqPage || isBookCallPage || isSubmitDealPage || isTcWorkshopPage || isGuidesPage || isResourceDetailPage) {
+    if (!isHomePage) {
       navigateTo('/');
       setTimeout(() => {
         const el = document.getElementById('home-method');
@@ -498,7 +553,7 @@ export default function App() {
             onGoHome={() => navigateTo('/')}
             onOpenCalculator={() => navigateTo('/agent-business-calculator/')}
           />
-        ) : isGuidesPage ? (
+        ) : isGuidesHubPage ? (
           <FreeGuidesPage
             onGoHome={() => navigateTo('/')}
             onBackToBlog={() => navigateTo('/resources/')}
@@ -510,6 +565,14 @@ export default function App() {
           <TcWorkshopPage
             onGoHome={() => navigateTo('/')}
             onBookCall={() => setBookCallOpen(true)}
+          />
+        ) : is404Page ? (
+          <NotFoundPage
+            onGoHome={() => navigateTo('/')}
+            onOpenPricing={() => navigateTo('/pricing/')}
+            onOpenFaq={() => navigateTo('/faq/')}
+            onBookCall={() => setBookCallOpen(true)}
+            requestedPath={currentPath}
           />
         ) : (
           <>
