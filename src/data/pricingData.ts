@@ -142,8 +142,8 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
 
   agentSetup: {
     badge: 'NEW CLIENT REGISTRATION',
-    name: 'Agent Setup Investment',
-    timing: 'ONE-TIME SETUP',
+    name: 'Agent Setup & Systems Integration',
+    timing: 'ONE-TIME SETUP & INTEGRATION',
     purpose: 'Build your business into the HTC workflow so future files plug directly in without repeated setup.',
     details: [
       'Brokerage portal mapping & custom compliance checklists',
@@ -152,8 +152,8 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
       'Dedicated lead coordinator assignment & file intake setup',
     ],
     price: '$399',
-    priceNote: 'One-time setup investment',
-    ctaText: 'REGISTER & START SETUP',
+    priceNote: 'One-time investment',
+    ctaText: 'START AGENT SETUP',
   },
 
   listingLaunch: {

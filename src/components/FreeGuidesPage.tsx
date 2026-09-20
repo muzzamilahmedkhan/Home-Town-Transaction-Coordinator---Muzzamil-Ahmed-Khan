@@ -31,11 +31,13 @@ interface Props {
 export type SimpleCategory = 
   | 'Guides + Checklists'
   | 'Templates + Client Tools'
+  | 'AI + Automation'
   | 'Classes + Workshops';
 
 const CATEGORIES: SimpleCategory[] = [
   'Guides + Checklists',
   'Templates + Client Tools',
+  'AI + Automation',
   'Classes + Workshops'
 ];
 
@@ -81,11 +83,11 @@ const APPROVED_RESOURCES: ApprovedResource[] = [
   },
   {
     id: 'res-brief',
-    title: 'The Hometown Brief: Florida Contract & Compliance Analysis',
+    title: 'The Hometown Brief: Florida Transaction Operations & Practical Answers',
     category: 'Guides + Checklists',
     tags: ['Transactions', 'Broker Compliance'],
     format: 'Weekly Operational Guide',
-    description: 'Practical operational analysis covering Florida contracts, transaction coordination, brokerage compliance, and closing workflows for practicing Realtors.',
+    description: 'Practical operational analysis covering Florida transaction coordination, brokerage compliance, and closing workflows for practicing Realtors.',
     actionText: 'Read The Hometown Brief',
     actionType: 'blog',
     destinationUrl: '/resources/'
@@ -140,6 +142,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
       'All Resources': APPROVED_RESOURCES.length,
       'Guides + Checklists': 0,
       'Templates + Client Tools': 0,
+      'AI + Automation': 0,
       'Classes + Workshops': 0
     };
     APPROVED_RESOURCES.forEach((r) => {
@@ -198,6 +201,11 @@ export const FreeGuidesPage: React.FC<Props> = ({
         return {
           badge: 'bg-[#FE7311]/10 text-[#FE7311] border-[#FE7311]/30',
           icon: <Layers className="w-3.5 h-3.5 text-[#FE7311]" />
+        };
+      case 'AI + Automation':
+        return {
+          badge: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+          icon: <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
         };
       case 'Classes + Workshops':
         return {
