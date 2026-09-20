@@ -515,7 +515,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
                   Read The Hometown Brief
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Weekly Florida real estate contract, compliance, and operations analysis written for practicing Realtors.
+                  Florida real estate transaction operations, brokerage compliance, and practical operational answers written for practicing Realtors.
                 </p>
               </div>
               <div className="pt-4 text-xs font-bold text-[#0D9BA3] flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
