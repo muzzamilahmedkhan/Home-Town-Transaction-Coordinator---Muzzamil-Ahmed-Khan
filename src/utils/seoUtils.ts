@@ -232,6 +232,66 @@ export function getResourceLandingPageSeoData(resource: ResourceItem): PageSeoDa
 }
 
 /**
+ * Generates official Organization & ProfessionalService schema for Hometown TC
+ */
+export function getOrganizationSchema(lang: 'en' | 'es' = 'en') {
+  return {
+    '@context': 'https://schema.org',
+    '@type': ['Organization', 'ProfessionalService'],
+    name: 'Hometown Transaction Coordinators',
+    alternateName: ['Hometown TC', 'HTC Florida'],
+    description: lang === 'es'
+      ? 'Agencia boutique de soporte y coordinación de transacciones para agentes inmobiliarios en Florida.'
+      : 'Boutique real estate support agency providing transaction coordination and listing launch services for Florida Realtors.',
+    url: 'https://hometowntc.com',
+    logo: 'https://hometowntc.com/favicon.jpg',
+    image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?w=1200&auto=format&fit=crop&q=80',
+    telephone: '+1-954-377-8330',
+    email: 'hello@hometowntc.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: 'FL',
+      addressCountry: 'US'
+    },
+    areaServed: [
+      { '@type': 'State', name: 'Florida' },
+      { '@type': 'AdministrativeArea', name: 'Miami-Dade County' },
+      { '@type': 'AdministrativeArea', name: 'Broward County' },
+      { '@type': 'AdministrativeArea', name: 'Palm Beach County' }
+    ],
+    priceRange: '$$',
+    founder: {
+      '@type': 'Person',
+      name: 'Michelle Martinez',
+      jobTitle: 'Founder & Operations Director'
+    },
+    knowsLanguage: ['en', 'es'],
+    sameAs: [
+      'https://www.facebook.com/hometowntc',
+      'https://www.linkedin.com/company/hometowntc'
+    ]
+  };
+}
+
+/**
+ * Generates FAQPage schema for FAQ items
+ */
+export function getFaqSchema(faqs: { q: string; a: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a
+      }
+    }))
+  };
+}
+
+/**
  * Injects or updates meta tags, title, link tags, and JSON-LD structured data into the browser DOM
  */
 export function applyPageSeo(seoData: PageSeoData): void {

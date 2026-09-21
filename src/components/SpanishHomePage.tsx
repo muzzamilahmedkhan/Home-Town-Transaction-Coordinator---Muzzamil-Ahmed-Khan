@@ -14,6 +14,7 @@ import {
 import { SPANISH_HOME } from '../data/spanishContent';
 import { FOUNDER_IMAGE } from '../data/content';
 import { usePageSeo } from '../hooks/usePageSeo';
+import { getOrganizationSchema } from '../utils/seoUtils';
 
 interface Props {
   onBookCall: () => void;
@@ -41,6 +42,16 @@ export const SpanishHomePage: React.FC<Props> = ({
     ],
     breadcrumbs: [
       { name: 'Inicio', url: 'https://hometowntc.com/es/' }
+    ],
+    structuredData: [
+      getOrganizationSchema('es'),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Hometown Transaction Coordinators (Español)',
+        url: 'https://hometowntc.com/es/',
+        inLanguage: 'es'
+      }
     ]
   });
 

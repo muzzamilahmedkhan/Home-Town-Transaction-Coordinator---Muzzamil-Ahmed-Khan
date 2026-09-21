@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TopBar } from './components/TopBar';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { ProofBar } from './components/ProofBar';
-import { HomeMethod } from './components/HomeMethod';
-import { ChooseYourPath } from './components/ChooseYourPath';
-import { AgentPain } from './components/AgentPain';
-import { WhatMovesOffPlate } from './components/WhatMovesOffPlate';
-import { RealAgentProof } from './components/RealAgentProof';
-import { MichelleFounder } from './components/MichelleFounder';
-import { FloridaPositioning } from './components/FloridaPositioning';
-import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { SubmitDealModal } from './components/SubmitDealModal';
 import { BookCallModal } from './components/BookCallModal';
@@ -45,6 +35,7 @@ import { NotFoundPage } from './components/NotFoundPage';
 import { SpanishHomePage } from './components/SpanishHomePage';
 import { SpanishPricingPage } from './components/SpanishPricingPage';
 import { SpanishSubmitDealPage } from './components/SpanishSubmitDealPage';
+import { EnglishHomeView } from './components/EnglishHomeView';
 import { getResourceBySlug } from './data/resourceLibraryData';
 import { DEMO_BLOG_POSTS } from './data/blog';
 import { Language } from './types';
@@ -641,69 +632,19 @@ export default function App() {
             requestedPath={currentPath}
           />
         ) : (
-          <>
-            {/* 1. HERO */}
-            <Hero
-              onBookCall={() => setBookCallOpen(true)}
-              onSubmitDeal={() => navigateTo('/submit-deal/')}
-              onSeeHowItWorks={() => navigateTo('/how-htc-works/')}
-              onExploreServices={() => setServicesPricingOpen(true)}
-            />
-
-            {/* 2. PROOF BAR */}
-            <ProofBar />
-
-            {/* 3. INTRODUCE H.O.M.E. CLOSE METHOD */}
-            <HomeMethod
-              onSeeHowItWorks={() => navigateTo('/how-htc-works/')}
-              onOpenAbout={() => setAboutOpen(true)}
-              onBookCall={() => setBookCallOpen(true)}
-            />
-
-            {/* 4. CHOOSE YOUR PATH */}
-            <ChooseYourPath
-              onBookCall={() => setBookCallOpen(true)}
-              onSubmitDeal={() => navigateTo('/submit-deal/')}
-              onOpenRoi={() => navigateTo('/agent-business-calculator/')}
-              onExploreServices={() => setServicesPricingOpen(true)}
-            />
-
-            {/* 5. AGENT PAIN / RECOGNITION */}
-            <AgentPain
-              onBookCall={() => setBookCallOpen(true)}
-            />
-
-            {/* 6. WHAT MOVES OFF YOUR PLATE */}
-            <WhatMovesOffPlate
-              onSubmitDeal={() => navigateTo('/submit-deal/')}
-              onExploreServices={() => setServicesPricingOpen(true)}
-            />
-
-            {/* 7. REAL AGENT PROOF */}
-            <RealAgentProof />
-
-            {/* 11. MEET THE TEAM (Agency & Customer Model) */}
-            <MichelleFounder
-              onBookCall={() => setBookCallOpen(true)}
-              onOpenAbout={() => setAboutOpen(true)}
-              onOpenMeetTheTribe={() => navigateTo('/team/')}
-            />
-
-            {/* 12. FLORIDA-WIDE POSITIONING */}
-            <FloridaPositioning
-              onBookCall={() => setBookCallOpen(true)}
-              onOpenMiamiTc={() => navigateTo('/miami-transaction-coordinator/')}
-              onOpenMiamiDadeTc={() => navigateTo('/miami-dade-transaction-coordinator/')}
-              onOpenBrowardTc={() => navigateTo('/broward-transaction-coordinator/')}
-              onOpenSouthFloridaTc={() => navigateTo('/south-florida-transaction-coordinator/')}
-            />
-
-            {/* 13. FINAL CTA */}
-            <FinalCTA
-              onBookCall={() => setBookCallOpen(true)}
-              onSubmitDeal={() => navigateTo('/submit-deal/')}
-            />
-          </>
+          <EnglishHomeView
+            onBookCall={() => setBookCallOpen(true)}
+            onSubmitDeal={() => navigateTo('/submit-deal/')}
+            onSeeHowItWorks={() => navigateTo('/how-htc-works/')}
+            onExploreServices={() => setServicesPricingOpen(true)}
+            onOpenAbout={() => setAboutOpen(true)}
+            onOpenRoi={() => navigateTo('/agent-business-calculator/')}
+            onOpenMeetTheTribe={() => navigateTo('/team/')}
+            onOpenMiamiTc={() => navigateTo('/miami-transaction-coordinator/')}
+            onOpenMiamiDadeTc={() => navigateTo('/miami-dade-transaction-coordinator/')}
+            onOpenBrowardTc={() => navigateTo('/broward-transaction-coordinator/')}
+            onOpenSouthFloridaTc={() => navigateTo('/south-florida-transaction-coordinator/')}
+          />
         )}
       </main>
 

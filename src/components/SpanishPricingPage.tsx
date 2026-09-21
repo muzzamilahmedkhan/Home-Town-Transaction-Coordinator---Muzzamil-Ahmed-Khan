@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { SPANISH_PRICING } from '../data/spanishContent';
 import { usePageSeo } from '../hooks/usePageSeo';
+import { getOrganizationSchema, getFaqSchema } from '../utils/seoUtils';
 
 interface Props {
   onBookCall: () => void;
@@ -42,6 +43,36 @@ export const SpanishPricingPage: React.FC<Props> = ({
     breadcrumbs: [
       { name: 'Inicio', url: 'https://hometowntc.com/es/' },
       { name: 'Precios', url: 'https://hometowntc.com/es/precios/' }
+    ],
+    structuredData: [
+      getOrganizationSchema('es'),
+      getFaqSchema(data.faq),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: 'Coordinación de Contrato a Cierre (Contract-to-Close)',
+        provider: {
+          '@type': 'Organization',
+          name: 'Hometown Transaction Coordinators'
+        },
+        areaServed: 'Florida',
+        offers: [
+          {
+            '@type': 'Offer',
+            name: 'Plan Base',
+            price: '399.00',
+            priceCurrency: 'USD',
+            description: 'Gestión completa del contrato a cierre para agentes en Florida.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Plan Pro',
+            price: '499.00',
+            priceCurrency: 'USD',
+            description: 'Gestión integral con comunicación directa y soporte al cliente del agente.'
+          }
+        ]
+      }
     ]
   });
 

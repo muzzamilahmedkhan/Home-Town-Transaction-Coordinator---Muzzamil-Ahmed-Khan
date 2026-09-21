@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { ShieldCheck, Clock, Phone, Mail, FileText, Users, AlertCircle } from 'lucide-react';
 import { SPANISH_SUBMIT_DEAL } from '../data/spanishContent';
 import { usePageSeo } from '../hooks/usePageSeo';
+import { getOrganizationSchema } from '../utils/seoUtils';
 
 interface Props {
   onGoHome: () => void;
@@ -33,6 +34,24 @@ export const SpanishSubmitDealPage: React.FC<Props> = ({
     breadcrumbs: [
       { name: 'Inicio', url: 'https://hometowntc.com/es/' },
       { name: 'Enviar Transacción', url: 'https://hometowntc.com/es/enviar-transaccion/' }
+    ],
+    structuredData: [
+      getOrganizationSchema('es'),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        name: 'Enviar una Nueva Transacción | Hometown TC Florida',
+        description: 'Formulario de ingreso para coordinación de transacciones y lanzamiento de listados en Florida.',
+        url: 'https://hometowntc.com/es/enviar-transaccion/',
+        mainEntity: {
+          '@type': 'Service',
+          name: 'Ingreso y Coordinación de Transacciones',
+          provider: {
+            '@type': 'Organization',
+            name: 'Hometown Transaction Coordinators'
+          }
+        }
+      }
     ]
   });
 

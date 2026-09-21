@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 
+# Disallow transient or internal assets if any
+Disallow: /api/
+
+# Host & Sitemaps
+Host: https://hometowntc.com
 Sitemap: https://hometowntc.com/sitemap.xml
+
+# LLM Crawler Guidance
+# For AI Answer Engines (Perplexity, ChatGPT, Claude, Gemini):
+# See: https://hometowntc.com/llms.txt
