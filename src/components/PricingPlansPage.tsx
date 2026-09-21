@@ -14,6 +14,7 @@ import {
   ArrowUp
 } from 'lucide-react';
 import { PRICING_PAGE_DATA } from '../data/pricingData';
+import { usePageSeo } from '../hooks/usePageSeo';
 
 interface Props {
   onBookCall: () => void;
@@ -38,6 +39,21 @@ export const PricingPlansPage: React.FC<Props> = ({
 }) => {
   const [activeFaq, setActiveFaq] = useState<string | null>(null);
   const data = PRICING_PAGE_DATA;
+
+  usePageSeo({
+    title: 'Florida TC Services & Pricing Plans | Hometown TC',
+    description: 'Boutique transaction coordination pricing for Florida agents. Contract-to-Close from $399, Listing Launch, and Bilingual TC support.',
+    canonicalUrl: 'https://hometowntc.com/pricing/',
+    language: 'en',
+    alternates: [
+      { lang: 'en', url: 'https://hometowntc.com/pricing/' },
+      { lang: 'es', url: 'https://hometowntc.com/es/precios/' }
+    ],
+    breadcrumbs: [
+      { name: 'Home', url: 'https://hometowntc.com/' },
+      { name: 'Pricing & Services', url: 'https://hometowntc.com/pricing/' }
+    ]
+  });
 
   const scrollToSection = (targetId: string) => {
     const element = document.getElementById(targetId);

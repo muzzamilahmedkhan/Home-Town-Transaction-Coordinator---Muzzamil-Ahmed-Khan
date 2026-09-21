@@ -5,6 +5,11 @@ export interface BreadcrumbItem {
   url: string;
 }
 
+export interface AlternateHreflang {
+  lang: string;
+  url: string;
+}
+
 export interface PageSeoData {
   title: string;
   description: string;
@@ -13,6 +18,8 @@ export interface PageSeoData {
   ogImage?: string;
   breadcrumbs: BreadcrumbItem[];
   structuredData?: Record<string, any>[];
+  language?: 'en' | 'es';
+  alternates?: AlternateHreflang[];
 }
 
 /**
@@ -230,8 +237,11 @@ export function getResourceLandingPageSeoData(resource: ResourceItem): PageSeoDa
 export function applyPageSeo(seoData: PageSeoData): void {
   if (typeof document === 'undefined') return;
 
-  // 1. Update Title
+  // 1. Update Title & Document Language
   document.title = seoData.title;
+  if (document.documentElement) {
+    document.documentElement.lang = seoData.language || (seoData.canonicalUrl.includes('/es/') ? 'es' : 'en');
+  }
 
   // 2. Helper to set or create meta tag
   const setMeta = (attrName: 'name' | 'property', attrValue: string, content: string) => {
@@ -249,12 +259,13 @@ export function applyPageSeo(seoData: PageSeoData): void {
   setMeta('name', 'robots', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
 
   // Open Graph Meta Tags
+  const currentLang = seoData.language || (seoData.canonicalUrl.includes('/es/') ? 'es' : 'en');
   setMeta('property', 'og:title', seoData.title);
   setMeta('property', 'og:description', seoData.description);
   setMeta('property', 'og:url', seoData.canonicalUrl);
   setMeta('property', 'og:type', seoData.ogType || 'website');
   setMeta('property', 'og:site_name', 'Hometown Transaction Coordinators');
-  setMeta('property', 'og:locale', 'en_US');
+  setMeta('property', 'og:locale', currentLang === 'es' ? 'es_US' : 'en_US');
   if (seoData.ogImage) {
     setMeta('property', 'og:image', seoData.ogImage);
     setMeta('property', 'og:image:alt', seoData.title);
@@ -276,6 +287,20 @@ export function applyPageSeo(seoData: PageSeoData): void {
     document.head.appendChild(canonicalLink);
   }
   canonicalLink.setAttribute('href', seoData.canonicalUrl);
+
+  // Alternate Hreflang Link Tags
+  const existingHreflangs = document.querySelectorAll('link[rel="alternate"][hreflang]');
+  existingHreflangs.forEach(link => link.remove());
+
+  if (seoData.alternates && seoData.alternates.length > 0) {
+    seoData.alternates.forEach(alt => {
+      const link = document.createElement('link');
+      link.setAttribute('rel', 'alternate');
+      link.setAttribute('hreflang', alt.lang);
+      link.setAttribute('href', alt.url);
+      document.head.appendChild(link);
+    });
+  }
 
   // 3. Inject or update JSON-LD Structured Data
   // Remove existing dynamic script blocks

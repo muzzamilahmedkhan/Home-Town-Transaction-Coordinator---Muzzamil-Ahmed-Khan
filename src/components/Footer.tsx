@@ -91,13 +91,15 @@ export const Footer: React.FC<Props> = ({
             </div>
 
             <p className="text-slate-300 text-xs leading-relaxed max-w-sm font-medium">
-              Boutique real estate support for Florida Realtors — from Listing Launch to Contract-to-Close and Post-Close. South Florida-founded, serving statewide.
+              {language === 'es'
+                ? 'Soporte boutique en transacciones de bienes raíces para agentes en Florida — desde Lanzamiento de Listados hasta Contrato a Cierre. Fundada en el sur de Florida, sirviendo a todo el estado.'
+                : 'Boutique real estate support for Florida Realtors — from Listing Launch to Contract-to-Close and Post-Close. South Florida-founded, serving statewide.'}
             </p>
 
             {/* Founder Sign-Off */}
             <div className="pt-2">
               <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#0D9BA3] mb-1">
-                Founder Sign-Off
+                {language === 'es' ? 'Firma de la Fundadora' : 'Founder Sign-Off'}
               </div>
               <div className="inline-flex items-center space-x-2 font-montserrat font-extrabold text-sm text-white bg-black/30 px-3.5 py-2 rounded-xl border border-[#0D9BA3]/40">
                 <span>FORWARD. Always Forward.</span>
@@ -108,7 +110,7 @@ export const Footer: React.FC<Props> = ({
           {/* Column 1: Services */}
           <div className="lg:col-span-2 space-y-3">
             <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
-              Services
+              {language === 'es' ? 'Servicios' : 'Services'}
             </div>
             <ul className="space-y-2 text-slate-300 font-medium text-xs">
               <li>
@@ -122,7 +124,7 @@ export const Footer: React.FC<Props> = ({
                   }}
                   className="hover:text-white transition cursor-pointer text-left"
                 >
-                  Services + Pricing
+                  {language === 'es' ? 'Servicios y Precios' : 'Services + Pricing'}
                 </button>
               </li>
               <li>
@@ -136,7 +138,7 @@ export const Footer: React.FC<Props> = ({
                   }}
                   className="hover:text-white transition cursor-pointer text-left"
                 >
-                  How HTC Works
+                  {language === 'es' ? 'Cómo Funciona HTC' : 'How HTC Works'}
                 </button>
               </li>
             </ul>
@@ -145,7 +147,7 @@ export const Footer: React.FC<Props> = ({
           {/* Column 2: Company */}
           <div className="lg:col-span-2 space-y-3">
             <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
-              Company
+              {language === 'es' ? 'Empresa' : 'Company'}
             </div>
             <ul className="space-y-2 text-slate-300 font-medium text-xs">
               <li>
@@ -159,7 +161,7 @@ export const Footer: React.FC<Props> = ({
                   }}
                   className="hover:text-white transition cursor-pointer text-left"
                 >
-                  Why HTC
+                  {language === 'es' ? 'Por Qué HTC' : 'Why HTC'}
                 </button>
               </li>
               <li>
@@ -175,7 +177,7 @@ export const Footer: React.FC<Props> = ({
                   }}
                   className="hover:text-white transition cursor-pointer text-left"
                 >
-                  Meet Michelle
+                  {language === 'es' ? 'Conoce a Michelle' : 'Meet Michelle'}
                 </button>
               </li>
               <li>
@@ -191,7 +193,7 @@ export const Footer: React.FC<Props> = ({
                   }}
                   className="hover:text-white transition cursor-pointer text-left text-[#0D9BA3] font-bold"
                 >
-                  Meet the Tribe
+                  {language === 'es' ? 'Conoce al Equipo' : 'Meet the Tribe'}
                 </button>
               </li>
               <li>
@@ -207,7 +209,7 @@ export const Footer: React.FC<Props> = ({
                   onClick={onOpenGuides || onOpenBlog}
                   className="hover:text-white transition cursor-pointer text-left text-[#0D9BA3] font-bold"
                 >
-                  Free Guides + Downloads
+                  {language === 'es' ? 'Guías Gratis y Descargas' : 'Free Guides + Downloads'}
                 </button>
               </li>
               <li>
@@ -215,7 +217,7 @@ export const Footer: React.FC<Props> = ({
                   onClick={onOpenRoi}
                   className="hover:text-white transition cursor-pointer text-left"
                 >
-                  Run the Numbers
+                  {language === 'es' ? 'Calculadora de ROI' : 'Run the Numbers'}
                 </button>
               </li>
             </ul>
@@ -224,7 +226,7 @@ export const Footer: React.FC<Props> = ({
           {/* Column 3: Client */}
           <div className="lg:col-span-2 space-y-3">
             <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
-              Client
+              {language === 'es' ? 'Clientes' : 'Client'}
             </div>
             <ul className="space-y-2 text-slate-300 font-medium text-xs">
               <li>
@@ -232,7 +234,7 @@ export const Footer: React.FC<Props> = ({
                   onClick={onSubmitDeal}
                   className="hover:text-white transition cursor-pointer text-left text-[#FE7311] font-bold"
                 >
-                  Submit a New Deal
+                  {language === 'es' ? 'Enviar una Transacción' : 'Submit a New Deal'}
                 </button>
               </li>
               <li>
@@ -240,7 +242,7 @@ export const Footer: React.FC<Props> = ({
                   onClick={() => onLanguageChange && onLanguageChange(language === 'en' ? 'es' : 'en')}
                   className="hover:text-white transition cursor-pointer text-left text-slate-300 font-medium"
                 >
-                  {language === 'es' ? 'English' : 'Español'}
+                  {language === 'es' ? 'English (Inglés)' : 'Español (Spanish)'}
                 </button>
               </li>
             </ul>
@@ -249,7 +251,7 @@ export const Footer: React.FC<Props> = ({
           {/* Column 4: Contact */}
           <div className="lg:col-span-2 space-y-3">
             <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
-              Contact
+              {language === 'es' ? 'Contacto' : 'Contact'}
             </div>
             <ul className="space-y-2.5 text-slate-300 font-medium text-xs">
               <li className="flex items-center space-x-2">
@@ -272,7 +274,9 @@ export const Footer: React.FC<Props> = ({
               </li>
               <li className="flex items-start space-x-2 text-slate-300">
                 <Clock className="w-3.5 h-3.5 text-[#FE7311] flex-shrink-0 mt-0.5" />
-                <span className="leading-snug">{OFFICE_HOURS}</span>
+                <span className="leading-snug">
+                  {language === 'es' ? 'Lun–Vie 9:00 AM – 5:00 PM EST' : OFFICE_HOURS}
+                </span>
               </li>
             </ul>
           </div>
@@ -281,12 +285,25 @@ export const Footer: React.FC<Props> = ({
 
         {/* Legal & Administrative Disclaimer */}
         <div className="pt-6 pb-4 border-t border-white/10 text-[11px] text-slate-400 leading-relaxed font-normal space-y-2">
-          <p>
-            <strong className="text-slate-300">Administrative Support Notice:</strong> Hometown Transaction Coordinators (HTC) provides administrative transaction coordination support within Florida guidelines for unlicensed real estate support. HTC is not a law firm, real estate brokerage, statutory compliance authority, or licensed TC organization, and does not provide legal counsel, legal interpretation, formal advice, or representation. Licensed representation, client advisory, negotiations, pricing decisions, and broker/legal determinations remain strictly with the licensed agent and managing broker.
-          </p>
-          <p>
-            HTC does not guarantee contract results, deposit receipts, third-party deadlines, broker approvals, lender funding, or closing occurrences. HTC never distributes wire instructions; wire verification protocols must be executed directly with verified title, escrow, or closing providers.
-          </p>
+          {language === 'es' ? (
+            <>
+              <p>
+                <strong className="text-slate-300">Aviso de Soporte Administrativo:</strong> Hometown Transaction Coordinators (HTC) proporciona asistencia y coordinación de transacciones administrativas conforme a las pautas de Florida para soporte de bienes raíces sin licencia. HTC no es una firma legal, correduría de bienes raíces (brokerage), autoridad reguladora o entidad de cumplimiento estatutario, y no proporciona asesoría legal, interpretación jurídica ni representación legal. La representación autorizada con licencia, asesoría al cliente, negociaciones de contratos, precios y decisiones con el broker permanecen bajo la estricta responsabilidad del agente con licencia y su broker de gestión.
+              </p>
+              <p>
+                HTC no garantiza resultados contractuales, recepción de depósitos en plazos de terceros, aprobaciones de brokers, desembolsos de prestamistas ni fechas finales de cierre. HTC nunca distribuye instrucciones de transferencias bancarias (wire instructions); los protocolos de verificación deben realizarse directamente con la compañía de títulos o cuenta fiduciaria (escrow) verificada.
+              </p>
+            </>
+          ) : (
+            <>
+              <p>
+                <strong className="text-slate-300">Administrative Support Notice:</strong> Hometown Transaction Coordinators (HTC) provides administrative transaction coordination support within Florida guidelines for unlicensed real estate support. HTC is not a law firm, real estate brokerage, statutory compliance authority, or licensed TC organization, and does not provide legal counsel, legal interpretation, formal advice, or representation. Licensed representation, client advisory, negotiations, pricing decisions, and broker/legal determinations remain strictly with the licensed agent and managing broker.
+              </p>
+              <p>
+                HTC does not guarantee contract results, deposit receipts, third-party deadlines, broker approvals, lender funding, or closing occurrences. HTC never distributes wire instructions; wire verification protocols must be executed directly with verified title, escrow, or closing providers.
+              </p>
+            </>
+          )}
         </div>
 
         {/* Bottom Copyright */}
@@ -295,7 +312,9 @@ export const Footer: React.FC<Props> = ({
             © 2026 HOMETOWN TRANSACTION COORDINATORS (HTC). ALL RIGHTS RESERVED.
           </div>
           <div className="flex items-center space-x-4">
-            <span className="text-slate-400">Boutique Real Estate Support Agency</span>
+            <span className="text-slate-400">
+              {language === 'es' ? 'Agencia Boutique de Coordinación de Transacciones' : 'Boutique Real Estate Support Agency'}
+            </span>
           </div>
         </div>
 

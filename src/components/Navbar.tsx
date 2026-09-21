@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X, ArrowRight, ChevronDown, Calculator, BookOpen, Download, HelpCircle } from 'lucide-react';
 import { HEADER_LOGO_IMAGE } from '../data/content';
+import { Language } from '../types';
 
 interface Props {
+  language?: Language;
   onBookCall: () => void;
   onSubmitDeal: () => void;
   onOpenRoi: () => void;
@@ -30,6 +32,7 @@ interface Props {
 }
 
 export const Navbar: React.FC<Props> = ({
+  language = 'en',
   onBookCall,
   onOpenRoi,
   onOpenHowItWorks,
@@ -110,7 +113,7 @@ export const Navbar: React.FC<Props> = ({
               onClick={() => handleLink(onOpenServicesPricing || onOpenPricingPlans, 'what-we-handle')}
               className="hover:text-[#0D9BA3] transition cursor-pointer"
             >
-              Services + Pricing
+              {language === 'es' ? 'Servicios y Precios' : 'Services + Pricing'}
             </button>
 
             {/* How HTC Works */}
@@ -118,7 +121,7 @@ export const Navbar: React.FC<Props> = ({
               onClick={() => handleLink(onOpenHowItWorks, 'home-method')}
               className="hover:text-[#0D9BA3] transition cursor-pointer"
             >
-              How HTC Works
+              {language === 'es' ? 'Cómo Funciona' : 'How HTC Works'}
             </button>
 
             {/* Why HTC */}
@@ -126,7 +129,7 @@ export const Navbar: React.FC<Props> = ({
               onClick={() => handleLink(onOpenWhyHtc, 'choose-path')}
               className="hover:text-[#0D9BA3] transition cursor-pointer"
             >
-              Why HTC
+              {language === 'es' ? 'Por Qué HTC' : 'Why HTC'}
             </button>
 
             {/* Resources Dropdown */}
@@ -136,7 +139,7 @@ export const Navbar: React.FC<Props> = ({
                 onClick={() => setResourcesDropdownOpen(!resourcesDropdownOpen)}
                 className="hover:text-[#0D9BA3] transition flex items-center space-x-1.5 py-2 cursor-pointer"
               >
-                <span>Resources</span>
+                <span>{language === 'es' ? 'Recursos' : 'Resources'}</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${resourcesDropdownOpen ? 'rotate-180 text-[#0D9BA3]' : ''}`} />
               </button>
               {resourcesDropdownOpen && (
@@ -226,7 +229,7 @@ export const Navbar: React.FC<Props> = ({
                 onClick={() => setTeamDropdownOpen(!teamDropdownOpen)}
                 className="hover:text-[#0D9BA3] transition flex items-center space-x-1.5 py-2 cursor-pointer"
               >
-                <span>Meet the Team</span>
+                <span>{language === 'es' ? 'Nuestro Equipo' : 'Meet the Team'}</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${teamDropdownOpen ? 'rotate-180 text-[#0D9BA3]' : ''}`} />
               </button>
               {teamDropdownOpen && (
@@ -241,10 +244,10 @@ export const Navbar: React.FC<Props> = ({
                   >
                     <div>
                       <div className="text-xs font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition normal-case">
-                        Meet Michelle
+                        {language === 'es' ? 'Conoce a Michelle' : 'Meet Michelle'}
                       </div>
                       <div className="text-[11px] text-slate-500 font-normal leading-tight normal-case mt-0.5">
-                        Founder story & 30+ year Florida roots
+                        {language === 'es' ? 'Historia de la fundadora con +30 años en Florida' : 'Founder story & 30+ year Florida roots'}
                       </div>
                     </div>
                   </button>
@@ -256,10 +259,10 @@ export const Navbar: React.FC<Props> = ({
                   >
                     <div>
                       <div className="text-xs font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition normal-case">
-                        Meet the Tribe
+                        {language === 'es' ? 'Conoce al Equipo' : 'Meet the Tribe'}
                       </div>
                       <div className="text-[11px] text-slate-500 font-normal leading-tight normal-case mt-0.5">
-                        Your Lead TC & Dedicated Hometown Team
+                        {language === 'es' ? 'Su TC principal y equipo dedicado en Florida' : 'Your Lead TC & Dedicated Hometown Team'}
                       </div>
                     </div>
                   </button>
@@ -274,7 +277,7 @@ export const Navbar: React.FC<Props> = ({
               onClick={() => handleLink(onBookCall)}
               className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition flex items-center space-x-2 cursor-pointer"
             >
-              <span>BOOK A 15-MINUTE FIT CALL</span>
+              <span>{language === 'es' ? 'AGENDAR LLAMADA DE 15 MIN' : 'BOOK A 15-MINUTE FIT CALL'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -285,7 +288,7 @@ export const Navbar: React.FC<Props> = ({
               onClick={() => handleLink(onBookCall)}
               className="bg-[#FE7311] text-white text-[11px] font-bold px-3 py-1.5 rounded-lg uppercase"
             >
-              Book Fit Call
+              {language === 'es' ? 'Agendar Llamada' : 'Book Fit Call'}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -306,32 +309,38 @@ export const Navbar: React.FC<Props> = ({
               onClick={() => handleLink(onOpenServicesPricing || onOpenPricingPlans, 'what-we-handle')}
               className="block w-full text-left py-2.5 px-3 rounded-lg hover:bg-white transition text-xs uppercase tracking-wider"
             >
-              Services + Pricing
+              {language === 'es' ? 'Servicios y Precios' : 'Services + Pricing'}
             </button>
 
             <button
               onClick={() => handleLink(onOpenHowItWorks, 'home-method')}
               className="block w-full text-left py-2.5 px-3 rounded-lg hover:bg-white transition text-xs uppercase tracking-wider"
             >
-              How HTC Works
+              {language === 'es' ? 'Cómo Funciona' : 'How HTC Works'}
             </button>
 
             <button
               onClick={() => handleLink(onOpenWhyHtc, 'choose-path')}
               className="block w-full text-left py-2.5 px-3 rounded-lg hover:bg-white transition text-xs uppercase tracking-wider"
             >
-              Why HTC
+              {language === 'es' ? 'Por Qué HTC' : 'Why HTC'}
             </button>
 
             <div className="pt-2 pb-1 border-t border-[#D8D2D4]">
-              <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider px-3 py-1">Resources</div>
+              <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider px-3 py-1">
+                {language === 'es' ? 'Recursos' : 'Resources'}
+              </div>
               <div className="space-y-1">
                 <button
                   onClick={() => handleLink(onOpenRoi)}
                   className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
                 >
-                  <div className="text-xs font-bold text-[#3A2E29]">Run the Numbers</div>
-                  <div className="text-[11px] text-slate-500">Agent Business Calculator</div>
+                  <div className="text-xs font-bold text-[#3A2E29]">
+                    {language === 'es' ? 'Calculadora de Negocio' : 'Run the Numbers'}
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    {language === 'es' ? 'Calculadora de ROI para Agentes' : 'Agent Business Calculator'}
+                  </div>
                 </button>
 
                 <button
@@ -339,44 +348,64 @@ export const Navbar: React.FC<Props> = ({
                   className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
                 >
                   <div className="text-xs font-bold text-[#3A2E29]">The Hometown Brief</div>
-                  <div className="text-[11px] text-slate-500">Our ongoing blog / SEO + AEO content library</div>
+                  <div className="text-[11px] text-slate-500">
+                    {language === 'es' ? 'Biblioteca de artículos operativos para Florida' : 'Our ongoing blog / SEO + AEO content library'}
+                  </div>
                 </button>
 
                 <button
                   onClick={() => handleLink(onOpenGuides || onOpenBlog)}
                   className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
                 >
-                  <div className="text-xs font-bold text-[#3A2E29]">Free Guides + Downloads</div>
-                  <div className="text-[11px] text-slate-500">Checklists, guides, tools, and free community resources</div>
+                  <div className="text-xs font-bold text-[#3A2E29]">
+                    {language === 'es' ? 'Guías y Recursos Gratis' : 'Free Guides + Downloads'}
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    {language === 'es' ? 'Listas de control, plantillas y herramientas' : 'Checklists, guides, tools, and free community resources'}
+                  </div>
                 </button>
 
                 <button
                   onClick={() => handleLink(onOpenFaq)}
                   className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
                 >
-                  <div className="text-xs font-bold text-[#3A2E29]">FAQ</div>
-                  <div className="text-[11px] text-slate-500">Frequently asked questions & answers</div>
+                  <div className="text-xs font-bold text-[#3A2E29]">
+                    {language === 'es' ? 'Preguntas Frecuentes (FAQ)' : 'FAQ'}
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    {language === 'es' ? 'Respuestas a dudas comunes sobre el servicio' : 'Frequently asked questions & answers'}
+                  </div>
                 </button>
               </div>
             </div>
 
             <div className="pt-2 border-t border-[#D8D2D4]">
-              <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider px-3 py-1">Meet the Team</div>
+              <div className="text-[10px] font-extrabold text-[#0D9BA3] uppercase tracking-wider px-3 py-1">
+                {language === 'es' ? 'Nuestro Equipo' : 'Meet the Team'}
+              </div>
               <div className="space-y-1">
                 <button
                   onClick={() => handleLink(onOpenMeetMichelle || onOpenAbout, 'michelle')}
                   className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
                 >
-                  <div className="text-xs font-bold text-[#3A2E29]">Meet Michelle</div>
-                  <div className="text-[11px] text-slate-500">Founder & 30+ year Florida roots</div>
+                  <div className="text-xs font-bold text-[#3A2E29]">
+                    {language === 'es' ? 'Conoce a Michelle' : 'Meet Michelle'}
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    {language === 'es' ? 'Fundadora y +30 años de raíces en Florida' : 'Founder & 30+ year Florida roots'}
+                  </div>
                 </button>
 
                 <button
                   onClick={() => handleLink(onOpenMeetTheTribe)}
                   className="block w-full text-left py-2 px-3 rounded-lg hover:bg-white transition"
                 >
-                  <div className="text-xs font-bold text-[#3A2E29]">Meet the Tribe</div>
-                  <div className="text-[11px] text-slate-500">Your Lead TC & Dedicated Hometown Team</div>
+                  <div className="text-xs font-bold text-[#3A2E29]">
+                    {language === 'es' ? 'Conoce al Equipo' : 'Meet the Tribe'}
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    {language === 'es' ? 'Su TC principal y equipo dedicado' : 'Your Lead TC & Dedicated Hometown Team'}
+                  </div>
                 </button>
               </div>
             </div>
@@ -386,7 +415,7 @@ export const Navbar: React.FC<Props> = ({
                 onClick={() => handleLink(onBookCall)}
                 className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-center shadow-md cursor-pointer"
               >
-                BOOK A 15-MINUTE FIT CALL
+                {language === 'es' ? 'AGENDAR LLAMADA DE 15 MIN' : 'BOOK A 15-MINUTE FIT CALL'}
               </button>
             </div>
           </div>

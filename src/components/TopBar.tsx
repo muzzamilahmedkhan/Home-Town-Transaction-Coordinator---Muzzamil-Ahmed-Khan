@@ -41,9 +41,10 @@ export const TopBar: React.FC<Props> = ({
           {/* Language Switcher */}
           <button
             onClick={() => onLanguageChange(language === 'en' ? 'es' : 'en')}
-            className="flex items-center space-x-1 text-slate-300 hover:text-white bg-[#0D9BA3]/20 hover:bg-[#0D9BA3]/30 border border-[#0D9BA3]/40 px-2 py-1 rounded-md transition text-[11px] font-medium cursor-pointer"
+            className="flex items-center space-x-1.5 text-slate-200 hover:text-white bg-[#0D9BA3]/25 hover:bg-[#0D9BA3]/40 border border-[#0D9BA3]/50 px-2.5 py-1 rounded-md transition text-[11px] font-bold cursor-pointer shadow-xs"
+            title={language === 'en' ? 'Cambiar a Español' : 'Switch to English'}
           >
-            <Globe className="w-3 h-3 text-[#0D9BA3]" />
+            <Globe className="w-3.5 h-3.5 text-[#0D9BA3]" />
             <span>{language === 'en' ? 'Español' : 'English'}</span>
           </button>
 
@@ -54,7 +55,7 @@ export const TopBar: React.FC<Props> = ({
             onClick={onSubmitDeal}
             className="text-slate-300 hover:text-white text-[11px] font-medium underline underline-offset-2 transition flex items-center space-x-1 cursor-pointer"
           >
-            <span>Current Client? Submit a Deal</span>
+            <span>{language === 'es' ? '¿Ya es Cliente? Enviar Transacción' : 'Current Client? Submit a Deal'}</span>
             <ArrowRight className="w-3 h-3 text-[#0D9BA3]" />
           </button>
         </div>

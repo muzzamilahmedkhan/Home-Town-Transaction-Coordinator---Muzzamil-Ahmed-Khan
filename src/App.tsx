@@ -42,12 +42,14 @@ import { TcWorkshopPage } from './components/TcWorkshopPage';
 import { FreeGuidesPage } from './components/FreeGuidesPage';
 import { ResourceLandingPage } from './components/ResourceLandingPage';
 import { NotFoundPage } from './components/NotFoundPage';
+import { SpanishHomePage } from './components/SpanishHomePage';
+import { SpanishPricingPage } from './components/SpanishPricingPage';
+import { SpanishSubmitDealPage } from './components/SpanishSubmitDealPage';
 import { getResourceBySlug } from './data/resourceLibraryData';
 import { DEMO_BLOG_POSTS } from './data/blog';
 import { Language } from './types';
 
 export default function App() {
-  const [language, setLanguage] = useState<Language>('en');
   const [submitDealOpen, setSubmitDealOpen] = useState(false);
   const [bookCallOpen, setBookCallOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -58,9 +60,23 @@ export default function App() {
     typeof window !== 'undefined' ? window.location.pathname : '/'
   );
 
+  const rawPath = currentPath.split('?')[0].split('#')[0];
+  const normalizedPath = rawPath.replace(/\/+$/, '') || '/';
+  const pathParts = normalizedPath.split('/').filter(Boolean);
+
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const p = window.location.pathname;
+      return (p === '/es' || p.startsWith('/es/')) ? 'es' : 'en';
+    }
+    return 'en';
+  });
+
   useEffect(() => {
     const handlePopState = () => {
-      setCurrentPath(window.location.pathname);
+      const p = window.location.pathname;
+      setCurrentPath(p);
+      setLanguage((p === '/es' || p.startsWith('/es/')) ? 'es' : 'en');
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
@@ -70,6 +86,8 @@ export default function App() {
     if (typeof window !== 'undefined') {
       window.history.pushState({}, '', path);
       setCurrentPath(path);
+      const isEs = path === '/es' || path.startsWith('/es/');
+      setLanguage(isEs ? 'es' : 'en');
       const hashIndex = path.indexOf('#');
       if (hashIndex !== -1) {
         const hash = path.substring(hashIndex + 1);
@@ -85,12 +103,32 @@ export default function App() {
     }
   };
 
-  const rawPath = currentPath.split('?')[0].split('#')[0];
-  const normalizedPath = rawPath.replace(/\/+$/, '') || '/';
-  const pathParts = normalizedPath.split('/').filter(Boolean);
+  const handleLanguageToggle = (targetLang: Language) => {
+    setLanguage(targetLang);
+    if (targetLang === 'es') {
+      if (normalizedPath === '/pricing' || normalizedPath === '/services-and-pricing' || normalizedPath === '/services') {
+        navigateTo('/es/precios/');
+      } else if (normalizedPath === '/submit-deal') {
+        navigateTo('/es/enviar-transaccion/');
+      } else if (normalizedPath === '/') {
+        navigateTo('/es/');
+      }
+    } else {
+      if (normalizedPath === '/es/precios') {
+        navigateTo('/pricing/');
+      } else if (normalizedPath === '/es/enviar-transaccion') {
+        navigateTo('/submit-deal/');
+      } else if (normalizedPath === '/es') {
+        navigateTo('/');
+      }
+    }
+  };
 
   // Exact / normalized route matchers
   const isHomePage = normalizedPath === '/';
+  const isSpanishHomePage = normalizedPath === '/es';
+  const isSpanishPricingPage = normalizedPath === '/es/precios';
+  const isSpanishSubmitDealPage = normalizedPath === '/es/enviar-transaccion';
 
   const isCalculatorPage = normalizedPath === '/agent-business-calculator';
   const isHowItWorksPage = normalizedPath === '/how-htc-works' || normalizedPath === '/how-it-works';
@@ -171,6 +209,9 @@ export default function App() {
   // Check if current route is a known valid route
   const isKnownRoute = 
     isHomePage ||
+    isSpanishHomePage ||
+    isSpanishPricingPage ||
+    isSpanishSubmitDealPage ||
     isCalculatorPage ||
     isHowItWorksPage ||
     isWhyHtcPage ||
@@ -200,14 +241,14 @@ export default function App() {
   const is404Page = !isKnownRoute;
 
   const scrollToHomeMethod = () => {
-    if (!isHomePage) {
-      navigateTo('/');
+    if (!isHomePage && !isSpanishHomePage) {
+      navigateTo(language === 'es' ? '/es/' : '/');
       setTimeout(() => {
-        const el = document.getElementById('home-method');
+        const el = document.getElementById(language === 'es' ? 'metodo-home' : 'home-method');
         if (el) el.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     } else {
-      const el = document.getElementById('home-method');
+      const el = document.getElementById(language === 'es' ? 'metodo-home' : 'home-method');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -218,14 +259,15 @@ export default function App() {
       {/* Top Contact & Quick Action Bar */}
       <TopBar
         language={language}
-        onLanguageChange={setLanguage}
-        onSubmitDeal={() => navigateTo('/submit-deal/')}
+        onLanguageChange={handleLanguageToggle}
+        onSubmitDeal={() => navigateTo(language === 'es' ? '/es/enviar-transaccion/' : '/submit-deal/')}
       />
 
       {/* Header Navigation */}
       <Navbar
+        language={language}
         onBookCall={() => navigateTo('/book/')}
-        onSubmitDeal={() => navigateTo('/submit-deal/')}
+        onSubmitDeal={() => navigateTo(language === 'es' ? '/es/enviar-transaccion/' : '/submit-deal/')}
         onOpenRoi={() => navigateTo('/agent-business-calculator/')}
         onOpenHowItWorks={() => navigateTo('/how-htc-works/')}
         onOpenWhyHtc={() => navigateTo('/why-htc/')}
@@ -242,12 +284,12 @@ export default function App() {
         onOpenMeetTheTribe={() => navigateTo('/team/')}
         onOpenTransactionCoordination={() => navigateTo('/transaction-coordination/')}
         onOpenListingCoordination={() => navigateTo('/listing-coordination/')}
-        onOpenPricingPlans={() => navigateTo('/pricing/')}
-        onOpenServicesPricing={() => navigateTo('/pricing/')}
+        onOpenPricingPlans={() => navigateTo(language === 'es' ? '/es/precios/' : '/pricing/')}
+        onOpenServicesPricing={() => navigateTo(language === 'es' ? '/es/precios/' : '/pricing/')}
         onOpenReviews={() => navigateTo('/reviews/')}
         onOpenBlog={() => navigateTo('/resources/')}
         onOpenGuides={() => navigateTo('/free-guides-downloads/')}
-        onGoHome={() => navigateTo('/')}
+        onGoHome={() => navigateTo(language === 'es' ? '/es/' : '/')}
       />
 
       {/* RENDER DEDICATED PAGES OR HOMEPAGE */}
@@ -411,6 +453,13 @@ export default function App() {
             onOpenBrowardTc={() => navigateTo('/broward-transaction-coordinator/')}
             onOpenSouthFloridaTc={() => navigateTo('/south-florida-transaction-coordinator/')}
           />
+        ) : isSpanishPricingPage ? (
+          <SpanishPricingPage
+            onBookCall={() => setBookCallOpen(true)}
+            onSubmitDeal={() => navigateTo('/es/enviar-transaccion/')}
+            onGoHome={() => navigateTo('/es/')}
+            onOpenFaq={() => navigateTo('/faq/')}
+          />
         ) : isPricingPage ? (
           <PricingPlansPage
             onBookCall={() => setBookCallOpen(true)}
@@ -496,6 +545,13 @@ export default function App() {
             onOpenWhoWeSupport={() => navigateTo('/who-we-support/')}
             onOpenRoi={() => navigateTo('/agent-business-calculator/')}
           />
+        ) : isSpanishSubmitDealPage ? (
+          <SpanishSubmitDealPage
+            onGoHome={() => navigateTo('/es/')}
+            onOpenPricing={() => navigateTo('/es/precios/')}
+            onOpenFaq={() => navigateTo('/faq/')}
+            onBookCall={() => setBookCallOpen(true)}
+          />
         ) : isSubmitDealPage ? (
           <SubmitDealPage
             onGoHome={() => navigateTo('/')}
@@ -565,6 +621,16 @@ export default function App() {
           <TcWorkshopPage
             onGoHome={() => navigateTo('/')}
             onBookCall={() => setBookCallOpen(true)}
+          />
+        ) : isSpanishHomePage ? (
+          <SpanishHomePage
+            onBookCall={() => setBookCallOpen(true)}
+            onSubmitDeal={() => navigateTo('/es/enviar-transaccion/')}
+            onExploreServices={() => navigateTo('/es/precios/')}
+            onSeeHowItWorks={() => {
+              const el = document.getElementById('metodo-home');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
           />
         ) : is404Page ? (
           <NotFoundPage
@@ -644,7 +710,7 @@ export default function App() {
       {/* FOOTER */}
       <Footer
         onBookCall={() => setBookCallOpen(true)}
-        onSubmitDeal={() => navigateTo('/submit-deal/')}
+        onSubmitDeal={() => navigateTo(language === 'es' ? '/es/enviar-transaccion/' : '/submit-deal/')}
         onOpenRoi={() => navigateTo('/agent-business-calculator/')}
         onOpenHowItWorks={() => navigateTo('/how-htc-works/')}
         onOpenWhyHtc={() => navigateTo('/why-htc/')}
@@ -659,17 +725,17 @@ export default function App() {
         onOpenBookCallPage={() => navigateTo('/book/')}
         onOpenTransactionCoordination={() => navigateTo('/transaction-coordination/')}
         onOpenListingCoordination={() => navigateTo('/listing-coordination/')}
-        onOpenPricingPlans={() => navigateTo('/pricing/')}
+        onOpenPricingPlans={() => navigateTo(language === 'es' ? '/es/precios/' : '/pricing/')}
         onOpenAbout={() => navigateTo('/about/')}
         onOpenMeetMichelle={() => navigateTo('/about/')}
         onOpenMeetTheTribe={() => navigateTo('/team/')}
-        onOpenServicesPricing={() => navigateTo('/pricing/')}
+        onOpenServicesPricing={() => navigateTo(language === 'es' ? '/es/precios/' : '/pricing/')}
         onOpenReviews={() => navigateTo('/reviews/')}
         onOpenBlog={() => navigateTo('/resources/')}
         onOpenGuides={() => navigateTo('/free-guides-downloads/')}
         onOpenTcWorkshop={() => navigateTo('/tcworkshop/')}
         language={language}
-        onLanguageChange={setLanguage}
+        onLanguageChange={handleLanguageToggle}
       />
 
       {/* INTERACTIVE MODALS */}

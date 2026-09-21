@@ -6,6 +6,9 @@ import { RESOURCE_LIBRARY_ITEMS, getResourceBySlug } from '../data/resourceLibra
 
 export async function getStaticPaths() {
   const routes = [
+    'es',
+    'es/precios',
+    'es/enviar-transaccion',
     'how-htc-works',
     'how-it-works',
     'why-htc',
@@ -58,8 +61,21 @@ export async function getStaticPaths() {
   return allSlugs.map(slug => {
     let title = "Hometown TC | Boutique Real Estate Support Agency for Florida Realtors";
     let description = "Boutique real estate support for Florida Realtors — from Listing Launch to Contract-to-Close and Post-Close. South Florida-founded, serving statewide.";
+    let language = "en";
 
-    if (slug === 'resources/free-guides-downloads' || slug === 'free-guides-downloads' || slug === 'resources/guides' || slug === 'guides') {
+    if (slug === 'es') {
+      title = "Hometown TC en Español | Coordinación de Transacciones para Agentes de Bienes Raíces en Florida";
+      description = "Cierres sin fricciones. Punto. Coordinación de transacciones boutique y bilingüe para Realtors en Florida. De Contrato a Cierre con total cumplimiento y tranquilidad.";
+      language = "es";
+    } else if (slug === 'es/precios') {
+      title = "Precios y Planes de Coordinación de Transacciones en Florida | Hometown TC";
+      description = "Precios transparentes y sin sorpresas para agentes en Florida. Contrato a Cierre desde $399 pagado al cierre, Lanzamiento de Listados y soporte bilingüe.";
+      language = "es";
+    } else if (slug === 'es/enviar-transaccion') {
+      title = "Enviar una Nueva Transacción | Hometown TC Florida";
+      description = "Envíe los detalles de su transacción para Lanzamiento de Listado, Contrato a Cierre o Cumplimiento con su Broker en Florida. Procesamiento rápido el mismo día.";
+      language = "es";
+    } else if (slug === 'resources/free-guides-downloads' || slug === 'free-guides-downloads' || slug === 'resources/guides' || slug === 'guides') {
       title = "Free Real Estate Tools, Guides & Templates | Hometown TC";
       description = "Free tools for Florida Realtors, including transaction guides, checklists, templates, calculators, AI prompts, automation resources, and real estate classes.";
     } else if (slug.startsWith('resources/free-guides-downloads/') || slug.startsWith('free-guides-downloads/')) {
@@ -73,15 +89,15 @@ export async function getStaticPaths() {
 
     return {
       params: { slug },
-      props: { title, description }
+      props: { title, description, language }
     };
   });
 }
 
-const { title, description } = Astro.props;
+const { title, description, language = "en" } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} language={language}>
   <App client:load />
 </Layout>
 
