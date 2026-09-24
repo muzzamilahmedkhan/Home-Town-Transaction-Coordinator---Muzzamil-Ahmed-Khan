@@ -12,7 +12,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://hometowntc.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://hometowntc.com/es/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hometowntc.com/" />
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -21,7 +21,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://hometowntc.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://hometowntc.com/es/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hometowntc.com/" />
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -34,7 +34,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://hometowntc.com/pricing/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://hometowntc.com/es/precios/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hometowntc.com/pricing/" />
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -43,7 +43,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://hometowntc.com/pricing/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://hometowntc.com/es/precios/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hometowntc.com/pricing/" />
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -56,7 +56,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://hometowntc.com/submit-deal/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://hometowntc.com/es/enviar-transaccion/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hometowntc.com/submit-deal/" />
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -65,7 +65,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://hometowntc.com/submit-deal/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://hometowntc.com/es/enviar-transaccion/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hometowntc.com/submit-deal/" />
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -75,43 +75,43 @@
   <!-- ======================================================== -->
   <url>
     <loc>https://hometowntc.com/contract-to-close-services/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/listing-coordination/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/transaction-coordination/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/transaction-coordinator-for-realtors/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/how-htc-works/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/why-htc/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/who-we-support/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -121,25 +121,25 @@
   <!-- ======================================================== -->
   <url>
     <loc>https://hometowntc.com/miami-transaction-coordinator/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/miami-dade-transaction-coordinator/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/broward-transaction-coordinator/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/south-florida-transaction-coordinator/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -149,43 +149,43 @@
   <!-- ======================================================== -->
   <url>
     <loc>https://hometowntc.com/about/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/team/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/faq/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/reviews/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/book/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/agent-business-calculator/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/tcworkshop/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -195,43 +195,43 @@
   <!-- ======================================================== -->
   <url>
     <loc>https://hometowntc.com/free-guides-downloads/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/free-guides-downloads/florida-contract-to-close-checklist/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/free-guides-downloads/far-bar-critical-date-calculator/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/free-guides-downloads/florida-condo-milestone-inspection-guide/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/free-guides-downloads/pre-listing-onboarding-packet/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/free-guides-downloads/repair-credit-negotiation-cheat-sheet/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/free-guides-downloads/florida-frec-compliance-vault/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -241,43 +241,43 @@
   <!-- ======================================================== -->
   <url>
     <loc>https://hometowntc.com/resources/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/contracts-forms/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/transaction-operations/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/broker-compliance/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/condo-hoa/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/agent-growth/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hometowntc.com/resources/florida-updates/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

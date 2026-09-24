@@ -59,31 +59,31 @@ export const SPANISH_HOME = {
   method: {
     badge: 'EL MÉTODO H.O.M.E.',
     title: 'Un sistema probado para transacciones sin fricción',
-    description: 'Un marco operativo de 4 fases que elimina el caos administrativo y garantiza que cada contrato cumpla con los estándares legales y de cumplimiento.',
+    description: 'Nuestro método de cuatro etapas para avanzar expedientes de Contrato a Cierre con estructura, visibilidad y cuidado.',
     steps: [
       {
         letter: 'H',
-        title: 'Hand-Off & Setup',
-        subtitle: 'Recepción e Integración',
-        desc: 'Auditoría inicial de firmas, cálculo de fechas críticas FAR/BAR, apertura de carpeta digital y aviso a todas las partes en menos de 24 horas.'
+        title: 'Honor the Agreement',
+        subtitle: 'Honrar el Acuerdo',
+        desc: 'Revisión exhaustiva del contrato ejecutado, las partes involucradas, fechas críticas y los documentos esenciales que rigen el expediente.'
       },
       {
         letter: 'O',
-        title: 'Operations & Deadlines',
-        subtitle: 'Operaciones y Fechas Clave',
-        desc: 'Supervisión activa del depósito inicial/adicional, período de inspección, solicitud de HOA y solicitud de financiamiento.'
+        title: 'Organize the File',
+        subtitle: 'Organizar el Expediente',
+        desc: 'Construcción del cronograma operativo de trabajo, organización de contactos y documentos, e identificación oportuna de elementos faltantes.'
       },
       {
         letter: 'M',
-        title: 'Milestone Management',
-        subtitle: 'Gestión de Hitos',
-        desc: 'Coordinación con la compañía de títulos, seguimiento de tasación/avalúo y preparación de addendums con aprobación de su broker.'
+        title: 'Monitor the Milestones',
+        subtitle: 'Monitorear los Hitos',
+        desc: 'Seguimiento de hitos administrativos, seguimiento constante, documentación de novedades y comunicación al agente sobre cualquier aspecto que requiera su atención.'
       },
       {
         letter: 'E',
-        title: 'Execution & Post-Close',
-        subtitle: 'Ejecución y Cierre Final',
-        desc: 'Revisión final de la Declaración de Cierre (ALTA/CD), subida de documentos al portal del broker para pago oportuno de comisión.'
+        title: 'Ease the Close',
+        subtitle: 'Facilitar el Cierre',
+        desc: 'Soporte integral en los pasos administrativos finales, coordinación del cierre, compleción del expediente del broker y Post-Cierre.'
       }
     ]
   },
@@ -97,7 +97,7 @@ export const SPANISH_HOME = {
 export const SPANISH_PRICING = {
   seo: {
     title: 'Precios de Coordinación de Transacciones en Florida | Hometown TC',
-    description: 'Tarifas transparentes y sin sorpresas para agentes en Florida. Contract-to-Close $499, Listing Launch $249, Integración de Agente $399.',
+    description: 'Tarifas transparentes y sin sorpresas para agentes en Florida. Contract-to-Close $375/$475, Listing Launch $125/$225, Broker Compliance $100/$195, Integración de Agente $399.',
   },
   hero: {
     badge: 'ESTRUCTURA DE PRECIOS TRANSPARENTE',
@@ -122,14 +122,14 @@ export const SPANISH_PRICING = {
     badge: 'SERVICIO ESTRELLA',
     headline: 'Contract-to-Close (De Contrato a Cierre)',
     description: 'Gestión completa y profesional desde el contrato ejecutado hasta la entrega de llaves y desembolso de comisiones.',
-    setupNote: 'Requiere la configuración previa de Agent Setup para nuevos clientes.',
+    setupNote: 'Requiere la configuración previa de Agent Setup ($399) para nuevos clientes.',
     timingNote: 'Se cobra al cierre mediante la declaración ALTA/CD o factura directa.',
     cancellationNote: 'Sin costo si la transacción se cancela durante el período de inspección sin culpa del comprador/vendedor.',
     plans: [
       {
         id: 'base',
         name: 'HTC Base Contract-to-Close',
-        price: '$499',
+        price: '$375',
         priceNote: 'Por lado cerrado / transacción residencial estándar',
         summary: 'Ideal para agentes que manejan su propia relación con el cliente pero necesitan una gestión impecable de plazos, documentos y cumplimiento con el broker.',
         features: [
@@ -147,7 +147,7 @@ export const SPANISH_PRICING = {
         name: 'HTC Pro Contract-to-Close (VIP Experience)',
         badge: 'MÁS POPULAR',
         isPopular: true,
-        price: '$599',
+        price: '$475',
         priceNote: 'Por lado cerrado / experiencia VIP integral',
         summary: 'Servicio integral de guante blanco donde HTC asume la comunicación proactiva con sus clientes, manteniéndolos informados en cada paso crucial.',
         features: [
@@ -164,8 +164,13 @@ export const SPANISH_PRICING = {
     additionalServices: [
       {
         name: 'Representación Dual (Ambos lados de la transacción)',
-        price: '+$250 adicional',
+        price: '+$200 adicional',
         description: 'Coordinación completa tanto para el comprador como para el vendedor bajo un mismo expediente.',
+      },
+      {
+        name: 'Contract-to-Close Comercial',
+        price: 'Desde $595',
+        description: 'Archivos comerciales que se extiendan más de 90 días requieren un depósito de $200.',
       },
       {
         name: 'Condominios y Comunidades con HOA Estricta',
@@ -181,17 +186,18 @@ export const SPANISH_PRICING = {
     description: 'Nos encargamos de toda la preparación documental y de MLS para que su listado salga al mercado rápido, elegante y conforme a las normas.',
     options: [
       {
-        title: 'Listing Launch Completo',
-        price: '$249',
-        turnaround: '24 a 48 horas hábiles',
-        badge: 'RECOMENDADO',
-        description: 'Borrador completo en MLS, recolección de firmas de divulgaciones del vendedor, carga de fotos en alta resolución y archivo en nube.',
+        title: 'Estándar',
+        price: '$125',
+        turnaround: '3 días hábiles',
+        badge: 'ESTÁNDAR',
+        description: 'Plazo estándar para fechas programadas de lanzamiento de listado.',
       },
       {
-        title: 'Solo Carga en MLS + Cumplimiento',
-        price: '$175',
-        turnaround: '24 horas hábiles',
-        description: 'Carga de datos del listado en el MLS local y subida al portal de su broker para aprobación inmediata.',
+        title: 'Prioritario',
+        price: '$225',
+        turnaround: '1 día hábil',
+        badge: 'PRIORITARIO',
+        description: 'Cola prioritaria para fechas de lanzamiento con urgencia de tiempo.',
       }
     ],
     included: [
@@ -201,8 +207,8 @@ export const SPANISH_PRICING = {
       'Subida al portal de cumplimiento de su broker (Broker Portal Compliance)',
     ],
     addons: [
-      { name: 'Redacción de descripción atractiva para MLS', price: '$45' },
-      { name: 'Diseño de volante digital / Flyer de propiedad', price: '$50' },
+      { name: 'Investigación de Condo / HOA', price: '$100', note: 'Reglas de la asociación, verificación de contactos y paquete del comprador' },
+      { name: 'Virtual Staging de 5 Fotos', price: '$50', note: 'Virtual staging profesional para hasta 5 fotos del listado' },
     ],
     ctaText: 'SOLICITAR LANZAMIENTO DE LISTADO',
   },
@@ -212,8 +218,8 @@ export const SPANISH_PRICING = {
     eyebrow: 'COBRE SU COMISIÓN A TIEMPO',
     description: 'Si usted prefiere coordinar el día a día pero odia lidiar con los portales de cumplimiento del broker, nosotros nos aseguramos de que su archivo esté 100% aprobado.',
     rates: [
-      { type: 'Por Archivo Residencial (Venta o Compra)', price: '$150' },
-      { type: 'Contratos de Alquiler / Renta (Lease)', price: '$95' },
+      { type: 'Contratos de Alquiler / Renta (Lease)', price: '$100' },
+      { type: 'Por Archivo Residencial (Venta o Compra)', price: '$195' },
     ],
     whatWeHandle: [
       'Revisión exhaustiva de todas las firmas, iniciales y fechas en el contrato',

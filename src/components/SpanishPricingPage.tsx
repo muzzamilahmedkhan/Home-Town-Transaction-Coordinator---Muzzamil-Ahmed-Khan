@@ -60,16 +60,51 @@ export const SpanishPricingPage: React.FC<Props> = ({
           {
             '@type': 'Offer',
             name: 'Plan Base',
-            price: '399.00',
+            price: '375.00',
             priceCurrency: 'USD',
             description: 'Gestión completa del contrato a cierre para agentes en Florida.'
           },
           {
             '@type': 'Offer',
             name: 'Plan Pro',
-            price: '499.00',
+            price: '475.00',
             priceCurrency: 'USD',
             description: 'Gestión integral con comunicación directa y soporte al cliente del agente.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Listing Launch Estándar',
+            price: '125.00',
+            priceCurrency: 'USD',
+            description: 'Preparación pre-mercado y borrador en MLS en 3 días hábiles.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Listing Launch Prioritario',
+            price: '225.00',
+            priceCurrency: 'USD',
+            description: 'Preparación pre-mercado y borrador en MLS expedito en 1 día hábil.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Broker Compliance (Alquiler / Lease)',
+            price: '100.00',
+            priceCurrency: 'USD',
+            description: 'Revisión y aprobación de expediente de alquiler con el broker.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Broker Compliance (Venta / Compra)',
+            price: '195.00',
+            priceCurrency: 'USD',
+            description: 'Revisión y aprobación de expediente de venta residencial con el broker.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Agent Setup Investment',
+            price: '399.00',
+            priceCurrency: 'USD',
+            description: 'Inversión única de configuración e integración de nuevos clientes.'
           }
         ]
       }
@@ -116,19 +151,19 @@ export const SpanishPricingPage: React.FC<Props> = ({
               onClick={() => scrollToSection('contract-to-close')}
               className="px-3.5 py-2 rounded-lg bg-[#EEEAEB] hover:bg-[#D8D2D4] text-[#3A2E29] transition cursor-pointer"
             >
-              Contract-to-Close ($499–$599)
+              Contract-to-Close ($375–$475)
             </button>
             <button
               onClick={() => scrollToSection('listing-launch')}
               className="px-3.5 py-2 rounded-lg bg-[#EEEAEB] hover:bg-[#D8D2D4] text-[#3A2E29] transition cursor-pointer"
             >
-              Listing Launch ($175–$249)
+              Listing Launch ($125–$225)
             </button>
             <button
               onClick={() => scrollToSection('broker-compliance')}
               className="px-3.5 py-2 rounded-lg bg-[#EEEAEB] hover:bg-[#D8D2D4] text-[#3A2E29] transition cursor-pointer"
             >
-              Broker Compliance ($95–$150)
+              Broker Compliance ($100–$195)
             </button>
           </div>
         </div>

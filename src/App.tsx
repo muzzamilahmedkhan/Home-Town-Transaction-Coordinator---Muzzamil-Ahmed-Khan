@@ -40,16 +40,24 @@ import { getResourceBySlug } from './data/resourceLibraryData';
 import { DEMO_BLOG_POSTS } from './data/blog';
 import { Language } from './types';
 
-export default function App() {
+interface AppProps {
+  initialPath?: string;
+  initialLanguage?: Language;
+}
+
+export default function App({ initialPath, initialLanguage }: AppProps = {}) {
   const [submitDealOpen, setSubmitDealOpen] = useState(false);
   const [bookCallOpen, setBookCallOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [servicesPricingOpen, setServicesPricingOpen] = useState(false);
 
-  // Client-side router path state
-  const [currentPath, setCurrentPath] = useState<string>(
-    typeof window !== 'undefined' ? window.location.pathname : '/'
-  );
+  // Client-side router path state with SSR and instant hydration support
+  const [currentPath, setCurrentPath] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname;
+    }
+    return initialPath || '/';
+  });
 
   const rawPath = currentPath.split('?')[0].split('#')[0];
   const normalizedPath = rawPath.replace(/\/+$/, '') || '/';
@@ -60,7 +68,9 @@ export default function App() {
       const p = window.location.pathname;
       return (p === '/es' || p.startsWith('/es/')) ? 'es' : 'en';
     }
-    return 'en';
+    if (initialLanguage) return initialLanguage;
+    const p = initialPath || '/';
+    return (p === '/es' || p.startsWith('/es/')) ? 'es' : 'en';
   });
 
   useEffect(() => {

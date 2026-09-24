@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { PRICING_PAGE_DATA } from '../data/pricingData';
 import { usePageSeo } from '../hooks/usePageSeo';
+import { getOrganizationSchema, getFaqSchema } from '../utils/seoUtils';
 
 interface Props {
   onBookCall: () => void;
@@ -42,7 +43,7 @@ export const PricingPlansPage: React.FC<Props> = ({
 
   usePageSeo({
     title: 'Florida TC Services & Pricing Plans | Hometown TC',
-    description: 'Boutique transaction coordination pricing for Florida agents. Contract-to-Close from $399, Listing Launch, and Bilingual TC support.',
+    description: 'Boutique transaction coordination pricing for Florida agents. Contract-to-Close from $375, Listing Launch, and Bilingual TC support.',
     canonicalUrl: 'https://hometowntc.com/pricing/',
     language: 'en',
     alternates: [
@@ -52,6 +53,76 @@ export const PricingPlansPage: React.FC<Props> = ({
     breadcrumbs: [
       { name: 'Home', url: 'https://hometowntc.com/' },
       { name: 'Pricing & Services', url: 'https://hometowntc.com/pricing/' }
+    ],
+    structuredData: [
+      getOrganizationSchema('en'),
+      getFaqSchema(
+        data.faqs.map(item => ({
+          q: item.question,
+          a: item.answerParagraphs.join(' ')
+        }))
+      ),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: 'Florida Real Estate Transaction Coordination & Listing Launch',
+        provider: {
+          '@type': 'Organization',
+          name: 'Hometown Transaction Coordinators'
+        },
+        areaServed: 'Florida',
+        offers: [
+          {
+            '@type': 'Offer',
+            name: 'Base Plan (Contract-to-Close)',
+            price: '375.00',
+            priceCurrency: 'USD',
+            description: 'Full contract-to-close management from executed agreement through closing. Paid at closing.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Pro Plan (Contract-to-Close)',
+            price: '475.00',
+            priceCurrency: 'USD',
+            description: 'Full contract-to-close with direct client milestone communication and settlement statement audit. Paid at closing.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Listing Launch (Standard)',
+            price: '125.00',
+            priceCurrency: 'USD',
+            description: 'Pre-market listing launch and full MLS draft input with 3 business days turnaround.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Listing Launch (Priority)',
+            price: '225.00',
+            priceCurrency: 'USD',
+            description: 'Expedited pre-market listing launch and MLS draft input with 1 business day turnaround.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Broker Compliance (Rental / Lease File)',
+            price: '100.00',
+            priceCurrency: 'USD',
+            description: 'Broker compliance audit and portal upload for residential rental and lease agreements.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Broker Compliance (Sale / Purchase Contract)',
+            price: '195.00',
+            priceCurrency: 'USD',
+            description: 'Broker compliance audit and portal upload for residential purchase and sales files.'
+          },
+          {
+            '@type': 'Offer',
+            name: 'Agent Setup Investment',
+            price: '399.00',
+            priceCurrency: 'USD',
+            description: 'One-time onboarding and systems integration investment for new HTC clients.'
+          }
+        ]
+      }
     ]
   });
 

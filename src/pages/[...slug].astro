@@ -69,7 +69,7 @@ export async function getStaticPaths() {
       language = "es";
     } else if (slug === 'es/precios') {
       title = "Precios y Planes de Coordinación de Transacciones en Florida | Hometown TC";
-      description = "Precios transparentes y sin sorpresas para agentes en Florida. Contrato a Cierre desde $399 pagado al cierre, Lanzamiento de Listados y soporte bilingüe.";
+      description = "Precios transparentes y sin sorpresas para agentes en Florida. Contrato a Cierre desde $375 pagado al cierre, Lanzamiento de Listados y soporte bilingüe.";
       language = "es";
     } else if (slug === 'es/enviar-transaccion') {
       title = "Enviar una Nueva Transacción | Hometown TC Florida";
@@ -95,9 +95,10 @@ export async function getStaticPaths() {
 }
 
 const { title, description, language = "en" } = Astro.props;
+const currentPath = `/${Astro.params.slug}/`;
 ---
 
 <Layout title={title} description={description} language={language}>
-  <App client:load />
+  <App client:load initialPath={currentPath} initialLanguage={language} />
 </Layout>
 

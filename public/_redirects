@@ -1,0 +1,34 @@
+# ========================================================
+# Hometown TC Production Redirects (301 Permanent)
+# Compatible with Cloudflare Pages, Netlify, and edge hosts
+# ========================================================
+
+# Service and Pricing Aliases
+/services                   /pricing/                   301
+/services/                  /pricing/                   301
+/pricing-plans              /pricing/                   301
+/pricing-plans/             /pricing/                   301
+
+# Contact & Booking Aliases
+/contact                    /book/                      301
+/contact/                   /book/                      301
+/contact-us                 /book/                      301
+/contact-us/                /book/                      301
+
+# Deal Intake Aliases
+/deal-intake                /submit-deal/               301
+/deal-intake/               /submit-deal/               301
+/submit                     /submit-deal/               301
+/submit/                    /submit-deal/               301
+
+# Spanish Aliases
+/es/servicios               /es/precios/                301
+/es/servicios/              /es/precios/                301
+/es/contacto                /es/enviar-transaccion/     301
+/es/contacto/               /es/enviar-transaccion/     301
+/es/home                    /es/                        301
+/es/home/                   /es/                        301
+
+# Resource & Blog Aliases
+/blog                       /resources/                 301
+/blog/                      /resources/                 301

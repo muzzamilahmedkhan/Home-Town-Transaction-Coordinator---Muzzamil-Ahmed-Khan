@@ -149,7 +149,7 @@ export const SpanishHomePage: React.FC<Props> = ({
 
       {/* 3. EL MÉTODO H.O.M.E. */}
       <section id="metodo-home" className="py-20 bg-[#FDFBF7] border-b border-[#D8D2D4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
@@ -163,21 +163,71 @@ export const SpanishHomePage: React.FC<Props> = ({
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {data.method.steps.map((step, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 border border-[#D8D2D4] shadow-sm flex flex-col justify-between space-y-4">
-                <div className="space-y-3">
-                  <div className="w-12 h-12 rounded-xl bg-[#3A2E29] text-white flex items-center justify-center font-serif text-2xl font-black shadow">
-                    {step.letter}
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold text-[#3A2E29] font-serif">{step.title}</h3>
-                    <span className="text-xs text-[#0D9BA3] font-semibold block mt-0.5">{step.subtitle}</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">{step.desc}</p>
-                </div>
+          {/* Connected Flow Strip */}
+          <div className="bg-white rounded-2xl p-4 sm:p-5 border border-[#D8D2D4] shadow-xs">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs sm:text-sm font-bold text-[#3A2E29]">
+              <div className="flex items-center space-x-2.5">
+                <span className="w-7 h-7 rounded-lg bg-[#0D9BA3] text-white flex items-center justify-center font-black text-xs shadow-2xs">
+                  H
+                </span>
+                <span>Honor the Agreement</span>
               </div>
-            ))}
+              <span className="hidden md:inline text-[#FE7311] font-extrabold text-base" aria-hidden="true">→</span>
+              
+              <div className="flex items-center space-x-2.5">
+                <span className="w-7 h-7 rounded-lg bg-[#FE7311] text-white flex items-center justify-center font-black text-xs shadow-2xs">
+                  O
+                </span>
+                <span>Organize the File</span>
+              </div>
+              <span className="hidden md:inline text-[#FE7311] font-extrabold text-base" aria-hidden="true">→</span>
+              
+              <div className="flex items-center space-x-2.5">
+                <span className="w-7 h-7 rounded-lg bg-[#0D9BA3] text-white flex items-center justify-center font-black text-xs shadow-2xs">
+                  M
+                </span>
+                <span>Monitor the Milestones</span>
+              </div>
+              <span className="hidden md:inline text-[#FE7311] font-extrabold text-base" aria-hidden="true">→</span>
+              
+              <div className="flex items-center space-x-2.5">
+                <span className="w-7 h-7 rounded-lg bg-[#3A2E29] text-white flex items-center justify-center font-black text-xs shadow-2xs">
+                  E
+                </span>
+                <span>Ease the Close</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {data.method.steps.map((step, idx) => {
+              const badgeColors = [
+                'bg-[#0D9BA3]',
+                'bg-[#FE7311]',
+                'bg-[#0D9BA3]',
+                'bg-[#3A2E29]'
+              ];
+              const stageNum = `ETAPA 0${idx + 1}`;
+              return (
+                <div key={idx} className="bg-white rounded-2xl p-6 border border-[#D8D2D4] shadow-xs flex flex-col justify-between space-y-4 hover:border-[#0D9BA3]/50 transition">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className={`w-10 h-10 rounded-xl ${badgeColors[idx]} text-white flex items-center justify-center font-serif text-lg font-black shadow-xs`}>
+                        {step.letter}
+                      </div>
+                      <span className="text-[11px] font-mono font-bold tracking-wider text-slate-500 uppercase">
+                        {stageNum}
+                      </span>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-[#3A2E29] font-serif">{step.title}</h3>
+                      <span className="text-xs text-[#0D9BA3] font-semibold block mt-0.5">{step.subtitle}</span>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
         </div>

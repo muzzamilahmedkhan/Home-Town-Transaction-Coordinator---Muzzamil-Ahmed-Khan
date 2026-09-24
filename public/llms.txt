@@ -17,18 +17,20 @@ Hometown Transaction Coordinators (Hometown TC / HTC) is a South Florida-founded
 ## Core Service Offerings & Pricing (Flat Per-File, Transparent)
 
 ### 1. Contract-to-Close (Escrow to Closing Coordination)
-- **Base Plan ($375 - $399 at Closing):** Full critical date calculation, FAR/BAR contract audit, escrow verification letters (FL Statute § 475.25), lender and title company coordination, municipal lien search follow-ups, inspection contingency tracking, HOA/condo estoppel monitoring, and broker file upload. Agent remains primary client communicator.
-- **Pro Plan ($475 - $499 at Closing):** Everything in Base Plan plus direct, white-glove client communications on behalf of the agent, weekly milestone briefings, utility transfer reminders, and closing disclosure (CD/ALTA) settlement fee audit.
+- **Base Plan ($375 at Closing):** Full critical date calculation, FAR/BAR contract audit, escrow verification letters (FL Statute § 475.25), lender and title company coordination, municipal lien search follow-ups, inspection contingency tracking, HOA/condo estoppel monitoring, and broker file upload. Agent remains primary client communicator.
+- **Pro Plan ($475 at Closing):** Everything in Base Plan plus direct, white-glove client communications on behalf of the agent, weekly milestone briefings, utility transfer reminders, and closing disclosure (CD/ALTA) settlement fee audit.
+- **Both Sides of the Transaction:** +$200
+- **Commercial Contract-to-Close:** Starts at $595
 - **No Close, No TC Fee:** If a contract cancels legitimately during the inspection period, zero TC fee is owed on the cancelled file.
 - **Payment Timing:** Billed and collected directly at closing through the settlement statement / commission disbursement authorization (CDA).
 
 ### 2. Listing Launch (Pre-MLS & Listing Setup)
-- **Pricing:** Full Launch ($250) | MLS Data Entry & Compliance ($175)
-- **Turnaround:** 24 to 48 business hours
+- **Pricing:** Standard ($125, 3 Business Days) | Priority ($225, 1 Business Day)
 - **Scope:** Drafting mandatory Florida property disclosures (SPDS, Lead-Based Paint, HOA/Condo addenda), MLS draft input, photo ordering & sequencing, showing instructions (ShowingTime), compliance upload, and property flyers.
+- **Add-ons:** Condo / HOA Research ($100), 5-Photo Virtual Staging ($50)
 
 ### 3. Broker Compliance & CDA Approval
-- **Pricing:** $150 per residential sales file | $95 per residential lease
+- **Pricing:** $195 per residential sale/purchase contract | $100 per residential rental/lease file
 - **Scope:** Full broker compliance review across SkySlope, Dotloop, Command, Paperless Pipeline, BrokerMint, etc., ensuring prompt Commission Disbursement Authorization (CDA/DA) issuance with zero withheld commissions.
 
 ### 4. Agent Setup Investment
@@ -37,12 +39,12 @@ Hometown Transaction Coordinators (Hometown TC / HTC) is a South Florida-founded
 ---
 
 ## The Proprietary H.O.M.E. Close Method™
-HTC operates on a 4-pillar proprietary closing methodology designed specifically for Florida real estate contracts:
+HTC operates on a 4-stage proprietary closing methodology for moving Contract-to-Close files forward with structure, visibility, and care:
 
-1. **H - Holistic Intake (Days 1–2):** Complete FAR/BAR audit, Standard F day-counting verification, critical dates calendar generation, initial escrow deposit tracking, and wire fraud warning notices.
-2. **O - Operations & Contingency Defense (Days 3–15):** Active inspection period timeline monitoring, repair addenda tracking, HOA/Condo estoppel certificate requests, and SB 4-D / SB 154 milestone reserve compliance.
-3. **M - Mortgage & Title Alignment (Days 16–30):** Title commitment defect tracking, municipal lien resolution, appraisal contingency management, and loan commitment monitoring.
-4. **E - Execution & Post-Close (Days 31–Closing):** Final walkthrough verification, ALTA / Closing Disclosure fee audit, DA/CDA release from broker, and complete archive compliance file delivery.
+1. **H — Honor the Agreement (Stage 1):** Review the executed agreement, parties, dates, and documents that drive the file, verifying contract details and initial escrow deposit timelines.
+2. **O — Organize the File (Stage 2):** Build the working timeline, organize contacts and documents, and identify what is missing across disclosures, addenda, and HOA/condo requirements.
+3. **M — Monitor the Milestones (Stage 3):** Track administrative milestones, follow up with lenders and title agents, document updates, and bring anything requiring the agent's attention directly back to them.
+4. **E — Ease the Close (Stage 4):** Support final administrative steps, closing coordination, settlement statement review, broker compliance file completion, and Post-Close archiving.
 
 ---
 
