@@ -78,7 +78,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
               <span>BROWARD COUNTY CONTRACT-TO-CLOSE EXPERTISE • (954) AREA ROOTS</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight font-serif">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight font-montserrat">
               Broward County <br />
               <span className="text-[#0D9BA3]">Transaction Coordinator</span>
             </h1>
@@ -116,7 +116,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
             <span>Broward Real Estate Operations & Answer Block</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat">
             What Is a Broward County Transaction Coordinator?
           </h2>
 
@@ -146,7 +146,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
               <Briefcase className="w-3.5 h-3.5" />
               <span>Tailored for Broward Agents & Small Teams</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-montserrat leading-tight">
               Reclaim 12–18 Hours per File Without Fixed Payroll Overhead
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -244,7 +244,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Full Stakeholder Synchronization</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-montserrat leading-tight">
               Association, Title & Lender Follow-Up Across Broward
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -313,7 +313,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
               <span>Broward Market Reputation</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-montserrat leading-tight">
               30+ Years of South Florida Real Estate Experience
             </h2>
 
@@ -348,7 +348,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
                 ))}
               </div>
 
-              <blockquote className="text-sm sm:text-base text-[#3A2E29] italic font-serif leading-relaxed">
+              <blockquote className="text-sm sm:text-base text-[#3A2E29] italic font-montserrat leading-relaxed">
                 "Michelle and Hometown TC have been my secret weapon in Broward. When we have 6 deals pending across Fort Lauderdale and Weston, having a seasoned coordinator who knows every condo board rule and title contact keeps my sanity intact. My clients feel cared for and our closings happen right on schedule."
               </blockquote>
 
@@ -437,7 +437,7 @@ export const BrowardTransactionCoordinatorPage: React.FC<Props> = ({
               <span>Seamless Contract-to-Close Execution</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-serif leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-montserrat leading-tight">
               Ready to Upgrade Your Broward Transaction Operations?
             </h2>
 

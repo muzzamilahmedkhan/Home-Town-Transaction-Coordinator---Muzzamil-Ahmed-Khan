@@ -457,7 +457,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
             <span>RUN THE NUMBERS</span>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-serif tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-montserrat tracking-tight leading-tight">
             See what your time, support, and growth could be worth.
           </h1>
 
@@ -533,7 +533,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
                 WHAT’S MY TIME WORTH?
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif mt-0.5">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat mt-0.5">
                 What is my time worth as a real estate agent?
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
@@ -706,7 +706,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                     <div className="text-xs font-bold uppercase tracking-widest text-[#0D9BA3]">
                       YOUR WORKING HOUR IS WORTH
                     </div>
-                    <div className="text-3xl sm:text-5xl font-extrabold text-[#FE7311] font-serif tracking-tight">
+                    <div className="text-3xl sm:text-5xl font-extrabold text-[#FE7311] font-montserrat tracking-tight">
                       ${Math.round(m1GciPerHour).toLocaleString()} <span className="text-base sm:text-xl font-normal text-slate-300">/ hour</span>
                     </div>
                     <p className="text-xs text-slate-300">
@@ -720,7 +720,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                       TIME SPENT ON TRANSACTION ADMIN
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                      <div className="text-xl sm:text-2xl font-bold text-white font-serif">
+                      <div className="text-xl sm:text-2xl font-bold text-white font-montserrat">
                         {m1AnnualAdminHours.toLocaleString()} hours/year
                       </div>
                       <div className="text-sm font-semibold text-[#0D9BA3]">
@@ -845,7 +845,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
                 HIRE A TC OR USE HTC?
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif mt-0.5">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat mt-0.5">
                 Should I hire a transaction coordinator or use HTC?
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
@@ -1005,7 +1005,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                     <div className="text-xs font-bold uppercase tracking-widest text-[#0D9BA3]">
                       ESTIMATED IN-HOUSE ANNUAL COST
                     </div>
-                    <div className="text-3xl sm:text-5xl font-extrabold text-[#FE7311] font-serif tracking-tight">
+                    <div className="text-3xl sm:text-5xl font-extrabold text-[#FE7311] font-montserrat tracking-tight">
                       ${Math.round(m2LoadedInHouseCost).toLocaleString()} <span className="text-base sm:text-xl font-normal text-slate-300">/ year</span>
                     </div>
                     <p className="text-xs text-slate-300">
@@ -1018,7 +1018,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                     <div className="text-xs font-bold uppercase tracking-wider text-slate-300">
                       ESTIMATED COST PER CLOSING
                     </div>
-                    <div className="text-2xl sm:text-3xl font-bold text-white font-serif">
+                    <div className="text-2xl sm:text-3xl font-bold text-white font-montserrat">
                       ${Math.round(m2InHouseCostPerSide).toLocaleString()} <span className="text-xs sm:text-sm font-normal text-slate-300">/ closed side</span>
                     </div>
                     <p className="text-[11px] text-slate-300">
@@ -1155,7 +1155,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
                 WHAT COULD 20% MORE LOOK LIKE?
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif mt-0.5">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat mt-0.5">
                 What could 20% more look like for your business?
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
@@ -1454,7 +1454,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
               HOW THE NUMBERS WORK
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat">
               Questions about the calculators?
             </h2>
           </div>

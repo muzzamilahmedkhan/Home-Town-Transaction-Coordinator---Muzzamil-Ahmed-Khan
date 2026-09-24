@@ -7,14 +7,23 @@
     background-color: #EEEAEB;
   }
   
-  h1, h2, h3, h4, .font-serif {
+  h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.02em;
     font-weight: 700;
   }
 
-  .font-montserrat {
-    font-family: 'Montserrat', sans-serif;
+  .font-montserrat,
+  .font-serif {
+    font-family: 'Montserrat', sans-serif !important;
   }
+}
+
+/* Enforce approved Montserrat font profile across all templates & headings */
+.font-montserrat,
+.font-serif,
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 /* Custom scrollbar */

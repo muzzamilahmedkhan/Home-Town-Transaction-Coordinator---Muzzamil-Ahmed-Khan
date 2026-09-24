@@ -113,7 +113,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
           </div>
 
           {/* H1 */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight font-serif">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight font-montserrat">
             Let’s See If We’re a Fit.
           </h1>
 
@@ -155,7 +155,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
                   15-Minute Conversation
                 </span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-montserrat">
                 Select a Convenient Time
               </h2>
             </div>
@@ -340,7 +340,7 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
               </div>
 
               <div className="space-y-1">
-                <h3 className="text-2xl font-bold text-[#3A2E29] font-serif">
+                <h3 className="text-2xl font-bold text-[#3A2E29] font-montserrat">
                   Fit Call Scheduled!
                 </h3>
                 <p className="text-sm text-slate-700 max-w-md mx-auto">

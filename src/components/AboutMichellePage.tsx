@@ -126,7 +126,7 @@ export const AboutMichellePage: React.FC<Props> = ({
               </div>
 
               {/* Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight leading-[1.15]">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-montserrat tracking-tight leading-[1.15]">
                 I built Hometown around a standard.
               </h1>
 
@@ -191,7 +191,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                     referrerPolicy="no-referrer"
                   />
                   <div className="p-5 bg-white border-t border-[#D8D2D4]">
-                    <div className="text-base font-bold text-[#3A2E29] font-serif">Michelle Martinez</div>
+                    <div className="text-base font-bold text-[#3A2E29] font-montserrat">Michelle Martinez</div>
                     <div className="text-xs font-bold text-[#0D9BA3] uppercase tracking-wider mt-0.5">
                       Founder + Owner
                     </div>
@@ -228,7 +228,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                 <div className="text-xs font-extrabold uppercase tracking-widest text-[#0D9BA3]">
                   OUR MISSION
                 </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#3A2E29] font-serif leading-tight">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#3A2E29] font-montserrat leading-tight">
                   We own the boring work so agents can grow.
                 </h2>
               </div>
@@ -243,7 +243,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                 <div className="text-xs font-extrabold uppercase tracking-widest text-[#FE7311]">
                   OUR VISION
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-white font-serif leading-[1.15] tracking-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-white font-montserrat leading-[1.15] tracking-tight">
                   To become Florida’s most trusted name in transaction support.
                 </h2>
               </div>
@@ -269,7 +269,7 @@ export const AboutMichellePage: React.FC<Props> = ({
               <Heart className="w-3.5 h-3.5 text-[#FE7311]" />
               <span>OUR VALUES</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-montserrat leading-tight">
               Honor. Order. Mastery. Ease.
             </h2>
           </div>
@@ -283,7 +283,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                 <div className="text-xs font-black tracking-widest text-[#0D9BA3] uppercase">
                   H
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-montserrat">
                   HONOR
                 </h3>
                 <p className="text-sm text-slate-700 font-normal leading-relaxed">
@@ -298,7 +298,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                 <div className="text-xs font-black tracking-widest text-[#FE7311] uppercase">
                   O
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-montserrat">
                   ORDER
                 </h3>
                 <p className="text-sm text-slate-700 font-normal leading-relaxed">
@@ -313,7 +313,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                 <div className="text-xs font-black tracking-widest text-[#0D9BA3] uppercase">
                   M
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-montserrat">
                   MASTERY
                 </h3>
                 <p className="text-sm text-slate-700 font-normal leading-relaxed">
@@ -328,7 +328,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                 <div className="text-xs font-black tracking-widest text-[#FE7311] uppercase">
                   E
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-serif">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-montserrat">
                   EASE
                 </h3>
                 <p className="text-sm text-slate-700 font-normal leading-relaxed">
@@ -370,7 +370,7 @@ export const AboutMichellePage: React.FC<Props> = ({
           </div>
 
           <div className="space-y-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight leading-tight max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-montserrat tracking-tight leading-tight max-w-3xl mx-auto">
               Protect the Agent. Protect the Broker. Protect the Client.
             </h2>
 
@@ -380,7 +380,7 @@ export const AboutMichellePage: React.FC<Props> = ({
           </div>
 
           <div className="pt-6 sm:pt-8 border-t border-[#D8D2D4] max-w-2xl mx-auto">
-            <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#0D9BA3] font-serif tracking-tight">
+            <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#0D9BA3] font-montserrat tracking-tight">
               Collaborative. Predictable. Transparent.
             </div>
           </div>
@@ -404,7 +404,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                 <span>HTC HONORS</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-montserrat tracking-tight leading-tight">
                 Good Business. Good Community. Real Impact.
               </h2>
 
@@ -438,7 +438,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                 <div className="space-y-6">
                   {/* 15+ */}
                   <div className="flex items-baseline space-x-4">
-                    <div className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-serif min-w-[90px]">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#3A2E29] font-montserrat min-w-[90px]">
                       15+
                     </div>
                     <div className="text-base sm:text-lg font-medium text-slate-700">
@@ -450,7 +450,7 @@ export const AboutMichellePage: React.FC<Props> = ({
 
                   {/* 100+ */}
                   <div className="flex items-baseline space-x-4">
-                    <div className="text-3xl sm:text-4xl font-extrabold text-[#FE7311] font-serif min-w-[90px]">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#FE7311] font-montserrat min-w-[90px]">
                       100+
                     </div>
                     <div className="text-base sm:text-lg font-medium text-slate-700">
@@ -462,7 +462,7 @@ export const AboutMichellePage: React.FC<Props> = ({
 
                   {/* $15,000 */}
                   <div className="flex items-baseline space-x-4">
-                    <div className="text-3xl sm:text-4xl font-extrabold text-[#0D9BA3] font-serif min-w-[90px]">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#0D9BA3] font-montserrat min-w-[90px]">
                       $15,000
                     </div>
                     <div className="text-base sm:text-lg font-medium text-slate-700">
@@ -499,7 +499,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                     loading="lazy"
                   />
                   <div className="p-5 bg-white border-t border-[#D8D2D4]">
-                    <div className="text-base font-bold text-[#3A2E29] font-serif">Michelle Martinez</div>
+                    <div className="text-base font-bold text-[#3A2E29] font-montserrat">Michelle Martinez</div>
                     <div className="text-xs font-bold text-[#0D9BA3] uppercase tracking-wider mt-0.5">
                       Setting the Standard & Leading the Tribe
                     </div>
@@ -515,7 +515,7 @@ export const AboutMichellePage: React.FC<Props> = ({
                 <span>THE STANDARD CONTINUES</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-montserrat tracking-tight leading-tight">
                 Hometown was never meant to stop with me.
               </h2>
 
@@ -572,17 +572,17 @@ export const AboutMichellePage: React.FC<Props> = ({
           
           {/* Exact Sign-off Text */}
           <div className="space-y-3">
-            <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-serif tracking-tight">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#3A2E29] font-montserrat tracking-tight">
               FORWARD.
             </div>
-            <div className="text-xl sm:text-2xl lg:text-3xl font-light text-[#0D9BA3] font-serif italic tracking-wide">
+            <div className="text-xl sm:text-2xl lg:text-3xl font-light text-[#0D9BA3] font-montserrat italic tracking-wide">
               Always Forward.
             </div>
           </div>
 
           {/* Founder Identity */}
           <div className="pt-2 space-y-1">
-            <div className="text-lg sm:text-xl font-bold text-[#3A2E29] font-serif">
+            <div className="text-lg sm:text-xl font-bold text-[#3A2E29] font-montserrat">
               Michelle Martinez
             </div>
             <div className="text-xs font-bold uppercase tracking-widest text-[#FE7311]">
