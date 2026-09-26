@@ -5,13 +5,53 @@ interface Props {
   title?: string;
   description?: string;
   language?: string;
+  canonicalUrl?: string;
+  alternateUrls?: { lang: string; url: string }[];
 }
 
 const {
   title = "Hometown TC | Boutique Real Estate Support Agency for Florida Realtors",
   description = "Boutique real estate support for Florida Realtors — from Listing Launch to Contract-to-Close and Post-Close. South Florida-founded, serving statewide.",
-  language = "en"
+  language = "en",
+  canonicalUrl,
+  alternateUrls
 } = Astro.props;
+
+const siteUrl = "https://hometowntc.com";
+const rawPath = Astro.url.pathname || '/';
+const normalizedPath = rawPath === '/' ? '/' : (rawPath.endsWith('/') ? rawPath : `${rawPath}/`);
+
+// Determine canonical URL
+const pageCanonicalUrl = canonicalUrl || `${siteUrl}${normalizedPath}`;
+
+// Determine alternates / hreflang pairs
+let alternates = alternateUrls;
+
+if (!alternates) {
+  if (normalizedPath === '/' || normalizedPath === '/es/') {
+    alternates = [
+      { lang: 'en', url: `${siteUrl}/` },
+      { lang: 'es', url: `${siteUrl}/es/` },
+      { lang: 'x-default', url: `${siteUrl}/` }
+    ];
+  } else if (normalizedPath === '/pricing/' || normalizedPath === '/es/precios/' || normalizedPath === '/pricing-plans/' || normalizedPath === '/services-and-pricing/') {
+    alternates = [
+      { lang: 'en', url: `${siteUrl}/pricing/` },
+      { lang: 'es', url: `${siteUrl}/es/precios/` },
+      { lang: 'x-default', url: `${siteUrl}/pricing/` }
+    ];
+  } else if (normalizedPath === '/submit-deal/' || normalizedPath === '/es/enviar-transaccion/' || normalizedPath === '/submit/' || normalizedPath === '/deal-intake/') {
+    alternates = [
+      { lang: 'en', url: `${siteUrl}/submit-deal/` },
+      { lang: 'es', url: `${siteUrl}/es/enviar-transaccion/` },
+      { lang: 'x-default', url: `${siteUrl}/submit-deal/` }
+    ];
+  } else {
+    alternates = [
+      { lang: language, url: pageCanonicalUrl }
+    ];
+  }
+}
 ---
 
 <!DOCTYPE html>
@@ -24,6 +64,13 @@ const {
     <link rel="apple-touch-icon" href="/favicon.jpg" />
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <!-- Canonical and Alternate (Hreflang) Tags -->
+    <link rel="canonical" href={pageCanonicalUrl} />
+    {alternates.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.url} />
+    ))}
+
     {import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION && (
       <meta name="google-site-verification" content={import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION} />
     )}

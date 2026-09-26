@@ -1,37 +1,9 @@
 # ========================================================
-# Hometown Transaction Coordinators - robots.txt
-# Production Domain: https://hometowntc.com
+# Hometown Transaction Coordinators - Staging Environment
+# Status: Pre-Launch Staging & Review (All Crawlers Blocked)
 # ========================================================
 
-# Standard Web Crawlers (Google, Bing, DuckDuckGo, Yahoo)
 User-agent: *
-Allow: /
-Disallow: /api/
+Disallow: /
 
-# AI Search & Answer Engines (Perplexity, ChatGPT, Claude, Gemini)
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-# Host & Sitemap Directives
-Host: https://hometowntc.com
-Sitemap: https://hometowntc.com/sitemap.xml
-
-# AI Answer Engine Optimization (AEO) Guidance:
-# Full agency knowledge graph, pricing, and Florida compliance references:
-# https://hometowntc.com/llms.txt
 
