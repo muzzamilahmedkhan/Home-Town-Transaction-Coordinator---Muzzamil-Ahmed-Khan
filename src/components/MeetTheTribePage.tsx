@@ -146,8 +146,8 @@ export const MeetTheTribePage: React.FC<Props> = ({
       },
       {
         '@type': 'Person',
-        name: 'Laura Villalobos',
-        jobTitle: 'Executive Assistant to Michelle Martinez',
+        name: 'Christian Hernandez',
+        jobTitle: 'Operations & Project Management',
         worksFor: {
           '@type': 'Organization',
           name: 'Hometown Transaction Coordinators'
@@ -484,32 +484,32 @@ export const MeetTheTribePage: React.FC<Props> = ({
               </div>
             </div>
 
-            {/* Profile 4: Laura Villalobos */}
+            {/* Profile 4: Christian Hernandez */}
             <div className="bg-white rounded-3xl p-6 border border-[#D8D2D4] shadow-sm flex flex-col justify-between space-y-4 transition hover:shadow-md hover:border-[#0D9BA3]/40">
               <div className="space-y-4">
                 <div className="relative w-full aspect-square max-w-[200px] mx-auto overflow-hidden rounded-2xl border-2 border-[#D8D2D4] bg-[#EEEAEB] flex items-center justify-center">
                   <div className="flex flex-col items-center justify-center text-center p-4 space-y-2">
-                    <div className="w-12 h-12 rounded-full bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-bold text-lg font-serif">
-                      LV
+                    <div className="w-12 h-12 rounded-full bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-bold text-lg font-montserrat">
+                      CH
                     </div>
-                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Executive Support</span>
+                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Operations & Management</span>
                   </div>
                 </div>
                 <div className="space-y-1 text-center sm:text-left">
-                  <h3 className="text-lg font-bold text-[#3A2E29] font-serif">
-                    Laura Villalobos
+                  <h3 className="text-lg font-bold text-[#3A2E29] font-montserrat">
+                    Christian Hernandez
                   </h3>
                   <div className="text-xs font-extrabold text-[#0D9BA3] uppercase tracking-wider">
-                    Executive Assistant to Michelle Martinez
+                    Operations & Project Management
                   </div>
                   <p className="text-xs text-slate-700 leading-relaxed font-normal pt-1">
-                    Laura supports Michelle and the day-to-day executive operations of HTC.
+                    Christian oversees operational workflows, technology systems, and project coordination to ensure seamless execution across HTC client files.
                   </p>
                 </div>
               </div>
 
               <div className="pt-3 border-t border-[#D8D2D4]/60 text-[11px] font-semibold text-slate-500">
-                Executive Coordination & Operations
+                Operations, Systems & Project Management
               </div>
             </div>
 
