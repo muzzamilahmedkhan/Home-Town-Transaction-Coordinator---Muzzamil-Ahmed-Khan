@@ -1,6 +1,28 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [
+    { "source": "/services", "destination": "/pricing/", "permanent": true },
+    { "source": "/services/", "destination": "/pricing/", "permanent": true },
+    { "source": "/pricing-plans", "destination": "/pricing/", "permanent": true },
+    { "source": "/pricing-plans/", "destination": "/pricing/", "permanent": true },
+    { "source": "/contact", "destination": "/book/", "permanent": true },
+    { "source": "/contact/", "destination": "/book/", "permanent": true },
+    { "source": "/contact-us", "destination": "/book/", "permanent": true },
+    { "source": "/contact-us/", "destination": "/book/", "permanent": true },
+    { "source": "/deal-intake", "destination": "/submit-deal/", "permanent": true },
+    { "source": "/deal-intake/", "destination": "/submit-deal/", "permanent": true },
+    { "source": "/submit", "destination": "/submit-deal/", "permanent": true },
+    { "source": "/submit/", "destination": "/submit-deal/", "permanent": true },
+    { "source": "/es/servicios", "destination": "/es/precios/", "permanent": true },
+    { "source": "/es/servicios/", "destination": "/es/precios/", "permanent": true },
+    { "source": "/es/contacto", "destination": "/es/enviar-transaccion/", "permanent": true },
+    { "source": "/es/contacto/", "destination": "/es/enviar-transaccion/", "permanent": true },
+    { "source": "/es/home", "destination": "/es/", "permanent": true },
+    { "source": "/es/home/", "destination": "/es/", "permanent": true },
+    { "source": "/blog", "destination": "/resources/", "permanent": true },
+    { "source": "/blog/", "destination": "/resources/", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

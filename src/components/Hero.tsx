@@ -36,7 +36,7 @@ export const Hero: React.FC<Props> = ({ onBookCall, onExploreServices, onSeeHowI
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-[84px] font-montserrat font-extrabold text-[#3A2E29] tracking-tight leading-[1.02]">
               Smooth Closings.{' '}
               <span className="text-[#FE7311]">
                 Period.
