@@ -448,8 +448,8 @@ export const FaqPage: React.FC<Props> = ({
       categoryId: 'working-together',
       question: 'Are you available on nights or weekends?',
       answerParagraphs: [
-        'Standard Base and Pro support is provided Monday through Friday during HTC business hours (Monday–Friday · 8:00 AM–6:00 PM EST). Routine night and weekend support is not included.',
-        'Expanded-hours support is being developed through SCALE. SCALE has not launched and does not change HTC’s current approved business hours (Monday–Friday · 8:00 AM–6:00 PM EST).'
+        'Standard Base and Pro support is provided Monday through Friday during HTC business hours (Monday–Friday · 9:00 AM–6:00 PM EST). Routine night and weekend support is not included.',
+        'Expanded-hours support is being developed through SCALE. SCALE has not launched and does not change HTC’s current approved business hours (Monday–Friday · 9:00 AM–6:00 PM EST).'
       ],
       tags: ['nights', 'weekends', 'hours', 'business hours', 'scale']
     },

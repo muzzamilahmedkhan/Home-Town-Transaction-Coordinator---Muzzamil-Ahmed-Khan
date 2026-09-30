@@ -345,12 +345,12 @@ export const PRICING_PAGE_DATA: ServicesPricingPageConfig = {
     eyebrow: 'SCALE · COMING SOON',
     headline: 'Need more help after 6 PM?',
     description:
-      'SCALE extends access to the HTC team beyond standard hours, from agreement through Post-Close. SCALE has not launched and does not change HTC’s current approved business hours (Monday–Friday · 8:00 AM–6:00 PM EST).',
+      'SCALE extends access to the HTC team beyond standard hours, from agreement through Post-Close. SCALE has not launched and does not change HTC’s current approved business hours (Monday–Friday · 9:00 AM–6:00 PM EST).',
     status: 'coming-soon',
     displayOrder: 5,
     subtitle: 'Extended operational support for fast-moving Florida producers.',
     ctaText: 'JOIN THE SCALE WAITLIST',
-    waitlistNote: 'Be first to know when enrollment opens. HTC’s current approved business hours remain Monday–Friday · 8:00 AM–6:00 PM EST.',
+    waitlistNote: 'Be first to know when enrollment opens. HTC’s current approved business hours remain Monday–Friday · 9:00 AM–6:00 PM EST.',
   },
 
   faqs: [

@@ -63,7 +63,7 @@ HTC operates on a 4-stage proprietary closing methodology for moving Contract-to
 - Submit a Deal: https://hometowntc.com/submit-deal/
 - How HTC Works: https://hometowntc.com/how-htc-works/
 - Why HTC: https://hometowntc.com/why-htc/
-- Contract-to-Close Services: https://hometowntc.com/contract-to-close-services/
+- Contract-to-Close Services: https://hometowntc.com/contract-to-close/
 - Listing Coordination: https://hometowntc.com/listing-coordination/
 - General Transaction Coordination: https://hometowntc.com/transaction-coordination/
 - TC for Realtors: https://hometowntc.com/transaction-coordinator-for-realtors/

@@ -11,7 +11,7 @@ export const PROPERTY_CARD_IMAGE = '/src/assets/images/florida_property_card_178
 
 export const PHONE_NUMBER = '(954) 377-8330';
 export const EMAIL_ADDRESS = 'hello@hometowntc.com';
-export const OFFICE_HOURS = 'Monday–Friday · 8:00 AM–6:00 PM EST';
+export const OFFICE_HOURS = 'Monday–Friday · 9:00 AM–6:00 PM EST';
 
 export const PRICING_CONFIG = {
   basePrice: 375,

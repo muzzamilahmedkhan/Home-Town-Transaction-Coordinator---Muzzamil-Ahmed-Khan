@@ -1056,7 +1056,7 @@ export const MeetTheTribePage: React.FC<Props> = ({
           </div>
 
           <div className="pt-2 text-xs text-slate-500 font-normal">
-            Direct Office Line: <a href={`tel:${PHONE_NUMBER.replace(/\D/g, '')}`} className="text-[#3A2E29] font-bold hover:underline">{PHONE_NUMBER}</a> · Monday–Friday · 8:00 AM–6:00 PM EST
+            Direct Office Line: <a href={`tel:${PHONE_NUMBER.replace(/\D/g, '')}`} className="text-[#3A2E29] font-bold hover:underline">{PHONE_NUMBER}</a> · Monday–Friday · 9:00 AM–6:00 PM EST
           </div>
 
         </div>

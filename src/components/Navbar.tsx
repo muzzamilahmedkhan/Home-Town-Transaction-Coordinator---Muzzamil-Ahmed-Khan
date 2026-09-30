@@ -283,16 +283,17 @@ export const Navbar: React.FC<Props> = ({
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="flex lg:hidden items-center space-x-2">
+          <div className="flex lg:hidden items-center space-x-2.5">
             <button
               onClick={() => handleLink(onBookCall)}
-              className="bg-[#FE7311] text-white text-[11px] font-bold px-3 py-1.5 rounded-lg uppercase"
+              className="min-h-[44px] px-3.5 py-2.5 bg-[#FE7311] hover:bg-[#e05f03] text-white text-xs font-bold rounded-xl uppercase tracking-wider shadow-sm flex items-center justify-center transition active:scale-95 cursor-pointer"
             >
               {language === 'es' ? 'Agendar Llamada' : 'Book Fit Call'}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#3A2E29] rounded-xl hover:bg-[#3A2E29]/10 transition"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              className="min-h-[44px] min-w-[44px] p-2.5 text-[#3A2E29] rounded-xl hover:bg-[#3A2E29]/10 transition flex items-center justify-center cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

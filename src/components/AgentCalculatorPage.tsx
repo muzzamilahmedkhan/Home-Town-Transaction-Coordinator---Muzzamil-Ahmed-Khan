@@ -1100,7 +1100,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
 
                 {/* Compact Disclaimer */}
                 <div className="text-[11px] text-slate-500 leading-relaxed italic">
-                  *Disclaimer: This comparison models estimated direct costs based on the numbers you enter. Management time, service scope, availability, benefits, taxes, hiring costs, turnover, and operational factors vary. Cost is only one decision factor when evaluating support.
+                  *Disclaimer: This calculator is a planning comparison, not payroll, employment, tax, legal, or accounting advice. Salary, employer burden, benefits, technology, recruiting, training, turnover, management time, and service scope vary. Enter your own estimates before making a hiring decision.
                 </div>
 
                 {/* Next Step CTA */}
@@ -1396,7 +1396,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
 
                 {/* Disclaimer */}
                 <div className="text-[11px] text-slate-500 leading-relaxed italic">
-                  *Disclaimer: This is an illustrative planning scenario based on the figures you enter. It is not a forecast, benchmark, or guarantee of additional closings or income.
+                  *Disclaimer: The 20% figure is an illustrative planning scenario, not a prediction, benchmark, or guarantee that transaction support will cause a specific increase in production or GCI. Results use gross commission income before brokerage splits, taxes, lead costs, and business expenses. Actual growth depends on market conditions, lead flow, conversion, agent activity, capacity, and many other factors.
                 </div>
 
                 {/* Next Step CTA */}

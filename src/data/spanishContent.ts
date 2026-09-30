@@ -16,7 +16,7 @@ export const SPANISH_NAV = {
   bookCall: 'Agendar Llamada de 15 Minutos',
   submitDeal: 'Enviar una Transacción',
   currentClient: '¿Ya es Cliente? Enviar Transacción',
-  officeHours: 'Lunes a Viernes · 8:00 AM – 6:00 PM EST',
+  officeHours: 'Lunes a Viernes · 9:00 AM – 6:00 PM EST',
 };
 
 export const SPANISH_HOME = {
@@ -138,7 +138,7 @@ export const SPANISH_PRICING = {
           'Recopilación de recibos de depósito en plica (Escrow)',
           'Seguimiento a fechas de inspección y contingencia de financiamiento',
           'Organización y carga completa en el portal de su broker (Dotloop, SkySlope, etc.)',
-          'Revisión previa de la Declaración de Cierre (ALTA/CD)',
+          'El agente permanece como contacto principal directo con los clientes compradores/vendedores',
         ],
         ctaText: 'SELECCIONAR PLAN BASE',
       },
@@ -152,11 +152,11 @@ export const SPANISH_PRICING = {
         summary: 'Servicio integral de guante blanco donde HTC asume la comunicación proactiva con sus clientes, manteniéndolos informados en cada paso crucial.',
         features: [
           'Todo lo incluido en el Plan Base',
-          'Actualizaciones semanales personalizadas por email y SMS para su cliente',
-          'Envío de guías de mudanza, activación de servicios públicos y recordatorios',
-          'Coordinación de inspecciones y citas de tasación con todas las partes',
-          'Gestión activa de solicitudes y aprobaciones de asociaciones (HOA/Condominio)',
-          'Seguimiento post-cierre para solicitud de reseñas de 5 estrellas en Google/Zillow',
+          'Correo de presentación directa y actualizaciones semanales de hitos para su cliente',
+          'Recordatorios proactivos de hitos (servicios públicos, inspección final, preparación para el cierre)',
+          'Revisión previa de la Declaración de Cierre (ALTA/CD) para exactitud de tarifas',
+          'Solicitud de testimonio y reseña posterior al cierre',
+          'Comunicación integral de guante blanco representando su marca',
         ],
         ctaText: 'SELECCIONAR PLAN PRO',
       }
@@ -277,7 +277,7 @@ export const SPANISH_SUBMIT_DEAL = {
   },
   whatNext: {
     title: '¿Qué sucede después de enviar?',
-    text: 'Recibirá un correo electrónico de confirmación de nuestro equipo confirmando la recepción del expediente. Nuestro coordinador líder auditará el contrato, calculará las fechas críticas de Florida y contactará a todas las partes en menos de 24 horas hábiles.',
+    text: 'Recibirá un correo electrónico de confirmación en su bandeja de entrada después de enviar su expediente. Revíselo para asegurarse de que todo esté correcto y responda directamente a ese correo si necesita realizar algún cambio.',
   },
   needHelp: {
     title: '¿Necesita Ayuda para Enviar?',
