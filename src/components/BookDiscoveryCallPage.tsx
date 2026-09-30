@@ -1,13 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Calendar,
-  Clock,
-  CheckCircle2,
-  Phone,
-  Mail,
-  ArrowRight,
-  Sparkles,
-  MessageSquare
+  Clock
 } from 'lucide-react';
 import { PHONE_NUMBER, EMAIL_ADDRESS } from '../data/content';
 import { usePageSeo } from '../hooks/usePageSeo';
@@ -38,59 +31,6 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
       { name: 'Book a Fit Call', url: 'https://hometowntc.com/book/' }
     ]
   });
-
-  // Calculate default next business day
-  const getDefaultDate = () => {
-    const d = new Date();
-    d.setDate(d.getDate() + 1);
-    // If Saturday, move to Monday
-    if (d.getDay() === 6) d.setDate(d.getDate() + 2);
-    // If Sunday, move to Monday
-    if (d.getDay() === 0) d.setDate(d.getDate() + 1);
-    return d.toISOString().split('T')[0];
-  };
-
-  const [selectedDate, setSelectedDate] = useState<string>(getDefaultDate());
-  const [selectedTime, setSelectedTime] = useState<string>('10:00 AM EST');
-  const [step, setStep] = useState<'select' | 'details' | 'confirmed'>('select');
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    brokerage: '',
-    notes: ''
-  });
-
-  // Approved office hours slots: Mon–Fri · 8:00 AM–6:00 PM EST
-  const availableSlots = [
-    '08:30 AM EST',
-    '09:30 AM EST',
-    '10:30 AM EST',
-    '11:30 AM EST',
-    '01:00 PM EST',
-    '02:00 PM EST',
-    '03:30 PM EST',
-    '04:30 PM EST',
-    '05:15 PM EST'
-  ];
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleProceedToDetails = () => {
-    if (selectedDate && selectedTime) {
-      setStep('details');
-    }
-  };
-
-  const handleFinalBooking = (e: React.FormEvent) => {
-    e.preventDefault();
-    setStep('confirmed');
-  };
 
   return (
     <div className="bg-[#EEEAEB] text-[#3A2E29] min-h-screen">
@@ -142,9 +82,9 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
         </div>
       </section>
 
-      {/* 2. SCHEDULING WIDGET — MAIN JOB OF THIS PAGE */}
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#D8D2D4] shadow-xl relative">
+      {/* 2. SCHEDULING WIDGET — LIVE GOOGLE APPOINTMENT SCHEDULE */}
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#D8D2D4] shadow-xl relative">
           
           {/* Widget Header */}
           <div className="border-b border-[#D8D2D4] pb-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -152,240 +92,46 @@ export const BookDiscoveryCallPage: React.FC<Props> = ({
               <div className="flex items-center space-x-2">
                 <Clock className="w-4 h-4 text-[#0D9BA3]" />
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
-                  15-Minute Conversation
+                  15-Minute Conversation · Google Meet
                 </span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-[#3A2E29] font-montserrat">
-                Select a Convenient Time
+                Select a Time with Michelle Martinez
               </h2>
             </div>
 
             <div className="text-left sm:text-right">
-              <div className="text-xs font-mono text-slate-500">Office Hours</div>
-              <div className="text-xs font-bold text-[#3A2E29]">Monday-Friday · 8:00 AM-6:00 PM EST</div>
+              <div className="text-xs font-mono text-slate-500">Live Availability</div>
+              <div className="text-xs font-bold text-[#3A2E29]">Synced with HTC Google Calendar</div>
             </div>
           </div>
 
-          {/* STEP 1: SELECT DATE & TIME */}
-          {step === 'select' && (
-            <div className="space-y-6">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#3A2E29] mb-2 flex items-center space-x-1.5">
-                  <Calendar className="w-4 h-4 text-[#0D9BA3]" />
-                  <span>Select Date</span>
-                </label>
-                <input
-                  type="date"
-                  value={selectedDate}
-                  min={new Date().toISOString().split('T')[0]}
-                  onChange={(e) => setSelectedDate(e.target.value)}
-                  className="w-full bg-[#FAF8F5] border border-[#D8D2D4] rounded-xl px-4 py-3 text-sm font-semibold text-[#3A2E29] focus:ring-2 focus:ring-[#0D9BA3] focus:outline-none"
-                />
-              </div>
+          {/* Embedded Google Calendar Appointment Schedule */}
+          <div className="w-full overflow-hidden rounded-2xl border border-[#D8D2D4] bg-[#FAF8F5] shadow-inner">
+            <iframe
+              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0Aq8b6n9TW5mnsVd09MomMdJtodNKkv8cMjFkbt9npg4fWJpD9VWafHkmAKYENmIHvYOLcd_-O?gv=true"
+              style={{ width: '100%', height: '760px', border: 0 }}
+              frameBorder="0"
+              title="Schedule a 15-Minute Fit Call with Hometown TC"
+              className="w-full h-[760px]"
+            />
+          </div>
 
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#3A2E29] mb-2 flex items-center space-x-1.5">
-                  <Clock className="w-4 h-4 text-[#0D9BA3]" />
-                  <span>Select Time (15 Minutes)</span>
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-                  {availableSlots.map((slot) => {
-                    const isSelected = selectedTime === slot;
-                    return (
-                      <button
-                        key={slot}
-                        type="button"
-                        onClick={() => setSelectedTime(slot)}
-                        className={`py-3 px-3 rounded-xl text-xs font-bold transition border text-center cursor-pointer ${
-                          isSelected
-                            ? 'bg-[#3A2E29] text-white border-[#3A2E29] shadow-md ring-2 ring-[#0D9BA3]'
-                            : 'bg-[#FAF8F5] text-[#3A2E29] border-[#D8D2D4] hover:border-[#0D9BA3] hover:bg-white'
-                        }`}
-                      >
-                        {slot}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={handleProceedToDetails}
-                  className="w-full py-4 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-lg hover:shadow-[#FE7311]/25 flex items-center justify-center space-x-2 cursor-pointer"
-                >
-                  <span>Next: Your Details</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* STEP 2: CONTACT DETAILS */}
-          {step === 'details' && (
-            <form onSubmit={handleFinalBooking} className="space-y-4">
-              <div className="flex items-center justify-between text-xs font-bold text-[#0D9BA3] bg-[#FAF8F5] p-3 rounded-xl border border-[#D8D2D4]">
-                <span className="flex items-center space-x-2">
-                  <Calendar className="w-3.5 h-3.5 text-[#0D9BA3]" />
-                  <span>{selectedDate} at {selectedTime}</span>
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setStep('select')}
-                  className="text-xs text-slate-600 hover:text-[#3A2E29] underline cursor-pointer"
-                >
-                  Change Time
-                </button>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="fullName"
-                    required
-                    value={formData.fullName}
-                    onChange={handleInputChange}
-                    placeholder="e.g., Sarah Jenkins"
-                    className="w-full bg-[#FAF8F5] border border-[#D8D2D4] rounded-xl px-3.5 py-2.5 text-xs font-medium focus:ring-2 focus:ring-[#0D9BA3] focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                    Brokerage / Team (Optional)
-                  </label>
-                  <input
-                    type="text"
-                    name="brokerage"
-                    value={formData.brokerage}
-                    onChange={handleInputChange}
-                    placeholder="e.g., Compass, eXp, Keller Williams"
-                    className="w-full bg-[#FAF8F5] border border-[#D8D2D4] rounded-xl px-3.5 py-2.5 text-xs font-medium focus:ring-2 focus:ring-[#0D9BA3] focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="sarah@yourrealty.com"
-                    className="w-full bg-[#FAF8F5] border border-[#D8D2D4] rounded-xl px-3.5 py-2.5 text-xs font-medium focus:ring-2 focus:ring-[#0D9BA3] focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="(954) 377-8330"
-                    className="w-full bg-[#FAF8F5] border border-[#D8D2D4] rounded-xl px-3.5 py-2.5 text-xs font-medium focus:ring-2 focus:ring-[#0D9BA3] focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
-                  What can we help you with? (Optional)
-                </label>
-                <textarea
-                  name="notes"
-                  rows={3}
-                  value={formData.notes}
-                  onChange={handleInputChange}
-                  placeholder="Tell us briefly about what you're looking for or any specific questions you have..."
-                  className="w-full bg-[#FAF8F5] border border-[#D8D2D4] rounded-xl px-3.5 py-2.5 text-xs font-medium focus:ring-2 focus:ring-[#0D9BA3] focus:outline-none resize-none"
-                />
-              </div>
-
-              <div className="pt-2 flex items-center space-x-3">
-                <button
-                  type="button"
-                  onClick={() => setStep('select')}
-                  className="px-5 py-3.5 bg-[#FAF8F5] border border-[#D8D2D4] text-slate-700 font-bold text-xs rounded-xl hover:bg-[#EEEAEB] cursor-pointer"
-                >
-                  Back
-                </button>
-                <button
-                  type="submit"
-                  className="flex-1 py-3.5 bg-[#FE7311] hover:bg-[#e06209] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md cursor-pointer"
-                >
-                  Confirm Fit Call
-                </button>
-              </div>
-            </form>
-          )}
-
-          {/* STEP 3: CONFIRMED */}
-          {step === 'confirmed' && (
-            <div className="py-8 text-center space-y-5">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-9 h-9" />
-              </div>
-
-              <div className="space-y-1">
-                <h3 className="text-2xl font-bold text-[#3A2E29] font-montserrat">
-                  Fit Call Scheduled!
-                </h3>
-                <p className="text-sm text-slate-700 max-w-md mx-auto">
-                  Thank you, <strong>{formData.fullName || 'Agent'}</strong>. We have scheduled your 15-minute conversation for:
-                </p>
-                <div className="inline-block mt-2 bg-[#FAF8F5] border border-[#D8D2D4] px-4 py-2 rounded-xl text-sm font-bold text-[#0D9BA3]">
-                  {selectedDate} at {selectedTime}
-                </div>
-              </div>
-
-              <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
-                A calendar confirmation has been sent to <strong>{formData.email}</strong>. We look forward to speaking with you.
-              </p>
-
-              <div className="bg-[#FAF8F5] p-5 rounded-2xl text-left border border-[#D8D2D4] text-xs space-y-2 max-w-md mx-auto">
-                <div className="font-bold text-[#3A2E29]">Hometown Transaction Coordinators</div>
-                <div className="flex items-center space-x-2 text-slate-700">
-                  <Phone className="w-3.5 h-3.5 text-[#0D9BA3]" />
-                  <span>Direct: {PHONE_NUMBER}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-slate-700">
-                  <Mail className="w-3.5 h-3.5 text-[#0D9BA3]" />
-                  <span>Email: {EMAIL_ADDRESS}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-slate-700">
-                  <Clock className="w-3.5 h-3.5 text-[#FE7311]" />
-                  <span>Office Hours: Monday–Friday · 8:00 AM–6:00 PM EST</span>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setStep('select');
-                    setFormData({ fullName: '', email: '', phone: '', brokerage: '', notes: '' });
-                  }}
-                  className="text-xs text-[#0D9BA3] font-bold hover:underline cursor-pointer"
-                >
-                  Schedule Another Time or Edit
-                </button>
-              </div>
-            </div>
-          )}
-
+          {/* Fallback / Direct Link */}
+          <div className="mt-6 pt-4 border-t border-[#D8D2D4] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#3A2E29]">
+            <span className="text-slate-600">
+              Direct connection powered by Google Workspace Appointment Scheduling.
+            </span>
+            <a
+              href="https://calendar.app.google/BZAmWb4fz4UhKcJ88"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-1.5 font-bold text-[#0D9BA3] hover:text-[#0b7c82] transition underline"
+            >
+              <span>Open in Google Calendar</span>
+              <span>↗</span>
+            </a>
+          </div>
         </div>
 
         {/* Support & Contact Footer Info */}
