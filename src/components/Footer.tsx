@@ -275,7 +275,7 @@ export const Footer: React.FC<Props> = ({
               <li className="flex items-start space-x-2 text-slate-300">
                 <Clock className="w-3.5 h-3.5 text-[#FE7311] flex-shrink-0 mt-0.5" />
                 <span className="leading-snug">
-                  {language === 'es' ? 'Lun–Vie 9:00 AM – 5:00 PM EST' : OFFICE_HOURS}
+                  {language === 'es' ? 'Lun–Vie 9:00 AM – 6:00 PM EST' : OFFICE_HOURS}
                 </span>
               </li>
             </ul>

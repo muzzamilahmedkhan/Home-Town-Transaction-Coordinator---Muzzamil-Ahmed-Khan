@@ -124,7 +124,7 @@ export const SPANISH_PRICING = {
     description: 'Gestión completa y profesional desde el contrato ejecutado hasta la entrega de llaves y desembolso de comisiones.',
     setupNote: 'Requiere la configuración previa de Agent Setup ($399) para nuevos clientes.',
     timingNote: 'Se cobra al cierre mediante la declaración ALTA/CD o factura directa.',
-    cancellationNote: 'Sin costo si la transacción se cancela durante el período de inspección sin culpa del comprador/vendedor.',
+    cancellationNote: 'Sin cargo de cancelación si el contrato se cancela durante el período de inspección. Si se cancela después del período de inspección, se aplica una tarifa de soporte administrativo por el trabajo ya realizado.',
     plans: [
       {
         id: 'base',
@@ -216,16 +216,17 @@ export const SPANISH_PRICING = {
     badge: 'SOLO CUMPLIMIENTO',
     name: 'Broker Compliance (Revisión de Cumplimiento)',
     eyebrow: 'COBRE SU COMISIÓN A TIEMPO',
-    description: 'Si usted prefiere coordinar el día a día pero odia lidiar con los portales de cumplimiento del broker, nosotros nos aseguramos de que su archivo esté 100% aprobado.',
+    description: '¿Ya administra el contrato de alquiler o venta usted mismo? El servicio de Broker Compliance se enfoca específicamente en la revisión, organización y seguimiento del expediente a través del proceso de revisión de su broker para que se pueda emitir su Autorización de Desembolso de Comisión (CDA/DA) y usted pueda recibir su pago.',
     rates: [
       { type: 'Contratos de Alquiler / Renta (Lease)', price: '$100' },
       { type: 'Por Archivo Residencial (Venta o Compra)', price: '$195' },
     ],
     whatWeHandle: [
-      'Revisión exhaustiva de todas las firmas, iniciales y fechas en el contrato',
-      'Verificación de addendums requeridos por el broker y por el estado de Florida',
-      'Carga y organización en Dotloop, SkySlope, Command, Paperless Pipeline, etc.',
-      'Resolución de notas del broker hasta la emisión del Permiso de Pago (DA / CDA)',
+      'Revisión del expediente según los requisitos de su correduría (brokerage)',
+      'Identificación de documentos y firmas faltantes',
+      'Circulación de documentos aprobados para firma cuando se nos indique',
+      'Organización y carga completa en el portal de su broker (Dotloop, SkySlope, etc.)',
+      'Seguimiento a través de todo el proceso de revisión de la correduría',
     ]
   },
   faq: [
@@ -234,8 +235,8 @@ export const SPANISH_PRICING = {
       a: 'El servicio de Contract-to-Close se cobra al momento del cierre a través del documento ALTA/CD o factura directa a su comisión. No hay pagos por adelantado para este servicio.',
     },
     {
-      q: '¿Qué sucede si la transacción se cancela?',
-      a: 'Si la transacción se cancela durante el período de inspección de manera legítima, no le cobramos nada por el servicio de coordinación de ese contrato fallido.',
+      q: '¿Qué sucede si mi contrato se cancela?',
+      a: 'Si el contrato se cancela durante el período de inspección, no hay tarifa de cancelación. Si se cancela después del período de inspección, se aplica una tarifa de soporte administrativo por el trabajo ya completado.',
     },
     {
       q: '¿Qué incluye la tarifa de Agent Setup ($399)?',

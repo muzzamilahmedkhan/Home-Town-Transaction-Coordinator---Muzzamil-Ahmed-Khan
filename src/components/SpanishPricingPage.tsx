@@ -301,7 +301,7 @@ export const SpanishPricingPage: React.FC<Props> = ({
               <span>{data.contractToClose.timingNote}</span>
             </div>
             <div>
-              <strong className="text-[#3A2E29] block mb-0.5">Garantía por Cancelación:</strong>
+              <strong className="text-[#3A2E29] block mb-0.5">Política de Cancelación:</strong>
               <span>{data.contractToClose.cancellationNote}</span>
             </div>
           </div>
