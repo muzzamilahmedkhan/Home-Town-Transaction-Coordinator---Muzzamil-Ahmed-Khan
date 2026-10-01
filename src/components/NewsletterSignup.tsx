@@ -43,7 +43,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
         </div>
 
         <div>
-          <h4 className="font-montserrat font-extrabold text-base text-[#3A2E29] leading-snug">
+          <h4 className="font-serif font-extrabold text-base text-[#3A2E29] leading-snug">
             {title}
           </h4>
           <p className="text-xs text-slate-600 font-medium mt-1 leading-relaxed">
@@ -54,7 +54,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
         {isSubmitted ? (
           <div className="bg-[#0D9BA3]/10 border border-[#0D9BA3]/30 rounded-xl p-3.5 text-center space-y-1.5 animate-in fade-in duration-200">
             <CheckCircle2 className="w-5 h-5 text-[#0D9BA3] mx-auto" />
-            <p className="font-montserrat font-bold text-xs text-[#3A2E29]">
+            <p className="font-sans font-bold text-xs text-[#3A2E29]">
               You're all set, {firstName}!
             </p>
             <p className="text-[11px] text-slate-600">
@@ -81,7 +81,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
             />
             <button
               type="submit"
-              className="w-full bg-[#0D9BA3] hover:bg-[#087177] text-white py-2.5 px-4 rounded-lg text-xs font-montserrat font-bold uppercase tracking-wider transition cursor-pointer shadow-xs flex items-center justify-center space-x-1.5"
+              className="w-full bg-[#0D9BA3] hover:bg-[#087177] text-white py-2.5 px-4 rounded-lg text-xs font-sans font-bold uppercase tracking-wider transition cursor-pointer shadow-xs flex items-center justify-center space-x-1.5"
             >
               <span>SEND NEW TOOLS TO ME</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -108,7 +108,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               <div className="w-12 h-12 rounded-full bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
-              <h3 className="font-montserrat font-extrabold text-xl text-[#3A2E29]">
+              <h3 className="font-serif font-extrabold text-xl text-[#3A2E29]">
                 You're all set, {firstName}!
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-md mx-auto leading-relaxed">
@@ -134,7 +134,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                   <span>{eyebrow}</span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight leading-snug">
+                <h3 className="text-xl sm:text-2xl font-serif font-extrabold text-[#3A2E29] tracking-tight leading-snug">
                   {title}
                 </h3>
 
@@ -177,7 +177,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
 
                 <button
                   type="submit"
-                  className="w-full bg-[#0D9BA3] hover:bg-[#087177] text-white py-3 px-4 rounded-xl text-xs font-montserrat font-extrabold uppercase tracking-wider transition cursor-pointer shadow-xs flex items-center justify-center space-x-2 group"
+                  className="w-full bg-[#0D9BA3] hover:bg-[#087177] text-white py-3 px-4 rounded-xl text-xs font-sans font-extrabold uppercase tracking-wider transition cursor-pointer shadow-xs flex items-center justify-center space-x-2 group"
                 >
                   <Mail className="w-3.5 h-3.5 text-white" />
                   <span>SEND NEW RELEASES TO MY INBOX</span>
@@ -212,7 +212,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
             <div className="w-12 h-12 rounded-full bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-6 h-6" />
             </div>
-            <h3 className="font-montserrat font-extrabold text-lg sm:text-xl text-[#3A2E29]">
+            <h3 className="font-serif font-extrabold text-lg sm:text-xl text-[#3A2E29]">
               You're all set, {firstName}!
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-md mx-auto leading-relaxed">
@@ -250,7 +250,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               {/* Requested Headline: New tools should come to you. */}
               <h2 
                 id="newsletter-heading"
-                className="text-xl sm:text-2xl lg:text-3xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight leading-snug"
+                className="text-xl sm:text-2xl lg:text-3xl font-serif font-extrabold text-[#3A2E29] tracking-tight leading-snug"
               >
                 {title}
               </h2>
@@ -300,7 +300,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               {/* Submit CTA */}
               <button
                 type="submit"
-                className="w-full bg-[#0D9BA3] hover:bg-[#087177] text-white py-3 px-4 rounded-xl text-xs font-montserrat font-extrabold uppercase tracking-wider transition cursor-pointer shadow-xs flex items-center justify-center space-x-2 group"
+                className="w-full bg-[#0D9BA3] hover:bg-[#087177] text-white py-3 px-4 rounded-xl text-xs font-sans font-extrabold uppercase tracking-wider transition cursor-pointer shadow-xs flex items-center justify-center space-x-2 group"
               >
                 <Mail className="w-3.5 h-3.5 text-white" />
                 <span>SEND NEW RELEASES TO MY INBOX</span>

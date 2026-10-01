@@ -59,7 +59,7 @@ export const SubmitDealModal: React.FC<Props> = ({ isOpen, onClose }) => {
               <ShieldCheck className="w-4 h-4 text-[#FE7311]" />
               <span>Contract Intake Portal</span>
             </div>
-            <h3 className="text-xl font-montserrat font-extrabold text-white">Submit a New Deal (Contract Intake)</h3>
+            <h3 className="text-xl font-serif font-extrabold text-white">Submit a New Deal (Contract Intake)</h3>
             <p className="text-xs text-slate-300 mt-1 font-medium">
               Florida FAR/BAR Contract-to-Close Intake Form
             </p>
@@ -78,7 +78,7 @@ export const SubmitDealModal: React.FC<Props> = ({ isOpen, onClose }) => {
               <CheckCircle2 className="w-10 h-10" />
             </div>
             <div className="space-y-2">
-              <h4 className="text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h4 className="text-2xl font-serif font-extrabold text-[#3A2E29]">
                 Deal Submitted Successfully!
               </h4>
               <p className="text-sm text-[#3A2E29]/80 max-w-md mx-auto font-medium">

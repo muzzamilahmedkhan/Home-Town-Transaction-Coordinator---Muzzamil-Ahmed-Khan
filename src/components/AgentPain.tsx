@@ -16,7 +16,7 @@ export const AgentPain: React.FC<Props> = () => {
             <span>THE AGENT REALITY</span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-white tracking-tight leading-tight">
             Your Clients Need You.{' '}
             <span className="block sm:inline text-[#FE7311] font-semibold italic">
               Your Transaction Needs a System.
@@ -32,7 +32,7 @@ export const AgentPain: React.FC<Props> = () => {
             <div className="w-10 h-10 rounded-xl bg-[#0D9BA3]/20 text-[#0D9BA3] flex items-center justify-center mb-2">
               <Inbox className="w-5 h-5 text-[#0D9BA3]" />
             </div>
-            <h3 className="text-lg font-montserrat font-extrabold text-white">
+            <h3 className="text-lg font-serif font-extrabold text-white">
               The inbox keeps moving.
             </h3>
             <p className="text-sm text-slate-300 font-medium leading-relaxed">
@@ -45,7 +45,7 @@ export const AgentPain: React.FC<Props> = () => {
             <div className="w-10 h-10 rounded-xl bg-[#FE7311]/20 text-[#FE7311] flex items-center justify-center mb-2">
               <Clock className="w-5 h-5 text-[#FE7311]" />
             </div>
-            <h3 className="text-lg font-montserrat font-extrabold text-white">
+            <h3 className="text-lg font-serif font-extrabold text-white">
               The dates don't stop.
             </h3>
             <p className="text-sm text-slate-300 font-medium leading-relaxed">
@@ -58,7 +58,7 @@ export const AgentPain: React.FC<Props> = () => {
             <div className="w-10 h-10 rounded-xl bg-[#0D9BA3]/20 text-[#0D9BA3] flex items-center justify-center mb-2">
               <Brain className="w-5 h-5 text-[#0D9BA3]" />
             </div>
-            <h3 className="text-lg font-montserrat font-extrabold text-white">
+            <h3 className="text-lg font-serif font-extrabold text-white">
               Your brain shouldn't be the system.
             </h3>
             <p className="text-sm text-slate-300 font-medium leading-relaxed">
@@ -70,7 +70,7 @@ export const AgentPain: React.FC<Props> = () => {
 
         {/* Clean Conclusion */}
         <div className="text-center max-w-3xl mx-auto pt-2">
-          <p className="text-2xl sm:text-3xl font-montserrat font-extrabold text-white leading-snug">
+          <p className="text-2xl sm:text-3xl font-serif font-extrabold text-white leading-snug">
             You stay client-facing. <span className="text-[#0D9BA3]">We keep the administrative work behind the transaction moving.</span>
           </p>
         </div>

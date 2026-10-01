@@ -489,14 +489,14 @@ export const MeetTheTribePage: React.FC<Props> = ({
               <div className="space-y-4">
                 <div className="relative w-full aspect-square max-w-[200px] mx-auto overflow-hidden rounded-2xl border-2 border-[#D8D2D4] bg-[#EEEAEB] flex items-center justify-center">
                   <div className="flex flex-col items-center justify-center text-center p-4 space-y-2">
-                    <div className="w-12 h-12 rounded-full bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-bold text-lg font-montserrat">
+                    <div className="w-12 h-12 rounded-full bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-bold text-lg font-sans">
                       CH
                     </div>
                     <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Operations & Management</span>
                   </div>
                 </div>
                 <div className="space-y-1 text-center sm:text-left">
-                  <h3 className="text-lg font-bold text-[#3A2E29] font-montserrat">
+                  <h3 className="text-lg font-bold text-[#3A2E29] font-serif">
                     Christian Hernandez
                   </h3>
                   <div className="text-xs font-extrabold text-[#0D9BA3] uppercase tracking-wider">

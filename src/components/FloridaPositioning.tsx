@@ -56,7 +56,7 @@ export const FloridaPositioning: React.FC<Props> = ({ onBookCall, onOpenMiamiTc,
             <span>FLORIDA SERVICE AREAS</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#3A2E29] tracking-tight">
             South Florida roots. Statewide support.
           </h2>
 
@@ -73,7 +73,7 @@ export const FloridaPositioning: React.FC<Props> = ({ onBookCall, onOpenMiamiTc,
               <div className="w-10 h-10 rounded-xl bg-white text-[#0D9BA3] flex items-center justify-center border border-[#D8D2D4]">
                 <Building2 className="w-5 h-5 text-[#0D9BA3]" />
               </div>
-              <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                 South Florida Roots
               </h3>
               <p className="text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
@@ -87,7 +87,7 @@ export const FloridaPositioning: React.FC<Props> = ({ onBookCall, onOpenMiamiTc,
               <div className="w-10 h-10 rounded-xl bg-white text-[#0D9BA3] flex items-center justify-center border border-[#D8D2D4]">
                 <Compass className="w-5 h-5 text-[#0D9BA3]" />
               </div>
-              <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                 Statewide Support
               </h3>
               <p className="text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
@@ -103,7 +103,7 @@ export const FloridaPositioning: React.FC<Props> = ({ onBookCall, onOpenMiamiTc,
           <button
             type="button"
             onClick={() => setModalOpen(true)}
-            className="bg-[#0D9BA3] hover:bg-[#0b8288] text-white px-8 py-4 rounded-xl font-montserrat font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg transition inline-flex items-center space-x-2.5 group cursor-pointer"
+            className="bg-[#0D9BA3] hover:bg-[#0b8288] text-white px-8 py-4 rounded-xl font-sans font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-lg transition inline-flex items-center space-x-2.5 group cursor-pointer"
           >
             <span>EXPLORE FLORIDA SERVICE AREAS</span>
             <ArrowRight className="w-4 h-4 text-[#FE7311] group-hover:translate-x-1 transition-transform" />
@@ -131,7 +131,7 @@ export const FloridaPositioning: React.FC<Props> = ({ onBookCall, onOpenMiamiTc,
                 <span>FLORIDA SERVICE AREAS</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-white">
+              <h3 className="text-2xl sm:text-3xl font-serif font-extrabold text-white">
                 Florida-wide support. South Florida roots.
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 font-medium mt-1">

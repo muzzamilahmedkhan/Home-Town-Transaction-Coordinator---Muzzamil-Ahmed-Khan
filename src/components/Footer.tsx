@@ -101,7 +101,7 @@ export const Footer: React.FC<Props> = ({
               <div className="text-[11px] font-extrabold uppercase tracking-widest text-[#0D9BA3] mb-1">
                 {language === 'es' ? 'Firma de la Fundadora' : 'Founder Sign-Off'}
               </div>
-              <div className="inline-flex items-center space-x-2 font-montserrat font-extrabold text-sm text-white bg-black/30 px-3.5 py-2 rounded-xl border border-[#0D9BA3]/40">
+              <div className="inline-flex items-center space-x-2 font-sans font-extrabold text-sm text-white bg-black/30 px-3.5 py-2 rounded-xl border border-[#0D9BA3]/40">
                 <span>FORWARD. Always Forward.</span>
               </div>
             </div>
@@ -109,7 +109,7 @@ export const Footer: React.FC<Props> = ({
 
           {/* Column 1: Services */}
           <div className="lg:col-span-2 space-y-3">
-            <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
+            <div className="font-sans font-extrabold text-white text-xs uppercase tracking-wider">
               {language === 'es' ? 'Servicios' : 'Services'}
             </div>
             <ul className="space-y-2 text-slate-300 font-medium text-xs">
@@ -146,7 +146,7 @@ export const Footer: React.FC<Props> = ({
 
           {/* Column 2: Company */}
           <div className="lg:col-span-2 space-y-3">
-            <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
+            <div className="font-sans font-extrabold text-white text-xs uppercase tracking-wider">
               {language === 'es' ? 'Empresa' : 'Company'}
             </div>
             <ul className="space-y-2 text-slate-300 font-medium text-xs">
@@ -225,7 +225,7 @@ export const Footer: React.FC<Props> = ({
 
           {/* Column 3: Client */}
           <div className="lg:col-span-2 space-y-3">
-            <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
+            <div className="font-sans font-extrabold text-white text-xs uppercase tracking-wider">
               {language === 'es' ? 'Clientes' : 'Client'}
             </div>
             <ul className="space-y-2 text-slate-300 font-medium text-xs">
@@ -250,7 +250,7 @@ export const Footer: React.FC<Props> = ({
 
           {/* Column 4: Contact */}
           <div className="lg:col-span-2 space-y-3">
-            <div className="font-montserrat font-extrabold text-white text-xs uppercase tracking-wider">
+            <div className="font-sans font-extrabold text-white text-xs uppercase tracking-wider">
               {language === 'es' ? 'Contacto' : 'Contact'}
             </div>
             <ul className="space-y-2.5 text-slate-300 font-medium text-xs">

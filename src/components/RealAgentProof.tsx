@@ -59,7 +59,7 @@ export const RealAgentProof: React.FC = () => {
             <span>FROM FLORIDA REALTORS</span>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#3A2E29]">
             What Realtors Say About Working With HTC
           </h2>
           
@@ -85,7 +85,7 @@ export const RealAgentProof: React.FC = () => {
               </div>
             </div>
             <div>
-              <div className="text-lg font-montserrat font-extrabold text-[#3A2E29]">
+              <div className="text-lg font-sans font-bold text-[#3A2E29]">
                 {featuredReview.name}
               </div>
               <div className="text-xs font-bold text-[#0D9BA3] uppercase tracking-wider">
@@ -105,7 +105,7 @@ export const RealAgentProof: React.FC = () => {
               </span>
             </div>
 
-            <blockquote className="text-lg sm:text-xl font-montserrat font-bold text-[#3A2E29] leading-relaxed italic">
+            <blockquote className="text-lg sm:text-xl font-serif font-bold text-[#3A2E29] leading-relaxed italic">
               “{featuredReview.quote}”
             </blockquote>
           </div>
@@ -167,7 +167,7 @@ export const RealAgentProof: React.FC = () => {
             
             <div className="flex items-center justify-between border-b border-[#D8D2D4] pb-4">
               <div>
-                <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+                <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                   Client Reviews & Recommendations
                 </h3>
                 <p className="text-xs text-[#3A2E29]/70 font-medium">

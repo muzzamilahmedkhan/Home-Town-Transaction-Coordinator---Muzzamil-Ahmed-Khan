@@ -44,7 +44,7 @@ export const WhatMovesOffPlate: React.FC<Props> = ({ onExploreServices }) => {
           <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#0D9BA3] bg-white px-3.5 py-1.5 rounded-full border border-[#D8D2D4]">
             <span>WHAT MOVES OFF YOUR PLATE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#3A2E29]">
             The work keeps moving without living in your head.
           </h2>
         </div>
@@ -61,7 +61,7 @@ export const WhatMovesOffPlate: React.FC<Props> = ({ onExploreServices }) => {
                 <div className="w-12 h-12 rounded-xl bg-[#EEEAEB] text-[#0D9BA3] flex items-center justify-center border border-[#D8D2D4]">
                   <Icon className="w-6 h-6 text-[#0D9BA3]" />
                 </div>
-                <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+                <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                   {item.title}
                 </h3>
                 <p className="text-sm text-[#3A2E29]/80 font-medium leading-relaxed">

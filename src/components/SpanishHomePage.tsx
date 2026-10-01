@@ -70,7 +70,7 @@ export const SpanishHomePage: React.FC<Props> = ({
                 <span>{data.hero.eyebrow}</span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-[84px] font-extrabold text-[#3A2E29] tracking-tight leading-[1.02] font-montserrat">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-[84px] font-extrabold text-[#3A2E29] tracking-tight leading-[1.02] font-serif">
                 {data.hero.titleLine1}{' '}
                 <span className="text-[#FE7311]">{data.hero.titleAccent}</span>
               </h1>

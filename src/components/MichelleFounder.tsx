@@ -28,7 +28,7 @@ export const MichelleFounder: React.FC<Props> = ({ onOpenAbout, onOpenMeetTheTri
             <span>THE HOMETOWN SUPPORT MODEL</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-white tracking-tight">
             One point of contact. A team behind the work.
           </h2>
 
@@ -50,7 +50,7 @@ export const MichelleFounder: React.FC<Props> = ({ onOpenAbout, onOpenMeetTheTri
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#3A2E29] via-[#3A2E29]/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#3A2E29]/95 backdrop-blur-md rounded-2xl border border-white/10 space-y-1">
-                <div className="text-sm font-bold text-white font-montserrat">Michelle Martinez</div>
+                <div className="text-sm font-bold text-white font-sans">Michelle Martinez</div>
                 <div className="text-xs text-[#0D9BA3] font-semibold">Founder & Owner • Serving Florida Realtors Since 1995</div>
                 <p className="text-[11px] text-slate-300 leading-normal pt-1">
                   Built on nearly 30 years of Florida contract, title, and transaction coordination experience.
@@ -78,10 +78,10 @@ export const MichelleFounder: React.FC<Props> = ({ onOpenAbout, onOpenMeetTheTri
                 
                 {/* Node 1: YOU */}
                 <div className="sm:col-span-3 bg-black/40 rounded-2xl p-4 border border-white/10 text-center space-y-2">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 text-[#FE7311] mx-auto flex items-center justify-center font-bold text-sm font-montserrat">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 text-[#FE7311] mx-auto flex items-center justify-center font-bold text-sm font-sans">
                     YOU
                   </div>
-                  <div className="font-montserrat font-extrabold text-sm text-white">YOU</div>
+                  <div className="font-sans font-extrabold text-sm text-white">YOU</div>
                   <div className="text-[11px] font-mono text-[#0D9BA3] font-semibold uppercase">Realtor Partner</div>
                   <p className="text-[11px] text-slate-400 leading-snug">
                     Focus on clients, contracts, negotiations & pipeline.
@@ -101,7 +101,7 @@ export const MichelleFounder: React.FC<Props> = ({ onOpenAbout, onOpenMeetTheTri
                   <div className="w-10 h-10 rounded-xl bg-[#0D9BA3] text-white mx-auto flex items-center justify-center">
                     <UserCheck className="w-5 h-5" />
                   </div>
-                  <div className="font-montserrat font-extrabold text-sm text-white">LEAD TC</div>
+                  <div className="font-sans font-extrabold text-sm text-white">LEAD TC</div>
                   <div className="text-[11px] font-mono text-[#0D9BA3] font-bold uppercase">Main Contact</div>
                   <p className="text-[11px] text-slate-200 leading-snug font-medium">
                     Your single day-to-day point of contact for your files.
@@ -121,7 +121,7 @@ export const MichelleFounder: React.FC<Props> = ({ onOpenAbout, onOpenMeetTheTri
                   <div className="w-10 h-10 rounded-xl bg-white/10 text-[#FE7311] mx-auto flex items-center justify-center">
                     <ShieldCheck className="w-5 h-5 text-[#FE7311]" />
                   </div>
-                  <div className="font-montserrat font-extrabold text-xs text-white uppercase">HTC TEAM + SYSTEMS</div>
+                  <div className="font-sans font-extrabold text-xs text-white uppercase">HTC TEAM + SYSTEMS</div>
                   <div className="text-[11px] font-mono text-[#FE7311] font-semibold uppercase">Operational Engine</div>
                   <p className="text-[11px] text-slate-400 leading-snug">
                     Dedicated team, systems & tech keeping work organized.
@@ -142,7 +142,7 @@ export const MichelleFounder: React.FC<Props> = ({ onOpenAbout, onOpenMeetTheTri
               <button
                 type="button"
                 onClick={handleCta}
-                className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-montserrat font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition inline-flex items-center space-x-2.5 cursor-pointer"
+                className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-8 py-4 rounded-xl font-sans font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition inline-flex items-center space-x-2.5 cursor-pointer"
               >
                 <span>MEET THE TRIBE</span>
                 <ArrowRight className="w-4 h-4" />

@@ -66,7 +66,7 @@ export const ReviewsPage: React.FC<Props> = ({
               </div>
             </div>
             <div>
-              <div className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+              <div className="text-xl font-sans font-extrabold text-[#3A2E29]">
                 {featuredReview.name}
               </div>
               <div className="text-xs font-bold text-[#0D9BA3] uppercase tracking-wider mt-1">

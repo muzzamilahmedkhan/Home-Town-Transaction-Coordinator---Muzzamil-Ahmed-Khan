@@ -19,7 +19,7 @@ export const BookCallModal: React.FC<Props> = ({ isOpen, onClose }) => {
             <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3]">
               BOOK A FIT CALL
             </div>
-            <h3 className="text-lg sm:text-xl font-montserrat font-extrabold text-white mt-0.5">
+            <h3 className="text-lg sm:text-xl font-serif font-extrabold text-white mt-0.5">
               Let’s See If We’re a Fit.
             </h3>
             <p className="text-xs text-slate-300 font-normal mt-0.5">

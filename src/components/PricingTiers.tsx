@@ -23,7 +23,7 @@ export const PricingTiers: React.FC<Props> = ({ onExploreServices }) => {
               <span>SERVICES PREVIEW</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#3A2E29]">
               Our Core Service Lanes
             </h2>
           </div>
@@ -36,7 +36,7 @@ export const PricingTiers: React.FC<Props> = ({ onExploreServices }) => {
               <div className="w-10 h-10 rounded-xl bg-white text-[#0D9BA3] flex items-center justify-center font-bold">
                 <Home className="w-5 h-5 text-[#FE7311]" />
               </div>
-              <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                 Listing Services
               </h3>
               <p className="text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
@@ -49,7 +49,7 @@ export const PricingTiers: React.FC<Props> = ({ onExploreServices }) => {
               <div className="w-10 h-10 rounded-xl bg-white text-[#0D9BA3] flex items-center justify-center font-bold">
                 <FileText className="w-5 h-5 text-[#0D9BA3]" />
               </div>
-              <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                 Contract Services
               </h3>
               <p className="text-sm text-[#3A2E29]/80 font-medium leading-relaxed">
@@ -62,7 +62,7 @@ export const PricingTiers: React.FC<Props> = ({ onExploreServices }) => {
               <div className="w-10 h-10 rounded-xl bg-white text-[#0D9BA3] flex items-center justify-center font-bold">
                 <Users className="w-5 h-5 text-[#0D9BA3]" />
               </div>
-              <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                 Team + Brokerage Support
               </h3>
               <p className="text-sm text-[#3A2E29]/80 font-medium leading-relaxed">

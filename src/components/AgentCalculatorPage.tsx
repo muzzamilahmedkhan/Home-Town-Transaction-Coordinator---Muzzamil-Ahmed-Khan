@@ -457,7 +457,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
             <span>RUN THE NUMBERS</span>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-montserrat tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-serif tracking-tight leading-tight">
             See what your time, support, and growth could be worth.
           </h1>
 
@@ -476,7 +476,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
           
           <button
             onClick={() => switchMode('time-value', 'time-worth')}
-            className={`flex-1 py-3 px-3.5 sm:px-4 rounded-xl font-montserrat font-extrabold text-xs sm:text-sm uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer min-h-[48px] focus:ring-2 focus:ring-[#FE7311] focus:outline-none ${
+            className={`flex-1 py-3 px-3.5 sm:px-4 rounded-xl font-sans font-extrabold text-xs sm:text-sm uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer min-h-[48px] focus:ring-2 focus:ring-[#FE7311] focus:outline-none ${
               activeMode === 'time-value'
                 ? 'bg-[#3A2E29] text-white shadow-md'
                 : 'text-[#3A2E29]/70 hover:text-[#3A2E29] hover:bg-[#EEEAEB]'
@@ -490,7 +490,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
 
           <button
             onClick={() => switchMode('in-house', 'hire-or-htc')}
-            className={`flex-1 py-3 px-3.5 sm:px-4 rounded-xl font-montserrat font-extrabold text-xs sm:text-sm uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer min-h-[48px] focus:ring-2 focus:ring-[#FE7311] focus:outline-none ${
+            className={`flex-1 py-3 px-3.5 sm:px-4 rounded-xl font-sans font-extrabold text-xs sm:text-sm uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer min-h-[48px] focus:ring-2 focus:ring-[#FE7311] focus:outline-none ${
               activeMode === 'in-house'
                 ? 'bg-[#3A2E29] text-white shadow-md'
                 : 'text-[#3A2E29]/70 hover:text-[#3A2E29] hover:bg-[#EEEAEB]'
@@ -504,7 +504,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
 
           <button
             onClick={() => switchMode('growth-scenario', '20-percent-more')}
-            className={`flex-1 py-3 px-3.5 sm:px-4 rounded-xl font-montserrat font-extrabold text-xs sm:text-sm uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer min-h-[48px] focus:ring-2 focus:ring-[#FE7311] focus:outline-none ${
+            className={`flex-1 py-3 px-3.5 sm:px-4 rounded-xl font-sans font-extrabold text-xs sm:text-sm uppercase tracking-wider transition flex items-center justify-center space-x-2 cursor-pointer min-h-[48px] focus:ring-2 focus:ring-[#FE7311] focus:outline-none ${
               activeMode === 'growth-scenario'
                 ? 'bg-[#3A2E29] text-white shadow-md'
                 : 'text-[#3A2E29]/70 hover:text-[#3A2E29] hover:bg-[#EEEAEB]'
@@ -533,7 +533,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
                 WHAT’S MY TIME WORTH?
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat mt-0.5">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif mt-0.5">
                 What is my time worth as a real estate agent?
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
@@ -706,7 +706,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                     <div className="text-xs font-bold uppercase tracking-widest text-[#0D9BA3]">
                       YOUR WORKING HOUR IS WORTH
                     </div>
-                    <div className="text-3xl sm:text-5xl font-extrabold text-[#FE7311] font-montserrat tracking-tight">
+                    <div className="text-3xl sm:text-5xl font-extrabold text-[#FE7311] font-serif tracking-tight">
                       ${Math.round(m1GciPerHour).toLocaleString()} <span className="text-base sm:text-xl font-normal text-slate-300">/ hour</span>
                     </div>
                     <p className="text-xs text-slate-300">
@@ -720,7 +720,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                       TIME SPENT ON TRANSACTION ADMIN
                     </div>
                     <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                      <div className="text-xl sm:text-2xl font-bold text-white font-montserrat">
+                      <div className="text-xl sm:text-2xl font-bold text-white font-serif">
                         {m1AnnualAdminHours.toLocaleString()} hours/year
                       </div>
                       <div className="text-sm font-semibold text-[#0D9BA3]">
@@ -797,7 +797,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                 <div className="pt-2 border-t border-[#D8D2D4]">
                   <div className="p-4 sm:p-5 bg-[#3A2E29] text-white rounded-xl border border-[#0D9BA3]/30 shadow-md space-y-3">
                     <div className="space-y-1">
-                      <div className="text-sm sm:text-base font-extrabold text-white font-montserrat">
+                      <div className="text-sm sm:text-base font-extrabold text-white font-serif">
                         Want to see what support would fit your business?
                       </div>
                       <p className="text-xs text-slate-300 font-medium">
@@ -845,7 +845,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
                 HIRE A TC OR USE HTC?
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat mt-0.5">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif mt-0.5">
                 Should I hire a transaction coordinator or use HTC?
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
@@ -1005,7 +1005,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                     <div className="text-xs font-bold uppercase tracking-widest text-[#0D9BA3]">
                       ESTIMATED IN-HOUSE ANNUAL COST
                     </div>
-                    <div className="text-3xl sm:text-5xl font-extrabold text-[#FE7311] font-montserrat tracking-tight">
+                    <div className="text-3xl sm:text-5xl font-extrabold text-[#FE7311] font-serif tracking-tight">
                       ${Math.round(m2LoadedInHouseCost).toLocaleString()} <span className="text-base sm:text-xl font-normal text-slate-300">/ year</span>
                     </div>
                     <p className="text-xs text-slate-300">
@@ -1018,7 +1018,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                     <div className="text-xs font-bold uppercase tracking-wider text-slate-300">
                       ESTIMATED COST PER CLOSING
                     </div>
-                    <div className="text-2xl sm:text-3xl font-bold text-white font-montserrat">
+                    <div className="text-2xl sm:text-3xl font-bold text-white font-serif">
                       ${Math.round(m2InHouseCostPerSide).toLocaleString()} <span className="text-xs sm:text-sm font-normal text-slate-300">/ closed side</span>
                     </div>
                     <p className="text-[11px] text-slate-300">
@@ -1107,7 +1107,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                 <div className="pt-2 border-t border-[#D8D2D4]">
                   <div className="p-4 sm:p-5 bg-[#3A2E29] text-white rounded-xl border border-[#0D9BA3]/30 shadow-md space-y-3">
                     <div className="space-y-1">
-                      <div className="text-sm sm:text-base font-extrabold text-white font-montserrat">
+                      <div className="text-sm sm:text-base font-extrabold text-white font-serif">
                         Want to see what support would fit your business?
                       </div>
                       <p className="text-xs text-slate-300 font-medium">
@@ -1155,7 +1155,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
                 WHAT COULD 20% MORE LOOK LIKE?
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat mt-0.5">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif mt-0.5">
                 What could 20% more look like for your business?
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 mt-1">
@@ -1269,7 +1269,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                     <span className="text-[10px] font-bold uppercase tracking-widest text-[#3A2E29]/70">
                       TODAY
                     </span>
-                    <div className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat">
+                    <div className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
                       {m3.currentSides} <span className="text-base font-semibold text-[#3A2E29]/70">Closings</span>
                     </div>
                     <div className="text-lg sm:text-xl font-bold text-[#0D9BA3]">
@@ -1287,7 +1287,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                         +20%
                       </span>
                     </div>
-                    <div className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat">
+                    <div className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
                       {Math.round(m3ProjectedSides)} <span className="text-base font-semibold text-[#3A2E29]/70">Closings</span>
                     </div>
                     <div className="text-lg sm:text-xl font-bold text-[#FE7311]">
@@ -1318,7 +1318,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                       <div className="text-[11px] text-slate-300 font-medium uppercase tracking-wider">
                         Additional Closings
                       </div>
-                      <div className="text-3xl sm:text-4xl font-extrabold text-[#0D9BA3] font-montserrat mt-0.5">
+                      <div className="text-3xl sm:text-4xl font-extrabold text-[#0D9BA3] font-serif mt-0.5">
                         +{Math.round(m3AdditionalSides)}
                       </div>
                       <div className="text-xs text-slate-300 font-medium mt-0.5">
@@ -1330,7 +1330,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                       <div className="text-[11px] text-slate-300 font-medium uppercase tracking-wider">
                         Additional GCI
                       </div>
-                      <div className="text-3xl sm:text-4xl font-extrabold text-[#FE7311] font-montserrat mt-0.5">
+                      <div className="text-3xl sm:text-4xl font-extrabold text-[#FE7311] font-serif mt-0.5">
                         +${Math.round(m3AdditionalGci).toLocaleString()}
                       </div>
                       <div className="text-xs text-slate-300 font-medium mt-0.5">
@@ -1403,7 +1403,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
                 <div className="pt-2 border-t border-[#D8D2D4]">
                   <div className="p-4 sm:p-5 bg-[#3A2E29] text-white rounded-xl border border-[#0D9BA3]/30 shadow-md space-y-3">
                     <div className="space-y-1">
-                      <div className="text-sm sm:text-base font-extrabold text-white font-montserrat">
+                      <div className="text-sm sm:text-base font-extrabold text-white font-serif">
                         Want to see what support would fit your business?
                       </div>
                       <p className="text-xs text-slate-300 font-medium">
@@ -1454,7 +1454,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3]">
               HOW THE NUMBERS WORK
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-montserrat">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#3A2E29] font-serif">
               Questions about the calculators?
             </h2>
           </div>
@@ -1489,7 +1489,7 @@ export const AgentCalculatorPage: React.FC<Props> = ({
               >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full p-4 text-left font-montserrat font-bold text-xs sm:text-sm text-[#3A2E29] flex items-center justify-between cursor-pointer hover:bg-black/5 transition focus:ring-2 focus:ring-[#FE7311] focus:outline-none"
+                  className="w-full p-4 text-left font-sans font-bold text-xs sm:text-sm text-[#3A2E29] flex items-center justify-between cursor-pointer hover:bg-black/5 transition focus:ring-2 focus:ring-[#FE7311] focus:outline-none"
                 >
                   <span>{faq.q}</span>
                   {openFaq === idx ? (

@@ -751,7 +751,7 @@ export const FaqPage: React.FC<Props> = ({
           </div>
 
           {/* Main H1 Title strictly matching prompt */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#3A2E29] tracking-tight leading-tight">
             Got a question? Start here.
           </h1>
 
@@ -864,7 +864,7 @@ export const FaqPage: React.FC<Props> = ({
                       : 'bg-[#FAF8F5] text-[#3A2E29] border-[#D8D2D4] hover:border-[#0D9BA3] hover:bg-white'
                   }`}
                 >
-                  <span className={`text-[11px] font-montserrat font-extrabold tracking-wider block ${
+                  <span className={`text-[11px] font-sans font-extrabold tracking-wider block ${
                     isSelected ? 'text-[#FE7311]' : 'text-[#3A2E29]'
                   }`}>
                     {cat.name}
@@ -890,7 +890,7 @@ export const FaqPage: React.FC<Props> = ({
           <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D9BA3]">
             FREQUENTLY ASKED QUESTIONS
           </div>
-          <h1 className="text-2xl font-bold text-[#3A2E29] mt-1 font-montserrat">
+          <h1 className="text-2xl font-bold text-[#3A2E29] mt-1 font-serif">
             Got a question? Start here.
           </h1>
           <p className="text-xs text-slate-600 mt-1">
@@ -951,7 +951,7 @@ export const FaqPage: React.FC<Props> = ({
                   </button>
                 )}
               </div>
-              <h2 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29] mt-0.5">
+              <h2 className="text-xl sm:text-2xl font-serif font-extrabold text-[#3A2E29] mt-0.5">
                 {activeCategory === 'all' ? 'Browse all questions & answers' : activeCategoryObj?.subtitle}
               </h2>
             </div>
@@ -1005,7 +1005,7 @@ export const FaqPage: React.FC<Props> = ({
               <Search className="w-6 h-6" />
             </div>
             <div className="space-y-1">
-              <h3 className="text-lg font-montserrat font-bold text-[#3A2E29]">
+              <h3 className="text-lg font-serif font-bold text-[#3A2E29]">
                 No answers found for “{searchQuery}”
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
@@ -1036,7 +1036,7 @@ export const FaqPage: React.FC<Props> = ({
                 <section key={cat.id} className="space-y-4">
                   <div className="flex items-baseline justify-between border-b border-[#D8D2D4] pb-2">
                     <div>
-                      <h3 className="text-lg sm:text-xl font-montserrat font-extrabold text-[#3A2E29]">
+                      <h3 className="text-lg sm:text-xl font-serif font-extrabold text-[#3A2E29]">
                         {cat.name}
                       </h3>
                     </div>
@@ -1067,7 +1067,7 @@ export const FaqPage: React.FC<Props> = ({
                             aria-expanded={isOpen}
                             className="w-full p-4 sm:p-5 text-left flex items-start justify-between gap-4 cursor-pointer group"
                           >
-                            <h4 className="text-sm sm:text-base font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
+                            <h4 className="text-sm sm:text-base font-serif font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
                               {item.question}
                             </h4>
 
@@ -1088,7 +1088,7 @@ export const FaqPage: React.FC<Props> = ({
                                 <div className="pt-2">
                                   <button
                                     onClick={item.actionLink.action}
-                                    className="inline-flex items-center space-x-1.5 text-xs font-montserrat font-extrabold uppercase tracking-wider text-[#0D9BA3] hover:text-[#FE7311] transition cursor-pointer"
+                                    className="inline-flex items-center space-x-1.5 text-xs font-sans font-extrabold uppercase tracking-wider text-[#0D9BA3] hover:text-[#FE7311] transition cursor-pointer"
                                   >
                                     <span>{item.actionLink.label}</span>
                                   </button>
@@ -1128,7 +1128,7 @@ export const FaqPage: React.FC<Props> = ({
                           {categories.find((c) => c.id === item.categoryId)?.name}
                         </span>
                       )}
-                      <h3 className="text-sm sm:text-base font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
+                      <h3 className="text-sm sm:text-base font-serif font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
                         {item.question}
                       </h3>
                     </div>
@@ -1150,7 +1150,7 @@ export const FaqPage: React.FC<Props> = ({
                         <div className="pt-2">
                           <button
                             onClick={item.actionLink.action}
-                            className="inline-flex items-center space-x-1.5 text-xs font-montserrat font-extrabold uppercase tracking-wider text-[#0D9BA3] hover:text-[#FE7311] transition cursor-pointer"
+                            className="inline-flex items-center space-x-1.5 text-xs font-sans font-extrabold uppercase tracking-wider text-[#0D9BA3] hover:text-[#FE7311] transition cursor-pointer"
                           >
                             <span>{item.actionLink.label}</span>
                           </button>
@@ -1172,7 +1172,7 @@ export const FaqPage: React.FC<Props> = ({
       <section className="bg-white border-y border-[#D8D2D4] py-10 sm:py-12 px-4 sm:px-6 lg:px-8 print:hidden">
         <div className="max-w-4xl mx-auto space-y-6">
           <div className="text-center space-y-1">
-            <h3 className="text-lg font-montserrat font-bold text-[#3A2E29]">
+            <h3 className="text-lg font-serif font-bold text-[#3A2E29]">
               Explore Detailed Pages
             </h3>
             <p className="text-xs sm:text-sm text-slate-600">
@@ -1186,7 +1186,7 @@ export const FaqPage: React.FC<Props> = ({
               className="p-4 bg-[#FAF8F5] rounded-xl border border-[#D8D2D4] hover:border-[#0D9BA3] transition text-left space-y-1.5 group cursor-pointer shadow-2xs"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
+                <span className="text-xs font-sans font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
                   Plans & Pricing Matrix
                 </span>
                 <Layers className="w-4 h-4 text-[#0D9BA3]" />
@@ -1201,7 +1201,7 @@ export const FaqPage: React.FC<Props> = ({
               className="p-4 bg-[#FAF8F5] rounded-xl border border-[#D8D2D4] hover:border-[#0D9BA3] transition text-left space-y-1.5 group cursor-pointer shadow-2xs"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
+                <span className="text-xs font-sans font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
                   How HTC Works
                 </span>
                 <Clock className="w-4 h-4 text-[#0D9BA3]" />
@@ -1216,7 +1216,7 @@ export const FaqPage: React.FC<Props> = ({
               className="p-4 bg-[#FAF8F5] rounded-xl border border-[#D8D2D4] hover:border-[#0D9BA3] transition text-left space-y-1.5 group cursor-pointer shadow-2xs"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
+                <span className="text-xs font-sans font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
                   Florida Coverage
                 </span>
                 <FileCheck2 className="w-4 h-4 text-[#0D9BA3]" />
@@ -1243,7 +1243,7 @@ export const FaqPage: React.FC<Props> = ({
               <span>STILL HAVE A QUESTION?</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-white">
+            <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-white">
               Can’t find your answer? Let’s talk.
             </h2>
 
@@ -1255,7 +1255,7 @@ export const FaqPage: React.FC<Props> = ({
             <div className="pt-2 flex flex-col sm:flex-row justify-center items-center gap-3">
               <button
                 onClick={onBookCall}
-                className="w-full sm:w-auto px-7 py-3.5 bg-[#FE7311] hover:bg-[#e06209] text-white font-montserrat font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md hover:shadow-[#FE7311]/25 cursor-pointer flex items-center justify-center space-x-2"
+                className="w-full sm:w-auto px-7 py-3.5 bg-[#FE7311] hover:bg-[#e06209] text-white font-sans font-bold text-xs uppercase tracking-wider rounded-xl transition shadow-md hover:shadow-[#FE7311]/25 cursor-pointer flex items-center justify-center space-x-2"
               >
                 <PhoneCall className="w-4 h-4" />
                 <span>BOOK A 15-MINUTE FIT CALL</span>
@@ -1263,7 +1263,7 @@ export const FaqPage: React.FC<Props> = ({
 
               <button
                 onClick={onOpenPricing}
-                className="w-full sm:w-auto px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-montserrat font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer border border-white/20"
+                className="w-full sm:w-auto px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-sans font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer border border-white/20"
               >
                 <span>View Plans & Pricing</span>
               </button>

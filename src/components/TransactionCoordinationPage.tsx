@@ -260,7 +260,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                 <span>FLORIDA CONTRACT-TO-CLOSE EXPERTISE</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-montserrat font-extrabold text-white tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-white tracking-tight leading-tight">
                 Florida Transaction Coordination Services
               </h1>
 
@@ -319,7 +319,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                   <div className="text-xs font-bold text-[#0D9BA3] uppercase tracking-wider">
                     Defensible Closing Files
                   </div>
-                  <div className="text-sm font-montserrat font-bold">
+                  <div className="text-sm font-sans font-bold">
                     thorough signature tracking
                   </div>
                 </div>
@@ -342,7 +342,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               <Scale className="w-3.5 h-3.5 text-[#FE7311]" />
               <span>CLEAR OPERATIONAL BOUNDARIES</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#3A2E29]">
               What Transaction Coordination Is — and Is Not
             </h2>
             <p className="text-base text-[#3A2E29]/80 font-medium leading-relaxed">
@@ -359,7 +359,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                   <CheckCircle2 className="w-6 h-6 text-[#0D9BA3]" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+                  <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                     What Transaction Coordination IS
                   </h3>
                   <div className="text-xs text-[#0D9BA3] font-bold uppercase tracking-wider">
@@ -395,7 +395,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                   <XCircle className="w-6 h-6 text-[#FE7311]" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-montserrat font-extrabold text-white">
+                  <h3 className="text-xl font-serif font-extrabold text-white">
                     What Transaction Coordination IS NOT
                   </h3>
                   <div className="text-xs text-[#FE7311] font-bold uppercase tracking-wider">
@@ -440,7 +440,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               <Layers className="w-3.5 h-3.5 text-[#FE7311]" />
               <span>DETAILED OPERATIONAL SCOPE</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#3A2E29]">
               Specific Tasks Delivered at Every File Stage
             </h2>
             <p className="text-base text-[#3A2E29]/80 font-medium leading-relaxed">
@@ -458,7 +458,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
-                  className={`px-5 py-3 rounded-xl font-montserrat font-bold text-xs sm:text-sm transition flex items-center space-x-2 cursor-pointer ${
+                  className={`px-5 py-3 rounded-xl font-sans font-bold text-xs sm:text-sm transition flex items-center space-x-2 cursor-pointer ${
                     isActive
                       ? 'bg-[#3A2E29] text-white shadow-md border border-[#0D9BA3]'
                       : 'bg-white text-[#3A2E29] border border-[#D8D2D4] hover:border-[#0D9BA3]/60'
@@ -479,7 +479,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#D8D2D4] shadow-lg space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#D8D2D4] pb-6">
                   <div className="space-y-1">
-                    <h3 className="text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+                    <h3 className="text-2xl font-serif font-extrabold text-[#3A2E29]">
                       {currentScope.title}
                     </h3>
                     <p className="text-sm text-[#3A2E29]/80 font-medium">
@@ -525,7 +525,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               <DollarSign className="w-3.5 h-3.5 text-[#FE7311]" />
               <span>PLAN COMPARISON</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#3A2E29]">
               Base vs. Pro Plan Differences
             </h2>
             <p className="text-base text-[#3A2E29]/80 font-medium leading-relaxed">
@@ -546,10 +546,10 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+                  <h3 className="text-2xl font-serif font-extrabold text-[#3A2E29]">
                     Base Contract-to-Close
                   </h3>
-                  <div className="text-3xl font-montserrat font-extrabold text-[#3A2E29] mt-2">
+                  <div className="text-3xl font-serif font-extrabold text-[#3A2E29] mt-2">
                     $375 <span className="text-xs font-bold text-slate-500">/ closed file</span>
                   </div>
                   <p className="text-xs text-[#3A2E29]/80 font-medium mt-1">
@@ -587,10 +587,10 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-montserrat font-extrabold text-white">
+                  <h3 className="text-2xl font-serif font-extrabold text-white">
                     Full Service Pro
                   </h3>
-                  <div className="text-3xl font-montserrat font-extrabold text-white mt-2">
+                  <div className="text-3xl font-serif font-extrabold text-white mt-2">
                     $475 <span className="text-xs font-bold text-slate-300">/ closed file</span>
                   </div>
                   <p className="text-xs text-slate-300 font-medium mt-1">
@@ -637,7 +637,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               <ShieldCheck className="w-3.5 h-3.5 text-[#FE7311]" />
               <span>FIDUCIARY PRESERVATION</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#3A2E29]">
               Decisions That Remain With the Agent
             </h2>
             <p className="text-base text-[#3A2E29]/80 font-medium leading-relaxed">
@@ -667,7 +667,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                     </div>
                     <div>
                       <h3
-                        className={`text-lg font-montserrat font-extrabold ${
+                        className={`text-lg font-sans font-extrabold ${
                           isAgentOnly ? 'text-[#3A2E29]' : 'text-white'
                         }`}
                       >
@@ -719,7 +719,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                 <div className="text-xs font-extrabold uppercase tracking-wider text-[#FE7311]">
                   
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
+                <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#3A2E29]">
                   How HTC Handles Contract Cancellations
                 </h2>
               </div>
@@ -769,7 +769,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
               <HelpCircle className="w-3.5 h-3.5 text-[#FE7311]" />
               <span>FREQUENT QUESTIONS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#3A2E29]">
               Transaction Coordination FAQ
             </h2>
           </div>
@@ -784,7 +784,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
                 >
                   <button
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-montserrat font-extrabold text-sm sm:text-base text-[#3A2E29] hover:text-[#0D9BA3] transition cursor-pointer"
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-sans font-extrabold text-sm sm:text-base text-[#3A2E29] hover:text-[#0D9BA3] transition cursor-pointer"
                   >
                     <span>{faq.q}</span>
                     {isOpen ? (
@@ -817,7 +817,7 @@ export const TransactionCoordinationPage: React.FC<Props> = ({
             <span>CALM, DEFENSIBLE CLOSINGS EVERY TIME</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-montserrat font-extrabold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-serif font-extrabold text-white tracking-tight leading-tight">
             Ready to reclaim substantial time per file
           </h2>
 

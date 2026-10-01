@@ -219,7 +219,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
               <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/10 text-[#0D9BA3] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
                 <span>The Hometown Brief</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold tracking-tight text-[#3A2E29] leading-tight mb-3">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold tracking-tight text-[#3A2E29] leading-tight mb-3">
                 {config.name}
               </h1>
               <p className="text-base sm:text-lg text-slate-600 max-w-2xl font-medium">
@@ -310,7 +310,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                 <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold block mb-1">
                   SEARCH RESULTS
                 </span>
-                <h2 className="text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+                <h2 className="text-2xl font-serif font-extrabold text-[#3A2E29]">
                   Matches for &ldquo;{searchQuery}&rdquo; in {config.name}
                 </h2>
               </div>
@@ -342,7 +342,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                       </span>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2">
+                    <h3 className="text-lg sm:text-xl font-serif font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2">
                       <a 
                         href={`/resources/${result.slug}/`}
                         onClick={(e) => handleLinkClick(e, `/resources/${result.slug}/`)}
@@ -398,7 +398,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
               <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold block mb-1">
                 OPERATIONAL BRIEFS
               </span>
-              <h2 id="article-list-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h2 id="article-list-heading" className="text-2xl sm:text-3xl font-serif font-extrabold text-[#3A2E29]">
                 {config.name} Briefs
               </h2>
             </div>
@@ -407,7 +407,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
           {categoryArticles.length === 0 ? (
             <div className="bg-white border border-[#D8D2D4] rounded-2xl p-8 sm:p-12 text-center max-w-2xl mx-auto shadow-sm">
               <BookOpen className="w-10 h-10 text-[#0D9BA3] mx-auto mb-3" />
-              <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] mb-2">
+              <h3 className="text-lg font-serif font-bold text-[#3A2E29] mb-2">
                 Operational Briefs in Preparation
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-6">
@@ -448,7 +448,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
                       </span>
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors leading-snug mb-3">
+                    <h3 className="text-base sm:text-lg font-serif font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors leading-snug mb-3">
                       <a
                         href={`/resources/${article.slug}/`}
                         onClick={(e) => handleLinkClick(e, `/resources/${article.slug}/`)}
@@ -485,7 +485,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
             <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold block mb-1">
               INTERNAL RESOURCES
             </span>
-            <h2 id="internal-links-heading" className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h2 id="internal-links-heading" className="text-xl sm:text-2xl font-serif font-extrabold text-[#3A2E29]">
               Direct Links to Florida Real Estate Operations
             </h2>
           </div>
@@ -522,7 +522,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
               <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/20 text-[#0D9BA3] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-[#0D9BA3]/30">
                 <span>INTERACTIVE AGENT BUSINESS TOOL</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-white">
+              <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-white">
                 Run the Numbers for Your Real Estate Business
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed max-w-2xl font-medium">
@@ -554,7 +554,7 @@ export const CategoryArchivePage: React.FC<Props> = ({
             <ShieldCheck className="w-4 h-4 text-[#FE7311]" />
             <span>PROTECT THE AGENT · PROTECT THE BROKER · PROTECT THE CLIENT</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-white mb-3 leading-tight max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-white mb-3 leading-tight max-w-3xl mx-auto">
             Want support with the work itself?
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto mb-8 leading-relaxed font-medium">

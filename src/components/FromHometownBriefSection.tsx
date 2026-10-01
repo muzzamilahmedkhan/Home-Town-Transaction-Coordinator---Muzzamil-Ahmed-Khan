@@ -111,7 +111,7 @@ export const FromHometownBriefSection: React.FC<FromHometownBriefSectionProps> =
           {/* Requested Title: Read the Brief Behind the Tool. */}
           <h2 
             id="hometown-brief-heading" 
-            className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight"
+            className="text-2xl sm:text-3xl lg:text-4xl font-serif font-extrabold text-[#3A2E29] tracking-tight"
           >
             Read the Brief Behind the Tool.
           </h2>
@@ -174,7 +174,7 @@ export const FromHometownBriefSection: React.FC<FromHometownBriefSectionProps> =
             <Scale className="w-4 h-4" />
           </div>
           <div>
-            <strong className="font-bold text-[#3A2E29] font-montserrat">Bidirectional Content Network: </strong>
+            <strong className="font-bold text-[#3A2E29] font-sans">Bidirectional Content Network: </strong>
             <span className="text-slate-600">Every brief links back to its companion download or calculator, and every library resource connects to its governing Florida legal brief.</span>
           </div>
         </div>
@@ -210,7 +210,7 @@ export const FromHometownBriefSection: React.FC<FromHometownBriefSectionProps> =
                 <div>
                   <h3 
                     onClick={() => handleReadBrief(brief)}
-                    className="font-montserrat font-extrabold text-base text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors leading-snug cursor-pointer"
+                    className="font-sans font-extrabold text-base text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors leading-snug cursor-pointer"
                   >
                     {effectiveBlueprintMode ? brief.placeholderTitle : brief.title}
                   </h3>
@@ -237,7 +237,7 @@ export const FromHometownBriefSection: React.FC<FromHometownBriefSectionProps> =
                     <span>COMPANION RESOURCE:</span>
                     <span className="text-[#0D9BA3]">{brief.companionResourceStamp}</span>
                   </div>
-                  <p className="text-xs font-bold text-[#3A2E29] line-clamp-1 font-montserrat">
+                  <p className="text-xs font-bold text-[#3A2E29] line-clamp-1 font-sans">
                     {brief.companionResourceTitle}
                   </p>
                   <button
@@ -291,7 +291,7 @@ export const FromHometownBriefSection: React.FC<FromHometownBriefSectionProps> =
                     {activeBrief.readTime}
                   </span>
                 </div>
-                <h3 id="brief-modal-title" className="text-lg font-montserrat font-extrabold text-[#3A2E29]">
+                <h3 id="brief-modal-title" className="text-lg font-serif font-extrabold text-[#3A2E29]">
                   {activeBrief.title}
                 </h3>
               </div>
@@ -344,7 +344,7 @@ export const FromHometownBriefSection: React.FC<FromHometownBriefSectionProps> =
                     {activeBrief.companionResourceStamp}
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm font-bold text-[#3A2E29] font-montserrat">
+                <p className="text-xs sm:text-sm font-bold text-[#3A2E29] font-sans">
                   {activeBrief.companionResourceTitle}
                 </p>
                 <p className="text-xs text-slate-600">

@@ -36,7 +36,7 @@ export const Section10FinalCta: React.FC<Props> = ({
         <div className="space-y-3">
           <h2 
             id="section-10-final-cta-heading" 
-            className="text-2xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-white tracking-tight leading-tight"
+            className="text-2xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-white tracking-tight leading-tight"
           >
             Need more than a resource?
           </h2>
@@ -51,7 +51,7 @@ export const Section10FinalCta: React.FC<Props> = ({
           {/* Primary CTA */}
           <button
             onClick={onBookCall}
-            className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-7 py-4 rounded-xl text-xs sm:text-sm font-montserrat font-extrabold uppercase tracking-wider transition cursor-pointer shadow-lg hover:shadow-xl text-center flex items-center justify-center space-x-2 group"
+            className="bg-[#FE7311] hover:bg-[#e05f03] text-white px-7 py-4 rounded-xl text-xs sm:text-sm font-sans font-extrabold uppercase tracking-wider transition cursor-pointer shadow-lg hover:shadow-xl text-center flex items-center justify-center space-x-2 group"
           >
             <PhoneCall className="w-4 h-4 text-white/90" />
             <span>BOOK A 15-MINUTE FIT CALL</span>
@@ -60,7 +60,7 @@ export const Section10FinalCta: React.FC<Props> = ({
           {/* Secondary CTA */}
           <button
             onClick={onExploreServices}
-            className="bg-transparent hover:bg-white/10 text-white border border-white/30 hover:border-white/60 px-6 py-4 rounded-xl text-xs sm:text-sm font-montserrat font-bold uppercase tracking-wider transition cursor-pointer text-center flex items-center justify-center space-x-2 group"
+            className="bg-transparent hover:bg-white/10 text-white border border-white/30 hover:border-white/60 px-6 py-4 rounded-xl text-xs sm:text-sm font-sans font-bold uppercase tracking-wider transition cursor-pointer text-center flex items-center justify-center space-x-2 group"
           >
             <span>EXPLORE SERVICES + PRICING</span>
             <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />

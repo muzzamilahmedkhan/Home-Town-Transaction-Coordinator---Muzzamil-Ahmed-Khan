@@ -203,7 +203,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
             </div>
 
             {/* H1 */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-montserrat font-extrabold tracking-tight text-[#3A2E29] leading-tight mb-5">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-extrabold tracking-tight text-[#3A2E29] leading-tight mb-5">
               Florida real estate operations, without the fluff.
             </h1>
 
@@ -323,7 +323,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
                 <span className="text-xs uppercase tracking-wider text-[#FE7311] font-bold block mb-1">
                   SEARCH RESULTS
                 </span>
-                <h2 className="text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+                <h2 className="text-2xl font-serif font-extrabold text-[#3A2E29]">
                   Results for &ldquo;{searchQuery}&rdquo;
                 </h2>
               </div>
@@ -374,7 +374,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
                       </span>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2">
+                    <h3 className="text-lg sm:text-xl font-serif font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2">
                       <a
                         href={`/resources/${result.slug}/`}
                         onClick={(e) => handleLinkClick(e, `/resources/${result.slug}/`)}
@@ -412,7 +412,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
               <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold block mb-1">
                 EDITORIAL COVERAGE
               </span>
-              <h2 id="editorial-topics-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h2 id="editorial-topics-heading" className="text-2xl sm:text-3xl font-serif font-extrabold text-[#3A2E29]">
                 Florida Real Estate Operational Topics
               </h2>
             </div>
@@ -435,7 +435,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2 leading-snug">
+                  <h3 className="text-lg font-serif font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition-colors mb-2 leading-snug">
                     <a
                       href={`/resources/${cat.slug}/`}
                       onClick={(e) => handleLinkClick(e, `/resources/${cat.slug}/`)}
@@ -470,7 +470,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
 
           {/* Editorial Note */}
           <div className="mt-8 bg-white border border-[#D8D2D4] rounded-2xl p-6 sm:p-8 text-center max-w-3xl mx-auto shadow-sm">
-            <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] mb-2">
+            <h3 className="text-lg font-serif font-bold text-[#3A2E29] mb-2">
               Verified Operational Briefs
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium mb-5">
@@ -504,7 +504,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
                 <div className="inline-flex items-center space-x-2 bg-[#0D9BA3]/20 text-[#0D9BA3] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-[#0D9BA3]/30">
                   <span>INTERACTIVE AGENT BUSINESS TOOL</span>
                 </div>
-                <h2 id="run-numbers-heading" className="text-2xl sm:text-3xl lg:text-4xl font-montserrat font-extrabold text-white">
+                <h2 id="run-numbers-heading" className="text-2xl sm:text-3xl lg:text-4xl font-serif font-extrabold text-white">
                   Run the Numbers for Your Real Estate Business
                 </h2>
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl font-medium">
@@ -582,7 +582,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
             <span className="text-xs uppercase tracking-wider text-[#0D9BA3] font-bold block mb-1">
               INTERNAL DIRECTORY
             </span>
-            <h2 id="internal-links-dir-heading" className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h2 id="internal-links-dir-heading" className="text-xl sm:text-2xl font-serif font-extrabold text-[#3A2E29]">
               Essential Florida Real Estate Operational Links
             </h2>
           </div>
@@ -611,7 +611,7 @@ export const BlogResourcesPage: React.FC<Props> = ({
             <span>PROTECT THE AGENT · PROTECT THE BROKER · PROTECT THE CLIENT</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-extrabold text-white mb-4 leading-tight max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold text-white mb-4 leading-tight max-w-3xl mx-auto">
             Want support with the work itself?
           </h2>
 

@@ -28,7 +28,7 @@ export const AboutHtcModal: React.FC<Props> = ({ isOpen, onClose, onBookCall }) 
             <span>ABOUT HTC</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-white">
+          <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-white">
             Mission, Vision, Values & The H.O.M.E. Method™
           </h2>
           <p className="text-xs sm:text-sm text-slate-300 font-medium mt-1">
@@ -64,7 +64,7 @@ export const AboutHtcModal: React.FC<Props> = ({ isOpen, onClose, onBookCall }) 
 
           {/* H.O.M.E. Values */}
           <div className="space-y-4">
-            <h3 className="text-lg font-montserrat font-extrabold text-[#3A2E29] flex items-center space-x-2">
+            <h3 className="text-lg font-serif font-extrabold text-[#3A2E29] flex items-center space-x-2">
               <Heart className="w-5 h-5 text-[#FE7311]" />
               <span>H.O.M.E. Values™</span>
             </h3>
@@ -90,7 +90,7 @@ export const AboutHtcModal: React.FC<Props> = ({ isOpen, onClose, onBookCall }) 
 
           {/* H.O.M.E. Close Method */}
           <div className="space-y-4">
-            <h3 className="text-lg font-montserrat font-extrabold text-[#3A2E29]">
+            <h3 className="text-lg font-serif font-extrabold text-[#3A2E29]">
               H.O.M.E. Close Method™
             </h3>
             <div className="space-y-2.5">
@@ -138,7 +138,7 @@ export const AboutHtcModal: React.FC<Props> = ({ isOpen, onClose, onBookCall }) 
                 <div className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#0D9BA3] bg-black/40 px-2.5 py-0.5 rounded-full border border-[#0D9BA3]/30">
                   FOUNDER STORY & AGENCY LEADERSHIP
                 </div>
-                <h3 className="text-lg sm:text-xl font-montserrat font-extrabold text-white">
+                <h3 className="text-lg sm:text-xl font-serif font-extrabold text-white">
                   Michelle Martinez, Founder
                 </h3>
                 <p className="text-xs text-[#0D9BA3] font-semibold">
@@ -156,7 +156,7 @@ export const AboutHtcModal: React.FC<Props> = ({ isOpen, onClose, onBookCall }) 
               </p>
             </div>
 
-            <blockquote className="text-xs sm:text-sm font-montserrat font-extrabold italic text-white border-l-4 border-[#FE7311] pl-4 py-1 leading-relaxed bg-black/20 rounded-r-xl">
+            <blockquote className="text-xs sm:text-sm font-serif font-extrabold italic text-white border-l-4 border-[#FE7311] pl-4 py-1 leading-relaxed bg-black/20 rounded-r-xl">
               "My mission in founding HTC was simple: build an agency that gives Florida real estate professionals total confidence in their closing pipeline so they can spend 100% of their energy serving clients and winning deals."
             </blockquote>
           </div>

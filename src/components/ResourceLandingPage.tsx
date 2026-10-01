@@ -255,7 +255,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
               <div className="lg:col-span-8 space-y-6">
                 
                 {/* [RESOURCE TITLE] */}
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight leading-[1.12]">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#3A2E29] tracking-tight leading-[1.12]">
                   {resource.title}
                 </h1>
 
@@ -324,7 +324,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
                 <div className="pt-2 space-y-2.5">
                   <button
                     onClick={handlePrimaryAction}
-                    className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white py-4 px-4 rounded-xl text-xs sm:text-sm font-montserrat font-extrabold uppercase tracking-wider transition cursor-pointer shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group text-center"
+                    className="w-full bg-[#FE7311] hover:bg-[#e05f03] text-white py-4 px-4 rounded-xl text-xs sm:text-sm font-sans font-extrabold uppercase tracking-wider transition cursor-pointer shadow-md hover:shadow-lg flex items-center justify-center space-x-2 group text-center"
                   >
                     {resource.deliveryMethod === 'copy_prompt' ? (
                       promptCopied ? (
@@ -534,7 +534,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
                   <div className="w-7 h-7 rounded-lg bg-[#0D9BA3]/10 text-[#0D9BA3] flex items-center justify-center font-mono font-bold text-xs">
                     0{bIdx + 1}
                   </div>
-                  <p className="text-sm font-montserrat font-bold text-[#3A2E29] leading-snug">
+                  <p className="text-sm font-sans font-bold text-[#3A2E29] leading-snug">
                     {benefit}
                   </p>
                 </div>
@@ -582,7 +582,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
             <div className="lg:col-span-8 space-y-6 text-sm text-slate-700 leading-relaxed">
               
               <div className="space-y-2.5">
-                <h3 className="font-montserrat font-extrabold text-lg text-[#3A2E29]">
+                <h3 className="font-serif font-extrabold text-lg text-[#3A2E29]">
                   What {resource.title} Does
                 </h3>
                 <p>
@@ -594,7 +594,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
               </div>
 
               <div className="space-y-2.5 pt-2">
-                <h3 className="font-montserrat font-extrabold text-lg text-[#3A2E29]">
+                <h3 className="font-serif font-extrabold text-lg text-[#3A2E29]">
                   Florida Statutory & Contractual Framework
                 </h3>
                 <p>
@@ -606,7 +606,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
               </div>
 
               <div className="space-y-2.5 pt-2">
-                <h3 className="font-montserrat font-extrabold text-lg text-[#3A2E29]">
+                <h3 className="font-serif font-extrabold text-lg text-[#3A2E29]">
                   Step-by-Step Implementation Guide
                 </h3>
                 <ol className="list-decimal list-inside space-y-2 text-slate-700 font-medium">
@@ -653,7 +653,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
               <div className="pt-2">
                 <button
                   onClick={handlePrimaryAction}
-                  className="w-full bg-[#0D9BA3] hover:bg-[#0b868d] text-white py-3 px-4 rounded-xl text-xs font-montserrat font-bold uppercase tracking-wider transition cursor-pointer text-center"
+                  className="w-full bg-[#0D9BA3] hover:bg-[#0b868d] text-white py-3 px-4 rounded-xl text-xs font-sans font-bold uppercase tracking-wider transition cursor-pointer text-center"
                 >
                   ACCESS RESOURCE NOW
                 </button>
@@ -696,7 +696,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
                       <span className="text-[#0D9BA3] font-bold uppercase">{brief.category}</span>
                       <span className="text-slate-400">{brief.readTime}</span>
                     </div>
-                    <h3 className="font-montserrat font-extrabold text-base sm:text-lg text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
+                    <h3 className="font-serif font-extrabold text-base sm:text-lg text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
                       {brief.title}
                     </h3>
                     <p className="text-xs text-slate-600 leading-relaxed font-normal">
@@ -706,7 +706,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
 
                   <div className="pt-3 border-t border-[#D8D2D4] flex items-center justify-between text-xs font-bold transition">
                     <span className="text-[11px] font-mono text-slate-500">Want the explanation behind the tool?</span>
-                    <span className="font-montserrat font-extrabold uppercase tracking-wider flex items-center space-x-1 text-[#0D9BA3] group-hover:text-[#FE7311]">
+                    <span className="font-sans font-extrabold uppercase tracking-wider flex items-center space-x-1 text-[#0D9BA3] group-hover:text-[#FE7311]">
                       <span>READ THE BRIEF</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </span>
@@ -727,7 +727,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
               <div className="text-xs font-mono font-bold text-[#FE7311] uppercase tracking-wider">
                 NEED FULL DELEGATION?
               </div>
-              <h3 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h3 className="text-xl sm:text-2xl font-serif font-extrabold text-[#3A2E29]">
                 Let Hometown TC Manage Your {resource.relatedService.name}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
@@ -787,7 +787,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
                         </span>
                         <span className="text-slate-400">{relItem.catalogId}</span>
                       </div>
-                      <h3 className="font-montserrat font-extrabold text-base text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
+                      <h3 className="font-serif font-extrabold text-base text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
                         {relItem.title}
                       </h3>
                       <p className="text-xs text-slate-600 line-clamp-2">
@@ -815,7 +815,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
             <div className="inline-flex items-center space-x-2 text-[11px] font-mono font-bold uppercase tracking-widest text-[#0D9BA3]">
               <span>STAY IN THE LOOP</span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h3 className="text-xl sm:text-2xl font-serif font-extrabold text-[#3A2E29]">
               Never Miss a Florida Contract Update or Tool
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
@@ -857,7 +857,7 @@ export const ResourceLandingPage: React.FC<Props> = ({
               <span className="text-xs font-bold uppercase tracking-wider text-[#0D9BA3]">
                 HTC INSTANT RESOURCE ACCESS
               </span>
-              <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                 {resource.title}
               </h3>
               <p className="text-xs text-slate-600 font-medium">

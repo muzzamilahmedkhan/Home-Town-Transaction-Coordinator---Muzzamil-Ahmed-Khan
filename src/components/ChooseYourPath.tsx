@@ -24,7 +24,7 @@ export const ChooseYourPath: React.FC<Props> = ({ onSubmitDeal, onExploreService
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-3xl sm:text-4xl font-montserrat font-extrabold text-[#3A2E29]">
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#3A2E29]">
             What do you need today?
           </h2>
         </div>
@@ -38,7 +38,7 @@ export const ChooseYourPath: React.FC<Props> = ({ onSubmitDeal, onExploreService
               <div className="w-10 h-10 rounded-xl bg-[#EEEAEB] text-[#0D9BA3] flex items-center justify-center">
                 <Home className="w-5 h-5 text-[#0D9BA3]" />
               </div>
-              <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                 I need help launching a listing
               </h3>
             </div>
@@ -60,7 +60,7 @@ export const ChooseYourPath: React.FC<Props> = ({ onSubmitDeal, onExploreService
               <div className="w-10 h-10 rounded-xl bg-[#EEEAEB] text-[#0D9BA3] flex items-center justify-center">
                 <FileText className="w-5 h-5 text-[#0D9BA3]" />
               </div>
-              <h3 className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h3 className="text-xl font-serif font-extrabold text-[#3A2E29]">
                 I have an executed contract
               </h3>
             </div>
@@ -82,7 +82,7 @@ export const ChooseYourPath: React.FC<Props> = ({ onSubmitDeal, onExploreService
               <div className="w-10 h-10 rounded-xl bg-white/10 text-[#0D9BA3] flex items-center justify-center">
                 <FileCheck className="w-5 h-5 text-[#0D9BA3]" />
               </div>
-              <h3 className="text-xl font-montserrat font-extrabold text-white">
+              <h3 className="text-xl font-serif font-extrabold text-white">
                 I already work with HTC
               </h3>
             </div>

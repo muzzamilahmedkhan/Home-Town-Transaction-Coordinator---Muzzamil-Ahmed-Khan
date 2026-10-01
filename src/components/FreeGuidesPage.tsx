@@ -254,7 +254,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
             </div>
 
             {/* H1 */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-[#3A2E29] tracking-tight leading-[1.08]">
               Take what you need.
             </h1>
 
@@ -398,7 +398,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
           <div className="bg-white rounded-2xl p-12 text-center border border-[#D8D2D4] space-y-4 max-w-lg mx-auto shadow-xs">
             <Search className="w-10 h-10 text-slate-300 mx-auto" />
             <div className="space-y-1">
-              <h3 className="text-lg font-montserrat font-bold text-[#3A2E29]">
+              <h3 className="text-lg font-serif font-bold text-[#3A2E29]">
                 No resources match your selection
               </h3>
               <p className="text-xs text-slate-500">
@@ -438,7 +438,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
+                    <h3 className="text-xl font-serif font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition leading-snug">
                       {item.title}
                     </h3>
 
@@ -489,7 +489,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
       <section className="bg-white border-y border-[#D8D2D4] py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#3A2E29]">
               Explore Hometown TC Tools & Insights
             </h2>
             <p className="text-sm text-slate-600">
@@ -511,7 +511,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
                 <div className="w-10 h-10 rounded-xl bg-[#0D9BA3]/10 flex items-center justify-center text-[#0D9BA3]">
                   <BookOpen className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
+                <h3 className="text-lg font-serif font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
                   Read The Hometown Brief
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -536,7 +536,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
                 <div className="w-10 h-10 rounded-xl bg-[#FE7311]/10 flex items-center justify-center text-[#FE7311]">
                   <Calculator className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#FE7311] transition">
+                <h3 className="text-lg font-serif font-bold text-[#3A2E29] group-hover:text-[#FE7311] transition">
                   Run the Numbers
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -560,7 +560,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
                 <div className="w-10 h-10 rounded-xl bg-[#3A2E29]/10 flex items-center justify-center text-[#3A2E29]">
                   <TrendingUp className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
+                <h3 className="text-lg font-serif font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition">
                   Explore Services + Pricing
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -589,7 +589,7 @@ export const FreeGuidesPage: React.FC<Props> = ({
       <section className="bg-white py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-[#3A2E29]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#3A2E29]">
             Need more than a resource?
           </h2>
 

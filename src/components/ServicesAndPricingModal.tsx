@@ -32,7 +32,7 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
             <span>SINGLE SOURCE OF TRUTH</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-white">
+          <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-white">
             Services & Pricing Model
           </h2>
           <p className="text-xs sm:text-sm text-slate-300 font-medium mt-1">
@@ -122,11 +122,11 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
                     </div>
 
                     <div>
-                      <h3 className={`text-lg font-montserrat font-extrabold ${pkg.id === 'pro' ? 'text-white' : 'text-[#3A2E29]'}`}>
+                      <h3 className={`text-lg font-serif font-extrabold ${pkg.id === 'pro' ? 'text-white' : 'text-[#3A2E29]'}`}>
                         {pkg.name}
                       </h3>
                       <div className="flex items-baseline space-x-1 mt-2">
-                        <span className={`text-3xl font-montserrat font-extrabold ${pkg.id === 'pro' ? 'text-[#0D9BA3]' : 'text-[#3A2E29]'}`}>
+                        <span className={`text-3xl font-serif font-extrabold ${pkg.id === 'pro' ? 'text-[#0D9BA3]' : 'text-[#3A2E29]'}`}>
                           {pkg.price}
                         </span>
                         <span className={`text-xs font-medium ${pkg.id === 'pro' ? 'text-slate-300' : 'text-slate-500'}`}>
@@ -227,7 +227,7 @@ export const ServicesAndPricingModal: React.FC<Props> = ({ isOpen, onClose, onBo
               <span>TEAM & BROKERAGE OPERATIONAL SOLUTIONS</span>
             </div>
             <div className="space-y-2">
-              <h3 className="text-base sm:text-lg font-montserrat font-extrabold text-[#3A2E29]">
+              <h3 className="text-base sm:text-lg font-serif font-extrabold text-[#3A2E29]">
                 Structured Coordination for Teams & Managing Brokers
               </h3>
               <p className="text-xs sm:text-sm text-[#3A2E29]/80 font-medium leading-relaxed">

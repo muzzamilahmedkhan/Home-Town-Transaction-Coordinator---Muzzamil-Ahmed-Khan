@@ -61,7 +61,7 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
               <span>OUR CUSTOMER PROCESS</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-montserrat font-extrabold text-[#3A2E29] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-[#3A2E29] tracking-tight">
               THE H.O.M.E. CLOSE METHOD
             </h2>
             
@@ -72,7 +72,7 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
 
           {/* Connected Flow Strip */}
           <div className="bg-[#FAF8F5] rounded-2xl p-4 sm:p-5 border border-[#D8D2D4]">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs sm:text-sm font-montserrat font-extrabold text-[#3A2E29]">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs sm:text-sm font-sans font-extrabold text-[#3A2E29]">
               <div className="flex items-center space-x-2.5">
                 <span className="w-7 h-7 rounded-lg bg-[#0D9BA3] text-white flex items-center justify-center font-black text-xs shadow-2xs">
                   H
@@ -116,7 +116,7 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className={`w-9 h-9 rounded-xl ${stage.badgeBg} text-white flex items-center justify-center font-montserrat font-black text-sm shadow-xs`}>
+                      <span className={`w-9 h-9 rounded-xl ${stage.badgeBg} text-white flex items-center justify-center font-sans font-black text-sm shadow-xs`}>
                         {stage.letter}
                       </span>
                       <span className="text-[11px] font-mono font-bold tracking-wider text-slate-500 uppercase">
@@ -124,7 +124,7 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-montserrat font-extrabold text-[#3A2E29] leading-snug">
+                    <h3 className="text-lg font-serif font-extrabold text-[#3A2E29] leading-snug">
                       {stage.name}
                     </h3>
 
@@ -141,7 +141,7 @@ export const HomeMethod: React.FC<Props> = ({ onSeeHowItWorks, onOpenAbout }) =>
           <div className="pt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-[#D8D2D4]">
             <button
               onClick={onSeeHowItWorks}
-              className="bg-[#0D9BA3] hover:bg-[#0b8288] text-white font-montserrat font-extrabold text-sm sm:text-base px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all inline-flex items-center justify-center space-x-3 cursor-pointer group"
+              className="bg-[#0D9BA3] hover:bg-[#0b8288] text-white font-sans font-extrabold text-sm sm:text-base px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all inline-flex items-center justify-center space-x-3 cursor-pointer group"
             >
               <span>SEE HOW HTC WORKS</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-[#FE7311]" />

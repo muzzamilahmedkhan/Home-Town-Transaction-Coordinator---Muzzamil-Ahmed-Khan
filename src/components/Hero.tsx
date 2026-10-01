@@ -36,7 +36,7 @@ export const Hero: React.FC<Props> = ({ onBookCall, onExploreServices, onSeeHowI
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-[84px] font-montserrat font-extrabold text-[#3A2E29] tracking-tight leading-[1.02]">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-[84px] font-serif font-extrabold text-[#3A2E29] tracking-tight leading-[1.02]">
               Smooth Closings.{' '}
               <span className="text-[#FE7311]">
                 Period.
@@ -90,7 +90,7 @@ export const Hero: React.FC<Props> = ({ onBookCall, onExploreServices, onSeeHowI
 
               {/* Simple Clean Caption Below Photo */}
               <div className="bg-[#3A2E29] p-4 text-white">
-                <div className="text-base font-bold font-montserrat text-white">
+                <div className="text-base font-bold font-sans text-white">
                   Michelle Martinez, Founder
                 </div>
                 <div className="text-xs text-[#0D9BA3] font-semibold mt-0.5">

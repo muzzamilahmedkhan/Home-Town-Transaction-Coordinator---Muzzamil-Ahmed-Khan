@@ -427,7 +427,7 @@ export const BlogPostPage: React.FC<Props> = ({
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#0D9BA3] font-bold">
                   HTC EDITORIAL INFRASTRUCTURE
                 </span>
-                <h2 className="text-xl sm:text-2xl font-montserrat font-bold text-white">
+                <h2 className="text-xl sm:text-2xl font-serif font-bold text-white">
                   Content / CMS Reusable Fields Specification
                 </h2>
                 <p className="text-xs text-white/70 font-mono mt-1">
@@ -539,7 +539,7 @@ export const BlogPostPage: React.FC<Props> = ({
           </div>
 
           {/* Searchable Article H1 */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-extrabold text-[#3A2E29] leading-tight tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-extrabold text-[#3A2E29] leading-tight tracking-tight">
             {article.articleH1}
           </h1>
 
@@ -652,7 +652,7 @@ export const BlogPostPage: React.FC<Props> = ({
           <div className="border-b border-[#D8D2D4] pb-3 flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <CheckCircle2 className="w-5 h-5 text-[#0D9BA3]" />
-              <h2 id="need-to-know-heading" className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h2 id="need-to-know-heading" className="text-xl sm:text-2xl font-serif font-extrabold text-[#3A2E29]">
                 What You Need to Know
               </h2>
             </div>
@@ -686,7 +686,7 @@ export const BlogPostPage: React.FC<Props> = ({
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#FE7311]">
                   OPERATIONAL INQUIRY • 0{sIdx + 1}
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-montserrat font-extrabold text-[#3A2E29] leading-tight">
+                <h2 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#3A2E29] leading-tight">
                   {section.questionH2}
                 </h2>
               </div>
@@ -733,7 +733,7 @@ export const BlogPostPage: React.FC<Props> = ({
             </div>
 
             {article.optionalFieldNote.title && (
-              <h2 id="field-note-heading" className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h2 id="field-note-heading" className="text-xl sm:text-2xl font-serif font-extrabold text-[#3A2E29]">
                 {article.optionalFieldNote.title}
               </h2>
             )}
@@ -761,7 +761,7 @@ export const BlogPostPage: React.FC<Props> = ({
             <span className="text-xs font-bold uppercase tracking-wider">OPERATIONAL TAKEAWAY</span>
           </div>
 
-          <h2 id="what-this-means-heading" className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+          <h2 id="what-this-means-heading" className="text-xl sm:text-2xl font-serif font-extrabold text-[#3A2E29]">
             What This Means for the Agent
           </h2>
 
@@ -779,7 +779,7 @@ export const BlogPostPage: React.FC<Props> = ({
             <span className="text-xs font-bold uppercase tracking-wider text-[#0D9BA3]">
               NEXT BEST RESOURCE
             </span>
-            <h2 id="next-resource-heading" className="text-2xl sm:text-3xl font-montserrat font-extrabold text-white">
+            <h2 id="next-resource-heading" className="text-2xl sm:text-3xl font-serif font-extrabold text-white">
               Put These Insights Into Action
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 font-medium">
@@ -796,7 +796,7 @@ export const BlogPostPage: React.FC<Props> = ({
                 <span className="text-[11px] text-[#FE7311] font-bold uppercase tracking-wider">
                   RECOMMENDED NEXT STEP
                 </span>
-                <h3 className="text-lg font-montserrat font-bold text-white">
+                <h3 className="text-lg font-serif font-bold text-white">
                   {article.primaryResourceCta.label}
                 </h3>
                 {article.primaryResourceCta.subtext && (
@@ -827,7 +827,7 @@ export const BlogPostPage: React.FC<Props> = ({
                   <span className="text-[11px] text-[#0D9BA3] font-bold uppercase tracking-wider">
                     COMPLIMENTARY TOOL
                   </span>
-                  <h3 className="text-lg font-montserrat font-bold text-white">
+                  <h3 className="text-lg font-serif font-bold text-white">
                     {article.secondaryResourceCta.label}
                   </h3>
                   {article.secondaryResourceCta.subtext && (
@@ -861,7 +861,7 @@ export const BlogPostPage: React.FC<Props> = ({
         {/* ======================================================================= */}
         {((article.internalLinks && article.internalLinks.length > 0) || (article.externalSources && article.externalSources.length > 0)) && (
           <section aria-label="Internal Resource References and Authorities" className="p-6 bg-white rounded-2xl border border-[#D8D2D4] space-y-4 shadow-sm">
-            <h2 className="text-base font-montserrat font-bold text-[#3A2E29] flex items-center space-x-2">
+            <h2 className="text-base font-serif font-bold text-[#3A2E29] flex items-center space-x-2">
               <BookOpen className="w-4 h-4 text-[#0D9BA3]" />
               <span>Crawlable Internal References & Statutory Authorities</span>
             </h2>
@@ -936,7 +936,7 @@ export const BlogPostPage: React.FC<Props> = ({
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0D9BA3] block">
               WEEKLY TRANSACTION BRIEF
             </span>
-            <h2 className="text-xl sm:text-2xl font-montserrat font-extrabold text-[#3A2E29]">
+            <h2 className="text-xl sm:text-2xl font-serif font-extrabold text-[#3A2E29]">
               Stay Ahead of Florida Contract & Coordination Realities
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
@@ -957,7 +957,7 @@ export const BlogPostPage: React.FC<Props> = ({
         {article.relatedArticleSlugs && article.relatedArticleSlugs.length > 0 && (
           <section aria-labelledby="related-articles-heading" className="space-y-4 pt-6 border-t border-[#D8D2D4]">
             <div className="flex items-center justify-between">
-              <h2 id="related-articles-heading" className="text-xl font-montserrat font-extrabold text-[#3A2E29]">
+              <h2 id="related-articles-heading" className="text-xl font-serif font-extrabold text-[#3A2E29]">
                 Related Briefs from Hometown TC
               </h2>
               <a
@@ -993,7 +993,7 @@ export const BlogPostPage: React.FC<Props> = ({
                     <span className="text-[11px] text-[#0D9BA3] font-bold uppercase tracking-wider block">
                       {rel.category}
                     </span>
-                    <h3 className="text-sm font-montserrat font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition line-clamp-2">
+                    <h3 className="text-sm font-serif font-bold text-[#3A2E29] group-hover:text-[#0D9BA3] transition line-clamp-2">
                       {rel.articleH1}
                     </h3>
                     <span className="text-xs text-slate-400 block font-medium">
